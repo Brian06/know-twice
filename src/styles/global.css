@@ -2,52 +2,53 @@
 
 @theme {
   --font-fallback:
-    'Adjusted Arial Fallback', system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI',
-    'Noto Sans', helvetica, arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+    "Adjusted Arial Fallback", system-ui, -apple-system, blinkmacsystemfont,
+    "Segoe UI", "Noto Sans", helvetica, arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji";
 
   --color-magenta: #ff5fa2;
   --color-apricot: #fcc89b;
   --color-nayeon: #8ae0ff;
   --color-jeongyeon: #c5d97a;
   --color-momo: #ffc7d1;
-  --color-sana: #9C9ECF;
+  --color-sana: #9c9ecf;
   --color-jihyo: #ffc56e;
-  --color-mina: #6FC5C2;
+  --color-mina: #6fc5c2;
   --color-dahyun: #e8e6d8;
-  --color-chaeyoung: #E81933;
-  --color-tzuyu: #016CBA;
+  --color-chaeyoung: #e81933;
+  --color-tzuyu: #016cba;
 }
 
 @font-face {
-  font-family: 'Oswald';
-  src: url('/fonts/oswald-light.woff2') format('woff2');
+  font-family: "Oswald";
+  src: url("/fonts/oswald-light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Oswald';
-  src: url('/fonts/oswald-regular.woff2') format('woff2');
+  font-family: "Oswald";
+  src: url("/fonts/oswald-regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Oswald';
-  src: url('/fonts/oswald-bold.woff2') format('woff2');
+  font-family: "Oswald";
+  src: url("/fonts/oswald-bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 html {
-  font-family: 'Oswald', var(--font-fallback);
+  font-family: "Oswald", var(--font-fallback);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   letter-spacing: 0.05em;
   font-weight: 300;
-  background: #F9F9F9;
+  background: #f9f9f9;
 }
