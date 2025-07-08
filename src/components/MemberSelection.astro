@@ -4,7 +4,8 @@ import MemberCard from './MemberCard.astro';
 
 <div>
   <h1>Member Selection</h1>
-  <div class="grid grid-cols-3 grid-rows-1 md:grid-rows-2">
+  <div class="overflow-x-auto px-4 md:px-0">
+    <div class="grid grid-cols-3 grid-rows-1 md:grid-rows-2 min-w-max md:min-w-0 gap-4 md:gap-0">
     <div>
       <div class="flex flex-row justify-around gap-2 md:justify-end lg:gap-4">
         <MemberCard
@@ -64,4 +65,5 @@ import MemberCard from './MemberCard.astro';
 
     </div>
   </div>
+</div>
 </div>
