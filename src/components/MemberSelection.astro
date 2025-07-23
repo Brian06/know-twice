@@ -1,69 +1,135 @@
 ---
 import MemberCard from './MemberCard.astro';
+import { Image } from 'astro:assets';
 ---
 
-<div>
-  <h1>Member Selection</h1>
-  <div class="overflow-x-auto px-4 md:px-0">
-    <div class="grid grid-cols-3 grid-rows-1 md:grid-rows-2 min-w-max md:min-w-0 gap-4 md:gap-0">
-    <div>
-      <div class="flex flex-row justify-around gap-2 md:justify-end lg:gap-4">
-        <MemberCard
-        classes="hover:border-nayeon hover:bg-nayeon"
-        src="/images/members/cards/nayeon.webp"
-        alt="Nayeon"
-        />
-        <MemberCard
-          classes="hover:border-jeongyeon hover:bg-jeongyeon"
-          src="/images/members/cards/jeongyeon.webp"
-          alt="Jeongyeon"
-        />
-        <MemberCard
-          classes="hover:border-momo hover:bg-momo"
-          src="/images/members/cards/momo.webp"
-          alt="Momo"
-        />
-      </div>
-    </div>
-    <div class="md:col-start-2 md:row-start-2">
-      <div class="flex flex-row justify-around gap-2 md:justify-center lg:gap-4"> 
-        <MemberCard
-        classes="hover:border-sana hover:bg-sana"
-        src="/images/members/cards/sana.webp"
-        alt="Sana"
-        />
-        <MemberCard
-          classes="hover:border-jihyo hover:bg-jihyo"
-          src="/images/members/cards/jihyo.webp"
-          alt="Jihyo"
-        />
-        <MemberCard
-          classes="hover:border-mina hover:bg-mina"
-          src="/images/members/cards/mina.webp"
-          alt="Mina"
+<section class="relative flex min-h-screen w-full">
+  <div class="relative flex w-full flex-col items-center p-8 text-center">
+    <!-- Full Member Image -->
+    <div
+      class="pointer-events-none absolute inset-0 flex flex-col items-center"
+    >
+      <div
+        class="mask-fade-bottom items center relative bottom-0 mx-auto flex h-[80vh] w-full justify-center"
+      >
+        <Image
+          src="/images/members/full/nayeon-full.webp"
+          class="absolute hidden h-full w-auto object-cover lg:object-contain"
+          alt="Nayeon"
+          loading="lazy"
+          decoding="async"
+          width={200}
+          height={300}
+          fetchpriority="low"
+          data-id="full-image-nayeon"
         />
       </div>
     </div>
-    <div class="md:col-start-3 md:row-start-1">
-      <div class="flex flex-row justify-around gap-2 md:justify-start lg:gap-4"> 
-        <MemberCard
-        classes="hover:border-dahyun hover:bg-dahyun"
-        src="/images/members/cards/dahyun.webp"
-        alt="Dahyun"
-        />
-        <MemberCard
-          classes="hover:border-chaeyoung hover:bg-chaeyoung"
-          src="/images/members/cards/chaeyoung.webp"
-          alt="Chaeyoung"
-        />
-        <MemberCard
-          classes="hover:border-tzuyu hover:bg-tzuyu"
-          src="/images/members/cards/tzuyu.webp"
-          alt="Tzuyu"
-        />
-      </div>
 
+    <!-- Member Selection Grid -->
+
+    <div
+      class="relative flex h-full w-full max-w-6xl flex-col items-center justify-end gap-8 sm:p-4"
+    >
+      <div
+        class="relative grid min-w-max grid-cols-3 grid-rows-1 gap-4 md:min-w-0 md:grid-rows-2 md:gap-0"
+      >
+        <div>
+          <div
+            class="flex flex-row justify-around gap-2 md:justify-end lg:gap-4"
+          >
+            <MemberCard
+              id="nayeon"
+              classes="hover:border-nayeon hover:bg-nayeon"
+              src="/images/members/cards/nayeon.webp"
+              alt="Nayeon"
+            />
+            <MemberCard
+              id="jeongyeon"
+              classes="hover:border-jeongyeon hover:bg-jeongyeon"
+              src="/images/members/cards/jeongyeon.webp"
+              alt="Jeongyeon"
+            />
+            <MemberCard
+              id="momo"
+              classes="hover:border-momo hover:bg-momo"
+              src="/images/members/cards/momo.webp"
+              alt="Momo"
+            />
+          </div>
+        </div>
+        <div class="md:col-start-2 md:row-start-2">
+          <div
+            class="flex flex-row justify-around gap-2 md:justify-center lg:gap-4"
+          >
+            <MemberCard
+              id="sana"
+              classes="hover:border-sana hover:bg-sana"
+              src="/images/members/cards/sana.webp"
+              alt="Sana"
+            />
+            <MemberCard
+              id="jihyo"
+              classes="hover:border-jihyo hover:bg-jihyo"
+              src="/images/members/cards/jihyo.webp"
+              alt="Jihyo"
+            />
+            <MemberCard
+              id="mina"
+              classes="hover:border-mina hover:bg-mina"
+              src="/images/members/cards/mina.webp"
+              alt="Mina"
+            />
+          </div>
+        </div>
+        <div class="md:col-start-3 md:row-start-1">
+          <div
+            class="flex flex-row justify-around gap-2 md:justify-start lg:gap-4"
+          >
+            <MemberCard
+              id="dahyun"
+              classes="hover:border-dahyun hover:bg-dahyun"
+              src="/images/members/cards/dahyun.webp"
+              alt="Dahyun"
+            />
+            <MemberCard
+              id="chaeyoung"
+              classes="hover:border-chaeyoung hover:bg-chaeyoung"
+              src="/images/members/cards/chaeyoung.webp"
+              alt="Chaeyoung"
+            />
+            <MemberCard
+              id="tzuyu"
+              classes="hover:border-tzuyu hover:bg-tzuyu"
+              src="/images/members/cards/tzuyu.webp"
+              alt="Tzuyu"
+            />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-</div>
+</section>
+
+<script>
+  let currentMemberId: string | null = null;
+
+  document.addEventListener('member-card-hover', (event: Event) => {
+    // TODO: Improve typing
+    const customEvent = event as CustomEvent<{ id: string }>;
+    const id = customEvent.detail.id;
+
+    if (currentMemberId === id) return;
+
+    if (currentMemberId) {
+      document
+        .querySelector(`[data-id='full-image-${currentMemberId}']`)
+        ?.classList.add('hidden');
+    }
+
+    document
+      .querySelector(`[data-id='full-image-${id}'] `)
+      ?.classList.remove('hidden');
+    currentMemberId = id;
+  });
+</script>

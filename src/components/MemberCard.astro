@@ -2,16 +2,18 @@
 import { Image } from 'astro:assets';
 
 export interface Props {
+  id: string;
   src: string;
   alt?: string;
   classes?: string;
 }
 
-const { src, alt = 'Twice Member', classes = '' } = Astro.props;
+const { id, src, alt = 'Twice Member', classes = '' } = Astro.props;
 ---
 
 <div
-  class={`w-15 h-23 md:w-15 md:h-25 lg:w-21 lg:h-31 group overflow-hidden rounded-s-xl hover:border-2 hover:cursor-pointer ${classes}`}
+  class={`js-member-card w-15 h-23 md:w-15 md:h-25 lg:w-21 lg:h-31 group overflow-hidden rounded-s-xl hover:border-2 hover:cursor-pointer ${classes}`}
+  data-id={id}
 >
   <Image
     src={src}
@@ -21,3 +23,22 @@ const { src, alt = 'Twice Member', classes = '' } = Astro.props;
     alt={alt}
   />
 </div>
+
+<script>
+  const memberCards = document.querySelectorAll('.js-member-card');
+
+  if (memberCards) {
+    memberCards.forEach((card) => {
+      card.addEventListener('mouseenter', () => {
+        const id = card.getAttribute('data-id');
+
+        if (id) {
+          const event = new CustomEvent('member-card-hover', {
+            detail: { id },
+          });
+          document.dispatchEvent(event);
+        }
+      });
+    });
+  }
+</script>
