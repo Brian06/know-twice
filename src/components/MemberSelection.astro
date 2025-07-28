@@ -1,6 +1,11 @@
 ---
 import MemberCard from './MemberCard.astro';
 import { Image } from 'astro:assets';
+import { members } from '../const/members';
+
+const firstColumn = members.slice(0, 3);
+const secondColumn = members.slice(3, 6);
+const thirdColumn = members.slice(6, 9);
 ---
 
 <section class="relative flex min-h-screen w-full">
@@ -38,72 +43,48 @@ import { Image } from 'astro:assets';
           <div
             class="flex flex-row justify-around gap-2 md:justify-end lg:gap-4"
           >
-            <MemberCard
-              id="nayeon"
-              classes="hover:border-nayeon hover:bg-nayeon"
-              src="/images/members/cards/nayeon.webp"
-              alt="Nayeon"
-            />
-            <MemberCard
-              id="jeongyeon"
-              classes="hover:border-jeongyeon hover:bg-jeongyeon"
-              src="/images/members/cards/jeongyeon.webp"
-              alt="Jeongyeon"
-            />
-            <MemberCard
-              id="momo"
-              classes="hover:border-momo hover:bg-momo"
-              src="/images/members/cards/momo.webp"
-              alt="Momo"
-            />
+            {
+              firstColumn.map(({ name, memberCardClasses }) => (
+                <MemberCard
+                  id={name}
+                  extraClasses={memberCardClasses}
+                  src={`/images/members/cards/${name}.webp`}
+                  alt={name}
+                />
+              ))
+            }
           </div>
         </div>
         <div class="md:col-start-2 md:row-start-2">
           <div
             class="flex flex-row justify-around gap-2 md:justify-center lg:gap-4"
           >
-            <MemberCard
-              id="sana"
-              classes="hover:border-sana hover:bg-sana"
-              src="/images/members/cards/sana.webp"
-              alt="Sana"
-            />
-            <MemberCard
-              id="jihyo"
-              classes="hover:border-jihyo hover:bg-jihyo"
-              src="/images/members/cards/jihyo.webp"
-              alt="Jihyo"
-            />
-            <MemberCard
-              id="mina"
-              classes="hover:border-mina hover:bg-mina"
-              src="/images/members/cards/mina.webp"
-              alt="Mina"
-            />
+            {
+              secondColumn.map(({ name, memberCardClasses }) => (
+                <MemberCard
+                  id={name}
+                  extraClasses={memberCardClasses}
+                  src={`/images/members/cards/${name}.webp`}
+                  alt={name}
+                />
+              ))
+            }
           </div>
         </div>
         <div class="md:col-start-3 md:row-start-1">
           <div
             class="flex flex-row justify-around gap-2 md:justify-start lg:gap-4"
           >
-            <MemberCard
-              id="dahyun"
-              classes="hover:border-dahyun hover:bg-dahyun"
-              src="/images/members/cards/dahyun.webp"
-              alt="Dahyun"
-            />
-            <MemberCard
-              id="chaeyoung"
-              classes="hover:border-chaeyoung hover:bg-chaeyoung"
-              src="/images/members/cards/chaeyoung.webp"
-              alt="Chaeyoung"
-            />
-            <MemberCard
-              id="tzuyu"
-              classes="hover:border-tzuyu hover:bg-tzuyu"
-              src="/images/members/cards/tzuyu.webp"
-              alt="Tzuyu"
-            />
+            {
+              thirdColumn.map(({ name, memberCardClasses }) => (
+                <MemberCard
+                  id={name}
+                  extraClasses={memberCardClasses}
+                  src={`/images/members/cards/${name}.webp`}
+                  alt={name}
+                />
+              ))
+            }
           </div>
         </div>
       </div>

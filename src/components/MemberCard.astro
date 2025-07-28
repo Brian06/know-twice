@@ -5,14 +5,14 @@ export interface Props {
   id: string;
   src: string;
   alt?: string;
-  classes?: string;
+  extraClasses?: string;
 }
 
-const { id, src, alt = 'Twice Member', classes = '' } = Astro.props;
+const { id, src, alt = 'Twice Member', extraClasses = '' } = Astro.props;
 ---
 
 <div
-  class={`js-member-card w-15 h-23 md:w-15 md:h-25 lg:w-21 lg:h-31 group overflow-hidden rounded-s-xl hover:border-2 hover:cursor-pointer ${classes}`}
+  class={`js-member-card w-15 h-23 md:w-15 md:h-25 lg:w-21 lg:h-31 group overflow-hidden rounded-s-xl hover:border-2 hover:cursor-pointer ${extraClasses}`}
   data-id={id}
 >
   <Image
