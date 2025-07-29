@@ -5,15 +5,26 @@ import { Image } from 'astro:assets';
 <nav class="fixed top-0 z-50 w-full">
   <div class="flex items-center justify-center space-x-10">
     <div class="flex items-center justify-center space-x-10 py-4">
-      <a href="/home" class="hover:text-magenta text-lg uppercase">Home</a>
-      <a href="/discography" class="hover:text-magenta text-lg uppercase"
+      <a
+        href="/home"
+        class="hover:text-magenta text-lg uppercase hover:underline">Home</a
+      >
+      <a
+        href="/discography"
+        class="hover:text-magenta text-lg uppercase hover:underline"
         >Discography</a
       >
     </div>
     <Image src="/images/logo.webp" alt="Twice" width={50} height={50} />
     <div class="flex items-center justify-center space-x-10 py-4">
-      <a href="/videos" class="hover:text-magenta text-lg uppercase">Videos</a>
-      <a href="/about" class="hover:text-magenta text-lg uppercase">Fandom</a>
+      <a
+        href="/videos"
+        class="hover:text-magenta text-lg uppercase hover:underline">Videos</a
+      >
+      <a
+        href="/about"
+        class="hover:text-magenta text-lg uppercase hover:underline">Fandom</a
+      >
     </div>
   </div>
 </nav>
@@ -33,7 +44,7 @@ import { Image } from 'astro:assets';
     }
     100% {
       backdrop-filter: blur(5px);
-      background: rgba(255, 217, 233, 0.3);
+      background: rgba(255, 214, 231, 0.3);
       border-bottom-color: #ff5fa2;
     }
   }
