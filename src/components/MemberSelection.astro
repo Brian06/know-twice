@@ -117,4 +117,14 @@ const thirdColumn = members.slice(6, 9);
       ?.classList.remove('hidden');
     currentMemberId = id;
   });
+
+  document.addEventListener('member-card-exit', () => {
+    if (currentMemberId) {
+      document
+        .querySelector(`[data-id='full-image-${currentMemberId}']`)
+        ?.classList.add('hidden');
+
+      currentMemberId = null;
+    }
+  });
 </script>

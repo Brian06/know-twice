@@ -26,10 +26,15 @@ const { id, src, alt = 'Twice Member', extraClasses = '' } = Astro.props;
 
 <script>
   const memberCards = document.querySelectorAll('.js-member-card');
+  let timeoutToChangeMember: ReturnType<typeof setTimeout> | null = null;
 
   if (memberCards) {
     memberCards.forEach((card) => {
       card.addEventListener('mouseenter', () => {
+        if (timeoutToChangeMember) {
+          clearTimeout(timeoutToChangeMember);
+        }
+
         const id = card.getAttribute('data-id');
 
         if (id) {
@@ -38,6 +43,13 @@ const { id, src, alt = 'Twice Member', extraClasses = '' } = Astro.props;
           });
           document.dispatchEvent(event);
         }
+      });
+
+      card.addEventListener('mouseleave', () => {
+        timeoutToChangeMember = setTimeout(() => {
+          const event = new CustomEvent('member-card-exit');
+          document.dispatchEvent(event);
+        }, 500);
       });
     });
   }
