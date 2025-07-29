@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 ---
 
-<nav>
+<nav class="fixed top-0 z-50 w-full">
   <div class="flex items-center justify-center space-x-10">
     <div class="flex items-center justify-center space-x-10 py-4">
       <a href="/home" class="hover:text-magenta text-lg uppercase">Home</a>
@@ -17,3 +17,24 @@ import { Image } from 'astro:assets';
     </div>
   </div>
 </nav>
+
+<style>
+  nav {
+    animation: nav-blur-scroll 0.5s linear both;
+    animation-timeline: scroll();
+    animation-range: 0 250px;
+    border-bottom: 1px solid transparent;
+  }
+
+  @keyframes nav-blur-scroll {
+    0% {
+      backdrop-filter: blur(0px);
+      background: transparent;
+    }
+    100% {
+      backdrop-filter: blur(5px);
+      background: rgba(255, 217, 233, 0.3);
+      border-bottom-color: #ff5fa2;
+    }
+  }
+</style>
