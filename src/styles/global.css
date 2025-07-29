@@ -43,6 +43,12 @@
   font-display: swap;
 }
 
+@layer utilities {
+  .mask-fade-bottom {
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  }
+}
+
 html {
   font-family: "Oswald", var(--font-fallback);
   -webkit-font-smoothing: antialiased;
