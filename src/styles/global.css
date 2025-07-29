@@ -1,11 +1,13 @@
 @import "tailwindcss";
 
 @theme {
+  /* fonts */
   --font-fallback:
     "Adjusted Arial Fallback", system-ui, -apple-system, blinkmacsystemfont,
     "Segoe UI", "Noto Sans", helvetica, arial, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji";
 
+  /* colors */
   --color-magenta: #ff5fa2;
   --color-magenta-lightest: #ffd6e7;
   --color-apricot: #fcc89b;
@@ -19,6 +21,32 @@
   --color-dahyun: #e8e6d8;
   --color-chaeyoung: #e81933;
   --color-tzuyu: #016cba;
+
+  /* animations */
+  --animate-fade-in-bottom: fade-in-bottom 0.6s ease-in-out both;
+  --animate-fade-in-right: fade-in-right 0.6s ease-in-out both;
+
+  @keyframes fade-in-bottom {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in-right {
+    0% {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
 @font-face {

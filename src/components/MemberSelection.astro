@@ -115,6 +115,10 @@ const thirdColumn = members.slice(6, 9);
     document
       .querySelector(`[data-id='full-image-${id}'] `)
       ?.classList.remove('hidden');
+
+    document
+      .querySelector(`[data-id='full-image-${id}'] `)
+      ?.classList.add('animate-fade-in-bottom');
     currentMemberId = id;
   });
 
