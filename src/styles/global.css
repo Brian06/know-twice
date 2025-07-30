@@ -23,10 +23,12 @@
   --color-tzuyu: #016cba;
 
   /* animations */
-  --animate-fade-in-bottom: fade-in-bottom 0.6s ease-in-out both;
+  --animate-fade-in-up: fade-in-up 0.6s ease-in-out both;
+  --animate-fade-out-down: fade-out-down 0.6s ease-in-out both;
   --animate-fade-in-right: fade-in-right 0.6s ease-in-out both;
+  --animate-fade-in-left: fade-in-left 0.6s ease-in-out both;
 
-  @keyframes fade-in-bottom {
+  @keyframes fade-in-up {
     0% {
       opacity: 0;
       transform: translateY(50px);
@@ -40,11 +42,33 @@
   @keyframes fade-in-right {
     0% {
       opacity: 0;
-      transform: translateX(-20px);
+      transform: translateX(-50px);
     }
     100% {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in-left {
+    0% {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fade-out-down {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(50px);
     }
   }
 }
@@ -76,6 +100,30 @@
 @layer utilities {
   .mask-fade-bottom {
     mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  }
+
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .animate-delay-700 {
+    animation-delay: 700ms;
+  }
+
+  .animate-delay-1000 {
+    animation-delay: 1000ms;
   }
 }
 

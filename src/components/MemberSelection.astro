@@ -8,8 +8,19 @@ const secondColumn = members.slice(3, 6);
 const thirdColumn = members.slice(6, 9);
 ---
 
-<section class="relative flex min-h-screen w-full">
-  <div class="relative flex w-full flex-col items-center p-8 text-center">
+<section class="relative flex min-h-screen w-full p-2 pt-17 md:p-4 md:pt-20">
+  <div class="relative flex w-full flex-col items-center text-center">
+    <div class="absolute top-2/5 left-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div class="js-center-logo flex flex-col items-center">
+        <Image
+          class="animate-bounce"
+          src="/images/logo.webp"
+          alt="Twice"
+          width={150}
+          height={150}
+        />
+      </div>
+    </div>
     <!-- Full Member Image -->
     <div
       class="pointer-events-none absolute inset-0 flex flex-col items-center"
@@ -48,10 +59,10 @@ const thirdColumn = members.slice(6, 9);
             class="flex flex-row justify-around gap-2 md:justify-end lg:gap-4"
           >
             {
-              firstColumn.map(({ name, memberCardClasses }) => (
+              firstColumn.map(({ name, memberCardClasses }, index) => (
                 <MemberCard
                   id={name}
-                  extraClasses={memberCardClasses}
+                  extraClasses={`${memberCardClasses} animate-fade-in-right animate-delay-${(index + 1) * 100}`}
                   src={`/images/members/cards/${name}.webp`}
                   alt={name}
                 />
@@ -64,10 +75,10 @@ const thirdColumn = members.slice(6, 9);
             class="flex flex-row justify-around gap-2 md:justify-center lg:gap-4"
           >
             {
-              secondColumn.map(({ name, memberCardClasses }) => (
+              secondColumn.map(({ name, memberCardClasses }, index) => (
                 <MemberCard
                   id={name}
-                  extraClasses={memberCardClasses}
+                  extraClasses={`${memberCardClasses} animate-fade-in-up animate-delay-${(index + 1) * 100}`}
                   src={`/images/members/cards/${name}.webp`}
                   alt={name}
                 />
@@ -80,10 +91,10 @@ const thirdColumn = members.slice(6, 9);
             class="flex flex-row justify-around gap-2 md:justify-start lg:gap-4"
           >
             {
-              thirdColumn.map(({ name, memberCardClasses }) => (
+              thirdColumn.map(({ name, memberCardClasses }, index) => (
                 <MemberCard
                   id={name}
-                  extraClasses={memberCardClasses}
+                  extraClasses={`${memberCardClasses} animate-fade-in-left animate-delay-${(index + 1) * 100}`}
                   src={`/images/members/cards/${name}.webp`}
                   alt={name}
                 />
@@ -97,36 +108,36 @@ const thirdColumn = members.slice(6, 9);
 </section>
 
 <script>
+  import { $ } from '../utils/dom-selector';
   let currentMemberId: string | null = null;
 
   document.addEventListener('member-card-hover', (event: Event) => {
-    // TODO: Improve typing
     const customEvent = event as CustomEvent<{ id: string }>;
     const id = customEvent.detail.id;
+    const newMemberImage = $(`[data-id='full-image-${id}']`);
+    const centeredLogo = $('.js-center-logo');
 
     if (currentMemberId === id) return;
 
     if (currentMemberId) {
-      document
-        .querySelector(`[data-id='full-image-${currentMemberId}']`)
-        ?.classList.add('hidden');
+      const currentMemberImage = $(`[data-id='full-image-${currentMemberId}']`);
+      currentMemberImage?.classList.add('hidden');
     }
 
-    document
-      .querySelector(`[data-id='full-image-${id}'] `)
-      ?.classList.remove('hidden');
+    newMemberImage?.classList.remove('animate-fade-out-down', 'hidden');
+    newMemberImage?.classList.add('animate-fade-in-up');
+    centeredLogo?.classList.add('hidden');
 
-    document
-      .querySelector(`[data-id='full-image-${id}'] `)
-      ?.classList.add('animate-fade-in-bottom');
     currentMemberId = id;
   });
 
   document.addEventListener('member-card-exit', () => {
     if (currentMemberId) {
-      document
-        .querySelector(`[data-id='full-image-${currentMemberId}']`)
-        ?.classList.add('hidden');
+      const currentMemberImage = $(`[data-id='full-image-${currentMemberId}']`);
+      const centeredLogo = $('.js-center-logo');
+
+      currentMemberImage?.classList.add('animate-fade-out-down');
+      centeredLogo?.classList.remove('hidden');
 
       currentMemberId = null;
     }
