@@ -1,0 +1,28 @@
+---
+import { members } from '../const/members';
+---
+
+<!-- Full Member Image -->
+<div
+  class="pointer-events-none absolute inset-0 flex flex-col items-center"
+>
+  <div
+    class="mask-fade-bottom items center relative bottom-0 mx-auto flex h-[80vh] w-full justify-center"
+  >
+    {
+      members.map(({ name }) => (
+        <img
+          src={`/images/members/full/${name}-full.webp`}
+          class="absolute hidden h-full w-auto object-cover lg:object-contain"
+          alt={name}
+          loading="lazy"
+          decoding="async"
+          width={200}
+          height={300}
+          fetchpriority="low"
+          data-id={`full-image-${name}`}
+        />
+      ))
+    }
+  </div>
+</div>
