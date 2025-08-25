@@ -2,11 +2,11 @@
 import MemberCard from './MemberCard.astro';
 import CenteredLogo from './CenteredLogo.astro';
 import MemberImages from './MemberImages.astro';
-import { members } from '../const/members';
+import { MEMBERS } from '../const/members';
 
-const firstColumn = members.slice(0, 3);
-const secondColumn = members.slice(3, 6);
-const thirdColumn = members.slice(6, 9);
+const firstColumn = MEMBERS.slice(0, 3);
+const secondColumn = MEMBERS.slice(3, 6);
+const thirdColumn = MEMBERS.slice(6, 9);
 ---
 
 <section class="relative flex min-h-screen w-full p-2 pt-17 md:p-4 md:pt-20">
@@ -22,15 +22,15 @@ const thirdColumn = members.slice(6, 9);
       <!-- Mobile: 3x3 grid layout -->
       <div
         id="member-grid"
-        class="grid grid-cols-3 grid-rows-3 gap-1 xs:gap-2 sm:gap-4 w-full justify-items-center md:hidden"
+        class="xs:gap-2 grid w-full grid-cols-3 grid-rows-3 justify-items-center gap-1 sm:gap-4 md:hidden"
       >
         {
-          members.map(({ name, memberCardClasses }, index) => (
+          MEMBERS.map(({ id, memberCardClasses }, index) => (
             <MemberCard
-              id={name}
+              id={id}
               extraClasses={`${memberCardClasses} animate-fade-in-up animate-delay-${(index + 1) * 100}`}
-              src={`/images/members/cards/${name}.webp`}
-              alt={name}
+              src={`/images/members/cards/${id}.webp`}
+              alt={id}
             />
           ))
         }
@@ -45,12 +45,12 @@ const thirdColumn = members.slice(6, 9);
             class="flex flex-row justify-around gap-2 md:justify-end lg:gap-4"
           >
             {
-              firstColumn.map(({ name, memberCardClasses }, index) => (
+              firstColumn.map(({ id, memberCardClasses }, index) => (
                 <MemberCard
-                  id={name}
+                  id={id}
                   extraClasses={`${memberCardClasses} animate-fade-in-right animate-delay-${(index + 1) * 100}`}
-                  src={`/images/members/cards/${name}.webp`}
-                  alt={name}
+                  src={`/images/members/cards/${id}.webp`}
+                  alt={id}
                 />
               ))
             }
@@ -61,12 +61,12 @@ const thirdColumn = members.slice(6, 9);
             class="flex flex-row justify-around gap-2 md:justify-center lg:gap-4"
           >
             {
-              secondColumn.map(({ name, memberCardClasses }, index) => (
+              secondColumn.map(({ id, memberCardClasses }, index) => (
                 <MemberCard
-                  id={name}
+                  id={id}
                   extraClasses={`${memberCardClasses} animate-fade-in-up animate-delay-${(index + 1) * 100}`}
-                  src={`/images/members/cards/${name}.webp`}
-                  alt={name}
+                  src={`/images/members/cards/${id}.webp`}
+                  alt={id}
                 />
               ))
             }
@@ -77,12 +77,12 @@ const thirdColumn = members.slice(6, 9);
             class="flex flex-row justify-around gap-2 md:justify-start lg:gap-4"
           >
             {
-              thirdColumn.map(({ name, memberCardClasses }, index) => (
+              thirdColumn.map(({ id, memberCardClasses }, index) => (
                 <MemberCard
-                  id={name}
+                  id={id}
                   extraClasses={`${memberCardClasses} animate-fade-in-left animate-delay-${(index + 1) * 100}`}
-                  src={`/images/members/cards/${name}.webp`}
-                  alt={name}
+                  src={`/images/members/cards/${id}.webp`}
+                  alt={id}
                 />
               ))
             }

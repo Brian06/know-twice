@@ -1,0 +1,71 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { MEMBERS } from '../../const/members';
+import type { GetStaticPaths } from 'astro';
+import Calendar from '../../assets/member-info/calendar.svg';
+import Nationality from '../../assets/member-info/nationality.svg';
+import Color from '../../assets/member-info/color.svg';
+import Emoji from '../../assets/member-info/emoji.svg';
+import Instagram from '../../assets/member-info/instagram.svg';
+import Positions from '../../assets/member-info/positions.svg';
+import InfoCard from '../../components/InfoCard.astro';
+import ListCard from '../../components/ListCard.astro';
+
+const { id } = Astro.params;
+const member = MEMBERS.find((member) => member.id === id);
+if (!member) return Astro.redirect('/404');
+
+// const description = `Biografía, estadísticas y clips de ${member.name}, participante de La Velada del Año V. ${member.bio.substring(0, 120)}${member.bio.length > 120 ? '...' : ''}`
+// const canonical = `https://www.infolavelada.com/luchador/${id}`
+
+export const getStaticPaths = (() => {
+  return MEMBERS.map((member) => ({
+    params: { id: member.id },
+  }));
+}) satisfies GetStaticPaths;
+---
+
+<Layout>
+  <div class="rounded-2xl bg-white p-4">
+    <div class="bg-magenta relative mx-auto h-[184px] w-[184px] rounded-full">
+    </div>
+    <p class="text-center text-lg">Nayeon</p>
+    <p class="text-center text-sm">Im Nayeon</p>
+    <p class="text-center text-sm">🐰</p>
+
+    <div class="flex flex-col gap-5">
+      <InfoCard icon={Calendar} label="Birthday:" value="1995.09.22" />
+      <InfoCard icon={Nationality} label="Nationality:" value="Korean" />
+      <InfoCard icon={Color} label="Color:" value="Apricot" />
+      <InfoCard icon={Emoji} label="Emoji:" value="🐰" />
+      <InfoCard icon={Instagram} label="Instagram:" value="nayeon_im" />
+    </div>
+  </div>
+
+  <ListCard
+    icon={Positions}
+    title="Positions"
+    items={['Leader', 'Main Vocalist', 'Visual']}
+  />
+
+  <ListCard
+    icon={Positions}
+    title="Songs"
+    items={[
+      "I Can't Stop Me",
+      'What Is Love',
+      'Cheer Up',
+      'Like OOH-AHH',
+      'Cheer Up',
+    ]}
+  />
+
+  <ListCard
+    icon={Positions}
+    title="Fun Facts"
+    items={[
+      'She is the first member to be born in 1995.',
+      'She is the first member to be born in 1995.',
+    ]}
+  />
+</Layout>
