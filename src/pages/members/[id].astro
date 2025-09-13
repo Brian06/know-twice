@@ -5,18 +5,20 @@ import type { GetStaticPaths } from 'astro';
 import Calendar from '../../assets/member-info/calendar.svg';
 import Nationality from '../../assets/member-info/nationality.svg';
 import Color from '../../assets/member-info/color.svg';
-import Emoji from '../../assets/member-info/emoji.svg';
 import Instagram from '../../assets/member-info/instagram.svg';
 import Positions from '../../assets/member-info/positions.svg';
 import InfoCard from '../../components/InfoCard.astro';
 import ListCard from '../../components/ListCard.astro';
 
+// TODO: add the link to the instagram profile
+// TODO: add the link to the youtube/spotify/appleMusic profile
+// TODO: add the color as visible circle next to the color name
+
 const { id } = Astro.params;
 const member = MEMBERS.find((member) => member.id === id);
 if (!member) return Astro.redirect('/404');
-
-// const description = `Biografía, estadísticas y clips de ${member.name}, participante de La Velada del Año V. ${member.bio.substring(0, 120)}${member.bio.length > 120 ? '...' : ''}`
-// const canonical = `https://www.infolavelada.com/luchador/${id}`
+const { name, fullName, emoji, social, color, nationality, birthday, positions, songs, funFacts } = member;
+const instagram = social.find((social) => social.platform === 'instagram');
 
 export const getStaticPaths = (() => {
   return MEMBERS.map((member) => ({
@@ -33,17 +35,18 @@ export const getStaticPaths = (() => {
     <div class="flex-1">
   
       <div class="rounded-2xl bg-white p-4 drop-shadow-md">
-        <div class="bg-magenta relative mx-auto h-[184px] w-[184px] rounded-full mb-6">
+        <div class="bg-apricot relative mx-auto h-[166px] w-[160px] rounded-full mb-6 overflow-hidden outline-5 outline-magenta">
+          <img src={`/images/members/cards/${id}.webp`} alt={name} class="absolute w-full h-full object-cover" />
         </div>
-        <p class="text-center text-lg font-bold mb-1">Nayeon</p>
-        <p class="text-center text-sm  mb-1">Im Nayeon</p>
-        <p class="text-center text-sm">🐰</p>
+        <p class="text-center text-lg font-bold mb-1">{name}</p>
+        <p class="text-center text-sm  mb-1">{fullName}</p>
+        <p class="text-center text-sm">{emoji}</p>
     
         <div class="flex flex-col gap-5 mt-6">
-          <InfoCard icon={Calendar} label="Birthday:" value="1995.09.22" />
-          <InfoCard icon={Nationality} label="Nationality:" value="Korean" />
-          <InfoCard icon={Color} label="Color:" value="Apricot" />
-          <InfoCard icon={Instagram} label="Instagram:" value="nayeon_im" />
+          <InfoCard icon={Calendar} label="Birthday:" value={birthday.toLocaleDateString()} />
+          <InfoCard icon={Nationality} label="Nationality:" value={nationality} />
+          <InfoCard icon={Color} label="Color:" value={color} />
+          <InfoCard icon={Instagram} label="Instagram:" value={instagram?.username || 'N/A'} />
         </div>
       </div>
     </div>
@@ -55,14 +58,14 @@ export const getStaticPaths = (() => {
           <ListCard
             icon={Positions}
             title="Positions"
-            items={['Leader', 'Main Vocalist', 'Visual']}
+            items={positions}
             class="h-full"
           />
         </div>
         <div class="flex-1">
           <ListCard
             icon={Positions}
-            title="Songs"
+            title="Featured Songs"
             items={[
               "I Can't Stop Me",
               'What Is Love',
@@ -78,10 +81,7 @@ export const getStaticPaths = (() => {
       <ListCard
       icon={Positions}
       title="Fun Facts"
-      items={[
-        'She is the first member to be born in 1995.',
-        'She is the first member to be born in 1995.',
-      ]}
+      items={funFacts}
     />
   
   </div>
