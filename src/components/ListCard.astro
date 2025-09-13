@@ -3,12 +3,13 @@ export interface Props {
   icon: any;
   title: string;
   items: string[];
+  class?: string;
 }
 
-const { icon: Icon, title, items } = Astro.props;
+const { icon: Icon, title, items, class: className } = Astro.props;
 ---
 
-<div class="rounded-2xl bg-white p-4 h-full w-full">
+<div class={`rounded-2xl bg-white p-4 drop-shadow-md ${className || ''}`}>
   <div class="flex items-center gap-2">
     <Icon width={18} height={18} />
     <p>{title}</p>

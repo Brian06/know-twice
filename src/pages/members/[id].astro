@@ -27,70 +27,65 @@ export const getStaticPaths = (() => {
 
 <Layout>
 
-<div class="flex flex-col gap-6 ">
+<div class="container mx-auto px-4 py-16 md:py-32">
+  <div class="flex flex-col gap-6 lg:flex-row w-full">
 
-
-    <div class="rounded-2xl bg-white p-4">
-      <div class="bg-magenta relative mx-auto h-[184px] w-[184px] rounded-full mb-6">
-      </div>
-      <p class="text-center text-lg font-bold mb-1">Nayeon</p>
-      <p class="text-center text-sm  mb-1">Im Nayeon</p>
-      <p class="text-center text-sm">🐰</p>
+    <div class="flex-1">
   
-      <div class="flex flex-col gap-5 mt-6">
-        <InfoCard icon={Calendar} label="Birthday:" value="1995.09.22" />
-        <InfoCard icon={Nationality} label="Nationality:" value="Korean" />
-        <InfoCard icon={Color} label="Color:" value="Apricot" />
-        <InfoCard icon={Emoji} label="Emoji:" value="🐰" />
-        <InfoCard icon={Instagram} label="Instagram:" value="nayeon_im" />
+      <div class="rounded-2xl bg-white p-4 drop-shadow-md">
+        <div class="bg-magenta relative mx-auto h-[184px] w-[184px] rounded-full mb-6">
+        </div>
+        <p class="text-center text-lg font-bold mb-1">Nayeon</p>
+        <p class="text-center text-sm  mb-1">Im Nayeon</p>
+        <p class="text-center text-sm">🐰</p>
+    
+        <div class="flex flex-col gap-5 mt-6">
+          <InfoCard icon={Calendar} label="Birthday:" value="1995.09.22" />
+          <InfoCard icon={Nationality} label="Nationality:" value="Korean" />
+          <InfoCard icon={Color} label="Color:" value="Apricot" />
+          <InfoCard icon={Instagram} label="Instagram:" value="nayeon_im" />
+        </div>
       </div>
     </div>
-
-
-
-    <div class="flex flex-col gap-6 md:flex-row w-full">
+  
+    <div class="flex-1">
+  
+      <div class="flex flex-col gap-6 md:flex-row w-full mb-6">
+        <div class="flex-1">
+          <ListCard
+            icon={Positions}
+            title="Positions"
+            items={['Leader', 'Main Vocalist', 'Visual']}
+            class="h-full"
+          />
+        </div>
+        <div class="flex-1">
+          <ListCard
+            icon={Positions}
+            title="Songs"
+            items={[
+              "I Can't Stop Me",
+              'What Is Love',
+              'Cheer Up',
+              'Like OOH-AHH',
+              'Cheer Up',
+            ]}
+            class="h-full"
+          />
+        </div>
+      </div>
+  
       <ListCard
       icon={Positions}
-      title="Positions"
-      items={['Leader', 'Main Vocalist', 'Visual']}
-    />
-  
-  
-  
-      <ListCard
-      icon={Positions}
-      title="Songs"
+      title="Fun Facts"
       items={[
-        "I Can't Stop Me",
-        'What Is Love',
-        'Cheer Up',
-        'Like OOH-AHH',
-        'Cheer Up',
+        'She is the first member to be born in 1995.',
+        'She is the first member to be born in 1995.',
       ]}
     />
-    </div>
-
-
-
   
-
-    <ListCard
-    icon={Positions}
-    title="Fun Facts"
-    items={[
-      'She is the first member to be born in 1995.',
-      'She is the first member to be born in 1995.',
-    ]}
-  />
-
+  </div>
+  
 </div>
-  
-
-
-
-
-
-
-
 
 </Layout>
