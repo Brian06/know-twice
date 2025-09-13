@@ -27,8 +27,9 @@ export const getStaticPaths = (() => {
 
 <Layout>
 
-<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 auto-rows-min">
-  <div class="md:col-span-2 lg:row-span-2">
+<div class="flex flex-col gap-6 ">
+
+
     <div class="rounded-2xl bg-white p-4">
       <div class="bg-magenta relative mx-auto h-[184px] w-[184px] rounded-full mb-6">
       </div>
@@ -44,28 +45,35 @@ export const getStaticPaths = (() => {
         <InfoCard icon={Instagram} label="Instagram:" value="nayeon_im" />
       </div>
     </div>
-  </div>
-  <div class="md:row-start-2 lg:row-start-1">
-    <ListCard
-    icon={Positions}
-    title="Positions"
-    items={['Leader', 'Main Vocalist', 'Visual']}
-  />
-  </div>
-  <div class="md:row-start-2 lg:row-start-1">
-    <ListCard
-    icon={Positions}
-    title="Songs"
-    items={[
-      "I Can't Stop Me",
-      'What Is Love',
-      'Cheer Up',
-      'Like OOH-AHH',
-      'Cheer Up',
-    ]}
-  />
-  </div>
-  <div class="md:col-span-2 lg:col-start-2">
+
+
+
+    <div class="flex flex-col gap-6 md:flex-row w-full">
+      <ListCard
+      icon={Positions}
+      title="Positions"
+      items={['Leader', 'Main Vocalist', 'Visual']}
+    />
+  
+  
+  
+      <ListCard
+      icon={Positions}
+      title="Songs"
+      items={[
+        "I Can't Stop Me",
+        'What Is Love',
+        'Cheer Up',
+        'Like OOH-AHH',
+        'Cheer Up',
+      ]}
+    />
+    </div>
+
+
+
+  
+
     <ListCard
     icon={Positions}
     title="Fun Facts"
@@ -74,7 +82,7 @@ export const getStaticPaths = (() => {
       'She is the first member to be born in 1995.',
     ]}
   />
-  </div>
+
 </div>
   
 
