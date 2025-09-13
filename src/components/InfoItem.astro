@@ -1,0 +1,33 @@
+---
+import Link from '../assets/link.svg';
+
+export interface Props {
+  icon: any;
+  label: 'Birthday:' | 'Nationality:' | 'Color:' | 'Instagram:';
+  value: string;
+  link?: string;
+}
+
+const { icon: Icon, label, value, link } = Astro.props;
+---
+
+<div class="flex justify-between rounded-2xl bg-white p-4 drop-shadow-md">
+  <div class="flex items-center gap-2">
+    <Icon width={18} height={18} />
+    <p class="">{label}</p>
+  </div>
+  
+  {link ? (
+    <a 
+      href={link} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="text-gray-500 hover:text-magenta hover:underline transition-colors duration-200 flex items-center gap-1"
+    >
+      {value}
+      <Link width={15} height={15} />
+    </a>
+  ) : (
+    <p class="text-gray-500">{value}</p>
+  )}
+</div>
