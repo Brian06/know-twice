@@ -1,6 +1,6 @@
 import type { TMember } from "../types/members";
 
-export const MEMBERS: TMember[] = [
+export const MEMBERS: readonly TMember[] = [
   {
     id: "nayeon",
     name: "Nayeon",
@@ -43,7 +43,6 @@ export const MEMBERS: TMember[] = [
       "She chose 9 as her favorite number, because TWICE has 9 members",
       "Her left leg is weak due to her being in a car accident in her childhood.",
     ],
-    memberCardClasses: "hover:bg-nayeon",
   },
   {
     id: "jeongyeon",
@@ -69,7 +68,6 @@ export const MEMBERS: TMember[] = [
       "She chose 0 as her favorite number, because she doesn't actually have a favorite number",
       "Her father, Yoo Changjoon, is a popular Korean traditional chef",
     ],
-    memberCardClasses: "hover:bg-jeongyeon",
   },
   {
     id: "momo",
@@ -95,7 +93,6 @@ export const MEMBERS: TMember[] = [
       "She chose 64 as her favorite number, because it's the number on her father's shirt when he plays football",
       "She was scouted by JYP Entertainment after they saw a dance video of her and her older sister.",
     ],
-    memberCardClasses: "hover:bg-momo",
   },
   {
     id: "sana",
@@ -121,7 +118,6 @@ export const MEMBERS: TMember[] = [
       "She chose 12 as her favorite number (her birthday month), because Mina took the number 37.",
       "She likes spicy foods.",
     ],
-    memberCardClasses: "hover:bg-sana",
   },
   {
     id: "jihyo",
@@ -147,7 +143,6 @@ export const MEMBERS: TMember[] = [
       "She chose 21 as her favorite number, because she was born on February 1st.",
       "She was voted leader by the members, not JYPE (by anonymous voting).",
     ],
-    memberCardClasses: "hover:bg-jihyo",
   },
   {
     id: "mina",
@@ -173,7 +168,6 @@ export const MEMBERS: TMember[] = [
       "She was born in San Antonio, Texas, USA.",
       "She chose 37 as her favorite number, because “37” in Japanese it's pronounced as “Mi” or “San” (3) and “Nana” [often shortened to Na] (7)",
     ],
-    memberCardClasses: "hover:bg-mina",
   },
   {
     id: "dahyun",
@@ -199,7 +193,6 @@ export const MEMBERS: TMember[] = [
       "She chose 7 as her favorite number, because she became a TWICE member on July 7 and because she's the 7th oldest in TWICE.",
       "She is scared of animals (cats, dogs, etc.).",
     ],
-    memberCardClasses: "hover:bg-dahyun",
   },
   {
     id: "chaeyoung",
@@ -225,7 +218,6 @@ export const MEMBERS: TMember[] = [
       "She chose 29 as her favorite number, because 2 (TWICE) and 9 (number of members)",
       "On April 5, 2024, it was rumored that she’s dating Korean rapper Zion.T before both of their companies confirmed the rumor on the same day.",
     ],
-    memberCardClasses: "hover:bg-chaeyoung",
   },
   {
     id: "tzuyu",
@@ -251,6 +243,5 @@ export const MEMBERS: TMember[] = [
       "Her favorite number is 25, because she thinks it is a cool number.",
       "She is the tallest member in the group.",
     ],
-    memberCardClasses: "hover:bg-tzuyu",
   },
-];
+] as const;

@@ -6,9 +6,10 @@ export interface Props {
   label: 'Birthday:' | 'Nationality:' | 'Color:' | 'Instagram:';
   value: string;
   link?: string;
+  colorClass?: string;
 }
 
-const { icon: Icon, label, value, link } = Astro.props;
+const { icon: Icon, label, value, link, colorClass } = Astro.props;
 ---
 
 <div class="flex justify-between rounded-2xl bg-white p-4 drop-shadow-md">
@@ -28,6 +29,9 @@ const { icon: Icon, label, value, link } = Astro.props;
       <Link width={15} height={15} />
     </a>
   ) : (
-    <p class="text-gray-500">{value}</p>
+    <div class="flex items-center gap-2">
+      <p class="text-gray-500">{value}</p> 
+      {label === 'Color:' && <div class={`w-4 h-4 rounded-full ${colorClass}`}></div>}
+    </div>
   )}
 </div>

@@ -16,39 +16,6 @@ export type TSong = {
 
 export type Tnationality = "South Korean" | "Japanese" | "Taiwanese";
 
-export type Tname =
-  | "Nayeon"
-  | "Jeongyeon"
-  | "Momo"
-  | "Sana"
-  | "Jihyo"
-  | "Mina"
-  | "Dahyun"
-  | "Chaeyoung"
-  | "Tzuyu";
-
-export type TfullName =
-  | "Im Nayeon"
-  | "Yoo Jeong-yeon"
-  | "Hirai Momo"
-  | "Minatozaki Sana"
-  | "Park Ji-hyo"
-  | "Myoui Mina"
-  | "Kim Da-hyun"
-  | "Son Chae-young"
-  | "Chou Tzuyu";
-
-export type Temoji =
-  | "🐰"
-  | "🐶"
-  | "🍑"
-  | "🐭"
-  | "🦄"
-  | "🐧"
-  | "💛"
-  | "🍓"
-  | "🦌";
-
 export type Tposition =
   | "Main Vocalist"
   | "Main Dancer"
@@ -61,11 +28,11 @@ export type Tposition =
   | "Main-Rapper"
   | "Maknae";
 
-export type TMember = {
+export type TMemberBase = {
   id: string;
-  name: Tname;
-  fullName: TfullName;
-  emoji: Temoji;
+  name: string;
+  fullName: string;
+  emoji: string;
   color: string;
   social: TSocial[];
   nationality: Tnationality;
@@ -73,5 +40,7 @@ export type TMember = {
   positions: Tposition[];
   songs: TSong[];
   funFacts: string[];
-  memberCardClasses: string;
 };
+
+export type TMember = TMemberBase;
+export type { TmemberId, Tname, TfullName, Temoji, TMemberById, TMemberMap, TMemberLookup } from "./member-derived";

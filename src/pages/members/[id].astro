@@ -11,11 +11,12 @@ import Song from '../../assets/member-info/song.svg';
 import Info from '../../assets/member-info/info.svg';
 import InfoItem from '../../components/InfoItem.astro';
 import ListCard from '../../components/ListCard.astro';
+import { getBackgroundClass, getOutlineClass } from '../../utils/styles';
+import type { TmemberId } from '../../types/member-derived';
 
 // TODO: add the link to the youtube/spotify/appleMusic profile
-// TODO: add the color as visible circle next to the color name
 
-const { id } = Astro.params;
+const { id } = Astro.params as { id: TmemberId };
 const member = MEMBERS.find((member) => member.id === id);
 if (!member) return Astro.redirect('/404');
 const { name, fullName, emoji, social, color, nationality, birthday, positions, songs, funFacts } = member;
@@ -36,7 +37,7 @@ export const getStaticPaths = (() => {
     <div class="flex-1">
   
       <div class="rounded-2xl bg-white p-4 drop-shadow-md">
-        <div class="bg-apricot relative mx-auto h-[166px] w-[160px] rounded-full mb-6 overflow-hidden outline-5 outline-magenta">
+        <div class={`bg-apricot relative mx-auto h-[166px] w-[160px] rounded-full mb-6 overflow-hidden outline-5 ${getOutlineClass(id)}`}>
           <img src={`/images/members/cards/${id}.webp`} alt={name} class="absolute w-full h-full object-cover" />
         </div>
         <p class="text-center text-lg font-bold mb-1 text-magenta">{name}</p>
@@ -46,7 +47,7 @@ export const getStaticPaths = (() => {
         <div class="flex flex-col gap-5 mt-6">
           <InfoItem icon={Calendar} label="Birthday:" value={birthday.toLocaleDateString()} />
           <InfoItem icon={Nationality} label="Nationality:" value={nationality} />
-          <InfoItem icon={Color} label="Color:" value={color} />
+          <InfoItem icon={Color} label="Color:" value={color} colorClass={getBackgroundClass(id)} />
           <InfoItem icon={Instagram} label="Instagram:" value={instagram?.username || 'N/A'} link={instagram?.url || ''} />
         </div>
       </div>

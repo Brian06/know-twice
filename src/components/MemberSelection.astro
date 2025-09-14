@@ -3,6 +3,8 @@ import MemberCard from './MemberCard.astro';
 import CenteredLogo from './CenteredLogo.astro';
 import MemberImages from './MemberImages.astro';
 import { MEMBERS } from '../const/members';
+import { getHoverClass } from '../utils/styles';
+import type { TmemberId } from '../types/member-derived';
 
 const firstColumn = MEMBERS.slice(0, 3);
 const secondColumn = MEMBERS.slice(3, 6);
@@ -25,10 +27,10 @@ const thirdColumn = MEMBERS.slice(6, 9);
         class="xs:gap-2 grid w-full grid-cols-3 grid-rows-3 justify-items-center gap-1 sm:gap-4 md:hidden"
       >
         {
-          MEMBERS.map(({ id, memberCardClasses }, index) => (
+          MEMBERS.map(({ id }, index) => (
             <MemberCard
               id={id}
-              extraClasses={`${memberCardClasses} animate-fade-in-up animate-delay-${(index + 1) * 100}`}
+              extraClasses={`${getHoverClass(id as TmemberId)} animate-fade-in-up animate-delay-${(index + 1) * 100}`}
               src={`/images/members/cards/${id}.webp`}
               alt={id}
             />
@@ -45,10 +47,10 @@ const thirdColumn = MEMBERS.slice(6, 9);
             class="flex flex-row justify-around gap-2 md:justify-end lg:gap-4"
           >
             {
-              firstColumn.map(({ id, memberCardClasses }, index) => (
+              firstColumn.map(({ id }, index) => (
                 <MemberCard
                   id={id}
-                  extraClasses={`${memberCardClasses} animate-fade-in-right animate-delay-${(index + 1) * 100}`}
+                  extraClasses={`${getHoverClass(id as TmemberId)} animate-fade-in-right animate-delay-${(index + 1) * 100}`}
                   src={`/images/members/cards/${id}.webp`}
                   alt={id}
                 />
@@ -61,10 +63,10 @@ const thirdColumn = MEMBERS.slice(6, 9);
             class="flex flex-row justify-around gap-2 md:justify-center lg:gap-4"
           >
             {
-              secondColumn.map(({ id, memberCardClasses }, index) => (
+              secondColumn.map(({ id }, index) => (
                 <MemberCard
                   id={id}
-                  extraClasses={`${memberCardClasses} animate-fade-in-up animate-delay-${(index + 1) * 100}`}
+                  extraClasses={`${getHoverClass(id as TmemberId)} animate-fade-in-up animate-delay-${(index + 1) * 100}`}
                   src={`/images/members/cards/${id}.webp`}
                   alt={id}
                 />
@@ -77,10 +79,10 @@ const thirdColumn = MEMBERS.slice(6, 9);
             class="flex flex-row justify-around gap-2 md:justify-start lg:gap-4"
           >
             {
-              thirdColumn.map(({ id, memberCardClasses }, index) => (
+              thirdColumn.map(({ id }, index) => (
                 <MemberCard
                   id={id}
-                  extraClasses={`${memberCardClasses} animate-fade-in-left animate-delay-${(index + 1) * 100}`}
+                  extraClasses={`${getHoverClass(id as TmemberId)} animate-fade-in-left animate-delay-${(index + 1) * 100}`}
                   src={`/images/members/cards/${id}.webp`}
                   alt={id}
                 />
