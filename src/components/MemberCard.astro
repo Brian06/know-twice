@@ -11,7 +11,7 @@ export interface Props {
 const { id, src, alt = 'Twice Member', extraClasses = '' } = Astro.props;
 ---
 
-<div
+<a href={`/members/${id}`}
   class={`js-member-card w-12 h-18 xs:w-14 xs:h-20 sm:w-15 sm:h-23 md:w-15 md:h-25 lg:w-21 lg:h-31 group overflow-hidden rounded-s-xl hover:border-2 hover:cursor-pointer hover:border-magenta ${extraClasses}`}
   data-id={id}
 >
@@ -22,7 +22,7 @@ const { id, src, alt = 'Twice Member', extraClasses = '' } = Astro.props;
     height={100}
     alt={alt}
   />
-</div>
+</a>
 
 <script>
   const memberCards = document.querySelectorAll('.js-member-card');
