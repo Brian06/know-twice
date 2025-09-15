@@ -1,0 +1,30 @@
+---
+import Badge from './Badge.astro';
+
+export interface Props {
+  href: string;
+  text: string;
+  badge?: {
+    text: string;
+    variant?: 'working' | 'new' | 'coming-soon';
+    size?: 'sm' | 'xs';
+  };
+}
+
+const { href, text, badge } = Astro.props;
+---
+
+<div class="relative">
+  <a
+    href={href}
+    class="hover:text-magenta text-lg uppercase hover:underline"
+  >
+    {text}
+  </a>
+  {badge && (
+    <Badge 
+      text={badge.text} 
+      variant={badge.variant}
+    />
+  )}
+</div>

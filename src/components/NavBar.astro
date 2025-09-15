@@ -1,18 +1,17 @@
 ---
 import { Image } from 'astro:assets';
+import NavLink from './NavLink.astro';
 ---
 
 <nav class="fixed top-0 z-50 w-full">
   <div class="flex items-center justify-center gap-4 md:gap-6">
     <div class="flex items-center justify-center gap-4 py-4 md:gap-6">
-      <a
-        href="/home"
-        class="hover:text-magenta text-lg uppercase hover:underline">Home</a
-      >
-      <a
-        href="/albums"
-        class="hover:text-magenta text-lg uppercase hover:underline">Albums</a
-      >
+      <NavLink href="/" text="Home" />
+      <NavLink 
+        href="/albums" 
+        text="Albums" 
+        badge={{ text: "working", variant: "working" }}
+      />
     </div>
     <Image
       class="animate-pulse"
@@ -22,14 +21,16 @@ import { Image } from 'astro:assets';
       height={50}
     />
     <div class="flex items-center justify-center gap-4 py-4 md:gap-6">
-      <a
-        href="/videos"
-        class="hover:text-magenta text-lg uppercase hover:underline">Videos</a
-      >
-      <a
-        href="/about"
-        class="hover:text-magenta text-lg uppercase hover:underline">Fandom</a
-      >
+      <NavLink 
+        href="/videos" 
+        text="Videos" 
+        badge={{ text: "working", variant: "working" }}
+      />
+      <NavLink 
+        href="/about" 
+        text="Fandom" 
+        badge={{ text: "working", variant: "working" }}
+      />
     </div>
   </div>
 </nav>
