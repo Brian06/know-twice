@@ -125,16 +125,6 @@
   .animate-delay-1000 {
     animation-delay: 1000ms;
   }
-
-  /* Mobile selection state */
-  .mobile-selected-base {
-    @apply scale-105 transition-all duration-300;
-    /* box-shadow: 0 4px 12px rgba(255, 95, 162, 0.3); */
-  }
-
-  .mobile-selected-base img {
-    @apply translate-y-5 scale-120;
-  }
 }
 
 html {

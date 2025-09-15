@@ -27,22 +27,21 @@ const { id, src, alt = 'Twice Member', extraClasses = '' } = Astro.props;
 </a>
 
 <script>
+  import { $ } from '../utils/dom-selector';
+  
   const memberCards = document.querySelectorAll('.js-member-card');
   let timeoutToChangeMember: ReturnType<typeof setTimeout> | null = null;
   let selectedMemberIdMobile: string | null = null;
 
-  // Helper function to detect if device is mobile
   const isMobile = () => {
     return window.matchMedia('(max-width: 768px)').matches;
   };
 
-  // Helper function to extract background class from extraClasses
   const extractBgClass = (extraClasses: string) => {
     const match = extraClasses.match(/hover:bg-(\w+)/);
     return match ? `bg-${match[1]}` : '';
   };
 
-  // Helper function to clear previous mobile selection
   const clearPreviousSelection = () => {
     if (!selectedMemberIdMobile) return;
 
@@ -52,27 +51,31 @@ const { id, src, alt = 'Twice Member', extraClasses = '' } = Astro.props;
     const previousExtraClasses =
       previousCard?.getAttribute('data-extra-classes') || '';
     const previousBgClass = extractBgClass(previousExtraClasses);
+    const previousImage = previousCard ? $<HTMLImageElement>('img', previousCard as HTMLElement) : null;
+    
     previousCard?.classList.remove(
-      'mobile-selected-base',
       'border-2',
       'border-magenta',
       previousBgClass,
     );
+    
+    previousImage?.classList.remove('translate-y-5', 'scale-120');
   };
 
-  // Helper function to apply visual selection to a card
   const applySelectionVisual = (card: Element, id: string) => {
     const extraClasses = card.getAttribute('data-extra-classes') || '';
     const bgClass = extractBgClass(extraClasses);
+    const image = $<HTMLImageElement>('img', card as HTMLElement);
+    
     card.classList.add(
-      'mobile-selected-base',
       'border-2',
       'border-magenta',
       bgClass,
     );
+    
+    image?.classList.add('translate-y-5', 'scale-120');
   };
 
-  // Helper function to trigger hover effect
   const triggerHoverEffect = (id: string) => {
     const event = new CustomEvent('member-card-hover', {
       detail: { id },
@@ -80,22 +83,17 @@ const { id, src, alt = 'Twice Member', extraClasses = '' } = Astro.props;
     document.dispatchEvent(event);
   };
 
-  // Helper function to handle first tap on mobile
   const handleFirstTap = (e: Event, card: Element, id: string) => {
-    e.preventDefault(); // Prevent navigation
+    e.preventDefault();
 
-    // Clear previous selection visual state
     clearPreviousSelection();
 
-    // Set new selection
     selectedMemberIdMobile = id;
     applySelectionVisual(card, id);
 
-    // Trigger the hover effect for the image
     triggerHoverEffect(id);
   };
 
-  // Helper function to clear mobile selection and trigger exit
   const clearMobileSelection = () => {
     if (!selectedMemberIdMobile) return;
 
@@ -104,22 +102,24 @@ const { id, src, alt = 'Twice Member', extraClasses = '' } = Astro.props;
     );
     const extraClasses = selectedCard?.getAttribute('data-extra-classes') || '';
     const bgClass = extractBgClass(extraClasses);
+    const selectedImage = selectedCard ? $<HTMLImageElement>('img', selectedCard as HTMLElement) : null;
+    
     selectedCard?.classList.remove(
-      'mobile-selected-base',
       'border-2',
       'border-magenta',
       bgClass,
     );
+    
+    selectedImage?.classList.remove('translate-y-5', 'scale-120');
     selectedMemberIdMobile = null;
 
-    // Trigger the exit event
     const event = new CustomEvent('member-card-exit');
     document.dispatchEvent(event);
   };
 
   const mouseEnterDesktop = (card: Element) => {
     card.addEventListener('mouseenter', () => {
-      if (isMobile()) return; // Skip hover on mobile
+      if (isMobile()) return;
 
       if (timeoutToChangeMember) {
         clearTimeout(timeoutToChangeMember);
@@ -138,7 +138,7 @@ const { id, src, alt = 'Twice Member', extraClasses = '' } = Astro.props;
 
   const mouseLeaveDesktop = (card: Element) => {
     card.addEventListener('mouseleave', () => {
-      if (isMobile()) return; // Skip hover on mobile
+      if (isMobile()) return;
 
       timeoutToChangeMember = setTimeout(() => {
         const event = new CustomEvent('member-card-exit');
@@ -148,33 +148,26 @@ const { id, src, alt = 'Twice Member', extraClasses = '' } = Astro.props;
   };
 
   const handleMobileTouch = (card: Element) => {
-    // Mobile touch functionality
     card.addEventListener('click', (e) => {
-      if (!isMobile()) return; // Only handle on mobile
+      if (!isMobile()) return;
 
       const id = card.getAttribute('data-id');
       if (!id) return;
 
-      // First tap - select the member
       if (selectedMemberIdMobile !== id) {
         handleFirstTap(e, card, id);
         return;
       }
-
-      // Second tap - allow navigation (don't prevent default)
-      // The link will naturally navigate
     });
   };
 
   const handleTouchOutside = (card: Element) => {
-    // Handle touch outside to deselect
     document.addEventListener('touchstart', (e) => {
       if (!isMobile()) return;
 
       const target = e.target as Element;
       const clickedCard = target.closest('.js-member-card');
 
-      // If touched outside any member card, clear selection
       if (!clickedCard && selectedMemberIdMobile) {
         clearMobileSelection();
       }
@@ -183,7 +176,6 @@ const { id, src, alt = 'Twice Member', extraClasses = '' } = Astro.props;
 
   if (memberCards) {
     memberCards.forEach((card) => {
-      // Desktop hover functionality
       mouseEnterDesktop(card);
       mouseLeaveDesktop(card);
       handleMobileTouch(card);
