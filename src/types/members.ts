@@ -43,4 +43,12 @@ export type TMemberBase = {
 };
 
 export type TMember = TMemberBase;
-export type { TmemberId, Tname, TfullName, Temoji, TMemberById, TMemberMap, TMemberLookup } from "./member-derived";
+export type {
+  TmemberId,
+  Tname,
+  TfullName,
+  Temoji,
+  TMemberById,
+  TMemberMap,
+  TMemberLookup,
+} from "./member-derived";

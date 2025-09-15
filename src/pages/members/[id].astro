@@ -19,7 +19,18 @@ import type { TmemberId } from '../../types/member-derived';
 const { id } = Astro.params as { id: TmemberId };
 const member = MEMBERS.find((member) => member.id === id);
 if (!member) return Astro.redirect('/404');
-const { name, fullName, emoji, social, color, nationality, birthday, positions, songs, funFacts } = member;
+const {
+  name,
+  fullName,
+  emoji,
+  social,
+  color,
+  nationality,
+  birthday,
+  positions,
+  songs,
+  funFacts,
+} = member;
 const instagram = social.find((social) => social.platform === 'instagram');
 
 export const getStaticPaths = (() => {
@@ -30,64 +41,78 @@ export const getStaticPaths = (() => {
 ---
 
 <Layout>
+  <div class="container mx-auto px-4 py-16 md:py-32">
+    <div class="flex w-full flex-col gap-6 lg:flex-row">
+      <div class="flex-1">
+        <div class="rounded-2xl bg-white p-4 drop-shadow-md">
+          <div
+            class={`bg-apricot relative mx-auto h-[166px] w-[160px] rounded-full mb-6 overflow-hidden outline-5 ${getOutlineClass(id)}`}
+          >
+            <img
+              src={`/images/members/cards/${id}.webp`}
+              alt={name}
+              class="absolute h-full w-full object-cover"
+            />
+          </div>
+          <p class="text-magenta mb-1 text-center text-lg font-bold">{name}</p>
+          <p class="mb-1 text-center text-sm">{fullName}</p>
+          <p class="text-center text-sm">{emoji}</p>
 
-<div class="container mx-auto px-4 py-16 md:py-32">
-  <div class="flex flex-col gap-6 lg:flex-row w-full">
+          <div class="mt-6 flex flex-col gap-5">
+            <InfoItem
+              icon={Calendar}
+              label="Birthday:"
+              value={birthday.toLocaleDateString()}
+            />
+            <InfoItem
+              icon={Nationality}
+              label="Nationality:"
+              value={nationality}
+            />
+            <InfoItem
+              icon={Color}
+              label="Color:"
+              value={color}
+              colorClass={getBackgroundClass(id)}
+            />
+            <InfoItem
+              icon={Instagram}
+              label="Instagram:"
+              value={instagram?.username || 'N/A'}
+              link={instagram?.url || ''}
+            />
+          </div>
+        </div>
+      </div>
 
-    <div class="flex-1">
-  
-      <div class="rounded-2xl bg-white p-4 drop-shadow-md">
-        <div class={`bg-apricot relative mx-auto h-[166px] w-[160px] rounded-full mb-6 overflow-hidden outline-5 ${getOutlineClass(id)}`}>
-          <img src={`/images/members/cards/${id}.webp`} alt={name} class="absolute w-full h-full object-cover" />
+      <div class="flex-1">
+        <div class="mb-6 flex w-full flex-col gap-6 md:flex-row">
+          <div class="flex-1">
+            <ListCard
+              icon={Star}
+              title="Positions"
+              items={positions}
+              class="h-full"
+            />
+          </div>
+          <div class="flex-1">
+            <ListCard
+              icon={Song}
+              title="Featured Songs"
+              items={[
+                "I Can't Stop Me",
+                'What Is Love',
+                'Cheer Up',
+                'Like OOH-AHH',
+                'Cheer Up',
+              ]}
+              class="h-full"
+            />
+          </div>
         </div>
-        <p class="text-center text-lg font-bold mb-1 text-magenta">{name}</p>
-        <p class="text-center text-sm  mb-1">{fullName}</p>
-        <p class="text-center text-sm">{emoji}</p>
-    
-        <div class="flex flex-col gap-5 mt-6">
-          <InfoItem icon={Calendar} label="Birthday:" value={birthday.toLocaleDateString()} />
-          <InfoItem icon={Nationality} label="Nationality:" value={nationality} />
-          <InfoItem icon={Color} label="Color:" value={color} colorClass={getBackgroundClass(id)} />
-          <InfoItem icon={Instagram} label="Instagram:" value={instagram?.username || 'N/A'} link={instagram?.url || ''} />
-        </div>
+
+        <ListCard icon={Info} title="Fun Facts" items={funFacts} />
       </div>
     </div>
-  
-    <div class="flex-1">
-  
-      <div class="flex flex-col gap-6 md:flex-row w-full mb-6">
-        <div class="flex-1">
-          <ListCard
-            icon={Star}
-            title="Positions"
-            items={positions}
-            class="h-full"
-          />
-        </div>
-        <div class="flex-1">
-          <ListCard
-            icon={Song}
-            title="Featured Songs"
-            items={[
-              "I Can't Stop Me",
-              'What Is Love',
-              'Cheer Up',
-              'Like OOH-AHH',
-              'Cheer Up',
-            ]}
-            class="h-full"
-          />
-        </div>
-      </div>
-  
-      <ListCard
-      icon={Info}
-      title="Fun Facts"
-      items={funFacts}
-    />
-  
   </div>
-  
-</div>
-
 </Layout>

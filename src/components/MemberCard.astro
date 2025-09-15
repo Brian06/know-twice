@@ -11,7 +11,8 @@ export interface Props {
 const { id, src, alt = 'Twice Member', extraClasses = '' } = Astro.props;
 ---
 
-<a href={`/members/${id}`}
+<a
+  href={`/members/${id}`}
   class={`js-member-card w-12 h-18 xs:w-14 xs:h-20 sm:w-15 sm:h-23 md:w-15 md:h-25 lg:w-21 lg:h-31 group overflow-hidden rounded-s-xl hover:border-2 hover:cursor-pointer hover:border-magenta ${extraClasses}`}
   data-id={id}
   data-extra-classes={extraClasses}
@@ -41,94 +42,152 @@ const { id, src, alt = 'Twice Member', extraClasses = '' } = Astro.props;
     return match ? `bg-${match[1]}` : '';
   };
 
+  // Helper function to clear previous mobile selection
+  const clearPreviousSelection = () => {
+    if (!selectedMemberIdMobile) return;
+
+    const previousCard = document.querySelector(
+      `[data-id="${selectedMemberIdMobile}"]`,
+    );
+    const previousExtraClasses =
+      previousCard?.getAttribute('data-extra-classes') || '';
+    const previousBgClass = extractBgClass(previousExtraClasses);
+    previousCard?.classList.remove(
+      'mobile-selected-base',
+      'border-2',
+      'border-magenta',
+      previousBgClass,
+    );
+  };
+
+  // Helper function to apply visual selection to a card
+  const applySelectionVisual = (card: Element, id: string) => {
+    const extraClasses = card.getAttribute('data-extra-classes') || '';
+    const bgClass = extractBgClass(extraClasses);
+    card.classList.add(
+      'mobile-selected-base',
+      'border-2',
+      'border-magenta',
+      bgClass,
+    );
+  };
+
+  // Helper function to trigger hover effect
+  const triggerHoverEffect = (id: string) => {
+    const event = new CustomEvent('member-card-hover', {
+      detail: { id },
+    });
+    document.dispatchEvent(event);
+  };
+
+  // Helper function to handle first tap on mobile
+  const handleFirstTap = (e: Event, card: Element, id: string) => {
+    e.preventDefault(); // Prevent navigation
+
+    // Clear previous selection visual state
+    clearPreviousSelection();
+
+    // Set new selection
+    selectedMemberIdMobile = id;
+    applySelectionVisual(card, id);
+
+    // Trigger the hover effect for the image
+    triggerHoverEffect(id);
+  };
+
+  // Helper function to clear mobile selection and trigger exit
+  const clearMobileSelection = () => {
+    if (!selectedMemberIdMobile) return;
+
+    const selectedCard = document.querySelector(
+      `[data-id="${selectedMemberIdMobile}"]`,
+    );
+    const extraClasses = selectedCard?.getAttribute('data-extra-classes') || '';
+    const bgClass = extractBgClass(extraClasses);
+    selectedCard?.classList.remove(
+      'mobile-selected-base',
+      'border-2',
+      'border-magenta',
+      bgClass,
+    );
+    selectedMemberIdMobile = null;
+
+    // Trigger the exit event
+    const event = new CustomEvent('member-card-exit');
+    document.dispatchEvent(event);
+  };
+
+  const mouseEnterDesktop = (card: Element) => {
+    card.addEventListener('mouseenter', () => {
+      if (isMobile()) return; // Skip hover on mobile
+
+      if (timeoutToChangeMember) {
+        clearTimeout(timeoutToChangeMember);
+      }
+
+      const id = card.getAttribute('data-id');
+
+      if (id) {
+        const event = new CustomEvent('member-card-hover', {
+          detail: { id },
+        });
+        document.dispatchEvent(event);
+      }
+    });
+  };
+
+  const mouseLeaveDesktop = (card: Element) => {
+    card.addEventListener('mouseleave', () => {
+      if (isMobile()) return; // Skip hover on mobile
+
+      timeoutToChangeMember = setTimeout(() => {
+        const event = new CustomEvent('member-card-exit');
+        document.dispatchEvent(event);
+      }, 500);
+    });
+  };
+
+  const handleMobileTouch = (card: Element) => {
+    // Mobile touch functionality
+    card.addEventListener('click', (e) => {
+      if (!isMobile()) return; // Only handle on mobile
+
+      const id = card.getAttribute('data-id');
+      if (!id) return;
+
+      // First tap - select the member
+      if (selectedMemberIdMobile !== id) {
+        handleFirstTap(e, card, id);
+        return;
+      }
+
+      // Second tap - allow navigation (don't prevent default)
+      // The link will naturally navigate
+    });
+  };
+
+  const handleTouchOutside = (card: Element) => {
+    // Handle touch outside to deselect
+    document.addEventListener('touchstart', (e) => {
+      if (!isMobile()) return;
+
+      const target = e.target as Element;
+      const clickedCard = target.closest('.js-member-card');
+
+      // If touched outside any member card, clear selection
+      if (!clickedCard && selectedMemberIdMobile) {
+        clearMobileSelection();
+      }
+    });
+  };
+
   if (memberCards) {
     memberCards.forEach((card) => {
       // Desktop hover functionality
-      card.addEventListener('mouseenter', () => {
-        if (isMobile()) return; // Skip hover on mobile
-
-        if (timeoutToChangeMember) {
-          clearTimeout(timeoutToChangeMember);
-        }
-
-        const id = card.getAttribute('data-id');
-
-        if (id) {
-          const event = new CustomEvent('member-card-hover', {
-            detail: { id },
-          });
-          document.dispatchEvent(event);
-        }
-      });
-
-      card.addEventListener('mouseleave', () => {
-        if (isMobile()) return; // Skip hover on mobile
-
-        timeoutToChangeMember = setTimeout(() => {
-          const event = new CustomEvent('member-card-exit');
-          document.dispatchEvent(event);
-        }, 500);
-      });
-
-      // Mobile touch functionality
-      card.addEventListener('click', (e) => {
-        if (!isMobile()) return; // Only handle on mobile
-
-        const id = card.getAttribute('data-id');
-        if (!id) return;
-
-        // First tap - select the member
-        if (selectedMemberIdMobile !== id) {
-          e.preventDefault(); // Prevent navigation
-          
-          // Clear previous selection visual state
-          if (selectedMemberIdMobile) {
-            const previousCard = document.querySelector(`[data-id="${selectedMemberIdMobile}"]`);
-            const previousExtraClasses = previousCard?.getAttribute('data-extra-classes') || '';
-            const previousBgClass = extractBgClass(previousExtraClasses);
-            previousCard?.classList.remove('mobile-selected-base', 'border-2', 'border-magenta', previousBgClass);
-          }
-
-          // Set new selection
-          selectedMemberIdMobile = id;
-          const extraClasses = card.getAttribute('data-extra-classes') || '';
-          const bgClass = extractBgClass(extraClasses);
-          
-          card.classList.add('mobile-selected-base', 'border-2', 'border-magenta', bgClass);
-
-          // Trigger the hover effect for the image
-          const event = new CustomEvent('member-card-hover', {
-            detail: { id },
-          });
-          document.dispatchEvent(event);
-
-          return;
-        }
-
-        // Second tap - allow navigation (don't prevent default)
-        // The link will naturally navigate
-      });
-
-      // Handle touch outside to deselect
-      document.addEventListener('touchstart', (e) => {
-        if (!isMobile()) return;
-
-        const target = e.target as Element;
-        const clickedCard = target.closest('.js-member-card');
-        
-        // If touched outside any member card, clear selection
-        if (!clickedCard && selectedMemberIdMobile) {
-          const selectedCard = document.querySelector(`[data-id="${selectedMemberIdMobile}"]`);
-          const extraClasses = selectedCard?.getAttribute('data-extra-classes') || '';
-          const bgClass = extractBgClass(extraClasses);
-          selectedCard?.classList.remove('mobile-selected-base', 'border-2', 'border-magenta', bgClass);
-          selectedMemberIdMobile = null;
-
-          // Trigger the exit event
-          const event = new CustomEvent('member-card-exit');
-          document.dispatchEvent(event);
-        }
-      });
+      mouseEnterDesktop(card);
+      mouseLeaveDesktop(card);
+      handleMobileTouch(card);
+      handleTouchOutside(card);
     });
   }
 </script>
