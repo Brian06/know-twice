@@ -28,7 +28,7 @@ const { id, src, alt = 'Twice Member', extraClasses = '' } = Astro.props;
 
 <script>
   import { $ } from '../utils/dom-selector';
-  
+
   const memberCards = document.querySelectorAll('.js-member-card');
   let timeoutToChangeMember: ReturnType<typeof setTimeout> | null = null;
   let selectedMemberIdMobile: string | null = null;
@@ -51,14 +51,16 @@ const { id, src, alt = 'Twice Member', extraClasses = '' } = Astro.props;
     const previousExtraClasses =
       previousCard?.getAttribute('data-extra-classes') || '';
     const previousBgClass = extractBgClass(previousExtraClasses);
-    const previousImage = previousCard ? $<HTMLImageElement>('img', previousCard as HTMLElement) : null;
-    
+    const previousImage = previousCard
+      ? $<HTMLImageElement>('img', previousCard as HTMLElement)
+      : null;
+
     previousCard?.classList.remove(
       'border-2',
       'border-magenta',
       previousBgClass,
     );
-    
+
     previousImage?.classList.remove('translate-y-5', 'scale-120');
   };
 
@@ -66,13 +68,9 @@ const { id, src, alt = 'Twice Member', extraClasses = '' } = Astro.props;
     const extraClasses = card.getAttribute('data-extra-classes') || '';
     const bgClass = extractBgClass(extraClasses);
     const image = $<HTMLImageElement>('img', card as HTMLElement);
-    
-    card.classList.add(
-      'border-2',
-      'border-magenta',
-      bgClass,
-    );
-    
+
+    card.classList.add('border-2', 'border-magenta', bgClass);
+
     image?.classList.add('translate-y-5', 'scale-120');
   };
 
@@ -102,14 +100,12 @@ const { id, src, alt = 'Twice Member', extraClasses = '' } = Astro.props;
     );
     const extraClasses = selectedCard?.getAttribute('data-extra-classes') || '';
     const bgClass = extractBgClass(extraClasses);
-    const selectedImage = selectedCard ? $<HTMLImageElement>('img', selectedCard as HTMLElement) : null;
-    
-    selectedCard?.classList.remove(
-      'border-2',
-      'border-magenta',
-      bgClass,
-    );
-    
+    const selectedImage = selectedCard
+      ? $<HTMLImageElement>('img', selectedCard as HTMLElement)
+      : null;
+
+    selectedCard?.classList.remove('border-2', 'border-magenta', bgClass);
+
     selectedImage?.classList.remove('translate-y-5', 'scale-120');
     selectedMemberIdMobile = null;
 
