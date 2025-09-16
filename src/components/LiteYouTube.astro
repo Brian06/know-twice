@@ -26,7 +26,6 @@ const { videoId, title, backgroundImage, withShadowImage } = Astro.props;
     class="rounded-lg"
     videoid={videoId}
     style={`background-image: url('${backgroundImage}')`}
-    tabindex="0"
     aria-label="button"
   >
     <a
@@ -34,13 +33,13 @@ const { videoId, title, backgroundImage, withShadowImage } = Astro.props;
       class="lty-playbtn"
       title={title}
       role="button"
-      tabindex="0"
+      aria-label={title || `Play video ${videoId}`}
     >
-      <span class="lyt-visually-hidden">{title}</span>
+      <span class="lyt-visually-hidden">{title || `Play video ${videoId}`}</span>
     </a>
   </lite-youtube>
 
-  <script is:inline>
+  <script>
     // @ts-nocheck
 
     /*
@@ -310,7 +309,7 @@ const { videoId, title, backgroundImage, withShadowImage } = Astro.props;
     }
 
     document.addEventListener('astro:page-load', () => {
-      console.log('astro:page-load');
+      if (!document.querySelector('lite-youtube')) return;
       if (customElements.get('lite-youtube')) return;
       customElements.define('lite-youtube', LiteYTEmbed);
     })
