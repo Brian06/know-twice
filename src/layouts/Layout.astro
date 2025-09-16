@@ -2,6 +2,102 @@
 import { ClientRouter } from 'astro:transitions'
 import '../styles/global.css';
 import NavBar from '../components/NavBar.astro';
+
+interface Props {
+  title: string
+  description?: string
+  canonical?: string
+  robots?: string
+  schemaType?: 'WebSite' | 'Person' | 'CollectionPage'
+  schemaData?: any
+}
+
+const {
+  title = `Know TWICE - Complete Member Profiles & Information`,
+  description = 'Discover everything about TWICE members - profiles, fun facts, social media, and more. Your complete guide to the K-pop girl group TWICE.',
+  canonical,
+  robots,
+  schemaType = 'WebSite',
+  schemaData,
+} = Astro.props
+
+// Generate appropriate schema based on page type
+const generateSchema = () => {
+  const baseUrl = 'https://www.knowtwice.com'
+  
+  if (schemaType === 'Person' && schemaData) {
+    // Person schema for member pages
+    return {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": schemaData.fullName,
+      "alternateName": schemaData.name,
+      "description": `${schemaData.name} is a member of the K-pop girl group TWICE, known for their ${schemaData.positions.join(', ')} roles.`,
+      "nationality": schemaData.nationality,
+      "birthDate": schemaData.birthday.toISOString().split('T')[0],
+      "memberOf": {
+        "@type": "MusicGroup",
+        "name": "TWICE",
+        "genre": "K-pop",
+        "foundingDate": "2015-10-20"
+      },
+      "jobTitle": schemaData.positions,
+      "url": `${baseUrl}/members/${schemaData.id}`,
+      "image": `${baseUrl}/images/members/full/${schemaData.id}-full.webp`,
+      "sameAs": schemaData.social.map(s => s.url),
+      "knows": schemaData.funFacts,
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `${baseUrl}/members/${schemaData.id}`
+      }
+    }
+  }
+  
+  // Default WebSite schema
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Know TWICE",
+    "description": description,
+    "url": baseUrl,
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": `${baseUrl}/members/{search_term_string}`
+      },
+      "query-input": "required name=search_term_string"
+    },
+    "about": {
+      "@type": "MusicGroup",
+      "name": "TWICE",
+      "genre": "K-pop",
+      "foundingDate": "2015-10-20",
+      "description": "TWICE is a South Korean girl group formed by JYP Entertainment through the 2015 reality show Sixteen.",
+      "numberOfMembers": 9,
+      "member": [
+        "Nayeon", "Jeongyeon", "Momo", "Sana", "Jihyo", "Mina", "Dahyun", "Chaeyoung", "Tzuyu"
+      ]
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "name": "TWICE Members",
+      "description": "Complete profiles of all TWICE members",
+      "numberOfItems": 9,
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "url": `${baseUrl}/members/nayeon`},
+        {"@type": "ListItem", "position": 2, "url": `${baseUrl}/members/jeongyeon`},
+        {"@type": "ListItem", "position": 3, "url": `${baseUrl}/members/momo`},
+        {"@type": "ListItem", "position": 4, "url": `${baseUrl}/members/sana`},
+        {"@type": "ListItem", "position": 5, "url": `${baseUrl}/members/jihyo`},
+        {"@type": "ListItem", "position": 6, "url": `${baseUrl}/members/mina`},
+        {"@type": "ListItem", "position": 7, "url": `${baseUrl}/members/dahyun`},
+        {"@type": "ListItem", "position": 8, "url": `${baseUrl}/members/chaeyoung`},
+        {"@type": "ListItem", "position": 9, "url": `${baseUrl}/members/tzuyu`}
+      ]
+    }
+  }
+}
 ---
 
 <!doctype html>
@@ -9,9 +105,81 @@ import NavBar from '../components/NavBar.astro';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <link rel="icon" type="image/webp" href="/images/logo.webp" />
+
+    <link rel="preload" href="/fonts/oswald-light.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts/oswald-regular.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="/fonts/oswald-bold.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={schemaType === 'Person' && schemaData 
+      ? `${schemaData.name}, ${schemaData.fullName}, TWICE, K-pop, ${schemaData.nationality}, ${schemaData.positions.join(', ')}, JYP Entertainment, Korean girl group`
+      : "TWICE, K-pop, Nayeon, Jeongyeon, Momo, Sana, Jihyo, Mina, Dahyun, Chaeyoung, Tzuyu, Korean girl group, JYP Entertainment, member profiles"
+    } />
+    <meta name="author" content="Know TWICE" />
+    <meta name="language" content="en" />
+    <meta name="theme-color" content="#FF6B9D" />
+    {canonical && <link rel="canonical" href={canonical} />}
+    {robots && <meta name="robots" content={robots} />}
+
+    <meta property="og:url" content={canonical || 'https://www.knowtwice.com'} />
+    <meta property="og:type" content={schemaType === 'Person' ? 'profile' : 'website'} />
+    <meta property="og:title" content={title} />
+    <meta
+      property="og:description"
+      content={description}
+    />
+    <meta property="og:image" content={schemaType === 'Person' && schemaData ? `https://www.knowtwice.com/images/members/full/${schemaData.id}-full.webp` : 'https://www.knowtwice.com/og.jpg'} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Know TWICE" />
+    {schemaType === 'Person' && schemaData && (
+      <>
+        <meta property="profile:first_name" content={schemaData.name} />
+        <meta property="profile:last_name" content={schemaData.fullName.split(' ').slice(-1)[0]} />
+      </>
+    )}
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@knowtwice" />
+    <meta name="twitter:creator" content="@knowtwice" />
+    <meta name="twitter:title" content={title} />
+    <meta
+      name="twitter:description"
+      content={description}
+    />
+    <meta name="twitter:image" content={schemaType === 'Person' && schemaData ? `https://www.knowtwice.com/images/members/full/${schemaData.id}-full.webp` : 'https://www.knowtwice.com/og.jpg'} />
+
+    <!-- Enhanced Schema.org structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify(generateSchema())}></script>
+    
+    <!-- Breadcrumb schema for member pages -->
+    {schemaType === 'Person' && schemaData && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.knowtwice.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Members",
+            "item": "https://www.knowtwice.com/#members"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": schemaData.name,
+            "item": `https://www.knowtwice.com/members/${schemaData.id}`
+          }
+        ]
+      })}></script>
+    )}
+
     <ClientRouter />
   </head>
   <body class="from-apricot-lightest to-magenta-lightest bg-gradient-to-tr">

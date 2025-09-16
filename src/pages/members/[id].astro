@@ -19,7 +19,13 @@ export const getStaticPaths = (() => {
 }) satisfies GetStaticPaths;
 ---
 
-<Layout>
+<Layout
+  title={`${member.name} (${member.fullName}) - TWICE Member Profile | Know TWICE`}
+  description={`Learn about ${member.name}, a ${member.positions.join(' and ')} of TWICE. Discover ${member.name}'s birthday, nationality, fun facts, social media, and more.`}
+  canonical={`https://www.knowtwice.com/members/${member.id}`}
+  schemaType="Person"
+  schemaData={member}
+>
   <div class="container mx-auto px-4 py-16 md:py-32">
     <div class="flex w-full flex-col gap-6 lg:flex-row">
       <div class="flex-1">
