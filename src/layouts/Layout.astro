@@ -2,6 +2,7 @@
 import { ClientRouter } from 'astro:transitions'
 import '../styles/global.css';
 import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
 
 interface Props {
   title: string
@@ -14,7 +15,7 @@ interface Props {
 
 const {
   title = `Know TWICE - Complete Member Profiles & Information`,
-  description = 'Discover everything about TWICE members - profiles, fun facts, social media, and more. Your complete guide to the K-pop girl group TWICE.',
+  description = 'Discover everything about TWICE members - profiles, fun facts, social media, and more. Your complete guide to the K-pop girl group TWICE. Unofficial fan site - TWICE content © JYP Entertainment.',
   canonical,
   robots,
   schemaType = 'WebSite',
@@ -32,23 +33,29 @@ const generateSchema = () => {
       "@type": "Person",
       "name": schemaData.fullName,
       "alternateName": schemaData.name,
-      "description": `${schemaData.name} is a member of the K-pop girl group TWICE, known for their ${schemaData.positions.join(', ')} roles.`,
+      "description": `${schemaData.name} is a member of the K-pop girl group TWICE, known for their ${schemaData.positions.join(', ')} roles. Information compiled from official sources.`,
       "nationality": schemaData.nationality,
       "birthDate": schemaData.birthday.toISOString().split('T')[0],
       "memberOf": {
         "@type": "MusicGroup",
         "name": "TWICE",
         "genre": "K-pop",
-        "foundingDate": "2015-10-20"
+        "foundingDate": "2015-10-20",
+        "recordLabel": {
+          "@type": "Organization",
+          "name": "JYP Entertainment Co., Ltd."
+        }
       },
       "jobTitle": schemaData.positions,
       "url": `${baseUrl}/members/${schemaData.id}`,
       "image": `${baseUrl}/images/members/full/${schemaData.id}-full.webp`,
       "sameAs": schemaData.social.map(s => s.url),
       "knows": schemaData.funFacts,
+      "copyrightNotice": "Member information and images are property of JYP Entertainment Co., Ltd.",
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": `${baseUrl}/members/${schemaData.id}`
+        "@id": `${baseUrl}/members/${schemaData.id}`,
+        "disclaimer": "This is an unofficial fan page. All content rights belong to JYP Entertainment."
       }
     }
   }
@@ -60,6 +67,13 @@ const generateSchema = () => {
     "name": "Know TWICE",
     "description": description,
     "url": baseUrl,
+    "disclaimer": "This is an unofficial fan website. All TWICE member information, images, and trademarks are the property of JYP Entertainment Co., Ltd.",
+    "copyrightHolder": {
+      "@type": "Organization",
+      "name": "JYP Entertainment Co., Ltd.",
+      "description": "Official entertainment company and copyright holder of TWICE content"
+    },
+    "isBasedOn": "Official TWICE information from JYP Entertainment",
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
@@ -75,6 +89,10 @@ const generateSchema = () => {
       "foundingDate": "2015-10-20",
       "description": "TWICE is a South Korean girl group formed by JYP Entertainment through the 2015 reality show Sixteen.",
       "numberOfMembers": 9,
+      "recordLabel": {
+        "@type": "Organization",
+        "name": "JYP Entertainment Co., Ltd."
+      },
       "member": [
         "Nayeon", "Jeongyeon", "Momo", "Sana", "Jihyo", "Mina", "Dahyun", "Chaeyoung", "Tzuyu"
       ]
@@ -119,6 +137,8 @@ const generateSchema = () => {
     <meta name="author" content="Know TWICE" />
     <meta name="language" content="en" />
     <meta name="theme-color" content="#FF6B9D" />
+    <meta name="copyright" content="TWICE content and trademarks are property of JYP Entertainment. This is an unofficial fan site." />
+    <meta name="disclaimer" content="This is an unofficial fan website. All TWICE member information, images, and trademarks are the property of JYP Entertainment Co., Ltd." />
     {canonical && <link rel="canonical" href={canonical} />}
     {robots && <meta name="robots" content={robots} />}
 
@@ -185,6 +205,7 @@ const generateSchema = () => {
   <body class="from-apricot-lightest to-magenta-lightest bg-gradient-to-tr">
     <NavBar />
     <slot />
+    <Footer />
   </body>
 </html>
 
