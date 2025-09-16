@@ -1,0 +1,35 @@
+---
+import Star from '../assets/member-info/star.svg';
+import Song from '../assets/member-info/song.svg';
+import Info from '../assets/member-info/info.svg';
+import ListCard from './ListCard.astro';
+import type { TMember } from '../types/members';
+
+export interface Props {
+  member: TMember;
+}
+
+const { member } = Astro.props;
+const { positions, songs, funFacts } = member;
+---
+
+<div class="mb-6 flex w-full flex-col gap-6 md:flex-row">
+  <div class="flex-1">
+    <ListCard
+      icon={Star}
+      title="Positions"
+      items={positions}
+      class="h-full"
+    />
+  </div>
+  <div class="flex-1">
+    <ListCard
+      icon={Song}
+      title="Featured Songs"
+      items={[]}
+      class="h-full"
+    />
+  </div>
+</div>
+
+<ListCard icon={Info} title="Fun Facts" items={funFacts} />
