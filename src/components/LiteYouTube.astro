@@ -40,7 +40,7 @@ const { videoId, title, backgroundImage, withShadowImage } = Astro.props;
     </a>
   </lite-youtube>
 
-  <script>
+  <script is:inline>
     // @ts-nocheck
 
     /*
@@ -308,8 +308,12 @@ const { videoId, title, backgroundImage, withShadowImage } = Astro.props;
         }, 100);
       }
     }
-    // Register custom element
-    customElements.define('lite-youtube', LiteYTEmbed);
+
+    document.addEventListener('astro:page-load', () => {
+      console.log('astro:page-load');
+      if (customElements.get('lite-youtube')) return;
+      customElements.define('lite-youtube', LiteYTEmbed);
+    })
   </script>
 
   <style is:global>

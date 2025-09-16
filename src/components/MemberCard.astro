@@ -27,9 +27,8 @@ const { id, src, alt = 'Twice Member', extraClasses = '' } = Astro.props;
 </a>
 
 <script>
-  import { $ } from '../utils/dom-selector';
+  import { $, $$ } from '../utils/dom-selector';
 
-  const memberCards = document.querySelectorAll('.js-member-card');
   let timeoutToChangeMember: ReturnType<typeof setTimeout> | null = null;
   let selectedMemberIdMobile: string | null = null;
 
@@ -45,14 +44,14 @@ const { id, src, alt = 'Twice Member', extraClasses = '' } = Astro.props;
   const clearPreviousSelection = () => {
     if (!selectedMemberIdMobile) return;
 
-    const previousCard = document.querySelector(
+    const previousCard = $(
       `[data-id="${selectedMemberIdMobile}"]`,
     );
     const previousExtraClasses =
       previousCard?.getAttribute('data-extra-classes') || '';
     const previousBgClass = extractBgClass(previousExtraClasses);
     const previousImage = previousCard
-      ? $<HTMLImageElement>('img', previousCard as HTMLElement)
+      ? $<HTMLImageElement>('img', previousCard)
       : null;
 
     previousCard?.classList.remove(
@@ -95,13 +94,13 @@ const { id, src, alt = 'Twice Member', extraClasses = '' } = Astro.props;
   const clearMobileSelection = () => {
     if (!selectedMemberIdMobile) return;
 
-    const selectedCard = document.querySelector(
+    const selectedCard = $(
       `[data-id="${selectedMemberIdMobile}"]`,
     );
     const extraClasses = selectedCard?.getAttribute('data-extra-classes') || '';
     const bgClass = extractBgClass(extraClasses);
     const selectedImage = selectedCard
-      ? $<HTMLImageElement>('img', selectedCard as HTMLElement)
+      ? $<HTMLImageElement>('img', selectedCard)
       : null;
 
     selectedCard?.classList.remove('border-2', 'border-magenta', bgClass);
@@ -170,12 +169,16 @@ const { id, src, alt = 'Twice Member', extraClasses = '' } = Astro.props;
     });
   };
 
-  if (memberCards) {
-    memberCards.forEach((card) => {
-      mouseEnterDesktop(card);
-      mouseLeaveDesktop(card);
-      handleMobileTouch(card);
-      handleTouchOutside(card);
-    });
-  }
+  document.addEventListener('astro:page-load', () => {
+    const memberCards = $$('.js-member-card');
+
+    if (memberCards) {
+      memberCards.forEach((card) => {
+        mouseEnterDesktop(card);
+        mouseLeaveDesktop(card);
+        handleMobileTouch(card);
+        handleTouchOutside(card);
+      });
+    }
+  })
 </script>

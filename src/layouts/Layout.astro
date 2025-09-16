@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from 'astro:transitions'
 import '../styles/global.css';
 import NavBar from '../components/NavBar.astro';
 ---
@@ -11,6 +12,7 @@ import NavBar from '../components/NavBar.astro';
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>Astro Basics</title>
+    <ClientRouter />
   </head>
   <body class="from-apricot-lightest to-magenta-lightest bg-gradient-to-tr">
     <NavBar />

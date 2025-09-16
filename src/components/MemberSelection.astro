@@ -99,35 +99,44 @@ const thirdColumn = MEMBERS.slice(6, 9);
   import { $ } from '../utils/dom-selector';
   let currentMemberId: string | null = null;
 
-  document.addEventListener('member-card-hover', (event: Event) => {
-    const customEvent = event as CustomEvent<{ id: string }>;
-    const id = customEvent.detail.id;
-    const newMemberImage = $(`[data-id='full-image-${id}']`);
-    const centeredLogo = $('.js-center-logo');
-
-    if (currentMemberId === id) return;
-
-    if (currentMemberId) {
-      const currentMemberImage = $(`[data-id='full-image-${currentMemberId}']`);
-      currentMemberImage?.classList.add('hidden');
-    }
-
-    newMemberImage?.classList.remove('animate-fade-out-down', 'hidden');
-    newMemberImage?.classList.add('animate-fade-in-up');
-    centeredLogo?.classList.add('hidden');
-
-    currentMemberId = id;
-  });
-
-  document.addEventListener('member-card-exit', () => {
-    if (currentMemberId) {
-      const currentMemberImage = $(`[data-id='full-image-${currentMemberId}']`);
+  const handleMemberCardHover = () => {
+    document.addEventListener('member-card-hover', (event: Event) => {
+      const customEvent = event as CustomEvent<{ id: string }>;
+      const id = customEvent.detail.id;
+      const newMemberImage = $(`[data-id='full-image-${id}']`);
       const centeredLogo = $('.js-center-logo');
 
-      currentMemberImage?.classList.add('animate-fade-out-down');
-      centeredLogo?.classList.remove('hidden');
+      if (currentMemberId === id) return;
 
-      currentMemberId = null;
-    }
-  });
+      if (currentMemberId) {
+        const currentMemberImage = $(`[data-id='full-image-${currentMemberId}']`);
+        currentMemberImage?.classList.add('hidden');
+      }
+
+      newMemberImage?.classList.remove('animate-fade-out-down', 'hidden');
+      newMemberImage?.classList.add('animate-fade-in-up');
+      centeredLogo?.classList.add('hidden');
+
+      currentMemberId = id;
+    });
+  }
+
+  const handleMemberCardExit = () => {
+    document.addEventListener('member-card-exit', () => {
+      if (currentMemberId) {
+        const currentMemberImage = $(`[data-id='full-image-${currentMemberId}']`);
+        const centeredLogo = $('.js-center-logo');
+
+        currentMemberImage?.classList.add('animate-fade-out-down');
+        centeredLogo?.classList.remove('hidden');
+
+        currentMemberId = null;
+      }
+    });
+  }
+
+  document.addEventListener('astro:page-load', () => {
+    handleMemberCardHover();
+    handleMemberCardExit();
+  })
 </script>
