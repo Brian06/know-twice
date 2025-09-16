@@ -169,8 +169,21 @@ const { id, src, alt = 'Twice Member', extraClasses = '' } = Astro.props;
     });
   };
 
+  const resetMemberSelection = (memberCards: NodeListOf<HTMLElement>) => {
+    memberCards?.forEach((card) => {
+      const extraClasses = card.getAttribute('data-extra-classes') || '';
+      const bgClass = extractBgClass(extraClasses);
+      const image = $<HTMLImageElement>('img', card);
+      
+      card.classList.remove('border-2', 'border-magenta', bgClass);
+      image?.classList.remove('translate-y-5', 'scale-120');
+    });
+  }
+
   document.addEventListener('astro:page-load', () => {
     const memberCards = $$('.js-member-card');
+    selectedMemberIdMobile = null;
+    resetMemberSelection(memberCards);
 
     if (memberCards) {
       memberCards.forEach((card) => {
