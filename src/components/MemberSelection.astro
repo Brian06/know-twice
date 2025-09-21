@@ -109,7 +109,9 @@ const thirdColumn = MEMBERS.slice(6, 9);
       if (currentMemberId === id) return;
 
       if (currentMemberId) {
-        const currentMemberImage = $(`[data-id='full-image-${currentMemberId}']`);
+        const currentMemberImage = $(
+          `[data-id='full-image-${currentMemberId}']`,
+        );
         currentMemberImage?.classList.add('hidden');
       }
 
@@ -119,12 +121,14 @@ const thirdColumn = MEMBERS.slice(6, 9);
 
       currentMemberId = id;
     });
-  }
+  };
 
   const handleMemberCardExit = () => {
     document.addEventListener('member-card-exit', () => {
       if (currentMemberId) {
-        const currentMemberImage = $(`[data-id='full-image-${currentMemberId}']`);
+        const currentMemberImage = $(
+          `[data-id='full-image-${currentMemberId}']`,
+        );
         const centeredLogo = $('.js-center-logo');
 
         currentMemberImage?.classList.add('animate-fade-out-down');
@@ -133,7 +137,7 @@ const thirdColumn = MEMBERS.slice(6, 9);
         currentMemberId = null;
       }
     });
-  }
+  };
 
   const resetMemberSelection = () => {
     const allMemberImages = $$('[data-id^="full-image-"]');
@@ -141,16 +145,16 @@ const thirdColumn = MEMBERS.slice(6, 9);
       img.classList.add('hidden');
       img.classList.remove('animate-fade-in-up', 'animate-fade-out-down');
     });
-    
+
     const centeredLogo = $('.js-center-logo');
     centeredLogo?.classList.remove('hidden');
-  }
+  };
 
   document.addEventListener('astro:page-load', () => {
     currentMemberId = null;
-    
+
     resetMemberSelection();
     handleMemberCardHover();
     handleMemberCardExit();
-  })
+  });
 </script>

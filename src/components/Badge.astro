@@ -9,11 +9,11 @@ const { text, variant = 'working' } = Astro.props;
 const variantClasses = {
   working: 'bg-yellow-400 text-black',
   new: 'bg-green-400 text-black',
-  'coming-soon': 'bg-blue-400 text-white'
+  'coming-soon': 'bg-blue-400 text-white',
 };
 ---
 
-<span 
+<span
   class={`absolute -bottom-4 left-1/2 transform -translate-x-1/2 text-xs px-1 rounded-full ${variantClasses[variant]}`}
 >
   {text}

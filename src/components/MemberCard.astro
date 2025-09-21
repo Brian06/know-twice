@@ -46,9 +46,7 @@ const { id, src, alt = 'Twice Member', extraClasses = '' } = Astro.props;
   const clearPreviousSelection = () => {
     if (!selectedMemberIdMobile) return;
 
-    const previousCard = $(
-      `[data-id="${selectedMemberIdMobile}"]`,
-    );
+    const previousCard = $(`[data-id="${selectedMemberIdMobile}"]`);
     const previousExtraClasses =
       previousCard?.getAttribute('data-extra-classes') || '';
     const previousBgClass = extractBgClass(previousExtraClasses);
@@ -96,9 +94,7 @@ const { id, src, alt = 'Twice Member', extraClasses = '' } = Astro.props;
   const clearMobileSelection = () => {
     if (!selectedMemberIdMobile) return;
 
-    const selectedCard = $(
-      `[data-id="${selectedMemberIdMobile}"]`,
-    );
+    const selectedCard = $(`[data-id="${selectedMemberIdMobile}"]`);
     const extraClasses = selectedCard?.getAttribute('data-extra-classes') || '';
     const bgClass = extractBgClass(extraClasses);
     const selectedImage = selectedCard
@@ -176,11 +172,11 @@ const { id, src, alt = 'Twice Member', extraClasses = '' } = Astro.props;
       const extraClasses = card.getAttribute('data-extra-classes') || '';
       const bgClass = extractBgClass(extraClasses);
       const image = $<HTMLImageElement>('img', card);
-      
+
       card.classList.remove('border-2', 'border-magenta', bgClass);
       image?.classList.remove('translate-y-5', 'scale-120');
     });
-  }
+  };
 
   document.addEventListener('astro:page-load', () => {
     const memberCards = $$('.js-member-card');
@@ -195,5 +191,5 @@ const { id, src, alt = 'Twice Member', extraClasses = '' } = Astro.props;
         handleTouchOutside(card);
       });
     }
-  })
+  });
 </script>

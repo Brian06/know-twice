@@ -1,12 +1,19 @@
 ---
+import type { TSong } from '../types/members';
+import MusicPlatformLinks from './MusicPlatformLinks.astro';
+
 export interface Props {
   icon: any;
   title: string;
-  items: string[];
+  items: string[] | TSong[];
   class?: string;
 }
 
 const { icon: Icon, title, items, class: className } = Astro.props;
+
+const isSong = (item: string | TSong): item is TSong => {
+  return typeof item === 'object' && item !== null && 'title' in item && 'links' in item;
+};
 ---
 
 <div class={`rounded-2xl bg-white p-4 drop-shadow-md ${className || ''}`}>
@@ -14,7 +21,23 @@ const { icon: Icon, title, items, class: className } = Astro.props;
     <Icon width={18} height={18} />
     <p class="text-magenta font-bold">{title}</p>
   </div>
-  <ul class="marker:text-magenta list-inside list-disc">
-    {items.map((item) => <li>{item}</li>)}
+
+  <ul class="marker:text-magenta list-outside list-disc ml-4">
+    {items.map((item) => (
+      <li>
+        <div class="flex items-center flex-wrap gap-2">
+          <span>
+            {isSong(item) ? item.title : item}
+          </span>
+          
+          {isSong(item) && (
+            <MusicPlatformLinks 
+              links={item.links} 
+              songTitle={item.title}
+            />
+          )}
+        </div>
+      </li>
+    ))}
   </ul>
 </div>

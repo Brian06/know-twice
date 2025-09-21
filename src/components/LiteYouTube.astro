@@ -35,7 +35,8 @@ const { videoId, title, backgroundImage, withShadowImage } = Astro.props;
       role="button"
       aria-label={title || `Play video ${videoId}`}
     >
-      <span class="lyt-visually-hidden">{title || `Play video ${videoId}`}</span>
+      <span class="lyt-visually-hidden">{title || `Play video ${videoId}`}</span
+      >
     </a>
   </lite-youtube>
 
@@ -312,7 +313,7 @@ const { videoId, title, backgroundImage, withShadowImage } = Astro.props;
       if (!document.querySelector('lite-youtube')) return;
       if (customElements.get('lite-youtube')) return;
       customElements.define('lite-youtube', LiteYTEmbed);
-    })
+    });
   </script>
 
   <style is:global>
