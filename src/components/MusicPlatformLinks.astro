@@ -21,31 +21,32 @@ interface PlatformConfig {
 const { links, songTitle, class: className } = Astro.props;
 
 const platformConfig: Record<PlatformType, PlatformConfig> = {
-  'youtube': { component: Youtube, label: 'YouTube' },
+  youtube: { component: Youtube, label: 'YouTube' },
   'youtube-music': { component: YoutubeMusic, label: 'YouTube Music' },
-  'spotify': { component: Spotify, label: 'Spotify' },
-  'appleMusic': { component: AppleMusic, label: 'Apple Music' }
+  spotify: { component: Spotify, label: 'Spotify' },
+  appleMusic: { component: AppleMusic, label: 'Apple Music' },
 };
 
 const getPlatformLinks = (links: TMusicLink[]): TMusicLink[] => {
   const linksByPlatform = new Map<PlatformType, TMusicLink>();
-  
-  links.forEach(link => {
+
+  links.forEach((link) => {
     const platform = link.platform as PlatformType;
     if (platformConfig[platform]) {
       linksByPlatform.set(platform, link);
     }
   });
-  
+
   const result: TMusicLink[] = [];
-  const youtubeLink = linksByPlatform.get('youtube') || linksByPlatform.get('youtube-music');
+  const youtubeLink =
+    linksByPlatform.get('youtube') || linksByPlatform.get('youtube-music');
   if (youtubeLink) result.push(youtubeLink);
-  
-  (['spotify', 'appleMusic'] as PlatformType[]).forEach(platform => {
+
+  (['spotify', 'appleMusic'] as PlatformType[]).forEach((platform) => {
     const link = linksByPlatform.get(platform);
     if (link) result.push(link);
   });
-  
+
   return result;
 };
 
@@ -53,10 +54,10 @@ const renderPlatformIcon = (link: TMusicLink) => {
   const platform = link.platform as PlatformType;
   const config = platformConfig[platform];
   if (!config) return null;
-  
+
   return {
     component: config.component,
-    label: config.label
+    label: config.label,
   };
 };
 
@@ -64,26 +65,28 @@ const platformLinks = getPlatformLinks(links);
 ---
 
 <div class={`flex gap-2 ${className || ''}`}>
-  {platformLinks.map((link) => {
-    const iconData = renderPlatformIcon(link);
-    if (!iconData) return null;
-    
-    const { component: IconComponent, label } = iconData;
-    const ariaLabel = songTitle 
-      ? `Listen to ${songTitle} on ${label}`
-      : `Listen on ${label}`;
-    
-    return (
-      <a 
-        href={link.url} 
-        target="_blank" 
-        rel="noopener noreferrer"
-        class="inline-flex items-center justify-center w-5 h-5 hover:scale-130 transition-all"
-        title={`Listen on ${label}`}
-        aria-label={ariaLabel}
-      >
-        <IconComponent width={18} height={18} />
-      </a>
-    );
-  })}
+  {
+    platformLinks.map((link) => {
+      const iconData = renderPlatformIcon(link);
+      if (!iconData) return null;
+
+      const { component: IconComponent, label } = iconData;
+      const ariaLabel = songTitle
+        ? `Listen to ${songTitle} on ${label}`
+        : `Listen on ${label}`;
+
+      return (
+        <a
+          href={link.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex h-5 w-5 items-center justify-center transition-all hover:scale-130"
+          title={`Listen on ${label}`}
+          aria-label={ariaLabel}
+        >
+          <IconComponent width={18} height={18} />
+        </a>
+      );
+    })
+  }
 </div>

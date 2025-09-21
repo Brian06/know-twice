@@ -12,7 +12,12 @@ export interface Props {
 const { icon: Icon, title, items, class: className } = Astro.props;
 
 const isSong = (item: string | TSong): item is TSong => {
-  return typeof item === 'object' && item !== null && 'title' in item && 'links' in item;
+  return (
+    typeof item === 'object' &&
+    item !== null &&
+    'title' in item &&
+    'links' in item
+  );
 };
 ---
 
@@ -22,22 +27,19 @@ const isSong = (item: string | TSong): item is TSong => {
     <p class="text-magenta font-bold">{title}</p>
   </div>
 
-  <ul class="marker:text-magenta list-outside list-disc ml-4">
-    {items.map((item) => (
-      <li>
-        <div class="flex items-center flex-wrap gap-2">
-          <span>
-            {isSong(item) ? item.title : item}
-          </span>
-          
-          {isSong(item) && (
-            <MusicPlatformLinks 
-              links={item.links} 
-              songTitle={item.title}
-            />
-          )}
-        </div>
-      </li>
-    ))}
+  <ul class="marker:text-magenta ml-4 list-outside list-disc">
+    {
+      items.map((item) => (
+        <li>
+          <div class="flex flex-wrap items-center gap-2">
+            <span>{isSong(item) ? item.title : item}</span>
+
+            {isSong(item) && (
+              <MusicPlatformLinks links={item.links} songTitle={item.title} />
+            )}
+          </div>
+        </li>
+      ))
+    }
   </ul>
 </div>
