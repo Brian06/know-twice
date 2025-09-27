@@ -3,8 +3,6 @@ import MemberCard from './MemberCard.astro';
 import CenteredLogo from './CenteredLogo.astro';
 import MemberImages from './MemberImages.astro';
 import { MEMBERS } from '../const/members';
-import { getHoverClass } from '../utils/styles';
-import type { TmemberId } from '../types/member-derived';
 
 const firstColumn = MEMBERS.slice(0, 3);
 const secondColumn = MEMBERS.slice(3, 6);
@@ -30,7 +28,7 @@ const thirdColumn = MEMBERS.slice(6, 9);
           MEMBERS.map(({ id }, index) => (
             <MemberCard
               id={id}
-              extraClasses={`${getHoverClass(id as TmemberId)} animate-fade-in-up animate-delay-${(index + 1) * 100}`}
+              extraClasses={`hover:bg-${id} animate-fade-in-up animate-delay-${(index + 1) * 100}`}
               src={`/images/members/cards/${id}.webp`}
               alt={id}
             />
@@ -50,7 +48,7 @@ const thirdColumn = MEMBERS.slice(6, 9);
               firstColumn.map(({ id }, index) => (
                 <MemberCard
                   id={id}
-                  extraClasses={`${getHoverClass(id as TmemberId)} animate-fade-in-right animate-delay-${(index + 1) * 100}`}
+                  extraClasses={`hover:bg-${id} animate-fade-in-right animate-delay-${(index + 1) * 100}`}
                   src={`/images/members/cards/${id}.webp`}
                   alt={id}
                 />
@@ -66,7 +64,7 @@ const thirdColumn = MEMBERS.slice(6, 9);
               secondColumn.map(({ id }, index) => (
                 <MemberCard
                   id={id}
-                  extraClasses={`${getHoverClass(id as TmemberId)} animate-fade-in-up animate-delay-${(index + 1) * 100}`}
+                  extraClasses={`hover:bg-${id} animate-fade-in-up animate-delay-${(index + 1) * 100}`}
                   src={`/images/members/cards/${id}.webp`}
                   alt={id}
                 />
@@ -82,7 +80,7 @@ const thirdColumn = MEMBERS.slice(6, 9);
               thirdColumn.map(({ id }, index) => (
                 <MemberCard
                   id={id}
-                  extraClasses={`${getHoverClass(id as TmemberId)} animate-fade-in-left animate-delay-${(index + 1) * 100}`}
+                  extraClasses={`hover:bg-${id} animate-fade-in-left animate-delay-${(index + 1) * 100}`}
                   src={`/images/members/cards/${id}.webp`}
                   alt={id}
                 />

@@ -4,7 +4,6 @@ import Nationality from '../assets/member-info/nationality.svg';
 import Color from '../assets/member-info/color.svg';
 import Instagram from '../assets/member-info/instagram.svg';
 import InfoItem from './InfoItem.astro';
-import { getBackgroundClass, getOutlineClass } from '../utils/styles';
 import type { TMember } from '../types/members';
 import type { TmemberId } from '../types/member-derived';
 
@@ -20,7 +19,7 @@ const instagram = social.find((social) => social.platform === 'instagram');
 
 <div class="rounded-2xl bg-white p-4 drop-shadow-md">
   <div
-    class={`bg-apricot relative mx-auto h-[166px] w-[160px] rounded-full mb-6 overflow-hidden outline-5 ${getOutlineClass(id)}`}
+    class={`bg-apricot relative mx-auto h-[166px] w-[160px] rounded-full mb-6 overflow-hidden outline-5 outline-${id}`}
   >
     <img
       src={`/images/members/cards/${id}.webp`}
@@ -43,7 +42,7 @@ const instagram = social.find((social) => social.platform === 'instagram');
       icon={Color}
       label="Color:"
       value={color}
-      colorClass={getBackgroundClass(id)}
+      colorClass={`bg-${id}`}
     />
     <InfoItem
       icon={Instagram}

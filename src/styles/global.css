@@ -125,6 +125,93 @@
   .animate-delay-1000 {
     animation-delay: 1000ms;
   }
+
+  /* Member background colors */
+  .bg-nayeon {
+    background-color: var(--color-nayeon);
+  }
+  .bg-jeongyeon {
+    background-color: var(--color-jeongyeon);
+  }
+  .bg-momo {
+    background-color: var(--color-momo);
+  }
+  .bg-sana {
+    background-color: var(--color-sana);
+  }
+  .bg-jihyo {
+    background-color: var(--color-jihyo);
+  }
+  .bg-mina {
+    background-color: var(--color-mina);
+  }
+  .bg-dahyun {
+    background-color: var(--color-dahyun);
+  }
+  .bg-chaeyoung {
+    background-color: var(--color-chaeyoung);
+  }
+  .bg-tzuyu {
+    background-color: var(--color-tzuyu);
+  }
+
+  /* Member outline colors */
+  .outline-nayeon {
+    outline-color: var(--color-nayeon);
+  }
+  .outline-jeongyeon {
+    outline-color: var(--color-jeongyeon);
+  }
+  .outline-momo {
+    outline-color: var(--color-momo);
+  }
+  .outline-sana {
+    outline-color: var(--color-sana);
+  }
+  .outline-jihyo {
+    outline-color: var(--color-jihyo);
+  }
+  .outline-mina {
+    outline-color: var(--color-mina);
+  }
+  .outline-dahyun {
+    outline-color: var(--color-dahyun);
+  }
+  .outline-chaeyoung {
+    outline-color: var(--color-chaeyoung);
+  }
+  .outline-tzuyu {
+    outline-color: var(--color-tzuyu);
+  }
+
+  /* Member hover background colors */
+  .hover\:bg-nayeon:hover {
+    background-color: var(--color-nayeon);
+  }
+  .hover\:bg-jeongyeon:hover {
+    background-color: var(--color-jeongyeon);
+  }
+  .hover\:bg-momo:hover {
+    background-color: var(--color-momo);
+  }
+  .hover\:bg-sana:hover {
+    background-color: var(--color-sana);
+  }
+  .hover\:bg-jihyo:hover {
+    background-color: var(--color-jihyo);
+  }
+  .hover\:bg-mina:hover {
+    background-color: var(--color-mina);
+  }
+  .hover\:bg-dahyun:hover {
+    background-color: var(--color-dahyun);
+  }
+  .hover\:bg-chaeyoung:hover {
+    background-color: var(--color-chaeyoung);
+  }
+  .hover\:bg-tzuyu:hover {
+    background-color: var(--color-tzuyu);
+  }
 }
 
 html {
