@@ -25,7 +25,12 @@ test.describe("Homepage Tests", () => {
 
   test("should display the member full image when hovered", async ({
     page,
-  }) => {
+  }, testInfo) => {
+    test.skip(
+      testInfo.project.name.includes('Mobile'),
+      'Desktop tests are skipped on mobile projects'
+    );
+
     const membersIds = MEMBERS.map((member) => member.id);
 
     for (const memberId of membersIds) {
@@ -40,7 +45,12 @@ test.describe("Homepage Tests", () => {
 
   test("should navigate to member detail page when clicked", async ({
     page,
-  }) => {
+  }, testInfo) => {
+    test.skip(
+      testInfo.project.name.includes('Mobile'),
+      'Desktop tests are skipped on mobile projects'
+    );
+
     const membersIds = MEMBERS.map((member) => member.id);
 
     for (const memberId of membersIds) {
@@ -73,5 +83,64 @@ test.describe("Homepage Tests", () => {
     const iframe = page.locator("lite-youtube iframe");
     await expect(iframe).toBeVisible({ timeout: 5000 });
     await expect(iframe).toHaveAttribute("src", /autoplay=1/);
+  });
+});
+
+test.describe("Homepage Mobile Tests", () => {
+  test.beforeEach(async ({ page }, testInfo) => {
+    test.skip(
+      !testInfo.project.name.includes('Mobile'),
+      'Desktop tests are skipped on mobile projects'
+    );
+
+    await page.goto("/");
+  });
+
+  test("should display the member full image when tapped (mobile)", async ({
+    page,
+  }) => {
+    test.skip(
+      !page.viewportSize() || page.viewportSize()!.width > 768,
+      "This test is only for mobile viewports"
+    );
+
+    const membersIds = MEMBERS.map((member) => member.id);
+
+    for (const memberId of membersIds) {
+      const memberLink = page.getByRole("link", { name: memberId });
+      await expect(memberLink).toBeVisible();
+      
+      await memberLink.tap();
+      await expect(page.getByTestId("twice-centered-logo")).toBeHidden();
+      await expect(page.getByTestId(`full-image-${memberId}`)).toBeVisible();
+      
+      await page.tap('body', { position: { x: 10, y: 10 } });
+      await expect(page.getByTestId("twice-centered-logo")).toBeVisible();
+    }
+  });
+
+  test("should navigate to member detail page with double tap (mobile)", async ({
+    page,
+  }) => {
+    test.skip(
+      !page.viewportSize() || page.viewportSize()!.width > 768,
+      "This test is only for mobile viewports"
+    );
+
+    const membersIds = MEMBERS.map((member) => member.id);
+
+    for (const memberId of membersIds) {
+      const memberLink = page.getByRole("link", { name: memberId });
+      await expect(memberLink).toBeVisible();
+      
+      await memberLink.tap();
+      await expect(page.getByTestId(`full-image-${memberId}`)).toBeVisible();
+      
+      await memberLink.tap();
+      await expect(page).toHaveURL(`/members/${memberId}`);
+      
+      await page.goBack();
+      await expect(page).toHaveURL("/");
+    }
   });
 });
