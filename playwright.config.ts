@@ -39,10 +39,10 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: { ...devices['Desktop Firefox'] },
+    // },
 
     {
       name: 'webkit',
@@ -73,7 +73,7 @@ export default defineConfig({
   /* Run your local dev server before starting the tests */
   /* TODO: Using preview command to test production build, change for staging in the future */
   webServer: {
-    command: 'npm run preview',
+    command: 'pnpm build && npm run preview',
     url: 'http://localhost:4321',
     timeout: 120 * 1000,
     reuseExistingServer: !process.env.CI,

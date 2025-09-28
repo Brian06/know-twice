@@ -9,7 +9,7 @@ test.describe("Homepage Tests", () => {
   test("should load the homepage", async ({ page }) => {
     await expect(page).toHaveTitle(/Know TWICE/);
     await expect(page.getByTestId("twice-centered-logo")).toBeVisible();
-    await expect(page.getByText("Last Comeback")).toBeVisible();
+    await expect(page.getByTestId("comeback-heading")).toBeVisible();
     await expect(page).toHaveURL("/");
   });
 
@@ -54,7 +54,7 @@ test.describe("Homepage Tests", () => {
   });
 
   test("should display comeback section", async ({ page }) => {
-    await expect(page.getByText("Last Comeback")).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Last Comeback" })).toBeVisible();
   });
 
   test("should play the video in the last comeback section", async ({
