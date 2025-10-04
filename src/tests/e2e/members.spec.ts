@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { MEMBERS } from "../const/members";
+import { MEMBERS } from "../../const/members";
 
 test.describe("Members Page Tests", () => {
   MEMBERS.forEach((member) => {
