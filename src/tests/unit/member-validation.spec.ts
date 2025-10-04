@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { isMemberId, getMemberById } from '../../types/member-derived';
+import { isMemberId, getMemberById } from '../../utils/member-utils';
 import { MEMBERS } from '../../const/members';
 import type { TmemberId } from '../../types/member-derived';
 import type { TMember } from '../../types/members';
