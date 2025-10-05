@@ -1,17 +1,16 @@
-import { link } from "fs";
+import type { TDiscography } from "../types/discography";
 
-export const DISCOGRAPHY = [
+export const DISCOGRAPHY: TDiscography[] = [
   {
-    id: "the-story-begins",
     name: "The Story Begins",
-    subName: "1st Mini Album",
+    unit: ["twice"],
     releaseDate: new Date("2015-10-03"),
     types: ["mini-album"],
-    market: "Korean",
+    market: "korean",
     songs: [
       {
         title: "Like OOH-AHH",
-        links: "https://youtu.be/0rtV5esQT6I?si=XDDHfSUtX8-HyuiB",
+        link: "https://youtu.be/0rtV5esQT6I?si=XDDHfSUtX8-HyuiB",
       },
       {
         title: "Do It Again",
@@ -31,16 +30,15 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "page-two",
     name: "Page Two",
-    subName: "2nd Mini Album",
+    unit: ["twice"],
     releaseDate: new Date("2016-04-25"),
     types: ["mini-album"],
-    market: "Korean",
+    market: "korean",
     songs: [
       {
         title: "CHEER UP",
-        links: "https://youtu.be/c7rCyll5AeY?si=ynE2G4Pbk6wUMkiG",
+        link: "https://youtu.be/c7rCyll5AeY?si=ynE2G4Pbk6wUMkiG",
       },
       {
         title: "Precious Love",
@@ -63,12 +61,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "twicecoaster-lane-1",
     name: "TWICEcoaster: Lane 1",
-    subName: "3rd Mini Album",
+    unit: ["twice"],
     releaseDate: new Date("2016-10-24"),
     types: ["mini-album"],
-    market: "Korean",
+    market: "korean",
     songs: [
       {
         title: "TT",
@@ -95,12 +92,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "twicecoaster-lane-2",
     name: "TWICEcoaster: Lane 2",
-    subName: "Repackaged Mini Album",
+    unit: ["twice"],
     releaseDate: new Date("2017-02-20"),
     types: ["repackage", "mini-album"],
-    market: "Korean",
+    market: "korean",
     songs: [
       {
         title: "Knock Knock",
@@ -148,12 +144,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "whats-this",
     name: "Whats's This?",
-    subName: "Digital Mini Album",
+    unit: ["twice"],
     releaseDate: new Date("2017-02-24"),
     types: ["mini-album", "digital"],
-    market: "Korean",
+    market: "korean",
     songs: [
       {
         title: "Like Ooh-Ahh",
@@ -167,12 +162,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "signal",
     name: "Signal",
-    subName: "4th Mini Album",
+    unit: ["twice"],
     releaseDate: new Date("2017-05-15"),
     types: ["mini-album"],
-    market: "Korean",
+    market: "korean",
     songs: [
       {
         title: "Signal",
@@ -196,12 +190,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "#twice",
     name: "#TWICE",
-    subName: "Japanese Mini Album",
-    releaseDate: new Date("2017-06-28"),
+    unit: ["twice"],
     types: ["mini-album"],
-    market: "Japanese",
+    market: "japanese",
+    releaseDate: new Date("2017-06-28"),
     songs: [
       {
         title: "Like Ooh-Ahh (Japanese Ver.)",
@@ -239,12 +232,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "one-more-time",
     name: "One More Time",
-    subName: "Japanese Single",
-    releaseDate: new Date("2017-10-18"),
+    unit: ["twice"],
     types: ["single"],
-    market: "Japanese",
+    market: "japanese",
+    releaseDate: new Date("2017-10-18"),
     songs: [
       {
         title: "One More Time",
@@ -262,12 +254,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "twicetagram",
     name: "Twicetagram",
-    subName: "Full Album",
-    releaseDate: new Date("2017-10-30"),
+    unit: ["twice"],
     types: ["full-album"],
-    market: "Korean",
+    market: "korean",
+    releaseDate: new Date("2017-10-30"),
     songs: [
       {
         title: "Likey",
@@ -312,12 +303,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "merry-happy",
     name: "Merry & Happy",
-    subName: "Repackaged Full Album",
-    releaseDate: new Date("2017-12-11"),
+    unit: ["twice"],
     types: ["repackage", "full-album"],
-    market: "Korean",
+    market: "korean",
+    releaseDate: new Date("2017-12-11"),
     songs: [
       {
         title: "Heart Shaker",
@@ -369,12 +359,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "candy-pop",
     name: "Candy Pop",
-    subName: "Japanese Single",
-    releaseDate: new Date("2018-02-07"),
+    unit: ["twice"],
     types: ["single"],
-    market: "Japanese",
+    market: "japanese",
+    releaseDate: new Date("2018-02-07"),
     songs: [
       {
         title: "Candy Pop",
@@ -393,12 +382,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "what-is-love",
     name: "What is Love?",
-    subName: "5th Mini Album",
+    unit: ["twice"],
     releaseDate: new Date("2018-04-09"),
     types: ["mini-album"],
-    market: "Korean",
+    market: "korean",
     songs: [
       {
         title: "What is Love?",
@@ -422,12 +410,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "wake-me-up",
     name: "Wake Me Up",
-    subName: "Japanese Single",
+    unit: ["twice"],
     releaseDate: new Date("2018-05-16"),
     types: ["single"],
-    market: "Japanese",
+    market: "japanese",
     songs: [
       {
         title: "Wake Me Up",
@@ -445,12 +432,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "i-want-you-back",
     name: "I Want You Back",
-    subName: "Japanese Single",
-    releaseDate: new Date("2018-06-15"),
+    unit: ["twice"],
     types: ["single"],
-    market: "Japanese",
+    market: "japanese",
+    releaseDate: new Date("2018-06-15"),
     songs: [
       {
         title: "I Want You Back",
@@ -461,10 +447,10 @@ export const DISCOGRAPHY = [
   {
     id: "summer-nights",
     name: "Summer Nights",
-    subName: "Repackaged Mini Album",
+    unit: ["twice"],
     releaseDate: new Date("2018-07-09"),
     types: ["mini-album", "repackage"],
-    market: "Korean",
+    market: "korean",
     songs: [
       {
         title: "Dance The Night Away",
@@ -497,12 +483,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "bdz",
     name: "BDZ",
-    subName: "1st Japanese Full Album",
+    unit: ["twice"],
     releaseDate: new Date("2018-09-12"),
     types: ["full-album"],
-    market: "Japanese",
+    market: "japanese",
     songs: [
       {
         title: "BDZ",
@@ -541,12 +526,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "stay-by-my-side",
     name: "Stay By My Side",
-    subName: "Japanese Single",
+    unit: ["twice"],
     releaseDate: new Date("2018-10-22"),
     types: ["single"],
-    market: "Japanese",
+    market: "japanese",
     songs: [
       {
         title: "Stay By My Side",
@@ -555,12 +539,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "yes-or-yes",
     name: "YES or YES",
-    subName: "6th Mini Album",
+    unit: ["twice"],
     releaseDate: new Date("2018-11-05"),
     types: ["mini-album"],
-    market: "Korean",
+    market: "korean",
     songs: [
       {
         title: "YES or YES",
@@ -577,10 +560,10 @@ export const DISCOGRAPHY = [
   {
     id: "the-year-of-yes",
     name: "The Year of “YES”",
-    subName: "Repackaged Mini Album",
+    unit: ["twice"],
     releaseDate: new Date("2018-12-12"),
     types: ["mini-album", "repackage"],
-    market: "Korean",
+    market: "korean",
     songs: [
       {
         title: "The Best Thing I Ever Did",
@@ -599,10 +582,10 @@ export const DISCOGRAPHY = [
   {
     id: "bdz-repackage",
     name: "BDZ -Repackage-",
-    subName: "Japanese Repackaged Full Album",
+    unit: ["twice"],
     releaseDate: new Date("2018-12-26"),
     types: ["full-album", "repackage"],
-    market: "Japanese",
+    market: "japanese",
     songs: [
       {
         title: "Stay By My Side",
@@ -621,12 +604,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "#twice2",
     name: "#TWICE2",
-    subName: "Repackaged Japanese Mini Album",
-    releaseDate: new Date("2019-03-06"),
+    unit: ["twice"],
     types: ["mini-album", "repackage"],
-    market: "Japanese",
+    market: "japanese",
+    releaseDate: new Date("2019-03-06"),
     songs: [
       {
         title: "Likey (Japanese Ver.)",
@@ -646,12 +628,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "fancy-you",
     name: "Fancy You",
-    subName: "7th Mini Album",
+    unit: ["twice"],
     releaseDate: new Date("2019-04-22"),
     types: ["mini-album"],
-    market: "Korean",
+    market: "korean",
     songs: [
       {
         title: "Fancy",
@@ -665,12 +646,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "happy-happy",
     name: "Happy Happy",
-    subName: "Japanese Single",
+    unit: ["twice"],
     releaseDate: new Date("2019-07-17"),
     types: ["single"],
-    market: "Japanese",
+    market: "japanese",
     songs: [
       {
         title: "Happy Happy",
@@ -682,12 +662,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "breakthrough",
     name: "Breakthrough",
-    subName: "Japanese Single",
+    unit: ["twice"],
     releaseDate: new Date("2019-07-24"),
     types: ["single"],
-    market: "Japanese",
+    market: "japanese",
     songs: [
       {
         title: "Breakthrough",
@@ -699,12 +678,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "feel-special",
     name: "Feel Special",
-    subName: "8th Mini Album",
+    unit: ["twice"],
     releaseDate: new Date("2019-09-23"),
     types: ["mini-album"],
-    market: "Korean",
+    market: "korean",
     songs: [
       {
         title: "Feel Special",
@@ -719,12 +697,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "&twice",
     name: "&TWICE",
-    subName: "Japanese Full Album",
+    unit: ["twice"],
     releaseDate: new Date("2019-11-19"),
     types: ["full-album"],
-    market: "Japanese",
+    market: "japanese",
     songs: [
       {
         title: "Fake & True",
@@ -744,10 +721,10 @@ export const DISCOGRAPHY = [
   {
     id: "&twice-repackage",
     name: "&TWICE -Repackage",
-    subName: "Japanese Repackaged Full Album",
+    unit: ["twice"],
     releaseDate: new Date("2020-02-05"),
     types: ["full-album", "repackage"],
-    market: "Japanese",
+    market: "japanese",
     songs: [
       { title: "Swing" },
       { title: "Fake & True" },
@@ -763,12 +740,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "more-and-more",
     name: "More & More",
-    subName: "9th Mini Album",
+    unit: ["twice"],
     releaseDate: new Date("2020-06-01"),
     types: ["mini-album"],
-    market: "Korean",
+    market: "korean",
     songs: [
       {
         title: "More & More",
@@ -783,12 +759,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "fanfare",
     name: "Fanfare",
-    subName: "Japanese Single",
+    unit: ["twice"],
     releaseDate: new Date("2020-07-08"),
     types: ["single"],
-    market: "Japanese",
+    market: "japanese",
     songs: [
       { title: "Fanfare" },
       { title: "More & More (Japanese Ver.)" },
@@ -797,21 +772,19 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "more-and-more-english",
     name: "More & More (English Ver.)",
-    subName: "English Single",
-    releaseDate: new Date("2020-08-21"),
+    unit: ["twice"],
     types: ["single"],
-    market: "English",
+    market: "english",
+    releaseDate: new Date("2020-08-21"),
     songs: [{ title: "More & More (English Ver.)" }],
   },
   {
-    id: "#twice3",
     name: "#TWICE3",
-    subName: "Japanese Mini Album",
-    releaseDate: new Date("2020-09-16"),
+    unit: ["twice"],
     types: ["mini-album"],
-    market: "Japanese",
+    market: "japanese",
+    releaseDate: new Date("2020-09-16"),
     songs: [
       { title: "The Best Thing I Ever Did (Japanese Ver.)" },
       { title: "Fancy (Japanese Ver.)" },
@@ -828,12 +801,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "eyes-wide-open",
     name: "Eyes Wide Open",
-    subName: "2nd Full Album",
-    releaseDate: new Date("2020-10-26"),
+    unit: ["twice"],
     types: ["full-album"],
-    market: "Korean",
+    market: "korean",
+    releaseDate: new Date("2020-10-26"),
     songs: [
       {
         title: "I Can't Stop Me",
@@ -854,12 +826,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "better",
     name: "BETTER",
-    subName: "Japanese Single",
-    releaseDate: new Date("2020-11-18"),
+    unit: ["twice"],
     types: ["single"],
-    market: "Japanese",
+    market: "japanese",
+    releaseDate: new Date("2020-11-18"),
     songs: [
       { title: "BETTER" },
       { title: "Scorpion" },
@@ -868,21 +839,19 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "i-cant-stop-me-english",
     name: "I Can't Stop Me (English Ver.)",
-    subName: "Second English Digital Single",
-    releaseDate: new Date("2020-11-30"),
+    unit: ["twice"],
     types: ["single", "digital"],
-    market: "English",
+    market: "english",
+    releaseDate: new Date("2020-11-30"),
     songs: [{ title: "I Can't Stop Me (English Ver.)" }],
   },
   {
-    id: "cry-for-me",
     name: "Cry For Me",
-    subName: "Single",
+    unit: ["twice"],
     releaseDate: new Date("2020-12-18"),
     types: ["single"],
-    market: "Korean",
+    market: "korean",
     songs: [
       {
         title: "Cry For Me",
@@ -891,12 +860,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "kura-kura",
     name: "Kura Kura",
-    subName: "Japanese Single",
+    unit: ["twice"],
     releaseDate: new Date("2021-05-12"),
     types: ["single"],
-    market: "Japanese",
+    market: "japanese",
     songs: [
       {
         title: "Kura Kura",
@@ -908,12 +876,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "taste-of-love",
     name: "Taste Of Love",
-    subName: "10th Mini Album",
+    unit: ["twice"],
     releaseDate: new Date("2021-06-11"),
     types: ["mini-album"],
-    market: "Korean",
+    market: "korean",
     songs: [
       {
         title: "Alcohol-Free",
@@ -928,23 +895,22 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "hospital-playlist-ost",
     name: "HOSPITAL PLAYLIST Season2, Pt. 4",
-    subName: "OST Single",
+    unit: ["twice"],
     releaseDate: new Date("2021-07-09"),
     types: ["single", "ost"],
-    market: "Korean",
+    market: "korean",
     songs: [
       { title: "I love you more than anyone" },
       { title: "I love you more than anyone - Instrumental" },
     ],
   },
   {
-    id: "#perfect-world",
-    title: "Perfect World",
-    releaseDate: "2021-07-28",
-    type: ["full-album"],
-    market: "Japanese",
+    name: "Perfect World",
+    unit: ["twice"],
+    releaseDate: new Date("2021-07-28"),
+    types: ["full-album"],
+    market: "japanese",
     songs: [
       {
         title: "Perfect World",
@@ -962,11 +928,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "#the-feels",
-    title: "The Feels",
-    releaseDate: "2021-10-01",
-    type: ["single"],
-    market: "English",
+    name: "The Feels",
+    unit: ["twice"],
+    releaseDate: new Date("2021-10-01"),
+    types: ["single"],
+    market: "english",
     songs: [
       {
         title: "The Feels",
@@ -980,11 +946,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "#formula-of-love",
-    title: "Formula of Love: O+T=<3",
-    releaseDate: "2021-11-12",
-    type: ["full-album"],
-    market: "Korean",
+    name: "Formula of Love: O+T=<3",
+    unit: ["twice"],
+    releaseDate: new Date("2021-11-12"),
+    types: ["full-album"],
+    market: "korean",
     songs: [
       {
         title: "Scientist",
@@ -1009,11 +975,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "#doughnut",
-    title: "Doughnut",
-    releaseDate: "2021-12-15",
-    type: ["single"],
-    market: "Japanese",
+    name: "Doughnut",
+    unit: ["twice"],
+    releaseDate: new Date("2021-12-15"),
+    types: ["single"],
+    market: "japanese",
     songs: [
       {
         title: "Doughnut",
@@ -1025,11 +991,11 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "#twice4",
-    title: "#TWICE4 (Japanese ver.)",
-    releaseDate: "2022-03-16",
-    type: ["mini-album"],
-    market: "Japanese",
+    name: "#TWICE4 (Japanese ver.)",
+    unit: ["twice"],
+    releaseDate: new Date("2022-03-16"),
+    types: ["mini-album"],
+    market: "japanese",
     songs: [
       { title: "I Can't Stop Me - Japanese ver." },
       { title: "Cry For Me - Japanese ver." },
@@ -1038,19 +1004,20 @@ export const DISCOGRAPHY = [
     ],
   },
   {
-    id: "#just-be-yourself",
-    title: "Just Be Yourself",
-    releaseDate: "2022-03-21",
-    type: ["single"],
-    market: "Japanese",
+    name: "Just Be Yourself",
+    unit: ["twice"],
+    releaseDate: new Date("2022-03-21"),
+    types: ["single"],
+    market: "japanese",
     songs: [{ title: "Just Be Yourself" }],
   },
   {
     id: "#celebrate",
-    title: "Celebrate",
-    releaseDate: "2022-07-27",
-    type: ["full-album"],
-    market: "Japanese",
+    name: "Celebrate",
+    unit: ["twice"],
+    releaseDate: new Date("2022-07-27"),
+    types: ["full-album"],
+    market: "japanese",
     songs: [
       {
         title: "Celebrate",
@@ -1068,10 +1035,11 @@ export const DISCOGRAPHY = [
   },
   {
     id: "#between-1&2",
-    title: "Between 1&2",
-    releaseDate: "2022-08-26",
-    type: ["mini-album"],
-    market: "Korean",
+    name: "Between 1&2",
+    unit: ["twice"],
+    releaseDate: new Date("2022-08-26"),
+    types: ["mini-album"],
+    market: "korean",
     songs: [
       {
         title: "Talk That Talk",
@@ -1087,10 +1055,11 @@ export const DISCOGRAPHY = [
   },
   {
     id: "#moonlight-sunrise",
-    title: "Moonlight Sunrise",
-    releaseDate: "2023-01-20",
-    type: ["single", "digital"],
-    market: "English",
+    name: "Moonlight Sunrise",
+    unit: ["twice"],
+    releaseDate: new Date("2023-01-20"),
+    types: ["single", "digital"],
+    market: "english",
     songs: [
       {
         title: "Moonlight Sunrise",
@@ -1100,10 +1069,11 @@ export const DISCOGRAPHY = [
   },
   {
     id: "ready-to-be",
-    title: "READY TO BE",
-    releaseDate: "2023-03-10",
-    type: ["mini-album"],
-    market: "Korean",
+    name: "READY TO BE",
+    unit: ["twice"],
+    releaseDate: new Date("2023-03-10"),
+    types: ["mini-album"],
+    market: "korean",
     songs: [
       {
         title: "SET ME FREE",
@@ -1119,10 +1089,11 @@ export const DISCOGRAPHY = [
   },
   {
     id: "hare-hare-pre",
-    title: "Hare Hare",
-    releaseDate: "2023-05-12",
-    type: ["single"],
-    market: "Japanese",
+    name: "Hare Hare",
+    unit: ["twice"],
+    releaseDate: new Date("2023-05-12"),
+    types: ["single"],
+    market: "japanese",
     songs: [
       {
         title: "Hare Hare",
@@ -1132,10 +1103,11 @@ export const DISCOGRAPHY = [
   },
   {
     id: "#hare-hare",
-    title: "Hare Hare",
-    releaseDate: "2023-05-31",
-    type: ["mini-album"],
-    market: "Japanese",
+    name: "Hare Hare",
+    unit: ["twice"],
+    releaseDate: new Date("2023-05-31"),
+    types: ["mini-album"],
+    market: "japanese",
     songs: [
       {
         title: "Hare Hare",
@@ -1148,18 +1120,20 @@ export const DISCOGRAPHY = [
   },
   {
     id: "#heart-shaker-remix",
-    title: "Heart Shaker (GALACTIKA * Holiday Remix)",
-    releaseDate: "2023-11-07",
-    type: ["single", "remix"],
-    market: "Korean",
+    name: "Heart Shaker (GALACTIKA * Holiday Remix)",
+    unit: ["twice"],
+    releaseDate: new Date("2023-11-07"),
+    types: ["single"],
+    market: "korean",
     songs: [{ title: "Heart Shaker (GALACTIKA * Holiday Remix)" }],
   },
   {
     id: "the-remixes",
-    title: "THE REMIXES",
-    releaseDate: "2023-11-17",
-    type: ["single", "remix"],
-    market: "Korean",
+    name: "THE REMIXES",
+    unit: ["twice"],
+    releaseDate: new Date("2023-11-17"),
+    types: ["single"],
+    market: "korean",
     songs: [
       { title: "MOONLIGHT SUNRISE (Jonas Blue Remix)" },
       { title: "The Feels (Ian Asher Remix)" },
@@ -1172,10 +1146,11 @@ export const DISCOGRAPHY = [
   },
   {
     id: "dance-again",
-    title: "Dance Again",
-    releaseDate: "2023-12-12",
-    type: ["single"],
-    market: "Japanese",
+    name: "Dance Again",
+    unit: ["twice"],
+    releaseDate: new Date("2023-12-12"),
+    types: ["single"],
+    market: "japanese",
     songs: [
       {
         title: "Dance Again",
@@ -1185,18 +1160,20 @@ export const DISCOGRAPHY = [
   },
   {
     id: "i-got-you-pre",
-    title: "I GOT YOU",
-    releaseDate: "2024-02-02",
-    type: ["single"],
-    market: "Korean",
+    name: "I GOT YOU",
+    unit: ["twice"],
+    releaseDate: new Date("2024-02-02"),
+    types: ["single"],
+    market: "korean",
     songs: [{ title: "I GOT YOU" }],
   },
   {
     id: "#i-got-you-remix-ep",
-    title: "I GOT YOU  (Voyage ver.)",
-    releaseDate: "2024-02-06",
-    type: ["mini-album", "remix"],
-    market: "Korean",
+    name: "I GOT YOU  (Voyage ver.)",
+    unit: ["twice"],
+    releaseDate: new Date("2024-02-06"),
+    types: ["mini-album"],
+    market: "korean",
     songs: [
       { title: "I GOT YOU (Voyage ver.)" },
       { title: "I GOT YOU (Feat. Lauv)" },
@@ -1215,13 +1192,20 @@ export const DISCOGRAPHY = [
   },
   {
     id: "with-you-th",
-    title: "With YOU-th",
-    releaseDate: "2024-02-23",
-    type: ["mini-album"],
-    market: "Korean",
+    name: "With YOU-th",
+    unit: ["twice"],
+    releaseDate: new Date("2024-02-23"),
+    types: ["mini-album"],
+    market: "korean",
     songs: [
-      { title: "I GOT YOU", link: "https://youtu.be/haf67eKF0uo?si=2IqcPS6dAeaf01a3" },
-      { title: "ONE SPARK", link: "https://youtu.be/jCzez_q8si0?si=yPGAODsp98RCPX57" },
+      {
+        title: "I GOT YOU",
+        link: "https://youtu.be/haf67eKF0uo?si=2IqcPS6dAeaf01a3",
+      },
+      {
+        title: "ONE SPARK",
+        link: "https://youtu.be/jCzez_q8si0?si=yPGAODsp98RCPX57",
+      },
       { title: "RUSH" },
       { title: "NEW NEW" },
       { title: "BLOOM" },
@@ -1230,10 +1214,11 @@ export const DISCOGRAPHY = [
   },
   {
     id: "#one-spark",
-    title: "ONE SPARK",
-    releaseDate: "2024-02-26",
-    type: ["single"],
-    market: "Korean",
+    name: "ONE SPARK",
+    unit: ["twice"],
+    releaseDate: new Date("2024-02-26"),
+    types: ["single"],
+    market: "korean",
     songs: [
       { title: "ONE SPARK (English ver.)" },
       { title: "ONE SPARK (House ver.)" },
@@ -1245,18 +1230,25 @@ export const DISCOGRAPHY = [
   },
   {
     id: "#dive-pre",
-    title: "DIVE",
-    releaseDate: "2024-07-10",
-    type: ["single"],
-    market: "Japanese",
-    songs: [{ title: "DIVE", link: "https://youtu.be/QGCkDOkpWf8?si=mg4wwJdLkslmAb9n" }],
+    name: "DIVE",
+    unit: ["twice"],
+    releaseDate: new Date("2024-07-10"),
+    types: ["single"],
+    market: "japanese",
+    songs: [
+      {
+        title: "DIVE",
+        link: "https://youtu.be/QGCkDOkpWf8?si=mg4wwJdLkslmAb9n",
+      },
+    ],
   },
   {
     id: "#dive",
-    title: "DIVE",
-    releaseDate: "2024-07-17",
-    type: ["full-album"],
-    market: "Japanese",
+    name: "DIVE",
+    unit: ["twice"],
+    releaseDate: new Date("2024-07-17"),
+    types: ["full-album"],
+    market: "japanese",
     songs: [
       { title: "Beyond the Horizon" },
       { title: "DIVE" },
@@ -1272,20 +1264,25 @@ export const DISCOGRAPHY = [
   },
   {
     id: "#mamushi-remix",
-    title: "Mamushi (Remix) [feat. TWICE]",
-    releaseDate: "2024-10-24",
-    type: ["single"],
-    market: "English",
+    name: "Mamushi (Remix) [feat. TWICE]",
+    unit: ["twice"],
+    releaseDate: new Date("2024-10-24"),
+    types: ["single"],
+    market: "english",
     songs: [{ title: "Mamushi (Remix) [feat. TWICE]" }],
   },
   {
     id: "strategy",
-    title: "STRATEGY",
-    releaseDate: "2024-12-06",
-    type: ["mini-album"],
-    market: "Korean",
+    name: "STRATEGY",
+    unit: ["twice"],
+    releaseDate: new Date("2024-12-06"),
+    types: ["mini-album"],
+    market: "korean",
     songs: [
-      { title: "Strategy (feat. Megan Thee Stallion)", link: "https://youtu.be/Sz_wWzgh-vQ?si=gf_2ADfNKPvFAHts" },
+      {
+        title: "Strategy (feat. Megan Thee Stallion)",
+        link: "https://youtu.be/Sz_wWzgh-vQ?si=gf_2ADfNKPvFAHts",
+      },
       { title: "Kiss My Troubles Away" },
       { title: "Like It Like It" },
       { title: "Sweetest Obsession" },
@@ -1296,18 +1293,20 @@ export const DISCOGRAPHY = [
   },
   {
     id: "the-wish",
-    title: "The wish",
-    releaseDate: "2024-12-16",
-    type: ["single"],
-    market: "Japanese",
+    name: "The wish",
+    unit: ["twice"],
+    releaseDate: new Date("2024-12-16"),
+    types: ["single"],
+    market: "japanese",
     songs: [{ title: "The wish" }],
   },
   {
     id: "#strategy-remix",
-    title: "Strategy 2.0",
-    releaseDate: "2024-12-18",
-    type: ["single", "remix"],
-    market: "English",
+    name: "Strategy 2.0",
+    unit: ["twice"],
+    releaseDate: new Date("2024-12-18"),
+    types: ["single"],
+    market: "english",
     songs: [
       { title: "Strategy (version 1.0)" },
       { title: "Strategy (Slom Remix)" },
@@ -1316,5 +1315,191 @@ export const DISCOGRAPHY = [
       { title: "Strategy (Inst.)" },
     ],
   },
-  
+  {
+    id: "#talk-that-talk",
+    name: "Talk that Talk (Japanese ver.)",
+    unit: ["twice"],
+    releaseDate: new Date("2025-04-14"),
+    types: ["single"],
+    market: "japanese",
+    songs: [
+      {
+        title: "Talk that Talk (Japanese ver.)",
+        link: "https://www.youtube.com/watch?v=UVmbuPOqqPg&t=51s",
+      },
+    ],
+  },
+  {
+    id: "#we-pray",
+    name: "WE PRAY (TWICE Version)",
+    unit: ["twice"],
+    releaseDate: new Date("2025-04-17"),
+    types: ["single"],
+    market: "english",
+    songs: [
+      {
+        title:
+          "WE PRAY (TWICE Version) (feat. Little Simz, Burna Boy, Elyanna)",
+      },
+    ],
+  },
+  {
+    id: "#twice5",
+    name: "#TWICE5",
+    unit: ["twice"],
+    releaseDate: new Date("2025-05-14"),
+    types: ["mini-album"],
+    market: "japanese",
+    songs: [
+      { title: "Talk that Talk (Japanese ver.)" },
+      { title: "SET ME FREE (Japanese ver.)" },
+      { title: "ONE SPARK (Japanese ver.)" },
+      { title: "Talk that Talk" },
+      { title: "SET ME FREE" },
+      { title: "I GOT YOU" },
+      { title: "ONE SPARK" },
+      { title: "Strategy" },
+    ],
+  },
+  {
+    id: "#kpop-demon-hunters",
+    name: "KPop Demon Hunters",
+    unit: ["twice"],
+    releaseDate: new Date("2025-06-20"),
+    types: ["single", "ost"],
+    market: "korean",
+    songs: [
+      { title: "TAKEDOWN (JEONGYEON, JIHYO, CHAEYOUNG)" },
+      { title: "Strategy" },
+    ],
+  },
+  {
+    id: "#four",
+    name: "THIS IS FOR",
+    subName: "Deluxe Album",
+    unit: ["twice"],
+    releaseDate: new Date("2025-07-11"),
+    types: ["full-album"],
+    market: "korean",
+    songs: [
+      { title: "FOUR" },
+      {
+        title: "THIS IS FOR",
+        link: "https://youtu.be/eHHQaoEW30Q?si=apjBn-LzQUcQDOK8",
+      },
+      { title: "OPTIONS" },
+      { title: "MARS" },
+      { title: "RIGHT HAND GIRL" },
+      { title: "PEACH GELATO" },
+      { title: "HI HELLO" },
+      { title: "BATTITUDE (NAYEON, JEONGYEON, MOMO, MINA)" },
+      { title: "DAT AAH DAT OOH (SANA, JIHYO, DAHYUN, CHAEYOUNG, TZUYU)" },
+      { title: "LET LOVE GO (JEONGYEON, MOMO, SANA, TZUYU)" },
+      { title: "G.O.A.T (MINA, DAHYUN, CHAEYOUNG)" },
+      { title: "TALK (NAYEON, JIHYO)" },
+      { title: "SEESAW" },
+    ],
+  },
+  {
+    id: "four-deluxe",
+    name: "THIS IS FOR DELUXE",
+    unit: ["twice"],
+    releaseDate: new Date("2025-07-14"),
+    types: ["full-album"],
+    market: "korean",
+    songs: [
+      { title: "FOUR" },
+      { title: "THIS IS FOR" },
+      { title: "OPTIONS" },
+      { title: "MARS" },
+      { title: "RIGHT HAND GIRL" },
+      { title: "PEACH GELATO" },
+      { title: "HI HELLO" },
+      { title: "BATTITUDE (NAYEON, JEONGYEON, MOMO, MINA)" },
+      { title: "DAT AAH DAT OOH (SANA, JIHYO, DAHYUN, CHAEYOUNG, TZUYU)" },
+      { title: "LET LOVE GO (JEONGYEON, MOMO, SANA, TZUYU)" },
+      { title: "G.O.A.T (MINA, DAHYUN, CHAEYOUNG)" },
+      { title: "TALK (NAYEON, JIHYO)" },
+      { title: "SEESAW" },
+      { title: "HEARTBREAK AVENUE" },
+      { title: "THIS IS FOR (Extended)" },
+      { title: "TAKEDOWN (JEONGYEON, JIHYO, CHAEYOUNG) (Kpop Demon Hunters)" },
+    ],
+  },
+  {
+    id: "#enemy-pre",
+    name: "ENEMY",
+    unit: ["twice"],
+    releaseDate: new Date("2025-07-30"),
+    types: ["single"],
+    market: "japanese",
+    songs: [
+      {
+        title: "ENEMY",
+        link: "https://youtu.be/xWldBK4d2Ps?si=LTeiQx2DCUo2a2ny",
+      },
+    ],
+  },
+  {
+    id: "#superstars",
+    name: "superstars (with Saweetie)",
+    unit: ["twice"],
+    releaseDate: new Date("2025-08-01"),
+    types: ["single"],
+    market: "english",
+    songs: [{ title: "superstars (with Saweetie)" }],
+  },
+  {
+    id: "#like-1",
+    name: "Like 1",
+    unit: ["twice"],
+    releaseDate: new Date("2025-08-20"),
+    types: ["single"],
+    market: "japanese",
+    songs: [
+      {
+        title: "Like 1",
+        link: "https://youtu.be/Xtfxxo4QgJA?si=B1jK4M1Ut57H72FU",
+      },
+    ],
+  },
+  {
+    id: "#enemy",
+    name: "ENEMY",
+    unit: ["twice"],
+    releaseDate: new Date("2025-08-27"),
+    types: ["full-album"],
+    market: "japanese",
+    songs: [
+      { title: "Up to you" },
+      { title: "ENEMY" },
+      { title: "FINE" },
+      { title: "One day" },
+      { title: "Blind in Love" },
+      { title: "Love is more" },
+      { title: "The wish" },
+      { title: "Glow" },
+      { title: "Like 1" },
+    ],
+  },
+  {
+    id: "#special-album",
+    name: "TEN: The Story Goes On",
+    unit: ["twice"],
+    releaseDate: new Date("2025-10-10"),
+    types: ["mini-album"],
+    market: "korean",
+    songs: [
+      { title: "ME+YOU" },
+      { title: "MEEEEEE (NAYEON)" },
+      { title: "FIX A DRINK (JEONGYEON)" },
+      { title: "MOVE LIKE THAT (MOMO)" },
+      { title: "DECAFFEINATED (SANA)" },
+      { title: "ATM (JIHYO)" },
+      { title: "STONE COLD (MINA)" },
+      { title: "CHESS (DAHYUN)" },
+      { title: "IN MY ROOM (CHAEYOUNG)" },
+      { title: "DIVE IN (TZUYU)" },
+    ],
+  },
 ];

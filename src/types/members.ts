@@ -28,9 +28,20 @@ export type Tposition =
   | "Main-Rapper"
   | "Maknae";
 
+export type TmemberName =
+  | "Nayeon"
+  | "Jeongyeon"
+  | "Momo"
+  | "Sana"
+  | "Jihyo"
+  | "Mina"
+  | "Dahyun"
+  | "Chaeyoung"
+  | "Tzuyu";
+
 export type TMemberBase = {
   id: string;
-  name: string;
+  name: TmemberName;
   fullName: string;
   emoji: string;
   color: string;
