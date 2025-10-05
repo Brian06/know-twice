@@ -27,8 +27,8 @@ test.describe("Homepage Tests", () => {
     page,
   }, testInfo) => {
     test.skip(
-      testInfo.project.name.includes('Mobile'),
-      'Desktop tests are skipped on mobile projects'
+      testInfo.project.name.includes("Mobile"),
+      "Desktop tests are skipped on mobile projects",
     );
 
     const membersIds = MEMBERS.map((member) => member.id);
@@ -47,8 +47,8 @@ test.describe("Homepage Tests", () => {
     page,
   }, testInfo) => {
     test.skip(
-      testInfo.project.name.includes('Mobile'),
-      'Desktop tests are skipped on mobile projects'
+      testInfo.project.name.includes("Mobile"),
+      "Desktop tests are skipped on mobile projects",
     );
 
     const membersIds = MEMBERS.map((member) => member.id);
@@ -64,7 +64,9 @@ test.describe("Homepage Tests", () => {
   });
 
   test("should display comeback section", async ({ page }) => {
-    await expect(page.getByRole("heading", { name: "Last Comeback" })).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "Last Comeback" }),
+    ).toBeVisible();
   });
 
   test("should play the video in the last comeback section", async ({
@@ -89,8 +91,8 @@ test.describe("Homepage Tests", () => {
 test.describe("Homepage Mobile Tests", () => {
   test.beforeEach(async ({ page }, testInfo) => {
     test.skip(
-      !testInfo.project.name.includes('Mobile'),
-      'Desktop tests are skipped on mobile projects'
+      !testInfo.project.name.includes("Mobile"),
+      "Desktop tests are skipped on mobile projects",
     );
 
     await page.goto("/");
@@ -101,7 +103,7 @@ test.describe("Homepage Mobile Tests", () => {
   }) => {
     test.skip(
       !page.viewportSize() || page.viewportSize()!.width > 768,
-      "This test is only for mobile viewports"
+      "This test is only for mobile viewports",
     );
 
     const membersIds = MEMBERS.map((member) => member.id);
@@ -109,12 +111,12 @@ test.describe("Homepage Mobile Tests", () => {
     for (const memberId of membersIds) {
       const memberLink = page.getByRole("link", { name: memberId });
       await expect(memberLink).toBeVisible();
-      
+
       await memberLink.tap();
       await expect(page.getByTestId("twice-centered-logo")).toBeHidden();
       await expect(page.getByTestId(`full-image-${memberId}`)).toBeVisible();
-      
-      await page.tap('body', { position: { x: 10, y: 10 } });
+
+      await page.tap("body", { position: { x: 10, y: 10 } });
       await expect(page.getByTestId("twice-centered-logo")).toBeVisible();
     }
   });
@@ -124,7 +126,7 @@ test.describe("Homepage Mobile Tests", () => {
   }) => {
     test.skip(
       !page.viewportSize() || page.viewportSize()!.width > 768,
-      "This test is only for mobile viewports"
+      "This test is only for mobile viewports",
     );
 
     const membersIds = MEMBERS.map((member) => member.id);
@@ -132,13 +134,13 @@ test.describe("Homepage Mobile Tests", () => {
     for (const memberId of membersIds) {
       const memberLink = page.getByRole("link", { name: memberId });
       await expect(memberLink).toBeVisible();
-      
+
       await memberLink.tap();
       await expect(page.getByTestId(`full-image-${memberId}`)).toBeVisible();
-      
+
       await memberLink.tap();
       await expect(page).toHaveURL(`/members/${memberId}`);
-      
+
       await page.goBack();
       await expect(page).toHaveURL("/");
     }

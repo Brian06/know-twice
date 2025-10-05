@@ -27,8 +27,15 @@ const instagram = social.find((social) => social.platform === 'instagram');
       class="absolute h-full w-full object-cover"
     />
   </div>
-  <p class="text-magenta mb-1 text-center text-lg font-bold" data-testid="member-name">{name}</p>
-  <p class="mb-1 text-center text-sm" data-testid="member-full-name">{fullName}</p>
+  <p
+    class="text-magenta mb-1 text-center text-lg font-bold"
+    data-testid="member-name"
+  >
+    {name}
+  </p>
+  <p class="mb-1 text-center text-sm" data-testid="member-full-name">
+    {fullName}
+  </p>
   <p class="text-center text-sm" data-testid="member-emoji">{emoji}</p>
 
   <div class="mt-6 flex flex-col gap-5">

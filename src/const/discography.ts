@@ -72,7 +72,7 @@ export const DISCOGRAPHY = [
     songs: [
       {
         title: "TT",
-        link: "https://youtu.be/ePpPVE-GGJw?si=rKbIn6YxCFZi8Pwr"
+        link: "https://youtu.be/ePpPVE-GGJw?si=rKbIn6YxCFZi8Pwr",
       },
       {
         title: "1 to 10",
@@ -104,7 +104,7 @@ export const DISCOGRAPHY = [
     songs: [
       {
         title: "Knock Knock",
-        link: "https://youtu.be/8A2t_tAjMz8?si=0FU4jnOL6hZLVYr9"
+        link: "https://youtu.be/8A2t_tAjMz8?si=0FU4jnOL6hZLVYr9",
       },
       {
         title: "Ice Cream",
@@ -156,7 +156,7 @@ export const DISCOGRAPHY = [
     market: "Korean",
     songs: [
       {
-          title: "Like Ooh-Ahh",
+        title: "Like Ooh-Ahh",
       },
       {
         title: "Cheer Up",
@@ -176,7 +176,7 @@ export const DISCOGRAPHY = [
     songs: [
       {
         title: "Signal",
-        link: "https://youtu.be/VQtonf1fv_s?si=8c9ZkxxgJNs8w-MF"
+        link: "https://youtu.be/VQtonf1fv_s?si=8c9ZkxxgJNs8w-MF",
       },
       {
         title: "Three Times a Day",
@@ -205,21 +205,21 @@ export const DISCOGRAPHY = [
     songs: [
       {
         title: "Like Ooh-Ahh (Japanese Ver.)",
-        link: "https://youtu.be/1iLF3zr5mUM?si=hKy28HCNWi6eWTKo"
+        link: "https://youtu.be/1iLF3zr5mUM?si=hKy28HCNWi6eWTKo",
       },
       {
         title: "Cheer Up (Japanese Ver.)",
       },
       {
         title: "TT (Japanese Ver.)",
-        link: "https://youtu.be/t35H2BVq490?si=WZMGBdoeRk1BlOSN"
+        link: "https://youtu.be/t35H2BVq490?si=WZMGBdoeRk1BlOSN",
       },
       {
         title: "Knock Knock (Japanese Ver.)",
       },
       {
         title: "Signal (Japanese Ver.)",
-        link: "https://youtu.be/nrNWpxFflr4?si=n4hIefOxgb40ZZNg"
+        link: "https://youtu.be/nrNWpxFflr4?si=n4hIefOxgb40ZZNg",
       },
       {
         title: "Like Ooh-Ahh",
@@ -248,7 +248,7 @@ export const DISCOGRAPHY = [
     songs: [
       {
         title: "One More Time",
-        link: "https://youtu.be/HuoOEry-Yc4?si=bw4DgoEq7dBJdtQ4"
+        link: "https://youtu.be/HuoOEry-Yc4?si=bw4DgoEq7dBJdtQ4",
       },
       {
         title: "Luv Me",
@@ -271,7 +271,7 @@ export const DISCOGRAPHY = [
     songs: [
       {
         title: "Likey",
-        link: "https://youtu.be/V2hlQkVJZhE?si=I0yxXN-kiY95c1Qm"
+        link: "https://youtu.be/V2hlQkVJZhE?si=I0yxXN-kiY95c1Qm",
       },
       {
         title: "Turtle",
@@ -321,11 +321,11 @@ export const DISCOGRAPHY = [
     songs: [
       {
         title: "Heart Shaker",
-        link: "https://youtu.be/rRzxEiBLQCA?si=TC6Z6HoAXJndc2TO"
+        link: "https://youtu.be/rRzxEiBLQCA?si=TC6Z6HoAXJndc2TO",
       },
       {
         title: "Merry & Happy",
-        link: "https://youtu.be/zi_6oaQyckM?si=9Ai4GdGz6GmITJ2I"
+        link: "https://youtu.be/zi_6oaQyckM?si=9Ai4GdGz6GmITJ2I",
       },
       {
         title: "Likey",
@@ -378,11 +378,11 @@ export const DISCOGRAPHY = [
     songs: [
       {
         title: "Candy Pop",
-        link: "https://youtu.be/wQ_POfToaVY?si=LiBbD9ZlpktmQlTM"
+        link: "https://youtu.be/wQ_POfToaVY?si=LiBbD9ZlpktmQlTM",
       },
       {
         title: "Brand New Girl",
-        link: "https://youtu.be/r1CMjQ0QJ1E?si=PhTGMPkXcelnh7AK"
+        link: "https://youtu.be/r1CMjQ0QJ1E?si=PhTGMPkXcelnh7AK",
       },
       {
         title: "Candy Pop (Instrumental)",
@@ -402,7 +402,7 @@ export const DISCOGRAPHY = [
     songs: [
       {
         title: "What is Love?",
-        link: "https://youtu.be/i0p1bmr0EmE?si=fwBY53P6-0kWkzNA"
+        link: "https://youtu.be/i0p1bmr0EmE?si=fwBY53P6-0kWkzNA",
       },
       {
         title: "Sweet Talker",
@@ -431,7 +431,7 @@ export const DISCOGRAPHY = [
     songs: [
       {
         title: "Wake Me Up",
-        link: "https://youtu.be/DdLYSziSXII?si=d9dunDZ07Hw6C17C"
+        link: "https://youtu.be/DdLYSziSXII?si=d9dunDZ07Hw6C17C",
       },
       {
         title: "Pink Lemonade",
@@ -454,7 +454,7 @@ export const DISCOGRAPHY = [
     songs: [
       {
         title: "I Want You Back",
-        link: "https://youtu.be/4OjLyOyMcNg?si=GEAoRk6t9ZzovHhO"
+        link: "https://youtu.be/4OjLyOyMcNg?si=GEAoRk6t9ZzovHhO",
       },
     ],
   },
@@ -468,7 +468,7 @@ export const DISCOGRAPHY = [
     songs: [
       {
         title: "Dance The Night Away",
-        link: "https://youtu.be/Fm5iP0S1z9w?si=5a0mXhJwlx4Up64O"
+        link: "https://youtu.be/Fm5iP0S1z9w?si=5a0mXhJwlx4Up64O",
       },
       {
         title: "Chillax",
@@ -477,7 +477,7 @@ export const DISCOGRAPHY = [
         title: "Shot Thru the Heart",
       },
       {
-        title: "What is Love?"
+        title: "What is Love?",
       },
       {
         title: "Sweet Talker",
@@ -506,15 +506,15 @@ export const DISCOGRAPHY = [
     songs: [
       {
         title: "BDZ",
-        link: "https://youtu.be/CMNahhgR_ss?si=TxQ3r6j0cU8g3AqS"
+        link: "https://youtu.be/CMNahhgR_ss?si=TxQ3r6j0cU8g3AqS",
       },
       {
         title: "One More Time",
-        link: "https://youtu.be/HuoOEry-Yc4?si=bYc5JxHj5w2Dbe3Z"
+        link: "https://youtu.be/HuoOEry-Yc4?si=bYc5JxHj5w2Dbe3Z",
       },
       {
         title: "Candy Pop",
-        link: "https://youtu.be/wQ_POfToaVY?si=J9TtO0Urx54vmyUg"
+        link: "https://youtu.be/wQ_POfToaVY?si=J9TtO0Urx54vmyUg",
       },
       {
         title: "L.O.V.E.",
@@ -526,17 +526,17 @@ export const DISCOGRAPHY = [
         title: "Say It Again",
       },
       {
-        title: "Wake Me Up"
+        title: "Wake Me Up",
       },
       {
-        title: "Brand New Girl"
+        title: "Brand New Girl",
       },
       {
         title: "Be as ONE",
-        link: "https://youtu.be/fnb1q3l4yLM?si=bRHRgI_B9tW2H7Rb"
+        link: "https://youtu.be/fnb1q3l4yLM?si=bRHRgI_B9tW2H7Rb",
       },
       {
-        title: "I Want You Back"
+        title: "I Want You Back",
       },
     ],
   },
@@ -550,7 +550,7 @@ export const DISCOGRAPHY = [
     songs: [
       {
         title: "Stay By My Side",
-        link: "https://youtu.be/diIoA6UquMw?si=09HzNK_g0YNO8ZZu"
+        link: "https://youtu.be/diIoA6UquMw?si=09HzNK_g0YNO8ZZu",
       },
     ],
   },
@@ -564,7 +564,7 @@ export const DISCOGRAPHY = [
     songs: [
       {
         title: "YES or YES",
-        link: "https://youtu.be/mAKsZ26SabQ?si=kFVSi8cB8mUqQm2i"
+        link: "https://youtu.be/mAKsZ26SabQ?si=kFVSi8cB8mUqQm2i",
       },
       { title: "Say You Love Me" },
       { title: "Lalala" },
@@ -584,7 +584,7 @@ export const DISCOGRAPHY = [
     songs: [
       {
         title: "The Best Thing I Ever Did",
-        link: "https://youtu.be/xmJ3Lu7Vs9w?si=3U6uZr24UEfj7uBd"
+        link: "https://youtu.be/xmJ3Lu7Vs9w?si=3U6uZr24UEfj7uBd",
       },
       { title: "Be as ONE (Korean Ver.)" },
       { title: "YES or YES" },
@@ -604,7 +604,10 @@ export const DISCOGRAPHY = [
     types: ["full-album", "repackage"],
     market: "Japanese",
     songs: [
-      { title: "Stay By My Side", link: "https://youtu.be/96K5RxgTfW4?si=0wKUDSoa2yYuXKA2" },
+      {
+        title: "Stay By My Side",
+        link: "https://youtu.be/96K5RxgTfW4?si=0wKUDSoa2yYuXKA2",
+      },
       { title: "BDZ" },
       { title: "One More Time" },
       { title: "Candy Pop" },
@@ -625,9 +628,15 @@ export const DISCOGRAPHY = [
     types: ["mini-album", "repackage"],
     market: "Japanese",
     songs: [
-      { title: "Likey (Japanese Ver.)", link: "https://youtu.be/N7MKlhS2ysU?si=kqxtKdOwtkIfjkAi" },
+      {
+        title: "Likey (Japanese Ver.)",
+        link: "https://youtu.be/N7MKlhS2ysU?si=kqxtKdOwtkIfjkAi",
+      },
       { title: "Heart Shaker (Japanese Ver.)" },
-      { title: "What Is Love? (Japanese Ver.)", link: "https://youtu.be/3zQXMPbK5jU?si=vGFCzwdzrNfBqpPk" },
+      {
+        title: "What Is Love? (Japanese Ver.)",
+        link: "https://youtu.be/3zQXMPbK5jU?si=vGFCzwdzrNfBqpPk",
+      },
       { title: "Dance the Night Away (Japanese Ver.)" },
       { title: "Yes or Yes (Japanese Ver.)" },
       { title: "Likey" },
@@ -646,7 +655,7 @@ export const DISCOGRAPHY = [
     songs: [
       {
         title: "Fancy",
-        link: "https://youtu.be/kOHB85vDuow?si=VCPsEmIo1zV0lM7s"
+        link: "https://youtu.be/kOHB85vDuow?si=VCPsEmIo1zV0lM7s",
       },
       { title: "Stuck in My Head" },
       { title: "Girls Like Us" },
@@ -665,7 +674,7 @@ export const DISCOGRAPHY = [
     songs: [
       {
         title: "Happy Happy",
-        link: "https://youtu.be/3n9rDwpa6QA?si=3pL6mGkeu4QIdg6E"
+        link: "https://youtu.be/3n9rDwpa6QA?si=3pL6mGkeu4QIdg6E",
       },
       { title: "The Best Thing I Ever Did (Japanese Ver.)" },
       { title: "Happy Happy (Collapsedone Remix)" },
@@ -682,7 +691,7 @@ export const DISCOGRAPHY = [
     songs: [
       {
         title: "Breakthrough",
-        link: "https://youtu.be/1j6YA03hm4k?si=31jBdN9TifhhyY6K"
+        link: "https://youtu.be/1j6YA03hm4k?si=31jBdN9TifhhyY6K",
       },
       { title: "Fancy (Japanese Ver.)" },
       { title: "Breakthrough (Taalthechoi Remix)" },
@@ -699,7 +708,7 @@ export const DISCOGRAPHY = [
     songs: [
       {
         title: "Feel Special",
-        link: "https://youtu.be/3ymwOvzhwHs?si=F3yObIMy2T4BPrdM"
+        link: "https://youtu.be/3ymwOvzhwHs?si=F3yObIMy2T4BPrdM",
       },
       { title: "Rainbow" },
       { title: "Get Loud" },
@@ -717,7 +726,10 @@ export const DISCOGRAPHY = [
     types: ["full-album"],
     market: "Japanese",
     songs: [
-      { title: "Fake & True", link: "https://youtu.be/zQELp93xxfo?si=b3i0dd8I28fjs4Pt" },
+      {
+        title: "Fake & True",
+        link: "https://youtu.be/zQELp93xxfo?si=b3i0dd8I28fjs4Pt",
+      },
       { title: "Stronger" },
       { title: "Breakthrough" },
       { title: "Changing!" },
@@ -760,7 +772,7 @@ export const DISCOGRAPHY = [
     songs: [
       {
         title: "More & More",
-        link: "https://youtu.be/mH0_XpSHkZo?si=nl1WIVJKwKn4Kf_e"
+        link: "https://youtu.be/mH0_XpSHkZo?si=nl1WIVJKwKn4Kf_e",
       },
       { title: "Oxygen" },
       { title: "Firework" },
@@ -791,9 +803,7 @@ export const DISCOGRAPHY = [
     releaseDate: new Date("2020-08-21"),
     types: ["single"],
     market: "English",
-    songs: [
-      { title: "More & More (English Ver.)" },
-    ],
+    songs: [{ title: "More & More (English Ver.)" }],
   },
   {
     id: "#twice3",
@@ -827,7 +837,7 @@ export const DISCOGRAPHY = [
     songs: [
       {
         title: "I Can't Stop Me",
-        link: "https://youtu.be/CM4CkVFmTds?si=E4MnHiQ2VRAxt0c8"
+        link: "https://youtu.be/CM4CkVFmTds?si=E4MnHiQ2VRAxt0c8",
       },
       { title: "Hell in Heaven" },
       { title: "Up No More" },
@@ -864,9 +874,7 @@ export const DISCOGRAPHY = [
     releaseDate: new Date("2020-11-30"),
     types: ["single"],
     market: "English",
-    songs: [
-      { title: "I Can't Stop Me (English Ver.)" },
-    ],
+    songs: [{ title: "I Can't Stop Me (English Ver.)" }],
   },
   {
     id: "cry-for-me",
@@ -876,7 +884,10 @@ export const DISCOGRAPHY = [
     types: ["single"],
     market: "Korean",
     songs: [
-      { title: "Cry For Me", link: "https://youtu.be/bkQw-F1QTq4?si=2E5gkC0oq5LOnHyK" },
+      {
+        title: "Cry For Me",
+        link: "https://youtu.be/bkQw-F1QTq4?si=2E5gkC0oq5LOnHyK",
+      },
     ],
   },
   {
@@ -887,7 +898,10 @@ export const DISCOGRAPHY = [
     types: ["single"],
     market: "Japanese",
     songs: [
-      { title: "Kura Kura", link: "https://youtu.be/BSS8Y-0hOlY?si=CbwKOkJK3_EFr1ho" },
+      {
+        title: "Kura Kura",
+        link: "https://youtu.be/BSS8Y-0hOlY?si=CbwKOkJK3_EFr1ho",
+      },
       { title: "Strawberry Moon" },
       { title: "Kura Kura (Instrumental)" },
       { title: "Strawberry Moon (Instrumental)" },
@@ -903,7 +917,7 @@ export const DISCOGRAPHY = [
     songs: [
       {
         title: "Alcohol-Free",
-        link: "https://youtu.be/X-uJtV8ScYk?si=PCV4H2zC3N2uq5Dw"
+        link: "https://youtu.be/X-uJtV8ScYk?si=PCV4H2zC3N2uq5Dw",
       },
       { title: "First Time" },
       { title: "Scandal" },
@@ -922,9 +936,135 @@ export const DISCOGRAPHY = [
     market: "Korean",
     songs: [
       { title: "I love you more than anyone" },
-      { title: "I love you more than anyone – Instrumental" },
+      { title: "I love you more than anyone - Instrumental" },
     ],
   },
-  
-
+  {
+    id: "#perfect-world",
+    title: "Perfect World",
+    releaseDate: "2021-07-28",
+    type: ["full-album"],
+    market: "Japanese",
+    songs: [
+      { title: "Perfect World", link: "https://youtu.be/fmOEKOjyDxU?si=IOp-WqxWKoVhZ29E" },
+      { title: "BETTER" },
+      { title: "Good at Love" },
+      { title: "Fanfare" },
+      { title: "Kura Kura" },
+      { title: "Four-leaf Clover" },
+      { title: "In the summer" },
+      { title: "PIECES OF LOVE" },
+      { title: "Thank you, Family" },
+      { title: "PROMISE" },
+    ],
+  },
+  {
+    id: "#the-feels",
+    title: "The Feels",
+    releaseDate: "2021-10-01",
+    type: ["single"],
+    market: "English",
+    songs: [
+      { title: "The Feels", link: "https://youtu.be/f5_wn8mexmM?si=m22mkuFgJPO07PsZ" },
+      { title: "The Feels (Stereotypes Remix)" },
+      { title: "The Feels (YVES V Remix)" },
+      { title: "The Feels (Instrumental)" },
+      { title: "The Feels (The Stereotypes Remix [Instrumental])" },
+      { title: "The Feels (YVES V Remix [Instrumental])" },
+    ],
+  },
+  {
+    id: "#formula-of-love",
+    title: "Formula of Love: O+T=<3",
+    releaseDate: "2021-11-12",
+    type: ["full-album"],
+    market: "Korean",
+    songs: [
+      { title: "Scientist", link: "https://youtu.be/vPwaXytZcgI?si=zOWqgL_FdJX_37jZ" },
+      { title: "Moonlight" },
+      { title: "Icon" },
+      { title: "Cruel" },
+      { title: "Real You" },
+      { title: "F.I.L.A (Fall In Love Again)" },
+      { title: "Last Waltz" },
+      { title: "Espresso" },
+      { title: "Rewind" },
+      { title: "Cactus" },
+      { title: "Push & Pull" },
+      { title: "Hello" },
+      { title: "1, 3, 2" },
+      { title: "Candy" },
+      { title: "The Feels" },
+      { title: "Scientist (R3HAB Remix)" },
+      { title: "The Feels (Korean Ver)" },
+    ],
+  },
+  {
+    id: "#doughnut",
+    title: "Doughnut",
+    releaseDate: "2021-12-15",
+    type: ["single"],
+    market: "Japanese",
+    songs: [
+      { title: "Doughnut", link: "https://youtu.be/VcOSUOpACq0?si=1ijWUF1QRp51rnWu" },
+      { title: "Wonderful Day" },
+      { title: "Doughnut (Instrumental)" },
+      { title: "Wonderful Day (Instrumental)" },
+    ],
+  },
+  {
+    id: "#twice4",
+    title: "#TWICE4 (Japanese ver.)",
+    releaseDate: "2022-03-16",
+    type: ["mini-album"],
+    market: "Japanese",
+    songs: [
+      { title: "I Can't Stop Me - Japanese ver." },
+      { title: "Cry For Me - Japanese ver." },
+      { title: "Alcohol-Free - Japanese ver." },
+      { title: "Scientist - Japanese ver." },
+    ],
+  },
+  {
+    id: "#just-be-yourself",
+    title: "Just Be Yourself",
+    releaseDate: "2022-03-21",
+    type: ["single"],
+    market: "Japanese",
+    songs: [{ title: "Just Be Yourself" }],
+  },
+  {
+    id: "#celebrate",
+    title: "Celebrate",
+    releaseDate: "2022-07-27",
+    type: ["full-album"],
+    market: "Japanese",
+    songs: [
+      { title: "Celebrate", link: "https://youtu.be/fMIn43MiwG8?si=UwqnJmtpk6r1kX2f" },
+      { title: "Voices of Delight" },
+      { title: "TICK TOCK" },
+      { title: "Flow like waves" },
+      { title: "That's all I'm saying" },
+      { title: "Bitter Sweet" },
+      { title: "Sandcastle" },
+      { title: "Just Be Yourself" },
+      { title: "Doughnut" },
+    ],
+  },
+  {
+    id: "#between-1&2",
+    title: "Between 1&2",
+    releaseDate: "2022-08-26",
+    type: ["mini-album"],
+    market: "Korean",
+    songs: [
+      { title: "Talk That Talk", link: "https://youtu.be/k6jqx9kZgPM?si=LLCGQkDlhOsuAcGv" },
+      { title: "Queen Of Hearts" },
+      { title: "Basics" },
+      { title: "Trouble" },
+      { title: "Brave" },
+      { title: "Gone" },
+      { title: "When We Were Kids" },
+    ],
+  },
 ];
