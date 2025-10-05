@@ -444,4 +444,487 @@ export const DISCOGRAPHY = [
       },
     ],
   },
+  {
+    id: "i-want-you-back",
+    name: "I Want You Back",
+    subName: "Japanese Single",
+    releaseDate: new Date("2018-06-15"),
+    types: ["single"],
+    market: "Japanese",
+    songs: [
+      {
+        title: "I Want You Back",
+        link: "https://youtu.be/4OjLyOyMcNg?si=GEAoRk6t9ZzovHhO"
+      },
+    ],
+  },
+  {
+    id: "summer-nights",
+    name: "Summer Nights",
+    subName: "Repackaged Mini Album",
+    releaseDate: new Date("2018-07-09"),
+    types: ["mini-album", "repackage"],
+    market: "Korean",
+    songs: [
+      {
+        title: "Dance The Night Away",
+        link: "https://youtu.be/Fm5iP0S1z9w?si=5a0mXhJwlx4Up64O"
+      },
+      {
+        title: "Chillax",
+      },
+      {
+        title: "Shot Thru the Heart",
+      },
+      {
+        title: "What is Love?"
+      },
+      {
+        title: "Sweet Talker",
+      },
+      {
+        title: "Ho!",
+      },
+      {
+        title: "Dejavu",
+      },
+      {
+        title: "Say Yes",
+      },
+      {
+        title: "Stuck",
+      },
+    ],
+  },
+  {
+    id: "bdz",
+    name: "BDZ",
+    subName: "1st Japanese Full Album",
+    releaseDate: new Date("2018-09-12"),
+    types: ["full-album"],
+    market: "Japanese",
+    songs: [
+      {
+        title: "BDZ",
+        link: "https://youtu.be/CMNahhgR_ss?si=TxQ3r6j0cU8g3AqS"
+      },
+      {
+        title: "One More Time",
+        link: "https://youtu.be/HuoOEry-Yc4?si=bYc5JxHj5w2Dbe3Z"
+      },
+      {
+        title: "Candy Pop",
+        link: "https://youtu.be/wQ_POfToaVY?si=J9TtO0Urx54vmyUg"
+      },
+      {
+        title: "L.O.V.E.",
+      },
+      {
+        title: "Wishing",
+      },
+      {
+        title: "Say It Again",
+      },
+      {
+        title: "Wake Me Up"
+      },
+      {
+        title: "Brand New Girl"
+      },
+      {
+        title: "Be as ONE",
+        link: "https://youtu.be/fnb1q3l4yLM?si=bRHRgI_B9tW2H7Rb"
+      },
+      {
+        title: "I Want You Back"
+      },
+    ],
+  },
+  {
+    id: "stay-by-my-side",
+    name: "Stay By My Side",
+    subName: "Japanese Single",
+    releaseDate: new Date("2018-10-22"),
+    types: ["single"],
+    market: "Japanese",
+    songs: [
+      {
+        title: "Stay By My Side",
+        link: "https://youtu.be/diIoA6UquMw?si=09HzNK_g0YNO8ZZu"
+      },
+    ],
+  },
+  {
+    id: "yes-or-yes",
+    name: "YES or YES",
+    subName: "6th Mini Album",
+    releaseDate: new Date("2018-11-05"),
+    types: ["mini-album"],
+    market: "Korean",
+    songs: [
+      {
+        title: "YES or YES",
+        link: "https://youtu.be/mAKsZ26SabQ?si=kFVSi8cB8mUqQm2i"
+      },
+      { title: "Say You Love Me" },
+      { title: "Lalala" },
+      { title: "Young & Wild" },
+      { title: "Sunset" },
+      { title: "After Moon" },
+      { title: "BDZ (Korean Ver.)" },
+    ],
+  },
+  {
+    id: "the-year-of-yes",
+    name: "The Year of “YES”",
+    subName: "Repackaged Mini Album",
+    releaseDate: new Date("2018-12-12"),
+    types: ["mini-album", "repackage"],
+    market: "Korean",
+    songs: [
+      {
+        title: "The Best Thing I Ever Did",
+        link: "https://youtu.be/xmJ3Lu7Vs9w?si=3U6uZr24UEfj7uBd"
+      },
+      { title: "Be as ONE (Korean Ver.)" },
+      { title: "YES or YES" },
+      { title: "Say You Love Me" },
+      { title: "Lalala" },
+      { title: "Young & Wild" },
+      { title: "Sunset" },
+      { title: "After Moon" },
+      { title: "BDZ (Korean Ver.)" },
+    ],
+  },
+  {
+    id: "bdz-repackage",
+    name: "BDZ -Repackage-",
+    subName: "Japanese Repackaged Full Album",
+    releaseDate: new Date("2018-12-26"),
+    types: ["full-album", "repackage"],
+    market: "Japanese",
+    songs: [
+      { title: "Stay By My Side", link: "https://youtu.be/96K5RxgTfW4?si=0wKUDSoa2yYuXKA2" },
+      { title: "BDZ" },
+      { title: "One More Time" },
+      { title: "Candy Pop" },
+      { title: "L.O.V.E." },
+      { title: "Wishing" },
+      { title: "Say It Again" },
+      { title: "Wake Me Up" },
+      { title: "Brand New Girl" },
+      { title: "Be as ONE" },
+      { title: "I Want You Back" },
+    ],
+  },
+  {
+    id: "#twice2",
+    name: "#TWICE2",
+    subName: "Repackaged Japanese Mini Album",
+    releaseDate: new Date("2019-03-06"),
+    types: ["mini-album", "repackage"],
+    market: "Japanese",
+    songs: [
+      { title: "Likey (Japanese Ver.)", link: "https://youtu.be/N7MKlhS2ysU?si=kqxtKdOwtkIfjkAi" },
+      { title: "Heart Shaker (Japanese Ver.)" },
+      { title: "What Is Love? (Japanese Ver.)", link: "https://youtu.be/3zQXMPbK5jU?si=vGFCzwdzrNfBqpPk" },
+      { title: "Dance the Night Away (Japanese Ver.)" },
+      { title: "Yes or Yes (Japanese Ver.)" },
+      { title: "Likey" },
+      { title: "Heart Shaker" },
+      { title: "What Is Love?" },
+      { title: "Yes or Yes" },
+    ],
+  },
+  {
+    id: "fancy-you",
+    name: "Fancy You",
+    subName: "7th Mini Album",
+    releaseDate: new Date("2019-04-22"),
+    types: ["mini-album"],
+    market: "Korean",
+    songs: [
+      {
+        title: "Fancy",
+        link: "https://youtu.be/kOHB85vDuow?si=VCPsEmIo1zV0lM7s"
+      },
+      { title: "Stuck in My Head" },
+      { title: "Girls Like Us" },
+      { title: "Hot" },
+      { title: "Turn it Up" },
+      { title: "Strawberry" },
+    ],
+  },
+  {
+    id: "happy-happy",
+    name: "Happy Happy",
+    subName: "Japanese Single",
+    releaseDate: new Date("2019-07-17"),
+    types: ["single"],
+    market: "Japanese",
+    songs: [
+      {
+        title: "Happy Happy",
+        link: "https://youtu.be/3n9rDwpa6QA?si=3pL6mGkeu4QIdg6E"
+      },
+      { title: "The Best Thing I Ever Did (Japanese Ver.)" },
+      { title: "Happy Happy (Collapsedone Remix)" },
+      { title: "Happy Happy (Instrumental)" },
+    ],
+  },
+  {
+    id: "breakthrough",
+    name: "Breakthrough",
+    subName: "Japanese Single",
+    releaseDate: new Date("2019-07-24"),
+    types: ["single"],
+    market: "Japanese",
+    songs: [
+      {
+        title: "Breakthrough",
+        link: "https://youtu.be/1j6YA03hm4k?si=31jBdN9TifhhyY6K"
+      },
+      { title: "Fancy (Japanese Ver.)" },
+      { title: "Breakthrough (Taalthechoi Remix)" },
+      { title: "Breakthrough (Instrumental)" },
+    ],
+  },
+  {
+    id: "feel-special",
+    name: "Feel Special",
+    subName: "8th Mini Album",
+    releaseDate: new Date("2019-09-23"),
+    types: ["mini-album"],
+    market: "Korean",
+    songs: [
+      {
+        title: "Feel Special",
+        link: "https://youtu.be/3ymwOvzhwHs?si=F3yObIMy2T4BPrdM"
+      },
+      { title: "Rainbow" },
+      { title: "Get Loud" },
+      { title: "Trick It" },
+      { title: "Love Foolish" },
+      { title: "21:29" },
+      { title: "Breakthrough (Korean Ver.)" },
+    ],
+  },
+  {
+    id: "&twice",
+    name: "&TWICE",
+    subName: "Japanese Full Album",
+    releaseDate: new Date("2019-11-19"),
+    types: ["full-album"],
+    market: "Japanese",
+    songs: [
+      { title: "Fake & True", link: "https://youtu.be/zQELp93xxfo?si=b3i0dd8I28fjs4Pt" },
+      { title: "Stronger" },
+      { title: "Breakthrough" },
+      { title: "Changing!" },
+      { title: "Happy Happy" },
+      { title: "What You Waiting For" },
+      { title: "Be OK" },
+      { title: "POLISH" },
+      { title: "How u doin" },
+      { title: "The Reason Why" },
+    ],
+  },
+  {
+    id: "&twice-repackage",
+    name: "&TWICE -Repackage",
+    subName: "Japanese Repackaged Full Album",
+    releaseDate: new Date("2020-02-05"),
+    types: ["full-album", "repackage"],
+    market: "Japanese",
+    songs: [
+      { title: "Swing" },
+      { title: "Fake & True" },
+      { title: "Stronger" },
+      { title: "Breakthrough" },
+      { title: "Changing!" },
+      { title: "Happy Happy" },
+      { title: "What You Waiting For" },
+      { title: "Be OK" },
+      { title: "POLISH" },
+      { title: "How u doin" },
+      { title: "The Reason Why" },
+    ],
+  },
+  {
+    id: "more-and-more",
+    name: "More & More",
+    subName: "9th Mini Album",
+    releaseDate: new Date("2020-06-01"),
+    types: ["mini-album"],
+    market: "Korean",
+    songs: [
+      {
+        title: "More & More",
+        link: "https://youtu.be/mH0_XpSHkZo?si=nl1WIVJKwKn4Kf_e"
+      },
+      { title: "Oxygen" },
+      { title: "Firework" },
+      { title: "Make Me Go" },
+      { title: "Shadow" },
+      { title: "Don't Call Me Again" },
+      { title: "Sweet Summer Day" },
+    ],
+  },
+  {
+    id: "fanfare",
+    name: "Fanfare",
+    subName: "Japanese Single",
+    releaseDate: new Date("2020-07-08"),
+    types: ["single"],
+    market: "Japanese",
+    songs: [
+      { title: "Fanfare" },
+      { title: "More & More (Japanese Ver.)" },
+      { title: "Fanfare (Lee Hae Sol Remix)" },
+      { title: "Fanfare (Instrumental)" },
+    ],
+  },
+  {
+    id: "more-and-more-english",
+    name: "More & More (English Ver.)",
+    subName: "English Single",
+    releaseDate: new Date("2020-08-21"),
+    types: ["single"],
+    market: "English",
+    songs: [
+      { title: "More & More (English Ver.)" },
+    ],
+  },
+  {
+    id: "#twice3",
+    name: "#TWICE3",
+    subName: "Japanese Mini Album",
+    releaseDate: new Date("2020-09-16"),
+    types: ["mini-album"],
+    market: "Japanese",
+    songs: [
+      { title: "The Best Thing I Ever Did (Japanese Ver.)" },
+      { title: "Fancy (Japanese Ver.)" },
+      { title: "Feel Special (Japanese Ver.)" },
+      { title: "More & More (Japanese Ver.)" },
+      { title: "Stuck In My Head (Japanese Ver.)" },
+      { title: "21:29 (Japanese Ver.)" },
+      { title: "The Best Thing I Ever Did" },
+      { title: "Fancy" },
+      { title: "Feel Special" },
+      { title: "More & More" },
+      { title: "Stuck In My Head" },
+      { title: "21:29" },
+    ],
+  },
+  {
+    id: "eyes-wide-open",
+    name: "Eyes Wide Open",
+    subName: "2nd Full Album",
+    releaseDate: new Date("2020-10-26"),
+    types: ["full-album"],
+    market: "Korean",
+    songs: [
+      {
+        title: "I Can't Stop Me",
+        link: "https://youtu.be/CM4CkVFmTds?si=E4MnHiQ2VRAxt0c8"
+      },
+      { title: "Hell in Heaven" },
+      { title: "Up No More" },
+      { title: "Do What We Like" },
+      { title: "Bring It Back" },
+      { title: "Believer" },
+      { title: "Queen" },
+      { title: "Go Hard" },
+      { title: "Shot Clock" },
+      { title: "Handle It" },
+      { title: "Depend On You" },
+      { title: "Say Something" },
+      { title: "Behind The Mask" },
+    ],
+  },
+  {
+    id: "better",
+    name: "BETTER",
+    subName: "Japanese Single",
+    releaseDate: new Date("2020-11-18"),
+    types: ["single"],
+    market: "Japanese",
+    songs: [
+      { title: "BETTER" },
+      { title: "Scorpion" },
+      { title: "BETTER (Instrumental)" },
+      { title: "Scorpion (Instrumental)" },
+    ],
+  },
+  {
+    id: "i-cant-stop-me-english",
+    name: "I Can't Stop Me (English Ver.)",
+    subName: "Second English Digital Single",
+    releaseDate: new Date("2020-11-30"),
+    types: ["single"],
+    market: "English",
+    songs: [
+      { title: "I Can't Stop Me (English Ver.)" },
+    ],
+  },
+  {
+    id: "cry-for-me",
+    name: "Cry For Me",
+    subName: "Single",
+    releaseDate: new Date("2020-12-18"),
+    types: ["single"],
+    market: "Korean",
+    songs: [
+      { title: "Cry For Me", link: "https://youtu.be/bkQw-F1QTq4?si=2E5gkC0oq5LOnHyK" },
+    ],
+  },
+  {
+    id: "kura-kura",
+    name: "Kura Kura",
+    subName: "Japanese Single",
+    releaseDate: new Date("2021-05-12"),
+    types: ["single"],
+    market: "Japanese",
+    songs: [
+      { title: "Kura Kura", link: "https://youtu.be/BSS8Y-0hOlY?si=CbwKOkJK3_EFr1ho" },
+      { title: "Strawberry Moon" },
+      { title: "Kura Kura (Instrumental)" },
+      { title: "Strawberry Moon (Instrumental)" },
+    ],
+  },
+  {
+    id: "taste-of-love",
+    name: "Taste Of Love",
+    subName: "10th Mini Album",
+    releaseDate: new Date("2021-06-11"),
+    types: ["mini-album"],
+    market: "Korean",
+    songs: [
+      {
+        title: "Alcohol-Free",
+        link: "https://youtu.be/X-uJtV8ScYk?si=PCV4H2zC3N2uq5Dw"
+      },
+      { title: "First Time" },
+      { title: "Scandal" },
+      { title: "Conversation" },
+      { title: "Baby Blue Love" },
+      { title: "SOS" },
+      { title: "Cry For Me (English ver.)" },
+    ],
+  },
+  {
+    id: "hospital-playlist-ost",
+    name: "HOSPITAL PLAYLIST Season2, Pt. 4",
+    subName: "OST Single",
+    releaseDate: new Date("2021-07-09"),
+    types: ["single", "ost"],
+    market: "Korean",
+    songs: [
+      { title: "I love you more than anyone" },
+      { title: "I love you more than anyone – Instrumental" },
+    ],
+  },
+  
+
 ];
