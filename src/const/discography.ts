@@ -445,7 +445,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "summer-nights",
     name: "Summer Nights",
     unit: ["twice"],
     releaseDate: new Date("2018-07-09"),
@@ -558,7 +557,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "the-year-of-yes",
     name: "The Year of “YES”",
     unit: ["twice"],
     releaseDate: new Date("2018-12-12"),
@@ -580,7 +578,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "bdz-repackage",
     name: "BDZ -Repackage-",
     unit: ["twice"],
     releaseDate: new Date("2018-12-26"),
@@ -719,7 +716,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "&twice-repackage",
     name: "&TWICE -Repackage",
     unit: ["twice"],
     releaseDate: new Date("2020-02-05"),
@@ -1012,7 +1008,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     songs: [{ title: "Just Be Yourself" }],
   },
   {
-    id: "#celebrate",
     name: "Celebrate",
     unit: ["twice"],
     releaseDate: new Date("2022-07-27"),
@@ -1034,7 +1029,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "#between-1&2",
     name: "Between 1&2",
     unit: ["twice"],
     releaseDate: new Date("2022-08-26"),
@@ -1054,7 +1048,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "#moonlight-sunrise",
     name: "Moonlight Sunrise",
     unit: ["twice"],
     releaseDate: new Date("2023-01-20"),
@@ -1068,7 +1061,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "ready-to-be",
     name: "READY TO BE",
     unit: ["twice"],
     releaseDate: new Date("2023-03-10"),
@@ -1088,7 +1080,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "hare-hare-pre",
     name: "Hare Hare",
     unit: ["twice"],
     releaseDate: new Date("2023-05-12"),
@@ -1102,7 +1093,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "#hare-hare",
     name: "Hare Hare",
     unit: ["twice"],
     releaseDate: new Date("2023-05-31"),
@@ -1119,7 +1109,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "#heart-shaker-remix",
     name: "Heart Shaker (GALACTIKA * Holiday Remix)",
     unit: ["twice"],
     releaseDate: new Date("2023-11-07"),
@@ -1128,7 +1117,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     songs: [{ title: "Heart Shaker (GALACTIKA * Holiday Remix)" }],
   },
   {
-    id: "the-remixes",
     name: "THE REMIXES",
     unit: ["twice"],
     releaseDate: new Date("2023-11-17"),
@@ -1145,7 +1133,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "dance-again",
     name: "Dance Again",
     unit: ["twice"],
     releaseDate: new Date("2023-12-12"),
@@ -1159,7 +1146,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "i-got-you-pre",
     name: "I GOT YOU",
     unit: ["twice"],
     releaseDate: new Date("2024-02-02"),
@@ -1168,7 +1154,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     songs: [{ title: "I GOT YOU" }],
   },
   {
-    id: "#i-got-you-remix-ep",
     name: "I GOT YOU  (Voyage ver.)",
     unit: ["twice"],
     releaseDate: new Date("2024-02-06"),
@@ -1191,7 +1176,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "with-you-th",
     name: "With YOU-th",
     unit: ["twice"],
     releaseDate: new Date("2024-02-23"),
@@ -1213,7 +1197,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "#one-spark",
     name: "ONE SPARK",
     unit: ["twice"],
     releaseDate: new Date("2024-02-26"),
@@ -1229,7 +1212,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "#dive-pre",
     name: "DIVE",
     unit: ["twice"],
     releaseDate: new Date("2024-07-10"),
@@ -1243,7 +1225,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "#dive",
     name: "DIVE",
     unit: ["twice"],
     releaseDate: new Date("2024-07-17"),
@@ -1263,7 +1244,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "#mamushi-remix",
     name: "Mamushi (Remix) [feat. TWICE]",
     unit: ["twice"],
     releaseDate: new Date("2024-10-24"),
@@ -1272,7 +1252,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     songs: [{ title: "Mamushi (Remix) [feat. TWICE]" }],
   },
   {
-    id: "strategy",
     name: "STRATEGY",
     unit: ["twice"],
     releaseDate: new Date("2024-12-06"),
@@ -1292,7 +1271,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "the-wish",
     name: "The wish",
     unit: ["twice"],
     releaseDate: new Date("2024-12-16"),
@@ -1301,7 +1279,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     songs: [{ title: "The wish" }],
   },
   {
-    id: "#strategy-remix",
     name: "Strategy 2.0",
     unit: ["twice"],
     releaseDate: new Date("2024-12-18"),
@@ -1316,7 +1293,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "#talk-that-talk",
     name: "Talk that Talk (Japanese ver.)",
     unit: ["twice"],
     releaseDate: new Date("2025-04-14"),
@@ -1330,7 +1306,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "#we-pray",
     name: "WE PRAY (TWICE Version)",
     unit: ["twice"],
     releaseDate: new Date("2025-04-17"),
@@ -1344,7 +1319,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "#twice5",
     name: "#TWICE5",
     unit: ["twice"],
     releaseDate: new Date("2025-05-14"),
@@ -1362,7 +1336,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "#kpop-demon-hunters",
     name: "KPop Demon Hunters",
     unit: ["twice"],
     releaseDate: new Date("2025-06-20"),
@@ -1374,9 +1347,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "#four",
     name: "THIS IS FOR",
-    subName: "Deluxe Album",
     unit: ["twice"],
     releaseDate: new Date("2025-07-11"),
     types: ["full-album"],
@@ -1401,7 +1372,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "four-deluxe",
     name: "THIS IS FOR DELUXE",
     unit: ["twice"],
     releaseDate: new Date("2025-07-14"),
@@ -1427,7 +1397,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "#enemy-pre",
     name: "ENEMY",
     unit: ["twice"],
     releaseDate: new Date("2025-07-30"),
@@ -1441,7 +1410,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "#superstars",
     name: "superstars (with Saweetie)",
     unit: ["twice"],
     releaseDate: new Date("2025-08-01"),
@@ -1450,7 +1418,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     songs: [{ title: "superstars (with Saweetie)" }],
   },
   {
-    id: "#like-1",
     name: "Like 1",
     unit: ["twice"],
     releaseDate: new Date("2025-08-20"),
@@ -1464,7 +1431,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "#enemy",
     name: "ENEMY",
     unit: ["twice"],
     releaseDate: new Date("2025-08-27"),
@@ -1483,7 +1449,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: "#special-album",
     name: "TEN: The Story Goes On",
     unit: ["twice"],
     releaseDate: new Date("2025-10-10"),
@@ -1502,4 +1467,99 @@ export const DISCOGRAPHY: TDiscography[] = [
       { title: "DIVE IN (TZUYU)" },
     ],
   },
+  {
+    name: "Daring Woman (Two Yoo Project Sugar Man OST)",
+    unit: ["Nayeon","Jihyo", "Chaeyoung", "Tzuyu"],
+    releaseDate: new Date("2015-12-29"),
+    types: ["ost"],
+    market: "korean",
+    songs: [
+      { title: "당돌한 여자 (Daring Woman)" }
+    ]
+  },
+  {
+    name: "ALL OUT",
+    unit: ["Nayeon", "Sana", "Jihyo", "Chaeyoung"],
+    releaseDate: new Date("2020-11-06"),
+    types: ["single"],
+    market: "english",
+    songs: [
+      { title: "I'LL SHOW YOU" }
+    ]
+  },
+  {
+    name: "IM NAYEON",
+    unit: ["Nayeon"],
+    releaseDate: new Date("2022-06-24"),
+    types: ["mini-album"],
+    market: "korean",
+    songs: [
+      { title: "POP!" },
+      { title: "NO PROBLEM (ft. Felix of Stray Kids)" },
+      { title: "LOVE COUNTDOWN (ft. Wonstein)" },
+      { title: "CANDYFLOSS" },
+      { title: "ALL OR NOTHING" },
+      { title: "HAPPY BIRTHDAY TO YOU" },
+      { title: "노을만 예쁘다 (SUNSET)" }
+    ]
+  },
+  {
+    name: "NA",
+    unit: ["Nayeon"],
+    releaseDate: new Date("2024-06-14"),
+    types: ["mini-album"],
+    market: "korean",
+    songs: [
+      { title: "ABCD" },
+      { title: "Butterflies" },
+      { title: "Heaven (ft. Sam Kim)" },
+      { title: "Magic (ft. Julie of KISS OF LIFE)" },
+      { title: "HalliGalli (ft. Lee Chanhyuk of AKMU)" },
+      { title: "Something" },
+      { title: "Count It" },
+    ]
+  },
+  {
+    name: "ABCD (Extended Version)",
+    unit: ["Nayeon"],
+    releaseDate: new Date("2024-06-24"),
+    types: ["single"],
+    market: "korean",
+    songs: [
+      { title: "ABCD" },
+      { title: "ABCD (Extended Version)" },
+      { title: "ABCD (Inst.)" },
+      { title: "ABCD (Extended Version) (Inst.)" }
+    ]
+  },
+  {
+    name: "Beyond (End Credit Version) [From “Moana 2”/Korean Soundtrack Version]",
+    unit: ["Nayeon"],
+    releaseDate: new Date("2024-11-20"),
+    types: ["single", "ost"],
+    market: "korean",
+    songs: [
+      { title: "Beyond (End Credit Version) [From “Moana 2”/Korean Soundtrack Version]" }
+    ]
+  },
+  {
+    name: "Kimagure Romantic",
+    unit: ["Nayeon"],
+    releaseDate: new Date("2025-05-30"),
+    types: ["single"],
+    market: "japanese",
+    songs: [
+      { title: "Kimagure Romantic" }
+    ]
+  },
+  {
+    name: "Era with NAYEON (TWICE)",
+    unit: ["Nayeon"],
+    releaseDate: new Date("2025-06-13"),
+    types: ["digital"],
+    market: "english",
+    songs: [
+      { title: "Era with NAYEON - (Remix)" }
+    ]
+  }
 ];

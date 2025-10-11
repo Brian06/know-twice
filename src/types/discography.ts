@@ -18,9 +18,7 @@ export type TSong = {
 };
 
 export type TDiscography = {
-  id?: string;
   name: string;
-  subName?: string;
   unit: TUnit[];
   releaseDate: Date;
   types: TType[];
