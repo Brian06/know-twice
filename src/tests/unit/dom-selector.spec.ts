@@ -1,5 +1,5 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { $, $$ } from '../../utils/dom-selector';
+import { describe, it, expect, beforeEach, vi } from "vitest";
+import { $, $$ } from "../../utils/dom-selector";
 
 const mockQuerySelector = vi.fn();
 const mockQuerySelectorAll = vi.fn();
@@ -15,20 +15,20 @@ const mockElement = {
   querySelectorAll: mockQuerySelectorAll,
 } as unknown as HTMLElement;
 
-Object.defineProperty(global, 'document', {
+Object.defineProperty(global, "document", {
   value: mockDocument,
   writable: true,
 });
 
-describe('DOM Selector Utilities', () => {
+describe("DOM Selector Utilities", () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
 
-  describe('$ (single element selector)', () => {
-    it('should call querySelector on document by default', () => {
-      const selector = '.test-class';
-      const mockResult = { tagName: 'DIV' } as HTMLElement;
+  describe("$ (single element selector)", () => {
+    it("should call querySelector on document by default", () => {
+      const selector = ".test-class";
+      const mockResult = { tagName: "DIV" } as HTMLElement;
       mockQuerySelector.mockReturnValue(mockResult);
 
       const result = $(selector);
@@ -37,9 +37,9 @@ describe('DOM Selector Utilities', () => {
       expect(result).toBe(mockResult);
     });
 
-    it('should call querySelector on provided context element', () => {
-      const selector = '#test-id';
-      const mockResult = { tagName: 'SPAN' } as HTMLElement;
+    it("should call querySelector on provided context element", () => {
+      const selector = "#test-id";
+      const mockResult = { tagName: "SPAN" } as HTMLElement;
       mockQuerySelector.mockReturnValue(mockResult);
 
       const result = $(selector, mockElement);
@@ -48,8 +48,8 @@ describe('DOM Selector Utilities', () => {
       expect(result).toBe(mockResult);
     });
 
-    it('should return null when element is not found', () => {
-      const selector = '.non-existent';
+    it("should return null when element is not found", () => {
+      const selector = ".non-existent";
       mockQuerySelector.mockReturnValue(null);
 
       const result = $(selector);
@@ -58,9 +58,9 @@ describe('DOM Selector Utilities', () => {
     });
   });
 
-  describe('$$ (multiple elements selector)', () => {
-    it('should call querySelectorAll on document by default', () => {
-      const selector = '.test-class';
+  describe("$$ (multiple elements selector)", () => {
+    it("should call querySelectorAll on document by default", () => {
+      const selector = ".test-class";
       const mockNodeList = [] as unknown as NodeListOf<HTMLElement>;
       mockQuerySelectorAll.mockReturnValue(mockNodeList);
 
@@ -70,8 +70,8 @@ describe('DOM Selector Utilities', () => {
       expect(result).toBe(mockNodeList);
     });
 
-    it('should call querySelectorAll on provided context element', () => {
-      const selector = 'li';
+    it("should call querySelectorAll on provided context element", () => {
+      const selector = "li";
       const mockNodeList = [] as unknown as NodeListOf<HTMLElement>;
       mockQuerySelectorAll.mockReturnValue(mockNodeList);
 
