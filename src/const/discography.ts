@@ -1455,7 +1455,10 @@ export const DISCOGRAPHY: TDiscography[] = [
     types: ["mini-album"],
     market: "korean",
     songs: [
-      { title: "ME+YOU", link: "https://youtu.be/zqorlX_5oHQ?si=GAYrtx85hFwfgH14" },
+      {
+        title: "ME+YOU",
+        link: "https://youtu.be/zqorlX_5oHQ?si=GAYrtx85hFwfgH14",
+      },
       { title: "MEEEEEE (NAYEON)" },
       { title: "FIX A DRINK (JEONGYEON)" },
       { title: "MOVE LIKE THAT (MOMO)" },
@@ -1469,13 +1472,11 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Daring Woman (Two Yoo Project Sugar Man OST)",
-    unit: ["Nayeon","Jihyo", "Chaeyoung", "Tzuyu"],
+    unit: ["Nayeon", "Jihyo", "Chaeyoung", "Tzuyu"],
     releaseDate: new Date("2015-12-29"),
     types: ["ost"],
     market: "korean",
-    songs: [
-      { title: "당돌한 여자 (Daring Woman)" }
-    ]
+    songs: [{ title: "당돌한 여자 (Daring Woman)" }],
   },
   {
     name: "ALL OUT",
@@ -1483,9 +1484,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     releaseDate: new Date("2020-11-06"),
     types: ["single"],
     market: "english",
-    songs: [
-      { title: "I'LL SHOW YOU" }
-    ]
+    songs: [{ title: "I'LL SHOW YOU" }],
   },
   {
     name: "IM NAYEON",
@@ -1494,14 +1493,17 @@ export const DISCOGRAPHY: TDiscography[] = [
     types: ["mini-album"],
     market: "korean",
     songs: [
-      { title: "POP!", link: "https://youtu.be/f6YDKF0LVWw?si=R-FIdEgwSnqn1bae" },
+      {
+        title: "POP!",
+        link: "https://youtu.be/f6YDKF0LVWw?si=R-FIdEgwSnqn1bae",
+      },
       { title: "NO PROBLEM (ft. Felix of Stray Kids)" },
       { title: "LOVE COUNTDOWN (ft. Wonstein)" },
       { title: "CANDYFLOSS" },
       { title: "ALL OR NOTHING" },
       { title: "HAPPY BIRTHDAY TO YOU" },
-      { title: "노을만 예쁘다 (SUNSET)" }
-    ]
+      { title: "노을만 예쁘다 (SUNSET)" },
+    ],
   },
   {
     name: "NA",
@@ -1510,14 +1512,17 @@ export const DISCOGRAPHY: TDiscography[] = [
     types: ["mini-album"],
     market: "korean",
     songs: [
-      { title: "ABCD", link: "https://youtu.be/oUZttxRcPZw?si=J92rQanX91_ZV48R" },
+      {
+        title: "ABCD",
+        link: "https://youtu.be/oUZttxRcPZw?si=J92rQanX91_ZV48R",
+      },
       { title: "Butterflies" },
       { title: "Heaven (ft. Sam Kim)" },
       { title: "Magic (ft. Julie of KISS OF LIFE)" },
       { title: "HalliGalli (ft. Lee Chanhyuk of AKMU)" },
       { title: "Something" },
       { title: "Count It" },
-    ]
+    ],
   },
   {
     name: "ABCD (Extended Version)",
@@ -1529,8 +1534,8 @@ export const DISCOGRAPHY: TDiscography[] = [
       { title: "ABCD" },
       { title: "ABCD (Extended Version)" },
       { title: "ABCD (Inst.)" },
-      { title: "ABCD (Extended Version) (Inst.)" }
-    ]
+      { title: "ABCD (Extended Version) (Inst.)" },
+    ],
   },
   {
     name: "Beyond (End Credit Version) [From “Moana 2”/Korean Soundtrack Version]",
@@ -1539,8 +1544,12 @@ export const DISCOGRAPHY: TDiscography[] = [
     types: ["single", "ost"],
     market: "korean",
     songs: [
-      { title: "Beyond (End Credit Version) [From “Moana 2”/Korean Soundtrack Version]", link: "https://youtu.be/Kdubj6Rr-wE?si=wsfKObAKhRzRBSjv" }
-    ]
+      {
+        title:
+          "Beyond (End Credit Version) [From “Moana 2”/Korean Soundtrack Version]",
+        link: "https://youtu.be/Kdubj6Rr-wE?si=wsfKObAKhRzRBSjv",
+      },
+    ],
   },
   {
     name: "Kimagure Romantic",
@@ -1548,9 +1557,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     releaseDate: new Date("2025-05-30"),
     types: ["single"],
     market: "japanese",
-    songs: [
-      { title: "Kimagure Romantic" }
-    ]
+    songs: [{ title: "Kimagure Romantic" }],
   },
   {
     name: "Era with NAYEON (TWICE)",
@@ -1558,9 +1565,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     releaseDate: new Date("2025-06-13"),
     types: ["digital"],
     market: "english",
-    songs: [
-      { title: "Era with NAYEON - (Remix)" }
-    ]
+    songs: [{ title: "Era with NAYEON - (Remix)" }],
   },
   {
     name: "스물다섯 스물하나 OST (Twenty Five-Twenty-One)",
@@ -1580,7 +1585,10 @@ export const DISCOGRAPHY: TDiscography[] = [
     types: ["mini-album"],
     market: "korean",
     songs: [
-      { title: "KILLIN' ME GOOD", link: "https://youtu.be/jyw_vrI4ySg?si=-06e3PHhFmWYms5B" },
+      {
+        title: "KILLIN' ME GOOD",
+        link: "https://youtu.be/jyw_vrI4ySg?si=-06e3PHhFmWYms5B",
+      },
       { title: "TALKIN' ABOUT IT (ft.24kGoldn)" },
       { title: "CLOSER" },
       { title: "WISHING ON YOU" },
@@ -1606,10 +1614,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     releaseDate: new Date("2025-06-28"),
     types: ["ost"],
     market: "korean",
-    songs: [
-      { title: "New Days" },
-      { title: "New Days (Inst.)" },
-    ],
+    songs: [{ title: "New Days" }, { title: "New Days (Inst.)" }],
   },
   {
     name: "abouTZU (1st Mini Album)",
@@ -1618,7 +1623,10 @@ export const DISCOGRAPHY: TDiscography[] = [
     types: ["mini-album"],
     market: "korean",
     songs: [
-      { title: "Run Away", link: "https://youtu.be/IIrCrGAX03Y?si=P2xKLfNQPhAlSRe2" },
+      {
+        title: "Run Away",
+        link: "https://youtu.be/IIrCrGAX03Y?si=P2xKLfNQPhAlSRe2",
+      },
       { title: "Heartbreak In Heaven (feat. PENIEL of BTOB)" },
       { title: "Lazy Baby (feat. pH-1)" },
       { title: "Losing Sleep" },
@@ -1633,7 +1641,127 @@ export const DISCOGRAPHY: TDiscography[] = [
     types: ["digital", "single"],
     market: "english",
     songs: [
-      { title: "BLINK", link: "https://youtu.be/QcuV8h_I1y0?si=qNXn1U3lbIDuPjJP" },
+      {
+        title: "BLINK",
+        link: "https://youtu.be/QcuV8h_I1y0?si=qNXn1U3lbIDuPjJP",
+      },
     ],
+  },
+  {
+    name: "LIL FANTASY vol.1",
+    unit: ["Chaeyoung"],
+    releaseDate: new Date("2025-09-12"),
+    types: ["mini-album"],
+    market: "english",
+    songs: [
+      {
+        title: "Avocado (featuring Gliiico)",
+        link: "https://youtu.be/NlHD4ndO-z0?si=wLlZYWKGTKyLvqqc",
+      },
+      { title: "Band-Aid" },
+      {
+        title: "Shoot (Firecracker)",
+        link: "https://youtu.be/tl2luF-JRlU?si=SGzVaQfJcgwcV-H_",
+      },
+      { title: "Girl" },
+      { title: "Ribbons" },
+      { title: "Downpour" },
+      { title: "BF" },
+      { title: "Shadow Puppet" },
+      { title: "My Guitar" },
+    ],
+  },
+  {
+    name: "Bouquet",
+    unit: ["misamo", "Mina", "Sana", "Momo"],
+    releaseDate: new Date("2023-01-25"),
+    types: ["single", "ost"],
+    market: "japanese",
+    songs: [{ title: "Bouquet" }],
+  },
+  {
+    name: "Marshmallow",
+    unit: ["misamo", "Mina", "Sana", "Momo"],
+    releaseDate: new Date("2023-06-16"),
+    types: ["single"],
+    market: "japanese",
+    songs: [
+      {
+        title: "Marshmallow",
+        link: "https://youtu.be/gAFgaI5D3Gc?si=UIOFDLId_dOp_QDl",
+      },
+    ],
+  },
+  {
+    name: "Masterpiece",
+    unit: ["misamo", "Mina", "Sana", "Momo"],
+    releaseDate: new Date("2023-07-26"),
+    types: ["mini-album"],
+    market: "japanese",
+    songs: [
+      {
+        title: "Do not touch",
+        link: "https://youtu.be/woKq2sD8xho?si=YsP98bCgtSZ4K_y_",
+      },
+      { title: "Behind The Curtain" },
+      { title: "Marshmallow" },
+      { title: "Funny Valentine" },
+      { title: "It's not easy for you" },
+      { title: "Rewind you" },
+      { title: "Bouquet" },
+    ],
+  },
+  {
+    name: "NEW LOOK",
+    unit: ["misamo", "Mina", "Sana", "Momo"],
+    releaseDate: new Date("2024-10-09"),
+    types: ["single"],
+    market: "japanese",
+    songs: [
+      {
+        title: "NEW LOOK",
+        link: "https://youtu.be/FJWLj1-kGC0?si=r85MZJNnl9VbK2nH",
+      },
+    ],
+  },
+  {
+    name: "Identity",
+    unit: ["misamo", "Mina", "Sana", "Momo"],
+    releaseDate: new Date("2024-10-28"),
+    types: ["single"],
+    market: "japanese",
+    songs: [
+      {
+        title: "Identity",
+        link: "https://youtu.be/-J_w9K6DgRo?si=Pfd-HBc9m6a1f-Gx",
+      },
+    ],
+  },
+  {
+    name: "HAUTE COUTURE",
+    unit: ["misamo", "Mina", "Sana", "Momo"],
+    releaseDate: new Date("2024-11-06"),
+    types: ["mini-album"],
+    market: "japanese",
+    songs: [
+      { title: "Identity" },
+      { title: "RUNWAY" },
+      { title: "Wah Wah Wah" },
+      { title: "Baby, I'm good" },
+      { title: "Daydream" },
+      { title: "NEW LOOK" },
+      { title: "Jealousy" },
+      { title: "Misty" },
+      { title: "Money In My Pocket" },
+      { title: "Mirage" },
+    ],
+  },
+  {
+    name: "Message",
+    unit: ["misamo", "Mina", "Sana", "Momo"],
+    releaseDate: new Date("2025-04-28"),
+    types: ["ost"],
+    market: "japanese",
+    songs: [{ title: "Message" }],
   },
 ];
