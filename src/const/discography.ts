@@ -1455,7 +1455,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     types: ["mini-album"],
     market: "korean",
     songs: [
-      { title: "ME+YOU" },
+      { title: "ME+YOU", link: "https://youtu.be/zqorlX_5oHQ?si=GAYrtx85hFwfgH14" },
       { title: "MEEEEEE (NAYEON)" },
       { title: "FIX A DRINK (JEONGYEON)" },
       { title: "MOVE LIKE THAT (MOMO)" },
@@ -1494,7 +1494,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     types: ["mini-album"],
     market: "korean",
     songs: [
-      { title: "POP!" },
+      { title: "POP!", link: "https://youtu.be/f6YDKF0LVWw?si=R-FIdEgwSnqn1bae" },
       { title: "NO PROBLEM (ft. Felix of Stray Kids)" },
       { title: "LOVE COUNTDOWN (ft. Wonstein)" },
       { title: "CANDYFLOSS" },
@@ -1510,7 +1510,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     types: ["mini-album"],
     market: "korean",
     songs: [
-      { title: "ABCD" },
+      { title: "ABCD", link: "https://youtu.be/oUZttxRcPZw?si=J92rQanX91_ZV48R" },
       { title: "Butterflies" },
       { title: "Heaven (ft. Sam Kim)" },
       { title: "Magic (ft. Julie of KISS OF LIFE)" },
@@ -1539,7 +1539,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     types: ["single", "ost"],
     market: "korean",
     songs: [
-      { title: "Beyond (End Credit Version) [From “Moana 2”/Korean Soundtrack Version]" }
+      { title: "Beyond (End Credit Version) [From “Moana 2”/Korean Soundtrack Version]", link: "https://youtu.be/Kdubj6Rr-wE?si=wsfKObAKhRzRBSjv" }
     ]
   },
   {
@@ -1561,5 +1561,79 @@ export const DISCOGRAPHY: TDiscography[] = [
     songs: [
       { title: "Era with NAYEON - (Remix)" }
     ]
-  }
+  },
+  {
+    name: "스물다섯 스물하나 OST (Twenty Five-Twenty-One)",
+    unit: ["Jihyo"],
+    releaseDate: new Date("2022-03-06"),
+    types: ["ost"],
+    market: "korean",
+    songs: [
+      { title: "Stardust Love Song" },
+      { title: "Stardust Love Song (Inst)" },
+    ],
+  },
+  {
+    name: "ZONE (1st Mini Album)",
+    unit: ["Jihyo"],
+    releaseDate: new Date("2023-08-18"),
+    types: ["mini-album"],
+    market: "korean",
+    songs: [
+      { title: "KILLIN' ME GOOD", link: "https://youtu.be/jyw_vrI4ySg?si=-06e3PHhFmWYms5B" },
+      { title: "TALKIN' ABOUT IT (ft.24kGoldn)" },
+      { title: "CLOSER" },
+      { title: "WISHING ON YOU" },
+      { title: "DON'T WANNA GO BACK (Duet with Heize)" },
+      { title: "ROOM" },
+      { title: "NIGHTMARE" },
+    ],
+  },
+  {
+    name: "Killin' Me Good (English Ver.) (Single)",
+    unit: ["Jihyo"],
+    releaseDate: new Date("2023-09-15"),
+    types: ["single"],
+    market: "english",
+    songs: [
+      { title: "Killin' Me Good (English Ver.)" },
+      { title: "TALKIN' ABOUT IT (ft.24kGoldn)" },
+    ],
+  },
+  {
+    name: "Marry My Husband OST Part.2",
+    unit: ["Jihyo"],
+    releaseDate: new Date("2025-06-28"),
+    types: ["ost"],
+    market: "korean",
+    songs: [
+      { title: "New Days" },
+      { title: "New Days (Inst.)" },
+    ],
+  },
+  {
+    name: "abouTZU (1st Mini Album)",
+    unit: ["Tzuyu"],
+    releaseDate: new Date("2024-09-06"),
+    types: ["mini-album"],
+    market: "korean",
+    songs: [
+      { title: "Run Away", link: "https://youtu.be/IIrCrGAX03Y?si=P2xKLfNQPhAlSRe2" },
+      { title: "Heartbreak In Heaven (feat. PENIEL of BTOB)" },
+      { title: "Lazy Baby (feat. pH-1)" },
+      { title: "Losing Sleep" },
+      { title: "One Love" },
+      { title: "Fly" },
+    ],
+  },
+  {
+    name: "BLINK (Corbyn Besson & TZUYU)",
+    unit: ["Tzuyu"],
+    releaseDate: new Date("2025-09-26"),
+    types: ["digital", "single"],
+    market: "english",
+    songs: [
+      { title: "BLINK", link: "https://youtu.be/QcuV8h_I1y0?si=qNXn1U3lbIDuPjJP" },
+    ],
+  },
 ];
