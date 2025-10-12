@@ -1,5 +1,6 @@
 ---
 import LiteYouTube from './LiteYouTube.astro';
+import comebackBg from '../assets/comeback-bg.webp';
 ---
 
 <section class="container mx-auto px-4 py-16 md:py-32">
@@ -11,9 +12,6 @@ import LiteYouTube from './LiteYouTube.astro';
   </h1>
 
   <div class="mx-auto max-w-4xl">
-    <LiteYouTube
-      videoId="eHHQaoEW30Q"
-      backgroundImage="/images/comeback-bg.webp"
-    />
+    <LiteYouTube videoId="eHHQaoEW30Q" backgroundImage={comebackBg.src} />
   </div>
 </section>

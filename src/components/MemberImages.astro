@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { MEMBERS } from '../const/members';
 ---
 
@@ -8,15 +9,14 @@ import { MEMBERS } from '../const/members';
     class="mask-fade-bottom items center relative bottom-0 mx-auto flex h-[80vh] w-full justify-center"
   >
     {
-      MEMBERS.map(({ id }) => (
-        <img
-          src={`/images/members/full/${id}-full.webp`}
+      MEMBERS.map(({ id, fullImage }) => (
+        <Image
+          src={fullImage}
+          widths={[400, 600, 800]}
+          sizes="(max-width: 768px) 400px, (max-width: 1024px) 600px, 800px"
           class="absolute hidden h-full w-auto object-cover lg:object-contain"
           alt={id}
           loading="lazy"
-          decoding="async"
-          width={200}
-          height={300}
           fetchpriority="low"
           data-id={`full-image-${id}`}
           data-testid={`full-image-${id}`}

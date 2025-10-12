@@ -51,6 +51,8 @@ export type TMemberBase = {
   positions: Tposition[];
   songs: TSong[];
   funFacts: string[];
+  image: ImageMetadata;
+  fullImage: ImageMetadata;
 };
 
 export type TMember = TMemberBase;

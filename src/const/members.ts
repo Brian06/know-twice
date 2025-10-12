@@ -1,4 +1,22 @@
 import type { TMember } from "../types/members";
+import nayeon from "../assets/members/cards/nayeon.webp";
+import jeongyeon from "../assets/members/cards/jeongyeon.webp";
+import momo from "../assets/members/cards/momo.webp";
+import sana from "../assets/members/cards/sana.webp";
+import jihyo from "../assets/members/cards/jihyo.webp";
+import mina from "../assets/members/cards/mina.webp";
+import dahyun from "../assets/members/cards/dahyun.webp";
+import chaeyoung from "../assets/members/cards/chaeyoung.webp";
+import tzuyu from "../assets/members/cards/tzuyu.webp";
+import nayeonFull from "../assets/members/full/nayeon-full.webp";
+import jeongyeonFull from "../assets/members/full/jeongyeon-full.webp";
+import momoFull from "../assets/members/full/momo-full.webp";
+import sanaFull from "../assets/members/full/sana-full.webp";
+import jihyoFull from "../assets/members/full/jihyo-full.webp";
+import minaFull from "../assets/members/full/mina-full.webp";
+import dahyunFull from "../assets/members/full/dahyun-full.webp";
+import chaeyoungFull from "../assets/members/full/chaeyoung-full.webp";
+import tzuyuFull from "../assets/members/full/tzuyu-full.webp";
 
 export const MEMBERS: readonly TMember[] = [
   {
@@ -17,6 +35,8 @@ export const MEMBERS: readonly TMember[] = [
     nationality: "South Korean",
     birthday: new Date("1995-09-22"),
     positions: ["Main Vocalist", "Center", "Group Face"],
+    image: nayeon,
+    fullImage: nayeonFull,
     songs: [
       {
         title: "POP!",
@@ -132,6 +152,8 @@ export const MEMBERS: readonly TMember[] = [
     nationality: "South Korean",
     birthday: new Date("1996-11-01"),
     positions: ["Main Vocalist"],
+    image: jeongyeon,
+    fullImage: jeongyeonFull,
     songs: [
       {
         title: "FIX A DRINK",
@@ -222,6 +244,8 @@ export const MEMBERS: readonly TMember[] = [
     nationality: "Japanese",
     birthday: new Date("1996-11-09"),
     positions: ["Main Dancer", "Sub-Vocalist", "Sub-Rapper"],
+    image: momo,
+    fullImage: momoFull,
     songs: [
       {
         title: "MOVE LIKE THAT",
@@ -337,6 +361,8 @@ export const MEMBERS: readonly TMember[] = [
     nationality: "Japanese",
     birthday: new Date("1996-12-29"),
     positions: ["Sub-Vocalist"],
+    image: sana,
+    fullImage: sanaFull,
     songs: [
       {
         title: "DECAFFEINATED",
@@ -452,6 +478,8 @@ export const MEMBERS: readonly TMember[] = [
     nationality: "South Korean",
     birthday: new Date("1997-02-01"),
     positions: ["Leader", "Main Vocalist"],
+    image: jihyo,
+    fullImage: jihyoFull,
     songs: [
       {
         title: "Killin' Me Good",
@@ -563,6 +591,8 @@ export const MEMBERS: readonly TMember[] = [
     nationality: "Japanese",
     birthday: new Date("1997-03-24"),
     positions: ["Main Dancer", "Sub-Vocalist"],
+    image: mina,
+    fullImage: minaFull,
     songs: [
       {
         title: "STONE COLD",
@@ -678,6 +708,8 @@ export const MEMBERS: readonly TMember[] = [
     nationality: "South Korean",
     birthday: new Date("1997-05-28"),
     positions: ["Sub-Vocalist", "Main-Rapper"],
+    image: dahyun,
+    fullImage: dahyunFull,
     songs: [
       {
         title: "CHESS",
@@ -773,6 +805,8 @@ export const MEMBERS: readonly TMember[] = [
     nationality: "South Korean",
     birthday: new Date("1997-04-23"),
     positions: ["Sub-Vocalist", "Main-Rapper"],
+    image: chaeyoung,
+    fullImage: chaeyoungFull,
     songs: [
       {
         title: "SHOOT (Firecracker)",
@@ -900,6 +934,8 @@ export const MEMBERS: readonly TMember[] = [
     nationality: "Taiwanese",
     birthday: new Date("1999-06-14"),
     positions: ["Sub-Vocalist", "Visual", "Maknae"],
+    image: tzuyu,
+    fullImage: tzuyuFull,
     songs: [
       {
         title: "Run Away",

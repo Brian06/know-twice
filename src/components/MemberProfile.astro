@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Calendar from '../assets/member-info/calendar.svg';
 import Nationality from '../assets/member-info/nationality.svg';
 import Color from '../assets/member-info/color.svg';
@@ -21,8 +22,10 @@ const instagram = social.find((social) => social.platform === 'instagram');
   <div
     class={`bg-apricot relative mx-auto h-[166px] w-[160px] rounded-full mb-6 overflow-hidden outline-5 outline-${id}`}
   >
-    <img
-      src={`/images/members/cards/${id}.webp`}
+    <Image
+      src={member.image}
+      widths={[160, 320]}
+      sizes="160px"
       alt={name}
       class="absolute h-full w-full object-cover"
     />
