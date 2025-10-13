@@ -15,15 +15,17 @@ if (!member) throw new Error(`Member with id ${id} not found`);
 
 <a
   href={`/members/${id}`}
-  class={`js-member-card w-12 h-18 xs:w-14 xs:h-20 sm:w-15 sm:h-23 md:w-15 md:h-25 lg:w-21 lg:h-31 group overflow-hidden rounded-s-xl hover:border-2 hover:cursor-pointer hover:border-magenta ${extraClasses}`}
+  class={`js-member-card w-12 h-20 xs:w-14 xs:h-23 sm:w-15 sm:h-25 md:w-15 md:h-25 lg:w-21 lg:h-34 group overflow-hidden rounded-s-xl hover:border-2 hover:cursor-pointer hover:border-magenta ${extraClasses}`}
   data-id={id}
   data-extra-classes={extraClasses}
 >
   <Image
     src={member.image}
+    width={256}
+    height={418}
     widths={[56, 84, 112, 168, 256]}
     sizes="(max-width: 475px) 56px, (max-width: 640px) 60px, (max-width: 1024px) 60px, 84px"
-    class="h-full w-full transition-all duration-300 group-hover:translate-y-5 group-hover:scale-120"
+    class="h-full w-full object-cover transition-all duration-300 group-hover:translate-y-5 group-hover:scale-120"
     alt={id}
     fetchpriority="high"
     loading="eager"
