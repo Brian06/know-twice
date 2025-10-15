@@ -19,6 +19,7 @@ export type TSong = {
 
 export type TDiscography = {
   name: string;
+  image?: ImageMetadata;
   unit: TUnit[];
   releaseDate: Date;
   types: TType[];

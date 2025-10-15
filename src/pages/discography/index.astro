@@ -1,0 +1,21 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { DISCOGRAPHY } from '../../const/discography';
+import AlbumCard from '../../components/AlbumCard.astro';
+---
+
+<Layout
+  title="TWICE Discography"
+  description="TWICE's complete discography, including all albums, singles, and digital releases."
+>
+  <div class="container mx-auto px-4 py-16 md:py-32">
+    <h1 class="text-4xl font-bold">TWICE Discography</h1>
+    <div class="flex flex-wrap gap-4">
+      {
+        DISCOGRAPHY.map((album) => (
+          <AlbumCard album={album} />
+        ))
+      }
+    </div>
+  </div>
+</Layout>
