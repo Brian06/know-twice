@@ -2,6 +2,45 @@
 import Layout from '../../layouts/Layout.astro';
 import { DISCOGRAPHY } from '../../const/discography';
 import AlbumCard from '../../components/AlbumCard.astro';
+import Dropdown from '../../components/Dropdown.astro';
+
+const typeOptions = [
+  { value: 'all', label: 'All Types' },
+  { value: 'mini-album', label: 'Mini Album' },
+  { value: 'full-album', label: 'Full Album' },
+  { value: 'single', label: 'Single' },
+  { value: 'repackage', label: 'Repackage' },
+  { value: 'digital', label: 'Digital' },
+  { value: 'ost', label: 'OST' },
+];
+
+const marketOptions = [
+  { value: 'all', label: 'All Markets' },
+  { value: 'korean', label: 'Korean' },
+  { value: 'japanese', label: 'Japanese' },
+  { value: 'english', label: 'English' },
+];
+
+const artistOptions = [
+  { value: 'twice', label: 'TWICE' },
+  { value: 'misamo', label: 'MISAMO' },
+  { value: 'nayeon', label: 'Nayeon' },
+  { value: 'jeongyeon', label: 'Jeongyeon' },
+  { value: 'momo', label: 'Momo' },
+  { value: 'sana', label: 'Sana' },
+  { value: 'jihyo', label: 'Jihyo' },
+  { value: 'mina', label: 'Mina' },
+  { value: 'dahyun', label: 'Dahyun' },
+  { value: 'chaeyoung', label: 'Chaeyoung' },
+  { value: 'tzuyu', label: 'Tzuyu' },
+];
+
+const sortOptions = [
+  { value: 'latest', label: 'Latest' },
+  { value: 'oldest', label: 'Oldest' },
+  { value: 'a-z', label: 'A-Z' },
+  { value: 'z-a', label: 'Z-A' },
+];
 ---
 
 <Layout
@@ -9,8 +48,41 @@ import AlbumCard from '../../components/AlbumCard.astro';
   description="TWICE's complete discography, including all albums, singles, and digital releases."
 >
   <div class="container mx-auto px-4 py-16 md:py-32">
-    <h1 class="text-4xl font-bold">TWICE Discography</h1>
-    <div class="flex flex-wrap gap-4">
+    <h1 class="text-4xl font-bold mb-8">TWICE Discography</h1>
+
+    <!-- Filters -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+      <Dropdown
+        id="type-filter"
+        options={typeOptions}
+        defaultValue="all"
+        class="w-full"
+      />
+      
+      <Dropdown
+        id="market-filter"
+        options={marketOptions}
+        defaultValue="all"
+        class="w-full"
+      />
+      
+      <Dropdown
+        id="artist-filter"
+        options={artistOptions}
+        defaultValue="twice"
+        class="w-full"
+      />
+
+      <Dropdown
+        id="sort-filter"
+        options={sortOptions}
+        defaultValue="latest"
+        class="w-full"
+      />
+    </div>
+
+    <!-- Albums Grid -->
+    <div class="flex flex-wrap gap-4" data-albums-container>
       {
         DISCOGRAPHY.map((album) => (
           <AlbumCard album={album} />

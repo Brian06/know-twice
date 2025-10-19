@@ -212,6 +212,17 @@
   .hover\:bg-tzuyu:hover {
     background-color: var(--color-tzuyu);
   }
+
+  /* Apricot color utilities for dropdowns */
+  .hover\:bg-apricot:hover {
+    background-color: var(--color-apricot);
+  }
+  .hover\:border-apricot:hover {
+    border-color: var(--color-apricot);
+  }
+  .focus\:ring-apricot:focus {
+    --tw-ring-color: var(--color-apricot);
+  }
 }
 
 html {

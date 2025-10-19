@@ -1,0 +1,145 @@
+---
+interface Option {
+  value: string;
+  label: string;
+}
+
+interface Props {
+  options: Option[];
+  defaultValue?: string;
+  placeholder?: string;
+  id: string;
+  class?: string;
+}
+
+const { options, defaultValue = 'all', placeholder = 'Select...', id, class: className = '' } = Astro.props;
+
+const defaultOption = options.find(opt => opt.value === defaultValue) || options[0];
+---
+
+<div class={`relative ${className}`} data-dropdown={id}>
+  <!-- Dropdown button -->
+  <button
+    type="button"
+    class="w-full bg-white p-3 rounded-md border border-gray-300 flex items-center justify-between hover:border-apricot focus:outline-none focus:ring-2 focus:ring-apricot transition-colors cursor-pointer"
+    data-dropdown-button
+    aria-haspopup="listbox"
+    aria-expanded="false"
+  >
+    <span data-dropdown-label>{defaultOption.label}</span>
+    <svg
+      class="w-5 h-5 text-gray-400 transition-transform"
+      data-dropdown-icon
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+    </svg>
+  </button>
+
+  <!-- Dropdown menu -->
+  <div
+    class="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg hidden max-h-60 overflow-y-auto"
+    data-dropdown-menu
+    role="listbox"
+  >
+    {options.map((option) => (
+      <button
+        type="button"
+        class="w-full text-left px-4 py-2 hover:bg-apricot transition-colors cursor-pointer border-b border-gray-100 last:border-b-0"
+        data-option-value={option.value}
+        role="option"
+        aria-selected={option.value === defaultValue}
+      >
+        {option.label}
+      </button>
+    ))}
+  </div>
+
+  <!-- Hidden input to store the selected value -->
+  <input type="hidden" name={id} value={defaultValue} data-dropdown-input />
+</div>
+
+<script>
+  // Handle dropdown functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const dropdowns = document.querySelectorAll('[data-dropdown]');
+
+    dropdowns.forEach((dropdown) => {
+      const button = dropdown.querySelector('[data-dropdown-button]') as HTMLButtonElement;
+      const menu = dropdown.querySelector('[data-dropdown-menu]') as HTMLElement;
+      const label = dropdown.querySelector('[data-dropdown-label]') as HTMLElement;
+      const icon = dropdown.querySelector('[data-dropdown-icon]') as SVGElement;
+      const input = dropdown.querySelector('[data-dropdown-input]') as HTMLInputElement;
+      const options = menu.querySelectorAll('[data-option-value]') as NodeListOf<HTMLButtonElement>;
+
+      // Toggle dropdown
+      button.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = menu.classList.contains('hidden');
+        
+        // Close all other dropdowns
+        document.querySelectorAll('[data-dropdown-menu]').forEach((otherMenu) => {
+          if (otherMenu !== menu) {
+            otherMenu.classList.add('hidden');
+            const otherIcon = otherMenu.parentElement?.querySelector('[data-dropdown-icon]');
+            const otherButton = otherMenu.parentElement?.querySelector('[data-dropdown-button]');
+            otherIcon?.classList.remove('rotate-180');
+            otherButton?.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        if (isOpen) {
+          menu.classList.remove('hidden');
+          icon.classList.add('rotate-180');
+          button.setAttribute('aria-expanded', 'true');
+        } else {
+          menu.classList.add('hidden');
+          icon.classList.remove('rotate-180');
+          button.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Handle option selection
+      options.forEach((option) => {
+        option.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const value = option.getAttribute('data-option-value') || '';
+          const optionLabel = option.textContent || '';
+
+          // Update label and input
+          label.textContent = optionLabel;
+          input.value = value;
+
+          // Update aria-selected
+          options.forEach(opt => opt.setAttribute('aria-selected', 'false'));
+          option.setAttribute('aria-selected', 'true');
+
+          // Close dropdown
+          menu.classList.add('hidden');
+          icon.classList.remove('rotate-180');
+          button.setAttribute('aria-expanded', 'false');
+
+          // Dispatch custom event for filtering
+          dropdown.dispatchEvent(new CustomEvent('dropdown-change', {
+            detail: { value, label: optionLabel },
+            bubbles: true,
+          }));
+        });
+      });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', () => {
+      document.querySelectorAll('[data-dropdown-menu]').forEach((menu) => {
+        menu.classList.add('hidden');
+        const icon = menu.parentElement?.querySelector('[data-dropdown-icon]');
+        const button = menu.parentElement?.querySelector('[data-dropdown-button]');
+        icon?.classList.remove('rotate-180');
+        button?.setAttribute('aria-expanded', 'false');
+      });
+    });
+  });
+</script>
+
