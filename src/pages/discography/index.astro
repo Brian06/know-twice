@@ -1,8 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { DISCOGRAPHY } from '../../const/discography';
-import AlbumCard from '../../components/AlbumCard.astro';
-import Dropdown from '../../components/Dropdown.astro';
+import DiscographyFilters from '../../components/DiscographyFilters';
 
 const typeOptions = [
   { value: 'all', label: 'All Types' },
@@ -50,44 +49,13 @@ const sortOptions = [
   <div class="container mx-auto px-4 py-16 md:py-32">
     <h1 class="text-4xl font-bold mb-8">TWICE Discography</h1>
 
-    <!-- Filters -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-      <Dropdown
-        id="type-filter"
-        options={typeOptions}
-        defaultValue="all"
-        class="w-full"
-      />
-      
-      <Dropdown
-        id="market-filter"
-        options={marketOptions}
-        defaultValue="all"
-        class="w-full"
-      />
-      
-      <Dropdown
-        id="artist-filter"
-        options={artistOptions}
-        defaultValue="twice"
-        class="w-full"
-      />
-
-      <Dropdown
-        id="sort-filter"
-        options={sortOptions}
-        defaultValue="latest"
-        class="w-full"
-      />
-    </div>
-
-    <!-- Albums Grid -->
-    <div class="flex flex-wrap gap-4" data-albums-container>
-      {
-        DISCOGRAPHY.map((album) => (
-          <AlbumCard album={album} />
-        ))
-      }
-    </div>
+    <DiscographyFilters 
+      client:load
+      albums={DISCOGRAPHY}
+      typeOptions={typeOptions}
+      marketOptions={marketOptions}
+      artistOptions={artistOptions}
+      sortOptions={sortOptions}
+    />
   </div>
 </Layout>

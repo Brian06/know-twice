@@ -5,6 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 import sitemap from '@astrojs/sitemap';
 
+import preact from '@astrojs/preact';
+
 // https://astro.build/config
 export default defineConfig({
   // output: 'server',
@@ -16,6 +18,6 @@ export default defineConfig({
     inlineStylesheets: 'always',
   },
 
-  integrations: [sitemap()],
+  integrations: [sitemap(), preact()],
   site: 'https://know-twice.vercel.app/',
 });
