@@ -1,8 +1,11 @@
 import type { TDiscography } from "../types/discography";
+import bdz from "../assets/discography/bdz.webp";
+import defaultImage from "../assets/discography/default.webp";
 
 export const DISCOGRAPHY: TDiscography[] = [
   {
     name: "The Story Begins",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2015-10-03"),
     types: ["mini-album"],
@@ -31,6 +34,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Page Two",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2016-04-25"),
     types: ["mini-album"],
@@ -62,6 +66,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "TWICEcoaster: Lane 1",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2016-10-24"),
     types: ["mini-album"],
@@ -93,6 +98,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "TWICEcoaster: Lane 2",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2017-02-20"),
     types: ["repackage", "mini-album"],
@@ -145,6 +151,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Whats's This?",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2017-02-24"),
     types: ["mini-album", "digital"],
@@ -163,6 +170,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Signal",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2017-05-15"),
     types: ["mini-album"],
@@ -191,6 +199,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "#TWICE",
+    image: defaultImage,
     unit: ["twice"],
     types: ["mini-album"],
     market: "japanese",
@@ -233,6 +242,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "One More Time",
+    image: defaultImage,
     unit: ["twice"],
     types: ["single"],
     market: "japanese",
@@ -255,6 +265,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Twicetagram",
+    image: defaultImage,
     unit: ["twice"],
     types: ["full-album"],
     market: "korean",
@@ -304,6 +315,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Merry & Happy",
+    image: defaultImage,
     unit: ["twice"],
     types: ["repackage", "full-album"],
     market: "korean",
@@ -360,6 +372,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Candy Pop",
+    image: defaultImage,
     unit: ["twice"],
     types: ["single"],
     market: "japanese",
@@ -383,6 +396,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "What is Love?",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2018-04-09"),
     types: ["mini-album"],
@@ -411,6 +425,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Wake Me Up",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2018-05-16"),
     types: ["single"],
@@ -433,6 +448,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "I Want You Back",
+    image: defaultImage,
     unit: ["twice"],
     types: ["single"],
     market: "japanese",
@@ -446,6 +462,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Summer Nights",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2018-07-09"),
     types: ["mini-album", "repackage"],
@@ -483,6 +500,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "BDZ",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2018-09-12"),
     types: ["full-album"],
@@ -526,6 +544,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Stay By My Side",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2018-10-22"),
     types: ["single"],
@@ -539,6 +558,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "YES or YES",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2018-11-05"),
     types: ["mini-album"],
@@ -558,6 +578,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "The Year of “YES”",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2018-12-12"),
     types: ["mini-album", "repackage"],
@@ -579,6 +600,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "BDZ -Repackage-",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2018-12-26"),
     types: ["full-album", "repackage"],
@@ -602,6 +624,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "#TWICE2",
+    image: defaultImage,
     unit: ["twice"],
     types: ["mini-album", "repackage"],
     market: "japanese",
@@ -626,6 +649,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Fancy You",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2019-04-22"),
     types: ["mini-album"],
@@ -644,6 +668,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Happy Happy",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2019-07-17"),
     types: ["single"],
@@ -660,6 +685,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Breakthrough",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2019-07-24"),
     types: ["single"],
@@ -676,6 +702,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Feel Special",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2019-09-23"),
     types: ["mini-album"],
@@ -695,6 +722,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "&TWICE",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2019-11-19"),
     types: ["full-album"],
@@ -717,6 +745,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "&TWICE -Repackage",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2020-02-05"),
     types: ["full-album", "repackage"],
@@ -737,6 +766,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "More & More",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2020-06-01"),
     types: ["mini-album"],
@@ -756,6 +786,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Fanfare",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2020-07-08"),
     types: ["single"],
@@ -769,6 +800,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "More & More (English Ver.)",
+    image: defaultImage,
     unit: ["twice"],
     types: ["single"],
     market: "english",
@@ -777,6 +809,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "#TWICE3",
+    image: defaultImage,
     unit: ["twice"],
     types: ["mini-album"],
     market: "japanese",
@@ -798,6 +831,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Eyes Wide Open",
+    image: defaultImage,
     unit: ["twice"],
     types: ["full-album"],
     market: "korean",
@@ -823,6 +857,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "BETTER",
+    image: defaultImage,
     unit: ["twice"],
     types: ["single"],
     market: "japanese",
@@ -836,6 +871,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "I Can't Stop Me (English Ver.)",
+    image: defaultImage,
     unit: ["twice"],
     types: ["single", "digital"],
     market: "english",
@@ -844,6 +880,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Cry For Me",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2020-12-18"),
     types: ["single"],
@@ -857,6 +894,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Kura Kura",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2021-05-12"),
     types: ["single"],
@@ -873,6 +911,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Taste Of Love",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2021-06-11"),
     types: ["mini-album"],
@@ -892,6 +931,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "HOSPITAL PLAYLIST Season2, Pt. 4",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2021-07-09"),
     types: ["single", "ost"],
@@ -903,6 +943,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Perfect World",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2021-07-28"),
     types: ["full-album"],
@@ -925,6 +966,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "The Feels",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2021-10-01"),
     types: ["single"],
@@ -943,6 +985,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Formula of Love: O+T=<3",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2021-11-12"),
     types: ["full-album"],
@@ -972,6 +1015,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Doughnut",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2021-12-15"),
     types: ["single"],
@@ -988,6 +1032,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "#TWICE4 (Japanese ver.)",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2022-03-16"),
     types: ["mini-album"],
@@ -1001,6 +1046,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Just Be Yourself",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2022-03-21"),
     types: ["single"],
@@ -1009,6 +1055,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Celebrate",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2022-07-27"),
     types: ["full-album"],
@@ -1030,6 +1077,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Between 1&2",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2022-08-26"),
     types: ["mini-album"],
@@ -1049,6 +1097,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Moonlight Sunrise",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2023-01-20"),
     types: ["single", "digital"],
@@ -1062,6 +1111,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "READY TO BE",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2023-03-10"),
     types: ["mini-album"],
@@ -1081,6 +1131,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Hare Hare",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2023-05-12"),
     types: ["single"],
@@ -1094,6 +1145,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Hare Hare",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2023-05-31"),
     types: ["mini-album"],
@@ -1110,6 +1162,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Heart Shaker (GALACTIKA * Holiday Remix)",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2023-11-07"),
     types: ["single"],
@@ -1118,6 +1171,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "THE REMIXES",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2023-11-17"),
     types: ["single"],
@@ -1134,6 +1188,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Dance Again",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2023-12-12"),
     types: ["single"],
@@ -1147,6 +1202,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "I GOT YOU",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2024-02-02"),
     types: ["single"],
@@ -1155,6 +1211,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "I GOT YOU  (Voyage ver.)",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2024-02-06"),
     types: ["mini-album"],
@@ -1177,6 +1234,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "With YOU-th",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2024-02-23"),
     types: ["mini-album"],
@@ -1198,6 +1256,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "ONE SPARK",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2024-02-26"),
     types: ["single"],
@@ -1213,6 +1272,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "DIVE",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2024-07-10"),
     types: ["single"],
@@ -1226,6 +1286,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "DIVE",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2024-07-17"),
     types: ["full-album"],
@@ -1245,6 +1306,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Mamushi (Remix) [feat. TWICE]",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2024-10-24"),
     types: ["single"],
@@ -1253,6 +1315,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "STRATEGY",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2024-12-06"),
     types: ["mini-album"],
@@ -1272,6 +1335,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "The wish",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2024-12-16"),
     types: ["single"],
@@ -1280,6 +1344,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Strategy 2.0",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2024-12-18"),
     types: ["single"],
@@ -1294,6 +1359,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Talk that Talk (Japanese ver.)",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2025-04-14"),
     types: ["single"],
@@ -1307,6 +1373,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "WE PRAY (TWICE Version)",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2025-04-17"),
     types: ["single"],
@@ -1320,6 +1387,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "#TWICE5",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2025-05-14"),
     types: ["mini-album"],
@@ -1337,6 +1405,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "KPop Demon Hunters",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2025-06-20"),
     types: ["single", "ost"],
@@ -1348,6 +1417,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "THIS IS FOR",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2025-07-11"),
     types: ["full-album"],
@@ -1373,6 +1443,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "THIS IS FOR DELUXE",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2025-07-14"),
     types: ["full-album"],
@@ -1398,6 +1469,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "ENEMY",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2025-07-30"),
     types: ["single"],
@@ -1411,6 +1483,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "superstars (with Saweetie)",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2025-08-01"),
     types: ["single"],
@@ -1419,6 +1492,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Like 1",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2025-08-20"),
     types: ["single"],
@@ -1432,6 +1506,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "ENEMY",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2025-08-27"),
     types: ["full-album"],
@@ -1450,6 +1525,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "TEN: The Story Goes On",
+    image: defaultImage,
     unit: ["twice"],
     releaseDate: new Date("2025-10-10"),
     types: ["mini-album"],
@@ -1472,6 +1548,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Daring Woman (Two Yoo Project Sugar Man OST)",
+    image: defaultImage,
     unit: ["Nayeon", "Jihyo", "Chaeyoung", "Tzuyu"],
     releaseDate: new Date("2015-12-29"),
     types: ["ost"],
@@ -1480,6 +1557,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "ALL OUT",
+    image: defaultImage,
     unit: ["Nayeon", "Sana", "Jihyo", "Chaeyoung"],
     releaseDate: new Date("2020-11-06"),
     types: ["single"],
@@ -1488,6 +1566,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "IM NAYEON",
+    image: defaultImage,
     unit: ["Nayeon"],
     releaseDate: new Date("2022-06-24"),
     types: ["mini-album"],
@@ -1507,6 +1586,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "NA",
+    image: defaultImage,
     unit: ["Nayeon"],
     releaseDate: new Date("2024-06-14"),
     types: ["mini-album"],
@@ -1526,6 +1606,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "ABCD (Extended Version)",
+    image: defaultImage,
     unit: ["Nayeon"],
     releaseDate: new Date("2024-06-24"),
     types: ["single"],
@@ -1539,6 +1620,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Beyond (End Credit Version) [From “Moana 2”/Korean Soundtrack Version]",
+    image: defaultImage,
     unit: ["Nayeon"],
     releaseDate: new Date("2024-11-20"),
     types: ["single", "ost"],
@@ -1553,6 +1635,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Kimagure Romantic",
+    image: defaultImage,
     unit: ["Nayeon"],
     releaseDate: new Date("2025-05-30"),
     types: ["single"],
@@ -1561,6 +1644,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Era with NAYEON (TWICE)",
+    image: defaultImage,
     unit: ["Nayeon"],
     releaseDate: new Date("2025-06-13"),
     types: ["digital"],
@@ -1569,6 +1653,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "스물다섯 스물하나 OST (Twenty Five-Twenty-One)",
+    image: defaultImage,
     unit: ["Jihyo"],
     releaseDate: new Date("2022-03-06"),
     types: ["ost"],
@@ -1580,6 +1665,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "ZONE (1st Mini Album)",
+    image: defaultImage,
     unit: ["Jihyo"],
     releaseDate: new Date("2023-08-18"),
     types: ["mini-album"],
@@ -1599,6 +1685,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Killin' Me Good (English Ver.) (Single)",
+    image: defaultImage,
     unit: ["Jihyo"],
     releaseDate: new Date("2023-09-15"),
     types: ["single"],
@@ -1610,6 +1697,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Marry My Husband OST Part.2",
+    image: defaultImage,
     unit: ["Jihyo"],
     releaseDate: new Date("2025-06-28"),
     types: ["ost"],
@@ -1618,6 +1706,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "abouTZU (1st Mini Album)",
+    image: defaultImage,
     unit: ["Tzuyu"],
     releaseDate: new Date("2024-09-06"),
     types: ["mini-album"],
@@ -1636,6 +1725,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "BLINK (Corbyn Besson & TZUYU)",
+    image: defaultImage,
     unit: ["Tzuyu"],
     releaseDate: new Date("2025-09-26"),
     types: ["digital", "single"],
@@ -1649,6 +1739,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "LIL FANTASY vol.1",
+    image: defaultImage,
     unit: ["Chaeyoung"],
     releaseDate: new Date("2025-09-12"),
     types: ["mini-album"],
@@ -1673,6 +1764,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Bouquet",
+    image: defaultImage,
     unit: ["misamo", "Mina", "Sana", "Momo"],
     releaseDate: new Date("2023-01-25"),
     types: ["single", "ost"],
@@ -1681,6 +1773,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Marshmallow",
+    image: defaultImage,
     unit: ["misamo", "Mina", "Sana", "Momo"],
     releaseDate: new Date("2023-06-16"),
     types: ["single"],
@@ -1694,6 +1787,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Masterpiece",
+    image: defaultImage,
     unit: ["misamo", "Mina", "Sana", "Momo"],
     releaseDate: new Date("2023-07-26"),
     types: ["mini-album"],
@@ -1713,6 +1807,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "NEW LOOK",
+    image: defaultImage,
     unit: ["misamo", "Mina", "Sana", "Momo"],
     releaseDate: new Date("2024-10-09"),
     types: ["single"],
@@ -1726,6 +1821,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Identity",
+    image: defaultImage,
     unit: ["misamo", "Mina", "Sana", "Momo"],
     releaseDate: new Date("2024-10-28"),
     types: ["single"],
@@ -1739,6 +1835,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "HAUTE COUTURE",
+    image: defaultImage,
     unit: ["misamo", "Mina", "Sana", "Momo"],
     releaseDate: new Date("2024-11-06"),
     types: ["mini-album"],
@@ -1758,6 +1855,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Message",
+    image: defaultImage,
     unit: ["misamo", "Mina", "Sana", "Momo"],
     releaseDate: new Date("2025-04-28"),
     types: ["ost"],

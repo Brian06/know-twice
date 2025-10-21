@@ -12,7 +12,7 @@ export interface DropdownProps {
   className?: string;
   onChange?: (value: string) => void;
 }
-// TODO cuando se selecciona otro dropdown, el dropdown anterior no se cierra
+
 export default function Dropdown({
   options,
   defaultValue = 'all',
@@ -32,15 +32,32 @@ export default function Dropdown({
       }
     };
 
+    const handleOtherDropdownOpen = (event: CustomEvent) => {
+      if (event.detail.dropdownId !== id) {
+        setIsOpen(false);
+      }
+    };
+
     document.addEventListener('click', handleClickOutside);
+    document.addEventListener('dropdown-opened', handleOtherDropdownOpen as EventListener);
+    
     return () => {
       document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('dropdown-opened', handleOtherDropdownOpen as EventListener);
     };
-  }, []);
+  }, [id]);
 
   const handleToggle = (e: Event) => {
     e.stopPropagation();
-    setIsOpen(!isOpen);
+    const newIsOpen = !isOpen;
+    setIsOpen(newIsOpen);
+    
+    if (newIsOpen) {
+      const event = new CustomEvent('dropdown-opened', {
+        detail: { dropdownId: id }
+      });
+      document.dispatchEvent(event);
+    }
   };
 
   const handleOptionClick = (option: Option) => {

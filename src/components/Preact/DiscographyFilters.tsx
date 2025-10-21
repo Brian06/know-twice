@@ -1,18 +1,7 @@
 import { useState, useMemo } from 'preact/hooks';
-import type { TDiscography } from '../types/discography';
+import type { TDiscography } from '../../types/discography';
 import Dropdown from './Dropdown';
 import type { Option } from './Dropdown';
-
-// TODO REMOVE THIS AND REVIEW THIS COMPONENT
-const images = import.meta.glob<{ default: ImageMetadata }>('../assets/discography/*.webp', { eager: true });
-
-// Create a mapping of album names to image sources
-const imageMap = new Map<string, string>();
-for (const path in images) {
-  const fileName = path.split('/').pop()?.replace('.webp', '') || '';
-  const imageData = images[path].default;
-  imageMap.set(fileName, imageData.src);
-}
 
 interface DiscographyFiltersProps {
   albums: TDiscography[];
@@ -143,30 +132,16 @@ interface AlbumCardProps {
 }
 
 function AlbumCard({ album }: AlbumCardProps) {
-  // Get the image source from the album data or construct the filename
-  const getImageSrc = () => {
-    if (album.image?.src) {
-      return album.image.src;
-    }
-    
-    // Construct filename from album name
-    const fileName = album.name.replace(/\s+/g, '-').replace(/:/g, '').replace(/'/g, '');
-    
-    // Look up in the image map
-    const src = imageMap.get(fileName) || imageMap.get('default');
-    return src || '';
-  };
-
-  const imageSrc = getImageSrc();
 
   return (
     <div className="rounded-2xl bg-white drop-shadow-md max-w-60 overflow-hidden hover:outline-2 hover:outline-magenta hover:cursor-pointer group">
       <div className="relative w-full overflow-hidden">
         <img 
-          src={imageSrc}
+          src={album.image.src}
           alt={album.name}
           width={300}
           height={300}
+          loading="lazy"
           className="w-full h-full object-cover aspect-auto transition-all duration-500 group-hover:scale-110"
         />
       </div>
