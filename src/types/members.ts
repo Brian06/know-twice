@@ -14,9 +14,9 @@ export type TSong = {
   links: TMusicLink[];
 };
 
-export type Tnationality = "South Korean" | "Japanese" | "Taiwanese";
+export type TNationality = "South Korean" | "Japanese" | "Taiwanese";
 
-export type Tposition =
+export type TPosition =
   | "Main Vocalist"
   | "Main Dancer"
   | "Visual"
@@ -28,40 +28,51 @@ export type Tposition =
   | "Main-Rapper"
   | "Maknae";
 
-export type TmemberName =
-  | "Nayeon"
-  | "Jeongyeon"
-  | "Momo"
-  | "Sana"
-  | "Jihyo"
-  | "Mina"
-  | "Dahyun"
-  | "Chaeyoung"
-  | "Tzuyu";
+export type TMemberId =
+  | "nayeon"
+  | "jeongyeon"
+  | "momo"
+  | "sana"
+  | "jihyo"
+  | "mina"
+  | "dahyun"
+  | "chaeyoung"
+  | "tzuyu";
 
-export type TMemberBase = {
-  id: string;
-  name: TmemberName;
-  fullName: string;
-  emoji: string;
+export type TFullName =
+  | "Im Nayeon"
+  | "Yoo Jeong-yeon"
+  | "Hirai Momo"
+  | "Minatozaki Sana"
+  | "Park Ji-hyo"
+  | "Myoui Mina"
+  | "Kim Da-hyun"
+  | "Son Chae-young"
+  | "Chou Tzuyu";
+export type TEmoji =
+  | "🐰"
+  | "🐶"
+  | "🍑"
+  | "🐭"
+  | "🦄"
+  | "🐧"
+  | "💛"
+  | "🍓"
+  | "🦌";
+export type TMemberName = Capitalize<TMemberId>;
+
+export type TMember = {
+  id: TMemberId;
+  name: TMemberName;
+  fullName: TFullName;
+  emoji: TEmoji;
   color: string;
   social: TSocial[];
-  nationality: Tnationality;
+  nationality: TNationality;
   birthday: Date;
-  positions: Tposition[];
+  positions: TPosition[];
   songs: TSong[];
   funFacts: string[];
   image: ImageMetadata;
   fullImage: ImageMetadata;
 };
-
-export type TMember = TMemberBase;
-export type {
-  TmemberId,
-  Tname,
-  TfullName,
-  Temoji,
-  TMemberById,
-  TMemberMap,
-  TMemberLookup,
-} from "./member-derived";

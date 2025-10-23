@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'preact/hooks';
+import { useState, useRef, useEffect } from "preact/hooks";
 
 export interface Option {
   value: string;
@@ -15,19 +15,23 @@ export interface DropdownProps {
 
 export default function Dropdown({
   options,
-  defaultValue = 'all',
+  defaultValue = "all",
   id,
-  className = '',
+  className = "",
   onChange,
 }: DropdownProps) {
-  const defaultOption = options.find(opt => opt.value === defaultValue) || options[0];
+  const defaultOption =
+    options.find((opt) => opt.value === defaultValue) || options[0];
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(defaultOption);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     };
@@ -38,12 +42,18 @@ export default function Dropdown({
       }
     };
 
-    document.addEventListener('click', handleClickOutside);
-    document.addEventListener('dropdown-opened', handleOtherDropdownOpen as EventListener);
-    
+    document.addEventListener("click", handleClickOutside);
+    document.addEventListener(
+      "dropdown-opened",
+      handleOtherDropdownOpen as EventListener,
+    );
+
     return () => {
-      document.removeEventListener('click', handleClickOutside);
-      document.removeEventListener('dropdown-opened', handleOtherDropdownOpen as EventListener);
+      document.removeEventListener("click", handleClickOutside);
+      document.removeEventListener(
+        "dropdown-opened",
+        handleOtherDropdownOpen as EventListener,
+      );
     };
   }, [id]);
 
@@ -51,10 +61,10 @@ export default function Dropdown({
     e.stopPropagation();
     const newIsOpen = !isOpen;
     setIsOpen(newIsOpen);
-    
+
     if (newIsOpen) {
-      const event = new CustomEvent('dropdown-opened', {
-        detail: { dropdownId: id }
+      const event = new CustomEvent("dropdown-opened", {
+        detail: { dropdownId: id },
       });
       document.dispatchEvent(event);
     }
@@ -69,35 +79,44 @@ export default function Dropdown({
   };
 
   return (
-    <div ref={dropdownRef} className={`relative ${className}`} data-dropdown={id}>
+    <div
+      ref={dropdownRef}
+      className={`relative ${className}`}
+      data-dropdown={id}
+    >
       <button
         type="button"
-        className="w-full bg-white p-3 rounded-md border border-gray-300 flex items-center justify-between hover:border-apricot focus:outline-none focus:ring-2 focus:ring-apricot transition-colors cursor-pointer"
+        className="hover:border-apricot focus:ring-apricot flex w-full cursor-pointer items-center justify-between rounded-md border border-gray-300 bg-white p-3 transition-colors focus:ring-2 focus:outline-none"
         onClick={handleToggle}
         aria-haspopup="listbox"
         aria-expanded={isOpen}
       >
         <span>{selectedOption.label}</span>
         <svg
-          className={`w-5 h-5 text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          className={`h-5 w-5 text-gray-400 transition-transform ${isOpen ? "rotate-180" : ""}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
         >
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7"
+          ></path>
         </svg>
       </button>
 
       {isOpen && (
         <div
-          className="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-md shadow-lg max-h-60 overflow-y-auto"
+          className="absolute z-10 mt-1 max-h-60 w-full overflow-y-auto rounded-md border border-gray-200 bg-white shadow-lg"
           role="listbox"
         >
           {options.map((option) => (
             <button
               key={option.value}
               type="button"
-              className="w-full text-left px-4 py-2 hover:bg-apricot transition-colors cursor-pointer border-b border-gray-100 last:border-b-0"
+              className="hover:bg-apricot w-full cursor-pointer border-b border-gray-100 px-4 py-2 text-left transition-colors last:border-b-0"
               onClick={() => handleOptionClick(option)}
               role="option"
               aria-selected={option.value === selectedOption.value}
@@ -110,4 +129,3 @@ export default function Dropdown({
     </div>
   );
 }
-

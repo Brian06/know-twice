@@ -1,8 +1,8 @@
-import type { TmemberName } from "./members";
+import type { TmemberId } from "./members";
 
-type TUnit = TmemberName | "twice" | "misamo";
+export type TUnit = TmemberId | "twice" | "misamo";
 
-type TType =
+export type TType =
   | "mini-album"
   | "full-album"
   | "single"
@@ -10,7 +10,7 @@ type TType =
   | "digital"
   | "ost";
 
-type TMarket = "korean" | "japanese" | "english";
+export type TMarket = "korean" | "japanese" | "english";
 
 export type TSong = {
   title: string;

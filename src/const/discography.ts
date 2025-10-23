@@ -1549,7 +1549,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   {
     name: "Daring Woman (Two Yoo Project Sugar Man OST)",
     image: defaultImage,
-    unit: ["Nayeon", "Jihyo", "Chaeyoung", "Tzuyu"],
+    unit: ["nayeon", "jihyo", "chaeyoung", "tzuyu"],
     releaseDate: new Date("2015-12-29"),
     types: ["ost"],
     market: "korean",
@@ -1558,7 +1558,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   {
     name: "ALL OUT",
     image: defaultImage,
-    unit: ["Nayeon", "Sana", "Jihyo", "Chaeyoung"],
+    unit: ["nayeon", "sana", "jihyo", "chaeyoung"],
     releaseDate: new Date("2020-11-06"),
     types: ["single"],
     market: "english",
@@ -1567,7 +1567,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   {
     name: "IM NAYEON",
     image: defaultImage,
-    unit: ["Nayeon"],
+    unit: ["nayeon"],
     releaseDate: new Date("2022-06-24"),
     types: ["mini-album"],
     market: "korean",
@@ -1587,7 +1587,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   {
     name: "NA",
     image: defaultImage,
-    unit: ["Nayeon"],
+    unit: ["nayeon"],
     releaseDate: new Date("2024-06-14"),
     types: ["mini-album"],
     market: "korean",
@@ -1607,7 +1607,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   {
     name: "ABCD (Extended Version)",
     image: defaultImage,
-    unit: ["Nayeon"],
+    unit: ["nayeon"],
     releaseDate: new Date("2024-06-24"),
     types: ["single"],
     market: "korean",
@@ -1621,7 +1621,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   {
     name: "Beyond (End Credit Version) [From “Moana 2”/Korean Soundtrack Version]",
     image: defaultImage,
-    unit: ["Nayeon"],
+    unit: ["nayeon"],
     releaseDate: new Date("2024-11-20"),
     types: ["single", "ost"],
     market: "korean",
@@ -1636,7 +1636,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   {
     name: "Kimagure Romantic",
     image: defaultImage,
-    unit: ["Nayeon"],
+    unit: ["nayeon"],
     releaseDate: new Date("2025-05-30"),
     types: ["single"],
     market: "japanese",
@@ -1645,7 +1645,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   {
     name: "Era with NAYEON (TWICE)",
     image: defaultImage,
-    unit: ["Nayeon"],
+    unit: ["nayeon"],
     releaseDate: new Date("2025-06-13"),
     types: ["digital"],
     market: "english",
@@ -1654,7 +1654,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   {
     name: "스물다섯 스물하나 OST (Twenty Five-Twenty-One)",
     image: defaultImage,
-    unit: ["Jihyo"],
+    unit: ["jihyo"],
     releaseDate: new Date("2022-03-06"),
     types: ["ost"],
     market: "korean",
@@ -1666,7 +1666,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   {
     name: "ZONE (1st Mini Album)",
     image: defaultImage,
-    unit: ["Jihyo"],
+    unit: ["jihyo"],
     releaseDate: new Date("2023-08-18"),
     types: ["mini-album"],
     market: "korean",
@@ -1686,7 +1686,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   {
     name: "Killin' Me Good (English Ver.) (Single)",
     image: defaultImage,
-    unit: ["Jihyo"],
+    unit: ["jihyo"],
     releaseDate: new Date("2023-09-15"),
     types: ["single"],
     market: "english",
@@ -1698,7 +1698,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   {
     name: "Marry My Husband OST Part.2",
     image: defaultImage,
-    unit: ["Jihyo"],
+    unit: ["jihyo"],
     releaseDate: new Date("2025-06-28"),
     types: ["ost"],
     market: "korean",
@@ -1707,7 +1707,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   {
     name: "abouTZU (1st Mini Album)",
     image: defaultImage,
-    unit: ["Tzuyu"],
+    unit: ["tzuyu"],
     releaseDate: new Date("2024-09-06"),
     types: ["mini-album"],
     market: "korean",
@@ -1726,7 +1726,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   {
     name: "BLINK (Corbyn Besson & TZUYU)",
     image: defaultImage,
-    unit: ["Tzuyu"],
+    unit: ["tzuyu"],
     releaseDate: new Date("2025-09-26"),
     types: ["digital", "single"],
     market: "english",
@@ -1740,7 +1740,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   {
     name: "LIL FANTASY vol.1",
     image: defaultImage,
-    unit: ["Chaeyoung"],
+    unit: ["chaeyoung"],
     releaseDate: new Date("2025-09-12"),
     types: ["mini-album"],
     market: "english",
@@ -1765,7 +1765,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   {
     name: "Bouquet",
     image: defaultImage,
-    unit: ["misamo", "Mina", "Sana", "Momo"],
+    unit: ["misamo", "mina", "sana", "momo"],
     releaseDate: new Date("2023-01-25"),
     types: ["single", "ost"],
     market: "japanese",
@@ -1774,7 +1774,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   {
     name: "Marshmallow",
     image: defaultImage,
-    unit: ["misamo", "Mina", "Sana", "Momo"],
+    unit: ["misamo", "mina", "sana", "momo"],
     releaseDate: new Date("2023-06-16"),
     types: ["single"],
     market: "japanese",
@@ -1788,7 +1788,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   {
     name: "Masterpiece",
     image: defaultImage,
-    unit: ["misamo", "Mina", "Sana", "Momo"],
+    unit: ["misamo", "mina", "sana", "momo"],
     releaseDate: new Date("2023-07-26"),
     types: ["mini-album"],
     market: "japanese",
@@ -1808,7 +1808,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   {
     name: "NEW LOOK",
     image: defaultImage,
-    unit: ["misamo", "Mina", "Sana", "Momo"],
+    unit: ["misamo", "mina", "sana", "momo"],
     releaseDate: new Date("2024-10-09"),
     types: ["single"],
     market: "japanese",
@@ -1822,7 +1822,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   {
     name: "Identity",
     image: defaultImage,
-    unit: ["misamo", "Mina", "Sana", "Momo"],
+    unit: ["misamo", "mina", "sana", "momo"],
     releaseDate: new Date("2024-10-28"),
     types: ["single"],
     market: "japanese",
@@ -1836,7 +1836,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   {
     name: "HAUTE COUTURE",
     image: defaultImage,
-    unit: ["misamo", "Mina", "Sana", "Momo"],
+    unit: ["misamo", "mina", "sana", "momo"],
     releaseDate: new Date("2024-11-06"),
     types: ["mini-album"],
     market: "japanese",
@@ -1856,7 +1856,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   {
     name: "Message",
     image: defaultImage,
-    unit: ["misamo", "Mina", "Sana", "Momo"],
+    unit: ["misamo", "mina", "sana", "momo"],
     releaseDate: new Date("2025-04-28"),
     types: ["ost"],
     market: "japanese",

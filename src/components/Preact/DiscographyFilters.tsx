@@ -1,56 +1,74 @@
-import { useState, useMemo } from 'preact/hooks';
-import type { TDiscography } from '../../types/discography';
-import Dropdown from './Dropdown';
-import type { Option } from './Dropdown';
+import { useState, useMemo } from "preact/hooks";
+import Dropdown from "./Dropdown";
+import AlbumCard from "./AlbumCard";
+import { DISCOGRAPHY } from "../../const/discography";
+import type { Option } from "./Dropdown";
+import type { TType, TMarket, TUnit } from "../../types/discography";
 
-interface DiscographyFiltersProps {
-  albums: TDiscography[];
-  typeOptions: Option[];
-  marketOptions: Option[];
-  artistOptions: Option[];
-  sortOptions: Option[];
-}
+const typeOptions: Option[] = [
+  { value: "all", label: "All Types" },
+  { value: "mini-album", label: "Mini Album" },
+  { value: "full-album", label: "Full Album" },
+  { value: "single", label: "Single" },
+  { value: "repackage", label: "Repackage" },
+  { value: "digital", label: "Digital" },
+  { value: "ost", label: "OST" },
+];
 
-export default function DiscographyFilters({
-  albums,
-  typeOptions,
-  marketOptions,
-  artistOptions,
-  sortOptions,
-}: DiscographyFiltersProps) {
-  const [typeFilter, setTypeFilter] = useState('all');
-  const [marketFilter, setMarketFilter] = useState('all');
-  const [artistFilter, setArtistFilter] = useState('twice');
-  const [sortFilter, setSortFilter] = useState('latest');
+const marketOptions: Option[] = [
+  { value: "all", label: "All Markets" },
+  { value: "korean", label: "Korean" },
+  { value: "japanese", label: "Japanese" },
+  { value: "english", label: "English" },
+];
 
-  // Filter and sort albums based on current filter state
+const artistOptions: Option[] = [
+  { value: "all", label: "All Artists" },
+  { value: "twice", label: "TWICE" },
+  { value: "misamo", label: "MISAMO" },
+  { value: "nayeon", label: "Nayeon" },
+  { value: "jeongyeon", label: "Jeongyeon" },
+  { value: "momo", label: "Momo" },
+  { value: "sana", label: "Sana" },
+  { value: "jihyo", label: "Jihyo" },
+  { value: "mina", label: "Mina" },
+  { value: "dahyun", label: "Dahyun" },
+  { value: "chaeyoung", label: "Chaeyoung" },
+  { value: "tzuyu", label: "Tzuyu" },
+];
+
+const sortOptions: Option[] = [
+  { value: "latest", label: "Latest" },
+  { value: "oldest", label: "Oldest" },
+  { value: "a-z", label: "A-Z" },
+  { value: "z-a", label: "Z-A" },
+];
+
+export default function DiscographyFilters() {
+  const albums = DISCOGRAPHY;
+  const [typeFilter, setTypeFilter] = useState("all");
+  const [marketFilter, setMarketFilter] = useState("all");
+  const [artistFilter, setArtistFilter] = useState("all");
+  const [sortFilter, setSortFilter] = useState("latest");
+
   const filteredAndSortedAlbums = useMemo(() => {
     let filtered = albums.filter((album) => {
-      // Type filter
-      if (typeFilter !== 'all' && !album.types.includes(typeFilter as any)) {
+      if (typeFilter !== "all" && !album.types.includes(typeFilter as TType)) {
         return false;
       }
 
-      // Market filter
-      if (marketFilter !== 'all' && album.market !== marketFilter) {
+      if (
+        marketFilter !== "all" &&
+        album.market !== (marketFilter as TMarket)
+      ) {
         return false;
       }
 
-      // Artist filter
-      if (artistFilter === 'twice') {
-        // Show only group releases (not sub-units or solos)
-        if (!album.unit.includes('twice')) {
-          return false;
-        }
-      } else if (artistFilter === 'misamo') {
-        if (!album.unit.includes('misamo')) {
-          return false;
-        }
-      } else {
-        // Solo artist - check if the artist is in the unit array
-        if (!album.unit.includes(artistFilter as any)) {
-          return false;
-        }
+      if (
+        artistFilter !== "all" &&
+        !album.unit.includes(artistFilter as TUnit)
+      ) {
+        return false;
       }
 
       return true;
@@ -59,13 +77,13 @@ export default function DiscographyFilters({
     // Sort albums
     const sorted = [...filtered].sort((a, b) => {
       switch (sortFilter) {
-        case 'latest':
+        case "latest":
           return b.releaseDate.getTime() - a.releaseDate.getTime();
-        case 'oldest':
+        case "oldest":
           return a.releaseDate.getTime() - b.releaseDate.getTime();
-        case 'a-z':
+        case "a-z":
           return a.name.localeCompare(b.name);
-        case 'z-a':
+        case "z-a":
           return b.name.localeCompare(a.name);
         default:
           return 0;
@@ -77,8 +95,7 @@ export default function DiscographyFilters({
 
   return (
     <div>
-      {/* Filters */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <Dropdown
           id="type-filter"
           options={typeOptions}
@@ -86,7 +103,7 @@ export default function DiscographyFilters({
           className="w-full"
           onChange={setTypeFilter}
         />
-        
+
         <Dropdown
           id="market-filter"
           options={marketOptions}
@@ -94,11 +111,11 @@ export default function DiscographyFilters({
           className="w-full"
           onChange={setMarketFilter}
         />
-        
+
         <Dropdown
           id="artist-filter"
           options={artistOptions}
-          defaultValue="twice"
+          defaultValue="all"
           className="w-full"
           onChange={setArtistFilter}
         />
@@ -112,44 +129,20 @@ export default function DiscographyFilters({
         />
       </div>
 
-      {/* Albums Grid */}
       <div className="flex flex-wrap gap-4">
         {filteredAndSortedAlbums.length === 0 ? (
-          <p className="text-gray-500 text-center w-full py-8">No albums found with the selected filters.</p>
+          <p className="w-full py-8 text-center text-gray-500">
+            No albums found with the selected filters.
+          </p>
         ) : (
           filteredAndSortedAlbums.map((album) => (
-            <AlbumCard key={`${album.name}-${album.releaseDate.getTime()}`} album={album} />
+            <AlbumCard
+              key={`${album.name}-${album.releaseDate.getTime()}`}
+              album={album}
+            />
           ))
         )}
       </div>
     </div>
   );
 }
-
-// AlbumCard component in Preact
-interface AlbumCardProps {
-  album: TDiscography;
-}
-
-function AlbumCard({ album }: AlbumCardProps) {
-
-  return (
-    <div className="rounded-2xl bg-white drop-shadow-md max-w-60 overflow-hidden hover:outline-2 hover:outline-magenta hover:cursor-pointer group">
-      <div className="relative w-full overflow-hidden">
-        <img 
-          src={album.image.src}
-          alt={album.name}
-          width={300}
-          height={300}
-          loading="lazy"
-          className="w-full h-full object-cover aspect-auto transition-all duration-500 group-hover:scale-110"
-        />
-      </div>
-      <div className="p-3">    
-        <h2 className="text-lg font-bold transition-all duration-500 group-hover:text-magenta">{album.name}</h2>
-        <p className="text-gray-500">{album.releaseDate.getFullYear()}</p>
-      </div>
-    </div>
-  );
-}
-

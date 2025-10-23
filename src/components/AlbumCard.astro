@@ -11,14 +11,24 @@ const { album } = Astro.props;
 const image = album?.image ? album?.image : defaultImage;
 ---
 
-<div class="rounded-2xl bg-white drop-shadow-md max-w-60 overflow-hidden hover:outline-2 hover:outline-magenta hover:cursor-pointer group">
+<div
+  class="hover:outline-magenta group max-w-60 overflow-hidden rounded-2xl bg-white drop-shadow-md hover:cursor-pointer hover:outline-2"
+>
   <div class="relative w-full overflow-hidden">
-    <Image src={image} alt="Album" width={300} height={300} class="w-full h-full object-cover aspect-auto transition-all duration-500 group-hover:scale-110" />
+    <Image
+      src={image}
+      alt="Album"
+      width={300}
+      height={300}
+      class="aspect-auto h-full w-full object-cover transition-all duration-500 group-hover:scale-110"
+    />
   </div>
-  <div class="p-3">    
-    <h2 class="text-lg font-bold transition-all duration-500 group-hover:text-magenta">{album.name}</h2>
+  <div class="p-3">
+    <h2
+      class="group-hover:text-magenta text-lg font-bold transition-all duration-500"
+    >
+      {album.name}
+    </h2>
     <p class="text-gray-500">{album.releaseDate.getFullYear()}</p>
   </div>
 </div>
-
-
