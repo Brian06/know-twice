@@ -129,7 +129,7 @@ export default function DiscographyFilters() {
         />
       </div>
 
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-wrap justify-center gap-4">
         {filteredAndSortedAlbums.length === 0 ? (
           <p className="w-full py-8 text-center text-gray-500">
             No albums found with the selected filters.
