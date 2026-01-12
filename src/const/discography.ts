@@ -1,11 +1,19 @@
 import type { TDiscography } from "../types/discography";
-import bdz from "../assets/discography/bdz.webp";
 import defaultImage from "../assets/discography/default.webp";
+import tenTheStoryGoesOn from "../assets/discography/ten-the-story-goes-on.webp";
+import blink from "../assets/discography/blink.webp";
+import lilFantasyVol1 from "../assets/discography/lil-fantasy-vol-1.webp";
+import theStoryBegins from "../assets/discography/the-story-begins.webp";
+import daringWoman from "../assets/discography/daring-woman.webp";
+import pageTwo from "../assets/discography/page-two.webp";
+import twicecoasterLane1 from "../assets/discography/twicecoaster-lane-1.webp";
+import twicecoasterLane2 from "../assets/discography/twicecoaster-lane-2.webp";
+import whatsThis from "../assets/discography/whats-this.webp";
 
 export const DISCOGRAPHY: TDiscography[] = [
   {
     name: "The Story Begins",
-    image: defaultImage,
+    image: theStoryBegins,
     unit: ["twice"],
     releaseDate: new Date("2015-10-03"),
     types: ["mini-album"],
@@ -34,7 +42,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Page Two",
-    image: defaultImage,
+    image: pageTwo,
     unit: ["twice"],
     releaseDate: new Date("2016-04-25"),
     types: ["mini-album"],
@@ -66,7 +74,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "TWICEcoaster: Lane 1",
-    image: defaultImage,
+    image: twicecoasterLane1,
     unit: ["twice"],
     releaseDate: new Date("2016-10-24"),
     types: ["mini-album"],
@@ -98,7 +106,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "TWICEcoaster: Lane 2",
-    image: defaultImage,
+    image: twicecoasterLane2,
     unit: ["twice"],
     releaseDate: new Date("2017-02-20"),
     types: ["repackage", "mini-album"],
@@ -151,7 +159,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Whats's This?",
-    image: defaultImage,
+    image: whatsThis,
     unit: ["twice"],
     releaseDate: new Date("2017-02-24"),
     types: ["mini-album", "digital"],
@@ -1525,7 +1533,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "TEN: The Story Goes On",
-    image: defaultImage,
+    image: tenTheStoryGoesOn,
     unit: ["twice"],
     releaseDate: new Date("2025-10-10"),
     types: ["mini-album"],
@@ -1548,7 +1556,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Daring Woman (Two Yoo Project Sugar Man OST)",
-    image: defaultImage,
+    image: daringWoman,
     unit: ["nayeon", "jihyo", "chaeyoung", "tzuyu"],
     releaseDate: new Date("2015-12-29"),
     types: ["ost"],
@@ -1725,7 +1733,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "BLINK (Corbyn Besson & TZUYU)",
-    image: defaultImage,
+    image: blink,
     unit: ["tzuyu"],
     releaseDate: new Date("2025-09-26"),
     types: ["digital", "single"],
@@ -1739,7 +1747,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "LIL FANTASY vol.1",
-    image: defaultImage,
+    image: lilFantasyVol1,
     unit: ["chaeyoung"],
     releaseDate: new Date("2025-09-12"),
     types: ["mini-album"],

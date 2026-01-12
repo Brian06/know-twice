@@ -74,7 +74,6 @@ export default function DiscographyFilters() {
       return true;
     });
 
-    // Sort albums
     const sorted = [...filtered].sort((a, b) => {
       switch (sortFilter) {
         case "latest":
