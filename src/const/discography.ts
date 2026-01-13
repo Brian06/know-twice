@@ -9,6 +9,16 @@ import pageTwo from "../assets/discography/page-two.webp";
 import twicecoasterLane1 from "../assets/discography/twicecoaster-lane-1.webp";
 import twicecoasterLane2 from "../assets/discography/twicecoaster-lane-2.webp";
 import whatsThis from "../assets/discography/whats-this.webp";
+import signal from "../assets/discography/signal.webp";
+import hashtagTwice from "../assets/discography/hashtag-twice.webp";
+import oneMoreTime from "../assets/discography/one-more-time.webp";
+import twicetagram from "../assets/discography/twicetagram.webp";
+import merryAndHappy from "../assets/discography/merry-and-happy.webp";
+import candyPop from "../assets/discography/candy-pop.webp";
+import whatIsLove from "../assets/discography/what-is-love.webp";
+import wakeMeUp from "../assets/discography/wake-me-up.webp";
+import iWantYouBack from "../assets/discography/i-want-you-back.webp";
+import summerNights from "../assets/discography/summer-nights.webp";
 
 export const DISCOGRAPHY: TDiscography[] = [
   {
@@ -178,7 +188,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Signal",
-    image: defaultImage,
+    image: signal,
     unit: ["twice"],
     releaseDate: new Date("2017-05-15"),
     types: ["mini-album"],
@@ -207,7 +217,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "#TWICE",
-    image: defaultImage,
+    image: hashtagTwice,
     unit: ["twice"],
     types: ["mini-album"],
     market: "japanese",
@@ -250,7 +260,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "One More Time",
-    image: defaultImage,
+    image: oneMoreTime,
     unit: ["twice"],
     types: ["single"],
     market: "japanese",
@@ -273,7 +283,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Twicetagram",
-    image: defaultImage,
+    image: twicetagram,
     unit: ["twice"],
     types: ["full-album"],
     market: "korean",
@@ -323,7 +333,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Merry & Happy",
-    image: defaultImage,
+    image: merryAndHappy,
     unit: ["twice"],
     types: ["repackage", "full-album"],
     market: "korean",
@@ -380,7 +390,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Candy Pop",
-    image: defaultImage,
+    image: candyPop,
     unit: ["twice"],
     types: ["single"],
     market: "japanese",
@@ -404,7 +414,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "What is Love?",
-    image: defaultImage,
+    image: whatIsLove,
     unit: ["twice"],
     releaseDate: new Date("2018-04-09"),
     types: ["mini-album"],
@@ -433,7 +443,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Wake Me Up",
-    image: defaultImage,
+    image: wakeMeUp,
     unit: ["twice"],
     releaseDate: new Date("2018-05-16"),
     types: ["single"],
@@ -456,7 +466,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "I Want You Back",
-    image: defaultImage,
+    image: iWantYouBack,
     unit: ["twice"],
     types: ["single"],
     market: "japanese",
@@ -470,7 +480,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Summer Nights",
-    image: defaultImage,
+    image: summerNights,
     unit: ["twice"],
     releaseDate: new Date("2018-07-09"),
     types: ["mini-album", "repackage"],
