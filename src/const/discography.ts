@@ -19,6 +19,27 @@ import whatIsLove from "../assets/discography/what-is-love.webp";
 import wakeMeUp from "../assets/discography/wake-me-up.webp";
 import iWantYouBack from "../assets/discography/i-want-you-back.webp";
 import summerNights from "../assets/discography/summer-nights.webp";
+import bdz from "../assets/discography/bdz.webp";
+import stayByMySide from "../assets/discography/stay-by-my-side.webp";
+import yesOrYes from "../assets/discography/yes-or-yes.webp";
+import theYearOfYes from "../assets/discography/the-year-of-yes.webp";
+import hashtagTwice2 from "../assets/discography/hashtag-twice-2.webp";
+import fancyYou from "../assets/discography/fancy-you.webp";
+import happyHappy from "../assets/discography/happy-happy.webp";
+import breakthrough from "../assets/discography/breakthrough.webp";
+import feelSpecial from "../assets/discography/feel-special.webp";
+import andTwice from "../assets/discography/and-twice.webp";
+import moreAndMore from "../assets/discography/more-and-more.webp";
+import fanfare from "../assets/discography/fanfare.webp";
+import moreAndMoreEnglish from "../assets/discography/more-and-more-english.webp";
+import hashtagTwice3 from "../assets/discography/hashtag-twice-3.webp";
+import eyesWideOpen from "../assets/discography/eyes-wide-open.webp";
+import better from "../assets/discography/better.webp";
+import iCantStopMeEnglish from "../assets/discography/i-cant-stop-me-english.webp";
+import cryForMe from "../assets/discography/cry-for-me.webp";
+import kuraKura from "../assets/discography/kura-kura.webp";
+import tasteOfLove from "../assets/discography/taste-of-love.webp";
+import hospitalPlaylistSeason2 from "../assets/discography/hospital-playlist-season-2.webp";
 
 export const DISCOGRAPHY: TDiscography[] = [
   {
@@ -518,7 +539,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "BDZ",
-    image: defaultImage,
+    image: bdz,
     unit: ["twice"],
     releaseDate: new Date("2018-09-12"),
     types: ["full-album"],
@@ -562,7 +583,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Stay By My Side",
-    image: defaultImage,
+    image: stayByMySide,
     unit: ["twice"],
     releaseDate: new Date("2018-10-22"),
     types: ["single"],
@@ -576,7 +597,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "YES or YES",
-    image: defaultImage,
+    image: yesOrYes,
     unit: ["twice"],
     releaseDate: new Date("2018-11-05"),
     types: ["mini-album"],
@@ -596,7 +617,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "The Year of “YES”",
-    image: defaultImage,
+    image: theYearOfYes,
     unit: ["twice"],
     releaseDate: new Date("2018-12-12"),
     types: ["mini-album", "repackage"],
@@ -618,7 +639,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "BDZ -Repackage-",
-    image: defaultImage,
+    image: bdz,
     unit: ["twice"],
     releaseDate: new Date("2018-12-26"),
     types: ["full-album", "repackage"],
@@ -642,7 +663,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "#TWICE2",
-    image: defaultImage,
+    image: hashtagTwice2,
     unit: ["twice"],
     types: ["mini-album", "repackage"],
     market: "japanese",
@@ -667,7 +688,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Fancy You",
-    image: defaultImage,
+    image: fancyYou,
     unit: ["twice"],
     releaseDate: new Date("2019-04-22"),
     types: ["mini-album"],
@@ -686,7 +707,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Happy Happy",
-    image: defaultImage,
+    image: happyHappy,
     unit: ["twice"],
     releaseDate: new Date("2019-07-17"),
     types: ["single"],
@@ -703,7 +724,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Breakthrough",
-    image: defaultImage,
+    image: breakthrough,
     unit: ["twice"],
     releaseDate: new Date("2019-07-24"),
     types: ["single"],
@@ -720,7 +741,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Feel Special",
-    image: defaultImage,
+    image: feelSpecial,
     unit: ["twice"],
     releaseDate: new Date("2019-09-23"),
     types: ["mini-album"],
@@ -740,7 +761,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "&TWICE",
-    image: defaultImage,
+    image: andTwice,
     unit: ["twice"],
     releaseDate: new Date("2019-11-19"),
     types: ["full-album"],
@@ -763,7 +784,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "&TWICE -Repackage",
-    image: defaultImage,
+    image: andTwice,
     unit: ["twice"],
     releaseDate: new Date("2020-02-05"),
     types: ["full-album", "repackage"],
@@ -784,7 +805,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "More & More",
-    image: defaultImage,
+    image: moreAndMore,
     unit: ["twice"],
     releaseDate: new Date("2020-06-01"),
     types: ["mini-album"],
@@ -804,7 +825,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Fanfare",
-    image: defaultImage,
+    image: fanfare,
     unit: ["twice"],
     releaseDate: new Date("2020-07-08"),
     types: ["single"],
@@ -818,7 +839,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "More & More (English Ver.)",
-    image: defaultImage,
+    image: moreAndMoreEnglish,
     unit: ["twice"],
     types: ["single"],
     market: "english",
@@ -827,7 +848,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "#TWICE3",
-    image: defaultImage,
+    image: hashtagTwice3,
     unit: ["twice"],
     types: ["mini-album"],
     market: "japanese",
@@ -849,7 +870,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Eyes Wide Open",
-    image: defaultImage,
+    image: eyesWideOpen,
     unit: ["twice"],
     types: ["full-album"],
     market: "korean",
@@ -875,7 +896,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "BETTER",
-    image: defaultImage,
+    image: better,
     unit: ["twice"],
     types: ["single"],
     market: "japanese",
@@ -889,7 +910,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "I Can't Stop Me (English Ver.)",
-    image: defaultImage,
+    image: iCantStopMeEnglish,
     unit: ["twice"],
     types: ["single", "digital"],
     market: "english",
@@ -898,7 +919,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Cry For Me",
-    image: defaultImage,
+    image: cryForMe,
     unit: ["twice"],
     releaseDate: new Date("2020-12-18"),
     types: ["single"],
@@ -912,7 +933,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Kura Kura",
-    image: defaultImage,
+    image: kuraKura,
     unit: ["twice"],
     releaseDate: new Date("2021-05-12"),
     types: ["single"],
@@ -929,7 +950,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Taste Of Love",
-    image: defaultImage,
+    image: tasteOfLove,
     unit: ["twice"],
     releaseDate: new Date("2021-06-11"),
     types: ["mini-album"],
@@ -949,7 +970,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "HOSPITAL PLAYLIST Season2, Pt. 4",
-    image: defaultImage,
+    image: hospitalPlaylistSeason2,
     unit: ["twice"],
     releaseDate: new Date("2021-07-09"),
     types: ["single", "ost"],
