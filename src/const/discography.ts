@@ -40,6 +40,19 @@ import cryForMe from "../assets/discography/cry-for-me.webp";
 import kuraKura from "../assets/discography/kura-kura.webp";
 import tasteOfLove from "../assets/discography/taste-of-love.webp";
 import hospitalPlaylistSeason2 from "../assets/discography/hospital-playlist-season-2.webp";
+import perfectWorld from "../assets/discography/perfect-world.webp";
+import theFeels from "../assets/discography/the-feels.webp";
+import formulaOfLove from "../assets/discography/formula-of-love.webp";
+import doughnut from "../assets/discography/doughnut.webp";
+import hashtagTwice4 from "../assets/discography/hashtag-twice-4.webp";
+import justBeYourself from "../assets/discography/just-be-yourself.webp";
+import celebrate from "../assets/discography/celebrate.webp";
+import between1And2 from "../assets/discography/between-1-and-2.webp";
+import moonlightSunrise from "../assets/discography/moonlight-sunrise.webp";
+import readyToBe from "../assets/discography/ready-to-be.webp";
+import hareHare from "../assets/discography/hare-hare.webp";
+import heartShakerGalactikaHolidayRemix from "../assets/discography/heart-shaker-galactika-holiday-remix.webp";
+import theRemixes from "../assets/discography/the-remixes.webp";
 
 export const DISCOGRAPHY: TDiscography[] = [
   {
@@ -982,7 +995,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Perfect World",
-    image: defaultImage,
+    image: perfectWorld,
     unit: ["twice"],
     releaseDate: new Date("2021-07-28"),
     types: ["full-album"],
@@ -1005,7 +1018,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "The Feels",
-    image: defaultImage,
+    image: theFeels,
     unit: ["twice"],
     releaseDate: new Date("2021-10-01"),
     types: ["single"],
@@ -1024,7 +1037,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Formula of Love: O+T=<3",
-    image: defaultImage,
+    image: formulaOfLove,
     unit: ["twice"],
     releaseDate: new Date("2021-11-12"),
     types: ["full-album"],
@@ -1054,7 +1067,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Doughnut",
-    image: defaultImage,
+    image: doughnut,
     unit: ["twice"],
     releaseDate: new Date("2021-12-15"),
     types: ["single"],
@@ -1071,7 +1084,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "#TWICE4 (Japanese ver.)",
-    image: defaultImage,
+    image: hashtagTwice4,
     unit: ["twice"],
     releaseDate: new Date("2022-03-16"),
     types: ["mini-album"],
@@ -1085,7 +1098,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Just Be Yourself",
-    image: defaultImage,
+    image: justBeYourself,
     unit: ["twice"],
     releaseDate: new Date("2022-03-21"),
     types: ["single"],
@@ -1094,7 +1107,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Celebrate",
-    image: defaultImage,
+    image: celebrate,
     unit: ["twice"],
     releaseDate: new Date("2022-07-27"),
     types: ["full-album"],
@@ -1116,7 +1129,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Between 1&2",
-    image: defaultImage,
+    image: between1And2,
     unit: ["twice"],
     releaseDate: new Date("2022-08-26"),
     types: ["mini-album"],
@@ -1136,7 +1149,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Moonlight Sunrise",
-    image: defaultImage,
+    image: moonlightSunrise,
     unit: ["twice"],
     releaseDate: new Date("2023-01-20"),
     types: ["single", "digital"],
@@ -1150,7 +1163,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "READY TO BE",
-    image: defaultImage,
+    image: readyToBe,
     unit: ["twice"],
     releaseDate: new Date("2023-03-10"),
     types: ["mini-album"],
@@ -1170,7 +1183,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Hare Hare",
-    image: defaultImage,
+    image: hareHare,
     unit: ["twice"],
     releaseDate: new Date("2023-05-12"),
     types: ["single"],
@@ -1184,7 +1197,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Hare Hare",
-    image: defaultImage,
+    image: hareHare,
     unit: ["twice"],
     releaseDate: new Date("2023-05-31"),
     types: ["mini-album"],
@@ -1201,7 +1214,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Heart Shaker (GALACTIKA * Holiday Remix)",
-    image: defaultImage,
+    image: heartShakerGalactikaHolidayRemix,
     unit: ["twice"],
     releaseDate: new Date("2023-11-07"),
     types: ["single"],
@@ -1210,7 +1223,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "THE REMIXES",
-    image: defaultImage,
+    image: theRemixes,
     unit: ["twice"],
     releaseDate: new Date("2023-11-17"),
     types: ["single"],
