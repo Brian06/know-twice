@@ -65,6 +65,17 @@ import theWish from "../assets/discography/the-wish.webp";
 import strategy2 from "../assets/discography/strategy-2.webp";
 import hashtagTwice5 from "../assets/discography/hashtag-twice-5.webp";
 import wePrayTwiceVersion from "../assets/discography/we-pray-twice-version.webp";
+import kpopDemonHunters from "../assets/discography/kpop-demon-hunters.webp";
+import thisIsFor from "../assets/discography/this-is-for.webp";
+import thisIsForDeluxe from "../assets/discography/this-is-for-deluxe.webp";
+import enemy from "../assets/discography/enemy.webp";
+import superstarsWithSaweetie from "../assets/discography/superstars-with-saweetie.webp";
+import allOut from "../assets/discography/all-out.webp";
+import imNayeon from "../assets/discography/im-nayeon.webp";
+import na from "../assets/discography/na.webp";
+import abcdExtendedVersion from "../assets/discography/abcd-extended-version.webp";
+import beyondEndCreditVersion from "../assets/discography/beyond-end-credit-version.webp";
+import kimagureRomantic from "../assets/discography/kimagure-romantic.webp";
 
 export const DISCOGRAPHY: TDiscography[] = [
   {
@@ -1469,7 +1480,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "KPop Demon Hunters",
-    image: defaultImage,
+    image: kpopDemonHunters,
     unit: ["twice"],
     releaseDate: new Date("2025-06-20"),
     types: ["single", "ost"],
@@ -1481,7 +1492,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "THIS IS FOR",
-    image: defaultImage,
+    image: thisIsFor,
     unit: ["twice"],
     releaseDate: new Date("2025-07-11"),
     types: ["full-album"],
@@ -1507,7 +1518,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "THIS IS FOR DELUXE",
-    image: defaultImage,
+    image: thisIsForDeluxe,
     unit: ["twice"],
     releaseDate: new Date("2025-07-14"),
     types: ["full-album"],
@@ -1533,7 +1544,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "ENEMY",
-    image: defaultImage,
+    image: enemy,
     unit: ["twice"],
     releaseDate: new Date("2025-07-30"),
     types: ["single"],
@@ -1547,7 +1558,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "superstars (with Saweetie)",
-    image: defaultImage,
+    image: superstarsWithSaweetie,
     unit: ["twice"],
     releaseDate: new Date("2025-08-01"),
     types: ["single"],
@@ -1556,7 +1567,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Like 1",
-    image: defaultImage,
+    image: enemy,
     unit: ["twice"],
     releaseDate: new Date("2025-08-20"),
     types: ["single"],
@@ -1570,7 +1581,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "ENEMY",
-    image: defaultImage,
+    image: enemy,
     unit: ["twice"],
     releaseDate: new Date("2025-08-27"),
     types: ["full-album"],
@@ -1621,7 +1632,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "ALL OUT",
-    image: defaultImage,
+    image: allOut,
     unit: ["nayeon", "sana", "jihyo", "chaeyoung"],
     releaseDate: new Date("2020-11-06"),
     types: ["single"],
@@ -1630,7 +1641,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "IM NAYEON",
-    image: defaultImage,
+    image: imNayeon,
     unit: ["nayeon"],
     releaseDate: new Date("2022-06-24"),
     types: ["mini-album"],
@@ -1650,7 +1661,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "NA",
-    image: defaultImage,
+    image: na,
     unit: ["nayeon"],
     releaseDate: new Date("2024-06-14"),
     types: ["mini-album"],
@@ -1670,7 +1681,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "ABCD (Extended Version)",
-    image: defaultImage,
+    image: abcdExtendedVersion,
     unit: ["nayeon"],
     releaseDate: new Date("2024-06-24"),
     types: ["single"],
@@ -1684,7 +1695,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Beyond (End Credit Version) [From “Moana 2”/Korean Soundtrack Version]",
-    image: defaultImage,
+    image: beyondEndCreditVersion,
     unit: ["nayeon"],
     releaseDate: new Date("2024-11-20"),
     types: ["single", "ost"],
@@ -1699,7 +1710,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Kimagure Romantic",
-    image: defaultImage,
+    image: kimagureRomantic,
     unit: ["nayeon"],
     releaseDate: new Date("2025-05-30"),
     types: ["single"],
