@@ -53,6 +53,18 @@ import readyToBe from "../assets/discography/ready-to-be.webp";
 import hareHare from "../assets/discography/hare-hare.webp";
 import heartShakerGalactikaHolidayRemix from "../assets/discography/heart-shaker-galactika-holiday-remix.webp";
 import theRemixes from "../assets/discography/the-remixes.webp";
+import danceAgain from "../assets/discography/dance-again.webp";
+import iGotYou from "../assets/discography/i-got-you.webp";
+import iGotYouVoyageVer from "../assets/discography/i-got-you-voyage-ver.webp";
+import withYouTh from "../assets/discography/with-you-th.webp";
+import oneSpark from "../assets/discography/one-spark.webp";
+import dive from "../assets/discography/dive.webp";
+import mamushiRemixFeatTwice from "../assets/discography/mamushi-remix-feat-twice.webp";
+import strategy from "../assets/discography/strategy.webp";
+import theWish from "../assets/discography/the-wish.webp";
+import strategy2 from "../assets/discography/strategy-2.webp";
+import hashtagTwice5 from "../assets/discography/hashtag-twice-5.webp";
+import wePrayTwiceVersion from "../assets/discography/we-pray-twice-version.webp";
 
 export const DISCOGRAPHY: TDiscography[] = [
   {
@@ -1240,7 +1252,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Dance Again",
-    image: defaultImage,
+    image: danceAgain,
     unit: ["twice"],
     releaseDate: new Date("2023-12-12"),
     types: ["single"],
@@ -1254,7 +1266,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "I GOT YOU",
-    image: defaultImage,
+    image: iGotYou,
     unit: ["twice"],
     releaseDate: new Date("2024-02-02"),
     types: ["single"],
@@ -1263,7 +1275,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "I GOT YOU  (Voyage ver.)",
-    image: defaultImage,
+    image: iGotYouVoyageVer,
     unit: ["twice"],
     releaseDate: new Date("2024-02-06"),
     types: ["mini-album"],
@@ -1286,7 +1298,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "With YOU-th",
-    image: defaultImage,
+    image: withYouTh,
     unit: ["twice"],
     releaseDate: new Date("2024-02-23"),
     types: ["mini-album"],
@@ -1308,7 +1320,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "ONE SPARK",
-    image: defaultImage,
+    image: oneSpark,
     unit: ["twice"],
     releaseDate: new Date("2024-02-26"),
     types: ["single"],
@@ -1324,7 +1336,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "DIVE",
-    image: defaultImage,
+    image: dive,
     unit: ["twice"],
     releaseDate: new Date("2024-07-10"),
     types: ["single"],
@@ -1338,7 +1350,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "DIVE",
-    image: defaultImage,
+    image: dive,
     unit: ["twice"],
     releaseDate: new Date("2024-07-17"),
     types: ["full-album"],
@@ -1358,7 +1370,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Mamushi (Remix) [feat. TWICE]",
-    image: defaultImage,
+    image: mamushiRemixFeatTwice,
     unit: ["twice"],
     releaseDate: new Date("2024-10-24"),
     types: ["single"],
@@ -1367,7 +1379,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "STRATEGY",
-    image: defaultImage,
+    image: strategy,
     unit: ["twice"],
     releaseDate: new Date("2024-12-06"),
     types: ["mini-album"],
@@ -1387,7 +1399,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "The wish",
-    image: defaultImage,
+    image: theWish,
     unit: ["twice"],
     releaseDate: new Date("2024-12-16"),
     types: ["single"],
@@ -1396,7 +1408,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Strategy 2.0",
-    image: defaultImage,
+    image: strategy2,
     unit: ["twice"],
     releaseDate: new Date("2024-12-18"),
     types: ["single"],
@@ -1411,7 +1423,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Talk that Talk (Japanese ver.)",
-    image: defaultImage,
+    image: hashtagTwice5,
     unit: ["twice"],
     releaseDate: new Date("2025-04-14"),
     types: ["single"],
@@ -1425,7 +1437,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "WE PRAY (TWICE Version)",
-    image: defaultImage,
+    image: wePrayTwiceVersion,
     unit: ["twice"],
     releaseDate: new Date("2025-04-17"),
     types: ["single"],
@@ -1439,7 +1451,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "#TWICE5",
-    image: defaultImage,
+    image: hashtagTwice5,
     unit: ["twice"],
     releaseDate: new Date("2025-05-14"),
     types: ["mini-album"],
