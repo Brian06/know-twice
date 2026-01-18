@@ -76,6 +76,16 @@ import na from "../assets/discography/na.webp";
 import abcdExtendedVersion from "../assets/discography/abcd-extended-version.webp";
 import beyondEndCreditVersion from "../assets/discography/beyond-end-credit-version.webp";
 import kimagureRomantic from "../assets/discography/kimagure-romantic.webp";
+import eraWithNayeon from "../assets/discography/era-with-nayeon-twice.webp";
+import twentyFiveTwentyOne from "../assets/discography/twenty-five-twenty-one.webp";
+import zone from "../assets/discography/zone.webp";
+import killinMeGoodEnglishVer from "../assets/discography/killin-me-good-english-ver.webp";
+import marryMyHusbandOstPart2 from "../assets/discography/marry-my-husband-ost-part-2.webp";
+import abouTzu from "../assets/discography/abou-tzu.webp";
+import bouquet from "../assets/discography/bouquet.webp";
+import masterpiece from "../assets/discography/masterpiece.webp";
+import hauteCouture from "../assets/discography/haute-couture.webp";
+import message from "../assets/discography/message.webp";
 
 export const DISCOGRAPHY: TDiscography[] = [
   {
@@ -1719,7 +1729,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Era with NAYEON (TWICE)",
-    image: defaultImage,
+    image: eraWithNayeon,
     unit: ["nayeon"],
     releaseDate: new Date("2025-06-13"),
     types: ["digital"],
@@ -1728,7 +1738,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "스물다섯 스물하나 OST (Twenty Five-Twenty-One)",
-    image: defaultImage,
+    image: twentyFiveTwentyOne,
     unit: ["jihyo"],
     releaseDate: new Date("2022-03-06"),
     types: ["ost"],
@@ -1740,7 +1750,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "ZONE (1st Mini Album)",
-    image: defaultImage,
+    image: zone,
     unit: ["jihyo"],
     releaseDate: new Date("2023-08-18"),
     types: ["mini-album"],
@@ -1760,7 +1770,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Killin' Me Good (English Ver.) (Single)",
-    image: defaultImage,
+    image: killinMeGoodEnglishVer,
     unit: ["jihyo"],
     releaseDate: new Date("2023-09-15"),
     types: ["single"],
@@ -1772,7 +1782,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Marry My Husband OST Part.2",
-    image: defaultImage,
+    image: marryMyHusbandOstPart2,
     unit: ["jihyo"],
     releaseDate: new Date("2025-06-28"),
     types: ["ost"],
@@ -1781,7 +1791,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "abouTZU (1st Mini Album)",
-    image: defaultImage,
+    image: abouTzu,
     unit: ["tzuyu"],
     releaseDate: new Date("2024-09-06"),
     types: ["mini-album"],
@@ -1839,7 +1849,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Bouquet",
-    image: defaultImage,
+    image: bouquet,
     unit: ["misamo", "mina", "sana", "momo"],
     releaseDate: new Date("2023-01-25"),
     types: ["single", "ost"],
@@ -1848,7 +1858,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Marshmallow",
-    image: defaultImage,
+    image: masterpiece,
     unit: ["misamo", "mina", "sana", "momo"],
     releaseDate: new Date("2023-06-16"),
     types: ["single"],
@@ -1862,7 +1872,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Masterpiece",
-    image: defaultImage,
+    image: masterpiece,
     unit: ["misamo", "mina", "sana", "momo"],
     releaseDate: new Date("2023-07-26"),
     types: ["mini-album"],
@@ -1882,7 +1892,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "NEW LOOK",
-    image: defaultImage,
+    image: hauteCouture,
     unit: ["misamo", "mina", "sana", "momo"],
     releaseDate: new Date("2024-10-09"),
     types: ["single"],
@@ -1896,7 +1906,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Identity",
-    image: defaultImage,
+    image: hauteCouture,
     unit: ["misamo", "mina", "sana", "momo"],
     releaseDate: new Date("2024-10-28"),
     types: ["single"],
@@ -1910,7 +1920,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "HAUTE COUTURE",
-    image: defaultImage,
+    image: hauteCouture,
     unit: ["misamo", "mina", "sana", "momo"],
     releaseDate: new Date("2024-11-06"),
     types: ["mini-album"],
@@ -1930,7 +1940,7 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     name: "Message",
-    image: defaultImage,
+    image: message,
     unit: ["misamo", "mina", "sana", "momo"],
     releaseDate: new Date("2025-04-28"),
     types: ["ost"],
