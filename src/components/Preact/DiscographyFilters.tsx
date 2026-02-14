@@ -1,10 +1,14 @@
-import { useState, useMemo } from 'preact/hooks';
-import Dropdown from './Dropdown';
-import AlbumCard from './AlbumCard';
-import { DISCOGRAPHY } from '../../const/discography';
-import { Unit } from '../../const/members';
-import type { Option } from './Dropdown';
-import type { TType, TMarket, TUnit } from '../../types/discography';
+import { useState, useMemo, useEffect, useCallback } from 'preact/hooks'
+import Dropdown from './Dropdown'
+import AlbumCard from './AlbumCard'
+import { useIntersectionObserver } from './useIntersectionObserver'
+import { DISCOGRAPHY } from '../../const/discography'
+import { Unit } from '../../const/members'
+import type { Option } from './Dropdown'
+import type { TType, TMarket, TUnit } from '../../types/discography'
+
+const INITIAL_LOAD = 10
+const BATCH_SIZE = 5
 
 const typeOptions: Option[] = [
   { value: 'all', label: 'All Types' },
@@ -14,14 +18,14 @@ const typeOptions: Option[] = [
   { value: 'repackage', label: 'Repackage' },
   { value: 'digital', label: 'Digital' },
   { value: 'ost', label: 'OST' },
-];
+]
 
 const marketOptions: Option[] = [
   { value: 'all', label: 'All Markets' },
   { value: 'korean', label: 'Korean' },
   { value: 'japanese', label: 'Japanese' },
   { value: 'english', label: 'English' },
-];
+]
 
 const artistOptions: Option[] = [
   { value: 'all', label: 'All Artists' },
@@ -32,27 +36,24 @@ const artistOptions: Option[] = [
   { value: Unit.tzuyu, label: 'Tzuyu' },
   { value: Unit.chaeyoung, label: 'Chaeyoung' },
   { value: 'other', label: 'Other / Collaborations' },
-];
+]
 
-const SOLOIST_UNITS = [Unit.nayeon, Unit.jihyo, Unit.tzuyu, Unit.chaeyoung] as const;
+const SOLOIST_UNITS = [Unit.nayeon, Unit.jihyo, Unit.tzuyu, Unit.chaeyoung] as const
 
 function isTwiceOnly(unit: TUnit[]): boolean {
-  return unit.length === 1 && unit[0] === Unit.twice;
+  return unit.length === 1 && unit[0] === Unit.twice
 }
 
 function isMisamoOnly(unit: TUnit[]): boolean {
-  return unit.includes(Unit.misamo);
+  return unit.includes(Unit.misamo)
 }
 
 function isSoloistOnly(unit: TUnit[]): boolean {
-  return (
-    unit.length === 1 &&
-    SOLOIST_UNITS.includes(unit[0] as (typeof SOLOIST_UNITS)[number])
-  );
+  return unit.length === 1 && SOLOIST_UNITS.includes(unit[0] as (typeof SOLOIST_UNITS)[number])
 }
 
 function isOtherUnit(unit: TUnit[]): boolean {
-  return !isTwiceOnly(unit) && !isMisamoOnly(unit) && !isSoloistOnly(unit);
+  return !isTwiceOnly(unit) && !isMisamoOnly(unit) && !isSoloistOnly(unit)
 }
 
 const sortOptions: Option[] = [
@@ -60,66 +61,80 @@ const sortOptions: Option[] = [
   { value: 'oldest', label: 'Oldest' },
   { value: 'a-z', label: 'A-Z' },
   { value: 'z-a', label: 'Z-A' },
-];
+]
 
 export default function DiscographyFilters() {
-  const albums = DISCOGRAPHY;
-  const [typeFilter, setTypeFilter] = useState('all');
-  const [marketFilter, setMarketFilter] = useState('all');
-  const [artistFilter, setArtistFilter] = useState('all');
-  const [sortFilter, setSortFilter] = useState('latest');
+  const albums = DISCOGRAPHY
+  const [typeFilter, setTypeFilter] = useState('all')
+  const [marketFilter, setMarketFilter] = useState('all')
+  const [artistFilter, setArtistFilter] = useState('all')
+  const [sortFilter, setSortFilter] = useState('latest')
+  const [visibleCount, setVisibleCount] = useState(INITIAL_LOAD)
 
   const filteredAndSortedAlbums = useMemo(() => {
     let filtered = albums.filter((album) => {
       if (typeFilter !== 'all' && !album.types.includes(typeFilter as TType)) {
-        return false;
+        return false
       }
 
-      if (
-        marketFilter !== 'all' &&
-        album.market !== (marketFilter as TMarket)
-      ) {
-        return false;
+      if (marketFilter !== 'all' && album.market !== (marketFilter as TMarket)) {
+        return false
       }
 
       if (artistFilter !== 'all') {
         if (artistFilter === 'other') {
-          if (!isOtherUnit(album.unit)) return false;
-        } else if (
-          SOLOIST_UNITS.includes(artistFilter as (typeof SOLOIST_UNITS)[number])
-        ) {
+          if (!isOtherUnit(album.unit)) return false
+        } else if (SOLOIST_UNITS.includes(artistFilter as (typeof SOLOIST_UNITS)[number])) {
           // Soloist: only albums that are that member alone
-          if (
-            album.unit.length !== 1 ||
-            album.unit[0] !== (artistFilter as TUnit)
-          ) {
-            return false;
+          if (album.unit.length !== 1 || album.unit[0] !== (artistFilter as TUnit)) {
+            return false
           }
         } else if (!album.unit.includes(artistFilter as TUnit)) {
-          return false;
+          return false
         }
       }
 
-      return true;
-    });
+      return true
+    })
 
     const sorted = [...filtered].sort((a, b) => {
       switch (sortFilter) {
         case 'latest':
-          return b.releaseDate.getTime() - a.releaseDate.getTime();
+          return b.releaseDate.getTime() - a.releaseDate.getTime()
         case 'oldest':
-          return a.releaseDate.getTime() - b.releaseDate.getTime();
+          return a.releaseDate.getTime() - b.releaseDate.getTime()
         case 'a-z':
-          return a.name.localeCompare(b.name);
+          return a.name.localeCompare(b.name)
         case 'z-a':
-          return b.name.localeCompare(a.name);
+          return b.name.localeCompare(a.name)
         default:
-          return 0;
+          return 0
       }
-    });
+    })
 
-    return sorted;
-  }, [albums, typeFilter, marketFilter, artistFilter, sortFilter]);
+    return sorted
+  }, [albums, typeFilter, marketFilter, artistFilter, sortFilter])
+
+  // Reset visible count when filters change
+  useEffect(() => {
+    setVisibleCount(INITIAL_LOAD)
+  }, [typeFilter, marketFilter, artistFilter, sortFilter])
+
+  // Load more albums when sentinel is visible
+  const loadMore = useCallback(() => {
+    setVisibleCount((prev) => {
+      const total = filteredAndSortedAlbums.length
+      if (prev >= total) return prev
+      return Math.min(prev + BATCH_SIZE, total)
+    })
+  }, [filteredAndSortedAlbums.length])
+
+  const sentinelRef = useIntersectionObserver<HTMLDivElement>({
+    rootMargin: '200px',
+    onIntersect: loadMore,
+  })
+
+  const visibleAlbums = filteredAndSortedAlbums.slice(0, visibleCount)
 
   return (
     <div>
@@ -163,14 +178,13 @@ export default function DiscographyFilters() {
             No albums found with the selected filters.
           </p>
         ) : (
-          filteredAndSortedAlbums.map((album) => (
-            <AlbumCard
-              key={`${album.name}-${album.releaseDate.getTime()}`}
-              album={album}
-            />
+          visibleAlbums.map((album) => (
+            <AlbumCard key={`${album.name}-${album.releaseDate.getTime()}`} album={album} />
           ))
         )}
       </div>
+      {/* Sentinel element for infinite scroll */}
+      <div ref={sentinelRef} className="h-1 w-full" />
     </div>
-  );
+  )
 }
