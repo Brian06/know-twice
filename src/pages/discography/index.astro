@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import DiscographyFilters from '../../components/Preact/DiscographyFilters';
+import GoToTop from '../../components/GoToTop.astro';
 ---
 
 <Layout
@@ -11,4 +12,5 @@ import DiscographyFilters from '../../components/Preact/DiscographyFilters';
     <h1 class="mb-8 text-4xl font-bold">TWICE Discography</h1>
     <DiscographyFilters client:load />
   </div>
+  <GoToTop />
 </Layout>

@@ -1,0 +1,32 @@
+---
+
+---
+
+<button
+  type="button"
+  id="go-to-top"
+  class="fixed right-6 bottom-6 z-50 flex h-12 w-12 cursor-pointer items-center justify-center rounded-md border border-gray-300 bg-white shadow-md transition-colors hover:border-apricot hover:bg-magenta-lightest focus:ring-2 focus:ring-apricot focus:outline-none"
+  aria-label="Scroll to top"
+>
+  <svg
+    class="h-6 w-6 text-gray-600"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+  </svg>
+</button>
+
+<script>
+  const button = document.getElementById('go-to-top')
+
+  button?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  })
+</script>
