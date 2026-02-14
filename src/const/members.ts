@@ -2,6 +2,22 @@
 // When updating member data, copy the changes here but exclude image properties
 
 import type { TMember } from '../types/members';
+import type { TUnit } from '../types/discography';
+
+export const Unit = {
+  twice: 'twice',
+  misamo: 'misamo',
+  nayeon: 'nayeon',
+  jeongyeon: 'jeongyeon',
+  momo: 'momo',
+  sana: 'sana',
+  jihyo: 'jihyo',
+  mina: 'mina',
+  dahyun: 'dahyun',
+  chaeyoung: 'chaeyoung',
+  tzuyu: 'tzuyu',
+} as const satisfies Record<string, TUnit>;
+
 import nayeon from '../assets/members/cards/nayeon.webp';
 import jeongyeon from '../assets/members/cards/jeongyeon.webp';
 import momo from '../assets/members/cards/momo.webp';

@@ -2,6 +2,7 @@ import { useState, useMemo } from 'preact/hooks';
 import Dropdown from './Dropdown';
 import AlbumCard from './AlbumCard';
 import { DISCOGRAPHY } from '../../const/discography';
+import { Unit } from '../../const/members';
 import type { Option } from './Dropdown';
 import type { TType, TMarket, TUnit } from '../../types/discography';
 
@@ -24,23 +25,23 @@ const marketOptions: Option[] = [
 
 const artistOptions: Option[] = [
   { value: 'all', label: 'All Artists' },
-  { value: 'twice', label: 'TWICE' },
-  { value: 'misamo', label: 'MISAMO' },
-  { value: 'nayeon', label: 'Nayeon' },
-  { value: 'jihyo', label: 'Jihyo' },
-  { value: 'tzuyu', label: 'Tzuyu' },
-  { value: 'chaeyoung', label: 'Chaeyoung' },
+  { value: Unit.twice, label: 'TWICE' },
+  { value: Unit.misamo, label: 'MISAMO' },
+  { value: Unit.nayeon, label: 'Nayeon' },
+  { value: Unit.jihyo, label: 'Jihyo' },
+  { value: Unit.tzuyu, label: 'Tzuyu' },
+  { value: Unit.chaeyoung, label: 'Chaeyoung' },
   { value: 'other', label: 'Other / Collaborations' },
 ];
 
-const SOLOIST_UNITS = ['nayeon', 'jihyo', 'tzuyu', 'chaeyoung'] as const;
+const SOLOIST_UNITS = [Unit.nayeon, Unit.jihyo, Unit.tzuyu, Unit.chaeyoung] as const;
 
 function isTwiceOnly(unit: TUnit[]): boolean {
-  return unit.length === 1 && unit[0] === 'twice';
+  return unit.length === 1 && unit[0] === Unit.twice;
 }
 
 function isMisamoOnly(unit: TUnit[]): boolean {
-  return unit.includes('misamo');
+  return unit.includes(Unit.misamo);
 }
 
 function isSoloistOnly(unit: TUnit[]): boolean {

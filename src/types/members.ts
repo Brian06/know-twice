@@ -49,6 +49,7 @@ export type TFullName =
   | 'Kim Da-hyun'
   | 'Son Chae-young'
   | 'Chou Tzuyu';
+
 export type TEmoji =
   | '🐰'
   | '🐶'
