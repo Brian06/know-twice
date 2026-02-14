@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "preact/hooks";
+import { useState, useRef, useEffect } from 'preact/hooks';
 
 export interface Option {
   value: string;
@@ -15,9 +15,9 @@ export interface DropdownProps {
 
 export default function Dropdown({
   options,
-  defaultValue = "all",
+  defaultValue = 'all',
   id,
-  className = "",
+  className = '',
   onChange,
 }: DropdownProps) {
   const defaultOption =
@@ -42,16 +42,16 @@ export default function Dropdown({
       }
     };
 
-    document.addEventListener("click", handleClickOutside);
+    document.addEventListener('click', handleClickOutside);
     document.addEventListener(
-      "dropdown-opened",
+      'dropdown-opened',
       handleOtherDropdownOpen as EventListener,
     );
 
     return () => {
-      document.removeEventListener("click", handleClickOutside);
+      document.removeEventListener('click', handleClickOutside);
       document.removeEventListener(
-        "dropdown-opened",
+        'dropdown-opened',
         handleOtherDropdownOpen as EventListener,
       );
     };
@@ -63,7 +63,7 @@ export default function Dropdown({
     setIsOpen(newIsOpen);
 
     if (newIsOpen) {
-      const event = new CustomEvent("dropdown-opened", {
+      const event = new CustomEvent('dropdown-opened', {
         detail: { dropdownId: id },
       });
       document.dispatchEvent(event);
@@ -93,7 +93,7 @@ export default function Dropdown({
       >
         <span>{selectedOption.label}</span>
         <svg
-          className={`h-5 w-5 text-gray-400 transition-transform ${isOpen ? "rotate-180" : ""}`}
+          className={`h-5 w-5 text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"

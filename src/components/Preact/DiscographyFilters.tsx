@@ -1,74 +1,102 @@
-import { useState, useMemo } from "preact/hooks";
-import Dropdown from "./Dropdown";
-import AlbumCard from "./AlbumCard";
-import { DISCOGRAPHY } from "../../const/discography";
-import type { Option } from "./Dropdown";
-import type { TType, TMarket, TUnit } from "../../types/discography";
+import { useState, useMemo } from 'preact/hooks';
+import Dropdown from './Dropdown';
+import AlbumCard from './AlbumCard';
+import { DISCOGRAPHY } from '../../const/discography';
+import type { Option } from './Dropdown';
+import type { TType, TMarket, TUnit } from '../../types/discography';
 
 const typeOptions: Option[] = [
-  { value: "all", label: "All Types" },
-  { value: "mini-album", label: "Mini Album" },
-  { value: "full-album", label: "Full Album" },
-  { value: "single", label: "Single" },
-  { value: "repackage", label: "Repackage" },
-  { value: "digital", label: "Digital" },
-  { value: "ost", label: "OST" },
+  { value: 'all', label: 'All Types' },
+  { value: 'mini-album', label: 'Mini Album' },
+  { value: 'full-album', label: 'Full Album' },
+  { value: 'single', label: 'Single' },
+  { value: 'repackage', label: 'Repackage' },
+  { value: 'digital', label: 'Digital' },
+  { value: 'ost', label: 'OST' },
 ];
 
 const marketOptions: Option[] = [
-  { value: "all", label: "All Markets" },
-  { value: "korean", label: "Korean" },
-  { value: "japanese", label: "Japanese" },
-  { value: "english", label: "English" },
+  { value: 'all', label: 'All Markets' },
+  { value: 'korean', label: 'Korean' },
+  { value: 'japanese', label: 'Japanese' },
+  { value: 'english', label: 'English' },
 ];
 
 const artistOptions: Option[] = [
-  { value: "all", label: "All Artists" },
-  { value: "twice", label: "TWICE" },
-  { value: "misamo", label: "MISAMO" },
-  { value: "nayeon", label: "Nayeon" },
-  { value: "jeongyeon", label: "Jeongyeon" },
-  { value: "momo", label: "Momo" },
-  { value: "sana", label: "Sana" },
-  { value: "jihyo", label: "Jihyo" },
-  { value: "mina", label: "Mina" },
-  { value: "dahyun", label: "Dahyun" },
-  { value: "chaeyoung", label: "Chaeyoung" },
-  { value: "tzuyu", label: "Tzuyu" },
+  { value: 'all', label: 'All Artists' },
+  { value: 'twice', label: 'TWICE' },
+  { value: 'misamo', label: 'MISAMO' },
+  { value: 'nayeon', label: 'Nayeon' },
+  { value: 'jihyo', label: 'Jihyo' },
+  { value: 'tzuyu', label: 'Tzuyu' },
+  { value: 'chaeyoung', label: 'Chaeyoung' },
+  { value: 'other', label: 'Other / Collaborations' },
 ];
 
+const SOLOIST_UNITS = ['nayeon', 'jihyo', 'tzuyu', 'chaeyoung'] as const;
+
+function isTwiceOnly(unit: TUnit[]): boolean {
+  return unit.length === 1 && unit[0] === 'twice';
+}
+
+function isMisamoOnly(unit: TUnit[]): boolean {
+  return unit.includes('misamo');
+}
+
+function isSoloistOnly(unit: TUnit[]): boolean {
+  return (
+    unit.length === 1 &&
+    SOLOIST_UNITS.includes(unit[0] as (typeof SOLOIST_UNITS)[number])
+  );
+}
+
+function isOtherUnit(unit: TUnit[]): boolean {
+  return !isTwiceOnly(unit) && !isMisamoOnly(unit) && !isSoloistOnly(unit);
+}
+
 const sortOptions: Option[] = [
-  { value: "latest", label: "Latest" },
-  { value: "oldest", label: "Oldest" },
-  { value: "a-z", label: "A-Z" },
-  { value: "z-a", label: "Z-A" },
+  { value: 'latest', label: 'Latest' },
+  { value: 'oldest', label: 'Oldest' },
+  { value: 'a-z', label: 'A-Z' },
+  { value: 'z-a', label: 'Z-A' },
 ];
 
 export default function DiscographyFilters() {
   const albums = DISCOGRAPHY;
-  const [typeFilter, setTypeFilter] = useState("all");
-  const [marketFilter, setMarketFilter] = useState("all");
-  const [artistFilter, setArtistFilter] = useState("all");
-  const [sortFilter, setSortFilter] = useState("latest");
+  const [typeFilter, setTypeFilter] = useState('all');
+  const [marketFilter, setMarketFilter] = useState('all');
+  const [artistFilter, setArtistFilter] = useState('all');
+  const [sortFilter, setSortFilter] = useState('latest');
 
   const filteredAndSortedAlbums = useMemo(() => {
     let filtered = albums.filter((album) => {
-      if (typeFilter !== "all" && !album.types.includes(typeFilter as TType)) {
+      if (typeFilter !== 'all' && !album.types.includes(typeFilter as TType)) {
         return false;
       }
 
       if (
-        marketFilter !== "all" &&
+        marketFilter !== 'all' &&
         album.market !== (marketFilter as TMarket)
       ) {
         return false;
       }
 
-      if (
-        artistFilter !== "all" &&
-        !album.unit.includes(artistFilter as TUnit)
-      ) {
-        return false;
+      if (artistFilter !== 'all') {
+        if (artistFilter === 'other') {
+          if (!isOtherUnit(album.unit)) return false;
+        } else if (
+          SOLOIST_UNITS.includes(artistFilter as (typeof SOLOIST_UNITS)[number])
+        ) {
+          // Soloist: only albums that are that member alone
+          if (
+            album.unit.length !== 1 ||
+            album.unit[0] !== (artistFilter as TUnit)
+          ) {
+            return false;
+          }
+        } else if (!album.unit.includes(artistFilter as TUnit)) {
+          return false;
+        }
       }
 
       return true;
@@ -76,13 +104,13 @@ export default function DiscographyFilters() {
 
     const sorted = [...filtered].sort((a, b) => {
       switch (sortFilter) {
-        case "latest":
+        case 'latest':
           return b.releaseDate.getTime() - a.releaseDate.getTime();
-        case "oldest":
+        case 'oldest':
           return a.releaseDate.getTime() - b.releaseDate.getTime();
-        case "a-z":
+        case 'a-z':
           return a.name.localeCompare(b.name);
-        case "z-a":
+        case 'z-a':
           return b.name.localeCompare(a.name);
         default:
           return 0;

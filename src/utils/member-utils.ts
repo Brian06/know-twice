@@ -1,5 +1,5 @@
-import { MEMBERS } from "../const/members";
-import type { TmemberId, TMemberById } from "../types/member-derived";
+import { MEMBERS } from '../const/members';
+import type { TmemberId, TMemberById } from '../types/member-derived';
 
 export const isMemberId = (id: string): id is TmemberId => {
   return MEMBERS.some((member) => member.id === id);

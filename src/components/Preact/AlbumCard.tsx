@@ -1,4 +1,4 @@
-import type { TDiscography } from "../../types/discography";
+import type { TDiscography } from '../../types/discography';
 
 interface AlbumCardProps {
   album: TDiscography;
@@ -21,7 +21,9 @@ export default function AlbumCard({ album }: AlbumCardProps) {
         <h2 className="group-hover:text-magenta truncate text-base font-bold transition-all duration-500">
           {album.name}
         </h2>
-        <p className="text-sm text-gray-500">{album.releaseDate.getFullYear()}</p>
+        <p className="text-sm text-gray-500">
+          {album.releaseDate.getFullYear()}
+        </p>
       </div>
     </div>
   );

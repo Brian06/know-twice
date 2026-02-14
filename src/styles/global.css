@@ -1,11 +1,11 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   /* fonts */
   --font-fallback:
-    "Adjusted Arial Fallback", system-ui, -apple-system, blinkmacsystemfont,
-    "Segoe UI", "Noto Sans", helvetica, arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji";
+    'Adjusted Arial Fallback', system-ui, -apple-system, blinkmacsystemfont,
+    'Segoe UI', 'Noto Sans', helvetica, arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji';
 
   /* colors */
   --color-magenta: #ff5fa2;
@@ -74,24 +74,24 @@
 }
 
 @font-face {
-  font-family: "Oswald";
-  src: url("/fonts/oswald-light.woff2") format("woff2");
+  font-family: 'Oswald';
+  src: url('/fonts/oswald-light.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Oswald";
-  src: url("/fonts/oswald-regular.woff2") format("woff2");
+  font-family: 'Oswald';
+  src: url('/fonts/oswald-regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Oswald";
-  src: url("/fonts/oswald-bold.woff2") format("woff2");
+  font-family: 'Oswald';
+  src: url('/fonts/oswald-bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -226,7 +226,7 @@
 }
 
 html {
-  font-family: "Oswald", var(--font-fallback);
+  font-family: 'Oswald', var(--font-fallback);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
