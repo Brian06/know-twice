@@ -18,6 +18,7 @@ export type TSong = {
 };
 
 export type TDiscography = {
+  id: string;
   name: string;
   image: ImageMetadata;
   unit: TUnit[];

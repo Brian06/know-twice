@@ -1,95 +1,95 @@
-import type { TDiscography } from '../types/discography';
-import { Unit } from './members';
-import defaultImage from '../assets/discography/default.webp';
-import tenTheStoryGoesOn from '../assets/discography/ten-the-story-goes-on.webp';
-import blink from '../assets/discography/blink.webp';
-import lilFantasyVol1 from '../assets/discography/lil-fantasy-vol-1.webp';
-import theStoryBegins from '../assets/discography/the-story-begins.webp';
-import daringWoman from '../assets/discography/daring-woman.webp';
-import pageTwo from '../assets/discography/page-two.webp';
-import twicecoasterLane1 from '../assets/discography/twicecoaster-lane-1.webp';
-import twicecoasterLane2 from '../assets/discography/twicecoaster-lane-2.webp';
-import whatsThis from '../assets/discography/whats-this.webp';
-import signal from '../assets/discography/signal.webp';
-import hashtagTwice from '../assets/discography/hashtag-twice.webp';
-import oneMoreTime from '../assets/discography/one-more-time.webp';
-import twicetagram from '../assets/discography/twicetagram.webp';
-import merryAndHappy from '../assets/discography/merry-and-happy.webp';
-import candyPop from '../assets/discography/candy-pop.webp';
-import whatIsLove from '../assets/discography/what-is-love.webp';
-import wakeMeUp from '../assets/discography/wake-me-up.webp';
-import iWantYouBack from '../assets/discography/i-want-you-back.webp';
-import summerNights from '../assets/discography/summer-nights.webp';
-import bdz from '../assets/discography/bdz.webp';
-import stayByMySide from '../assets/discography/stay-by-my-side.webp';
-import yesOrYes from '../assets/discography/yes-or-yes.webp';
-import theYearOfYes from '../assets/discography/the-year-of-yes.webp';
-import hashtagTwice2 from '../assets/discography/hashtag-twice-2.webp';
-import fancyYou from '../assets/discography/fancy-you.webp';
-import happyHappy from '../assets/discography/happy-happy.webp';
-import breakthrough from '../assets/discography/breakthrough.webp';
-import feelSpecial from '../assets/discography/feel-special.webp';
-import andTwice from '../assets/discography/and-twice.webp';
-import moreAndMore from '../assets/discography/more-and-more.webp';
-import fanfare from '../assets/discography/fanfare.webp';
-import moreAndMoreEnglish from '../assets/discography/more-and-more-english.webp';
-import hashtagTwice3 from '../assets/discography/hashtag-twice-3.webp';
-import eyesWideOpen from '../assets/discography/eyes-wide-open.webp';
-import better from '../assets/discography/better.webp';
-import iCantStopMeEnglish from '../assets/discography/i-cant-stop-me-english.webp';
-import cryForMe from '../assets/discography/cry-for-me.webp';
-import kuraKura from '../assets/discography/kura-kura.webp';
-import tasteOfLove from '../assets/discography/taste-of-love.webp';
-import hospitalPlaylistSeason2 from '../assets/discography/hospital-playlist-season-2.webp';
-import perfectWorld from '../assets/discography/perfect-world.webp';
-import theFeels from '../assets/discography/the-feels.webp';
-import formulaOfLove from '../assets/discography/formula-of-love.webp';
-import doughnut from '../assets/discography/doughnut.webp';
-import hashtagTwice4 from '../assets/discography/hashtag-twice-4.webp';
-import justBeYourself from '../assets/discography/just-be-yourself.webp';
-import celebrate from '../assets/discography/celebrate.webp';
-import between1And2 from '../assets/discography/between-1-and-2.webp';
-import moonlightSunrise from '../assets/discography/moonlight-sunrise.webp';
-import readyToBe from '../assets/discography/ready-to-be.webp';
-import hareHare from '../assets/discography/hare-hare.webp';
-import heartShakerGalactikaHolidayRemix from '../assets/discography/heart-shaker-galactika-holiday-remix.webp';
-import theRemixes from '../assets/discography/the-remixes.webp';
-import danceAgain from '../assets/discography/dance-again.webp';
-import iGotYou from '../assets/discography/i-got-you.webp';
-import iGotYouVoyageVer from '../assets/discography/i-got-you-voyage-ver.webp';
-import withYouTh from '../assets/discography/with-you-th.webp';
-import oneSpark from '../assets/discography/one-spark.webp';
-import dive from '../assets/discography/dive.webp';
-import mamushiRemixFeatTwice from '../assets/discography/mamushi-remix-feat-twice.webp';
-import strategy from '../assets/discography/strategy.webp';
-import theWish from '../assets/discography/the-wish.webp';
-import strategy2 from '../assets/discography/strategy-2.webp';
-import hashtagTwice5 from '../assets/discography/hashtag-twice-5.webp';
-import wePrayTwiceVersion from '../assets/discography/we-pray-twice-version.webp';
-import kpopDemonHunters from '../assets/discography/kpop-demon-hunters.webp';
-import thisIsFor from '../assets/discography/this-is-for.webp';
-import thisIsForDeluxe from '../assets/discography/this-is-for-deluxe.webp';
-import enemy from '../assets/discography/enemy.webp';
-import superstarsWithSaweetie from '../assets/discography/superstars-with-saweetie.webp';
-import allOut from '../assets/discography/all-out.webp';
-import imNayeon from '../assets/discography/im-nayeon.webp';
-import na from '../assets/discography/na.webp';
-import abcdExtendedVersion from '../assets/discography/abcd-extended-version.webp';
-import beyondEndCreditVersion from '../assets/discography/beyond-end-credit-version.webp';
-import kimagureRomantic from '../assets/discography/kimagure-romantic.webp';
-import eraWithNayeon from '../assets/discography/era-with-nayeon-twice.webp';
-import twentyFiveTwentyOne from '../assets/discography/twenty-five-twenty-one.webp';
-import zone from '../assets/discography/zone.webp';
-import killinMeGoodEnglishVer from '../assets/discography/killin-me-good-english-ver.webp';
-import marryMyHusbandOstPart2 from '../assets/discography/marry-my-husband-ost-part-2.webp';
-import abouTzu from '../assets/discography/abou-tzu.webp';
-import bouquet from '../assets/discography/bouquet.webp';
-import masterpiece from '../assets/discography/masterpiece.webp';
-import hauteCouture from '../assets/discography/haute-couture.webp';
-import message from '../assets/discography/message.webp';
+import type { TDiscography } from '../types/discography'
+import { Unit } from './members'
+import tenTheStoryGoesOn from '../assets/discography/ten-the-story-goes-on.webp'
+import blink from '../assets/discography/blink.webp'
+import lilFantasyVol1 from '../assets/discography/lil-fantasy-vol-1.webp'
+import theStoryBegins from '../assets/discography/the-story-begins.webp'
+import daringWoman from '../assets/discography/daring-woman.webp'
+import pageTwo from '../assets/discography/page-two.webp'
+import twicecoasterLane1 from '../assets/discography/twicecoaster-lane-1.webp'
+import twicecoasterLane2 from '../assets/discography/twicecoaster-lane-2.webp'
+import whatsThis from '../assets/discography/whats-this.webp'
+import signal from '../assets/discography/signal.webp'
+import hashtagTwice from '../assets/discography/hashtag-twice.webp'
+import oneMoreTime from '../assets/discography/one-more-time.webp'
+import twicetagram from '../assets/discography/twicetagram.webp'
+import merryAndHappy from '../assets/discography/merry-and-happy.webp'
+import candyPop from '../assets/discography/candy-pop.webp'
+import whatIsLove from '../assets/discography/what-is-love.webp'
+import wakeMeUp from '../assets/discography/wake-me-up.webp'
+import iWantYouBack from '../assets/discography/i-want-you-back.webp'
+import summerNights from '../assets/discography/summer-nights.webp'
+import bdz from '../assets/discography/bdz.webp'
+import stayByMySide from '../assets/discography/stay-by-my-side.webp'
+import yesOrYes from '../assets/discography/yes-or-yes.webp'
+import theYearOfYes from '../assets/discography/the-year-of-yes.webp'
+import hashtagTwice2 from '../assets/discography/hashtag-twice-2.webp'
+import fancyYou from '../assets/discography/fancy-you.webp'
+import happyHappy from '../assets/discography/happy-happy.webp'
+import breakthrough from '../assets/discography/breakthrough.webp'
+import feelSpecial from '../assets/discography/feel-special.webp'
+import andTwice from '../assets/discography/and-twice.webp'
+import moreAndMore from '../assets/discography/more-and-more.webp'
+import fanfare from '../assets/discography/fanfare.webp'
+import moreAndMoreEnglish from '../assets/discography/more-and-more-english.webp'
+import hashtagTwice3 from '../assets/discography/hashtag-twice-3.webp'
+import eyesWideOpen from '../assets/discography/eyes-wide-open.webp'
+import better from '../assets/discography/better.webp'
+import iCantStopMeEnglish from '../assets/discography/i-cant-stop-me-english.webp'
+import cryForMe from '../assets/discography/cry-for-me.webp'
+import kuraKura from '../assets/discography/kura-kura.webp'
+import tasteOfLove from '../assets/discography/taste-of-love.webp'
+import hospitalPlaylistSeason2 from '../assets/discography/hospital-playlist-season-2.webp'
+import perfectWorld from '../assets/discography/perfect-world.webp'
+import theFeels from '../assets/discography/the-feels.webp'
+import formulaOfLove from '../assets/discography/formula-of-love.webp'
+import doughnut from '../assets/discography/doughnut.webp'
+import hashtagTwice4 from '../assets/discography/hashtag-twice-4.webp'
+import justBeYourself from '../assets/discography/just-be-yourself.webp'
+import celebrate from '../assets/discography/celebrate.webp'
+import between1And2 from '../assets/discography/between-1-and-2.webp'
+import moonlightSunrise from '../assets/discography/moonlight-sunrise.webp'
+import readyToBe from '../assets/discography/ready-to-be.webp'
+import hareHare from '../assets/discography/hare-hare.webp'
+import heartShakerGalactikaHolidayRemix from '../assets/discography/heart-shaker-galactika-holiday-remix.webp'
+import theRemixes from '../assets/discography/the-remixes.webp'
+import danceAgain from '../assets/discography/dance-again.webp'
+import iGotYou from '../assets/discography/i-got-you.webp'
+import iGotYouVoyageVer from '../assets/discography/i-got-you-voyage-ver.webp'
+import withYouTh from '../assets/discography/with-you-th.webp'
+import oneSpark from '../assets/discography/one-spark.webp'
+import dive from '../assets/discography/dive.webp'
+import mamushiRemixFeatTwice from '../assets/discography/mamushi-remix-feat-twice.webp'
+import strategy from '../assets/discography/strategy.webp'
+import theWish from '../assets/discography/the-wish.webp'
+import strategy2 from '../assets/discography/strategy-2.webp'
+import hashtagTwice5 from '../assets/discography/hashtag-twice-5.webp'
+import wePrayTwiceVersion from '../assets/discography/we-pray-twice-version.webp'
+import kpopDemonHunters from '../assets/discography/kpop-demon-hunters.webp'
+import thisIsFor from '../assets/discography/this-is-for.webp'
+import thisIsForDeluxe from '../assets/discography/this-is-for-deluxe.webp'
+import enemy from '../assets/discography/enemy.webp'
+import superstarsWithSaweetie from '../assets/discography/superstars-with-saweetie.webp'
+import allOut from '../assets/discography/all-out.webp'
+import imNayeon from '../assets/discography/im-nayeon.webp'
+import na from '../assets/discography/na.webp'
+import abcdExtendedVersion from '../assets/discography/abcd-extended-version.webp'
+import beyondEndCreditVersion from '../assets/discography/beyond-end-credit-version.webp'
+import kimagureRomantic from '../assets/discography/kimagure-romantic.webp'
+import eraWithNayeon from '../assets/discography/era-with-nayeon-twice.webp'
+import twentyFiveTwentyOne from '../assets/discography/twenty-five-twenty-one.webp'
+import zone from '../assets/discography/zone.webp'
+import killinMeGoodEnglishVer from '../assets/discography/killin-me-good-english-ver.webp'
+import marryMyHusbandOstPart2 from '../assets/discography/marry-my-husband-ost-part-2.webp'
+import abouTzu from '../assets/discography/abou-tzu.webp'
+import bouquet from '../assets/discography/bouquet.webp'
+import masterpiece from '../assets/discography/masterpiece.webp'
+import hauteCouture from '../assets/discography/haute-couture.webp'
+import message from '../assets/discography/message.webp'
 
 export const DISCOGRAPHY: TDiscography[] = [
   {
+    id: 'the-story-begins',
     name: 'The Story Begins',
     image: theStoryBegins,
     unit: [Unit.twice],
@@ -119,6 +119,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'page-two',
     name: 'Page Two',
     image: pageTwo,
     unit: [Unit.twice],
@@ -151,6 +152,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'twicecoaster-lane-1',
     name: 'TWICEcoaster: Lane 1',
     image: twicecoasterLane1,
     unit: [Unit.twice],
@@ -183,6 +185,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'twicecoaster-lane-2',
     name: 'TWICEcoaster: Lane 2',
     image: twicecoasterLane2,
     unit: [Unit.twice],
@@ -236,6 +239,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'whats-this',
     name: "Whats's This?",
     image: whatsThis,
     unit: [Unit.twice],
@@ -255,6 +259,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'signal',
     name: 'Signal',
     image: signal,
     unit: [Unit.twice],
@@ -284,6 +289,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'hashtag-twice',
     name: '#TWICE',
     image: hashtagTwice,
     unit: [Unit.twice],
@@ -327,6 +333,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'one-more-time',
     name: 'One More Time',
     image: oneMoreTime,
     unit: [Unit.twice],
@@ -350,6 +357,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'twicetagram',
     name: 'Twicetagram',
     image: twicetagram,
     unit: [Unit.twice],
@@ -400,6 +408,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'merry-and-happy',
     name: 'Merry & Happy',
     image: merryAndHappy,
     unit: [Unit.twice],
@@ -457,6 +466,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'candy-pop',
     name: 'Candy Pop',
     image: candyPop,
     unit: [Unit.twice],
@@ -481,6 +491,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'what-is-love',
     name: 'What is Love?',
     image: whatIsLove,
     unit: [Unit.twice],
@@ -510,6 +521,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'wake-me-up',
     name: 'Wake Me Up',
     image: wakeMeUp,
     unit: [Unit.twice],
@@ -533,6 +545,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'i-want-you-back',
     name: 'I Want You Back',
     image: iWantYouBack,
     unit: [Unit.twice],
@@ -547,6 +560,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'summer-nights',
     name: 'Summer Nights',
     image: summerNights,
     unit: [Unit.twice],
@@ -585,6 +599,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'bdz',
     name: 'BDZ',
     image: bdz,
     unit: [Unit.twice],
@@ -629,6 +644,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'stay-by-my-side',
     name: 'Stay By My Side',
     image: stayByMySide,
     unit: [Unit.twice],
@@ -643,6 +659,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'yes-or-yes',
     name: 'YES or YES',
     image: yesOrYes,
     unit: [Unit.twice],
@@ -663,6 +680,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'the-year-of-yes',
     name: 'The Year of “YES”',
     image: theYearOfYes,
     unit: [Unit.twice],
@@ -685,6 +703,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'bdz',
     name: 'BDZ -Repackage-',
     image: bdz,
     unit: [Unit.twice],
@@ -709,6 +728,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'hashtag-twice2',
     name: '#TWICE2',
     image: hashtagTwice2,
     unit: [Unit.twice],
@@ -734,6 +754,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'fancy-you',
     name: 'Fancy You',
     image: fancyYou,
     unit: [Unit.twice],
@@ -753,6 +774,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'happy-happy',
     name: 'Happy Happy',
     image: happyHappy,
     unit: [Unit.twice],
@@ -770,6 +792,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'breakthrough',
     name: 'Breakthrough',
     image: breakthrough,
     unit: [Unit.twice],
@@ -787,6 +810,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'feel-special',
     name: 'Feel Special',
     image: feelSpecial,
     unit: [Unit.twice],
@@ -807,6 +831,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'and-twice',
     name: '&TWICE',
     image: andTwice,
     unit: [Unit.twice],
@@ -830,6 +855,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'and-twice',
     name: '&TWICE -Repackage',
     image: andTwice,
     unit: [Unit.twice],
@@ -851,6 +877,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'more-and-more',
     name: 'More & More',
     image: moreAndMore,
     unit: [Unit.twice],
@@ -871,6 +898,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'fanfare',
     name: 'Fanfare',
     image: fanfare,
     unit: [Unit.twice],
@@ -885,6 +913,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'more-and-more-english',
     name: 'More & More (English Ver.)',
     image: moreAndMoreEnglish,
     unit: [Unit.twice],
@@ -894,6 +923,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     songs: [{ title: 'More & More (English Ver.)' }],
   },
   {
+    id: 'hashtag-twice3',
     name: '#TWICE3',
     image: hashtagTwice3,
     unit: [Unit.twice],
@@ -916,6 +946,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'eyes-wide-open',
     name: 'Eyes Wide Open',
     image: eyesWideOpen,
     unit: [Unit.twice],
@@ -942,6 +973,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'better',
     name: 'BETTER',
     image: better,
     unit: [Unit.twice],
@@ -956,6 +988,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'i-cant-stop-me-english',
     name: "I Can't Stop Me (English Ver.)",
     image: iCantStopMeEnglish,
     unit: [Unit.twice],
@@ -965,6 +998,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     songs: [{ title: "I Can't Stop Me (English Ver.)" }],
   },
   {
+    id: 'cry-for-me',
     name: 'Cry For Me',
     image: cryForMe,
     unit: [Unit.twice],
@@ -979,6 +1013,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'kura-kura',
     name: 'Kura Kura',
     image: kuraKura,
     unit: [Unit.twice],
@@ -996,6 +1031,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'taste-of-love',
     name: 'Taste Of Love',
     image: tasteOfLove,
     unit: [Unit.twice],
@@ -1016,6 +1052,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'hospital-playlist-season2',
     name: 'HOSPITAL PLAYLIST Season2, Pt. 4',
     image: hospitalPlaylistSeason2,
     unit: [Unit.twice],
@@ -1028,6 +1065,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'perfect-world',
     name: 'Perfect World',
     image: perfectWorld,
     unit: [Unit.twice],
@@ -1051,6 +1089,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'the-feels',
     name: 'The Feels',
     image: theFeels,
     unit: [Unit.twice],
@@ -1070,6 +1109,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'formula-of-love',
     name: 'Formula of Love: O+T=<3',
     image: formulaOfLove,
     unit: [Unit.twice],
@@ -1100,6 +1140,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'doughnut',
     name: 'Doughnut',
     image: doughnut,
     unit: [Unit.twice],
@@ -1117,6 +1158,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'hashtag-twice4',
     name: '#TWICE4 (Japanese ver.)',
     image: hashtagTwice4,
     unit: [Unit.twice],
@@ -1131,6 +1173,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'just-be-yourself',
     name: 'Just Be Yourself',
     image: justBeYourself,
     unit: [Unit.twice],
@@ -1140,6 +1183,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     songs: [{ title: 'Just Be Yourself' }],
   },
   {
+    id: 'celebrate',
     name: 'Celebrate',
     image: celebrate,
     unit: [Unit.twice],
@@ -1162,6 +1206,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'between1and2',
     name: 'Between 1&2',
     image: between1And2,
     unit: [Unit.twice],
@@ -1182,6 +1227,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'moonlight-sunrise',
     name: 'Moonlight Sunrise',
     image: moonlightSunrise,
     unit: [Unit.twice],
@@ -1196,6 +1242,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'ready-to-be',
     name: 'READY TO BE',
     image: readyToBe,
     unit: [Unit.twice],
@@ -1216,6 +1263,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'hare-hare',
     name: 'Hare Hare',
     image: hareHare,
     unit: [Unit.twice],
@@ -1230,6 +1278,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'hare-hare',
     name: 'Hare Hare',
     image: hareHare,
     unit: [Unit.twice],
@@ -1247,6 +1296,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'heart-shaker-galactika-holiday-remix',
     name: 'Heart Shaker (GALACTIKA * Holiday Remix)',
     image: heartShakerGalactikaHolidayRemix,
     unit: [Unit.twice],
@@ -1256,6 +1306,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     songs: [{ title: 'Heart Shaker (GALACTIKA * Holiday Remix)' }],
   },
   {
+    id: 'the-remixes',
     name: 'THE REMIXES',
     image: theRemixes,
     unit: [Unit.twice],
@@ -1273,6 +1324,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'dance-again',
     name: 'Dance Again',
     image: danceAgain,
     unit: [Unit.twice],
@@ -1287,6 +1339,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'i-got-you',
     name: 'I GOT YOU',
     image: iGotYou,
     unit: [Unit.twice],
@@ -1296,6 +1349,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     songs: [{ title: 'I GOT YOU' }],
   },
   {
+    id: 'i-got-you-voyage-ver',
     name: 'I GOT YOU  (Voyage ver.)',
     image: iGotYouVoyageVer,
     unit: [Unit.twice],
@@ -1319,6 +1373,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'with-you-th',
     name: 'With YOU-th',
     image: withYouTh,
     unit: [Unit.twice],
@@ -1341,6 +1396,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'one-spark',
     name: 'ONE SPARK',
     image: oneSpark,
     unit: [Unit.twice],
@@ -1357,6 +1413,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'dive',
     name: 'DIVE',
     image: dive,
     unit: [Unit.twice],
@@ -1371,6 +1428,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'dive',
     name: 'DIVE',
     image: dive,
     unit: [Unit.twice],
@@ -1391,6 +1449,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'mamushi-remix-feat-twice',
     name: 'Mamushi (Remix) [feat. TWICE]',
     image: mamushiRemixFeatTwice,
     unit: [Unit.twice],
@@ -1400,6 +1459,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     songs: [{ title: 'Mamushi (Remix) [feat. TWICE]' }],
   },
   {
+    id: 'strategy',
     name: 'STRATEGY',
     image: strategy,
     unit: [Unit.twice],
@@ -1420,6 +1480,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'the-wish',
     name: 'The wish',
     image: theWish,
     unit: [Unit.twice],
@@ -1429,6 +1490,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     songs: [{ title: 'The wish' }],
   },
   {
+    id: 'strategy2',
     name: 'Strategy 2.0',
     image: strategy2,
     unit: [Unit.twice],
@@ -1444,6 +1506,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'hashtag-twice5',
     name: 'Talk that Talk (Japanese ver.)',
     image: hashtagTwice5,
     unit: [Unit.twice],
@@ -1458,6 +1521,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'we-pray-twice-version',
     name: 'WE PRAY (TWICE Version)',
     image: wePrayTwiceVersion,
     unit: [Unit.twice],
@@ -1466,12 +1530,12 @@ export const DISCOGRAPHY: TDiscography[] = [
     market: 'english',
     songs: [
       {
-        title:
-          'WE PRAY (TWICE Version) (feat. Little Simz, Burna Boy, Elyanna)',
+        title: 'WE PRAY (TWICE Version) (feat. Little Simz, Burna Boy, Elyanna)',
       },
     ],
   },
   {
+    id: 'hashtag-twice5',
     name: '#TWICE5',
     image: hashtagTwice5,
     unit: [Unit.twice],
@@ -1490,18 +1554,17 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'kpop-demon-hunters',
     name: 'KPop Demon Hunters',
     image: kpopDemonHunters,
     unit: [Unit.jeongyeon, Unit.jihyo, Unit.chaeyoung],
     releaseDate: new Date('2025-06-20'),
     types: ['single', 'ost'],
     market: 'korean',
-    songs: [
-      { title: 'TAKEDOWN (JEONGYEON, JIHYO, CHAEYOUNG)' },
-      { title: 'Strategy' },
-    ],
+    songs: [{ title: 'TAKEDOWN (JEONGYEON, JIHYO, CHAEYOUNG)' }, { title: 'Strategy' }],
   },
   {
+    id: 'this-is-for',
     name: 'THIS IS FOR',
     image: thisIsFor,
     unit: [Unit.twice],
@@ -1528,6 +1591,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'this-is-for-deluxe',
     name: 'THIS IS FOR DELUXE',
     image: thisIsForDeluxe,
     unit: [Unit.twice],
@@ -1554,6 +1618,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'enemy',
     name: 'ENEMY',
     image: enemy,
     unit: [Unit.twice],
@@ -1568,6 +1633,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'superstars-with-saweetie',
     name: 'superstars (with Saweetie)',
     image: superstarsWithSaweetie,
     unit: [Unit.twice],
@@ -1577,6 +1643,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     songs: [{ title: 'superstars (with Saweetie)' }],
   },
   {
+    id: 'enemy',
     name: 'Like 1',
     image: enemy,
     unit: [Unit.twice],
@@ -1591,6 +1658,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'enemy',
     name: 'ENEMY',
     image: enemy,
     unit: [Unit.twice],
@@ -1610,6 +1678,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'ten-the-story-goes-on',
     name: 'TEN: The Story Goes On',
     image: tenTheStoryGoesOn,
     unit: [Unit.twice],
@@ -1633,6 +1702,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'daring-woman',
     name: 'Daring Woman (Two Yoo Project Sugar Man OST)',
     image: daringWoman,
     unit: [Unit.nayeon, Unit.jihyo, Unit.chaeyoung, Unit.tzuyu],
@@ -1642,6 +1712,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     songs: [{ title: '당돌한 여자 (Daring Woman)' }],
   },
   {
+    id: 'all-out',
     name: 'ALL OUT',
     image: allOut,
     unit: [Unit.nayeon, Unit.sana, Unit.jihyo, Unit.chaeyoung],
@@ -1651,6 +1722,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     songs: [{ title: "I'LL SHOW YOU" }],
   },
   {
+    id: 'im-nayeon',
     name: 'IM NAYEON',
     image: imNayeon,
     unit: [Unit.nayeon],
@@ -1671,6 +1743,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'na',
     name: 'NA',
     image: na,
     unit: [Unit.nayeon],
@@ -1691,6 +1764,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'abcd-extended-version',
     name: 'ABCD (Extended Version)',
     image: abcdExtendedVersion,
     unit: [Unit.nayeon],
@@ -1705,6 +1779,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'beyond-end-credit-version',
     name: 'Beyond (End Credit Version) [From “Moana 2”/Korean Soundtrack Version]',
     image: beyondEndCreditVersion,
     unit: [Unit.nayeon],
@@ -1713,13 +1788,13 @@ export const DISCOGRAPHY: TDiscography[] = [
     market: 'korean',
     songs: [
       {
-        title:
-          'Beyond (End Credit Version) [From “Moana 2”/Korean Soundtrack Version]',
+        title: 'Beyond (End Credit Version) [From “Moana 2”/Korean Soundtrack Version]',
         link: 'https://youtu.be/Kdubj6Rr-wE?si=wsfKObAKhRzRBSjv',
       },
     ],
   },
   {
+    id: 'kimagure-romantic',
     name: 'Kimagure Romantic',
     image: kimagureRomantic,
     unit: [Unit.nayeon],
@@ -1729,6 +1804,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     songs: [{ title: 'Kimagure Romantic' }],
   },
   {
+    id: 'era-with-nayeon',
     name: 'Era with NAYEON (TWICE)',
     image: eraWithNayeon,
     unit: [Unit.nayeon],
@@ -1738,18 +1814,17 @@ export const DISCOGRAPHY: TDiscography[] = [
     songs: [{ title: 'Era with NAYEON - (Remix)' }],
   },
   {
+    id: 'twenty-five-twenty-one',
     name: '스물다섯 스물하나 OST (Twenty Five-Twenty-One)',
     image: twentyFiveTwentyOne,
     unit: [Unit.jihyo],
     releaseDate: new Date('2022-03-06'),
     types: ['ost'],
     market: 'korean',
-    songs: [
-      { title: 'Stardust Love Song' },
-      { title: 'Stardust Love Song (Inst)' },
-    ],
+    songs: [{ title: 'Stardust Love Song' }, { title: 'Stardust Love Song (Inst)' }],
   },
   {
+    id: 'zone',
     name: 'ZONE (1st Mini Album)',
     image: zone,
     unit: [Unit.jihyo],
@@ -1770,6 +1845,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'killin-me-good-english',
     name: "Killin' Me Good (English Ver.) (Single)",
     image: killinMeGoodEnglishVer,
     unit: [Unit.jihyo],
@@ -1782,6 +1858,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'marry-my-husband-ost-part2',
     name: 'Marry My Husband OST Part.2',
     image: marryMyHusbandOstPart2,
     unit: [Unit.jihyo],
@@ -1791,6 +1868,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     songs: [{ title: 'New Days' }, { title: 'New Days (Inst.)' }],
   },
   {
+    id: 'abou-tzu',
     name: 'abouTZU (1st Mini Album)',
     image: abouTzu,
     unit: [Unit.tzuyu],
@@ -1810,6 +1888,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'blink',
     name: 'BLINK (Corbyn Besson & TZUYU)',
     image: blink,
     unit: [Unit.tzuyu],
@@ -1824,6 +1903,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'lil-fantasy-vol1',
     name: 'LIL FANTASY vol.1',
     image: lilFantasyVol1,
     unit: [Unit.chaeyoung],
@@ -1849,6 +1929,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'bouquet',
     name: 'Bouquet',
     image: bouquet,
     unit: [Unit.misamo],
@@ -1858,6 +1939,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     songs: [{ title: 'Bouquet' }],
   },
   {
+    id: 'masterpiece',
     name: 'Marshmallow',
     image: masterpiece,
     unit: [Unit.misamo],
@@ -1872,6 +1954,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'masterpiece',
     name: 'Masterpiece',
     image: masterpiece,
     unit: [Unit.misamo],
@@ -1892,6 +1975,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'haute-couture',
     name: 'NEW LOOK',
     image: hauteCouture,
     unit: [Unit.misamo],
@@ -1906,6 +1990,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'haute-couture',
     name: 'Identity',
     image: hauteCouture,
     unit: [Unit.misamo],
@@ -1920,6 +2005,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'haute-couture',
     name: 'HAUTE COUTURE',
     image: hauteCouture,
     unit: [Unit.misamo],
@@ -1940,6 +2026,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
+    id: 'message',
     name: 'Message',
     image: message,
     unit: [Unit.misamo],
@@ -1948,4 +2035,4 @@ export const DISCOGRAPHY: TDiscography[] = [
     market: 'japanese',
     songs: [{ title: 'Message' }],
   },
-];
+]

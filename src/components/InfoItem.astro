@@ -1,44 +1,65 @@
 ---
-import Link from '../assets/link.svg';
+import LinkIcon from '../assets/link.svg';
 
 export interface Props {
-  icon: any;
-  label: 'Birthday:' | 'Nationality:' | 'Color:' | 'Instagram:';
-  value: string;
+  icon?: any;
+  label: string;
+  value?: string;
   link?: string;
   colorClass?: string;
+  class?: string;
 }
 
-const { icon: Icon, label, value, link, colorClass } = Astro.props;
+const { icon: Icon, label, value, link, colorClass, class: className } = Astro.props;
+
+// If there's a link but no value, make the whole item clickable
+const isFullLink = link && !value;
 ---
 
-<div
-  class="flex justify-between rounded-2xl bg-white p-4 drop-shadow-md"
-  data-testid={`info-item-${label.toLowerCase().replace(':', '')}`}
->
-  <div class="flex items-center gap-2">
-    <Icon width={18} height={18} />
-    <p class="">{label}</p>
-  </div>
-
-  {
-    link ? (
-      <a
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="hover:text-magenta flex items-center gap-1 text-gray-500 transition-colors duration-200 hover:underline"
-      >
-        {value}
-        <Link width={15} height={15} />
-      </a>
-    ) : (
+{
+  isFullLink ? (
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      class:list={[
+        'flex justify-between rounded-2xl bg-white p-4 drop-shadow-md transition-colors duration-200 hover:bg-gray-50',
+        className,
+      ]}
+      data-testid={`info-item-${label.toLowerCase().replace(':', '')}`}
+    >
       <div class="flex items-center gap-2">
-        <p class="text-gray-500">{value}</p>
-        {label === 'Color:' && (
-          <div class={`h-4 w-4 rounded-full ${colorClass}`} />
-        )}
+        {Icon && <Icon width={18} height={18} />}
+        <p>{label}</p>
       </div>
-    )
-  }
-</div>
+      <LinkIcon width={15} height={15} class="text-gray-400" />
+    </a>
+  ) : (
+    <div
+      class:list={['flex justify-between rounded-2xl bg-white p-4 drop-shadow-md', className]}
+      data-testid={`info-item-${label.toLowerCase().replace(':', '')}`}
+    >
+      <div class="flex items-center gap-2">
+        {Icon && <Icon width={18} height={18} />}
+        <p>{label}</p>
+      </div>
+
+      {link ? (
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-magenta flex items-center gap-1 text-gray-500 transition-colors duration-200 hover:underline"
+        >
+          {value}
+          <LinkIcon width={15} height={15} />
+        </a>
+      ) : (
+        <div class="flex items-center gap-2">
+          <p class="text-gray-500">{value}</p>
+          {label === 'Color:' && <div class={`h-4 w-4 rounded-full ${colorClass}`} />}
+        </div>
+      )}
+    </div>
+  )
+}
