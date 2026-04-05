@@ -11,13 +11,27 @@ export interface Props {
 const { id, extraClasses = '' } = Astro.props;
 const member = MEMBERS.find((member) => member.id === id);
 if (!member) throw new Error(`Member with id ${id} not found`);
+
+const memberColors: Record<string, string> = {
+  nayeon: '#7dd4f0',
+  jeongyeon: '#b8d06a',
+  momo: '#ffb8c4',
+  sana: '#8c8fc9',
+  jihyo: '#f5b860',
+  mina: '#5fb8b5',
+  dahyun: '#d4d2c4',
+  chaeyoung: '#e0132c',
+  tzuyu: '#016cba',
+};
+const borderColor = memberColors[id] || '#ff5fa2';
 ---
 
 <a
   href={`/members/${id}`}
-  class={`js-member-card w-12 h-20 xs:w-14 xs:h-23 sm:w-15 sm:h-25 md:w-15 md:h-25 lg:w-21 lg:h-34 group overflow-hidden rounded-s-xl hover:border-2 hover:cursor-pointer hover:border-magenta ${extraClasses}`}
+  class={`js-member-card w-12 h-20 xs:w-14 xs:h-23 sm:w-15 sm:h-25 md:w-15 md:h-25 lg:w-21 lg:h-34 group overflow-hidden rounded-s-xl hover:border-2 hover:cursor-pointer ${extraClasses}`}
   data-id={id}
   data-extra-classes={extraClasses}
+  style={`border-color: ${borderColor}`}
 >
   <Image
     src={member.image}
