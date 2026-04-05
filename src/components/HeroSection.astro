@@ -1,0 +1,60 @@
+---
+---
+
+<section class="relative flex min-h-screen items-center justify-center px-4">
+  <!-- Decorative elements -->
+  <div class="pointer-events-none absolute left-4 top-1/4 h-32 w-32 rounded-full bg-apricot-light/30 blur-3xl"></div>
+  <div class="pointer-events-none absolute right-4 bottom-1/4 h-32 w-32 rounded-full bg-magenta-light/20 blur-3xl"></div>
+  
+  <div class="relative flex flex-col items-center text-center animate-fade-in-up">
+    <!-- Large TWICE Logo -->
+    <div class="relative mb-8">
+      <div class="absolute inset-0 rounded-full bg-gradient-to-br from-magenta-light to-apricot opacity-30 blur-2xl animate-pulse"></div>
+      <img
+        src="/images/logo.webp"
+        alt="Twice"
+        width={200}
+        height={200}
+        class="relative rounded-full shadow-card-hover"
+      />
+    </div>
+    
+    <!-- Headline -->
+    <h1 class="mb-4 text-5xl font-bold md:text-7xl">
+      <span class="bg-gradient-to-r from-magenta to-apricot bg-clip-text text-transparent">
+        Know TWICE
+      </span>
+    </h1>
+    
+    <!-- Subtitle -->
+    <p class="mb-8 max-w-lg text-lg text-charcoal/70 md:text-xl">
+      Your complete guide to the K-pop girl group TWICE
+    </p>
+    
+    <!-- CTA Buttons -->
+    <div class="flex flex-col gap-4 sm:flex-row">
+      <a
+        href="/members"
+        class="group rounded-full bg-gradient-to-r from-magenta to-magenta-dark px-8 py-3 text-white font-medium transition-all duration-300 hover:shadow-card-hover hover:scale-105"
+      >
+        <span class="flex items-center gap-2">
+          Meet the Members
+          <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </span>
+      </a>
+      <a
+        href="/discography"
+        class="group rounded-full border-2 border-magenta/30 bg-white/50 px-8 py-3 text-magenta font-medium transition-all duration-300 hover:border-magenta hover:bg-white hover:shadow-card"
+      >
+        <span class="flex items-center gap-2">
+          Explore Discography
+          <svg class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>

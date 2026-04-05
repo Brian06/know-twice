@@ -5,19 +5,14 @@ import NavLink from './NavLink.astro';
 
 <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" data-nav>
   <div class="mx-auto max-w-7xl px-4 md:px-8">
-    <div class="flex items-center justify-between py-3 md:py-4">
-      <!-- Left nav links -->
+    <div class="flex items-center justify-center py-3 md:py-4">
+      <!-- Left: Members -->
       <div class="flex items-center gap-6 md:gap-8">
-        <NavLink href="/" text="Home" />
-        <NavLink 
-          href="/albums" 
-          text="Albums" 
-          badge={{ text: 'new', variant: 'new' }}
-        />
+        <NavLink href="/members" text="Members" />
       </div>
 
       <!-- Center logo -->
-      <a href="/" class="group relative flex items-center justify-center">
+      <a href="/" class="group relative flex items-center justify-center mx-8">
         <div class="relative h-12 w-12 md:h-14 md:w-14">
           <div class="absolute inset-0 rounded-full bg-gradient-to-br from-magenta-light to-apricot opacity-0 transition-opacity duration-300 group-hover:opacity-100 blur-md"></div>
           <Image
@@ -32,18 +27,9 @@ import NavLink from './NavLink.astro';
         </div>
       </a>
 
-      <!-- Right nav links -->
+      <!-- Right: Albums -->
       <div class="flex items-center gap-6 md:gap-8">
-        <NavLink 
-          href="/videos" 
-          text="Videos" 
-          badge={{ text: 'soon', variant: 'coming-soon' }}
-        />
-        <NavLink 
-          href="/about" 
-          text="Fandom" 
-          badge={{ text: 'soon', variant: 'coming-soon' }}
-        />
+        <NavLink href="/discography" text="Albums" />
       </div>
     </div>
   </div>
