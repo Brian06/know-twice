@@ -15,8 +15,14 @@ const { href, text, badge } = Astro.props;
 ---
 
 <div class="relative">
-  <a href={href} class="hover:text-magenta text-lg uppercase hover:underline">
-    {text}
+  <a 
+    href={href} 
+    class="group relative inline-flex items-center justify-center py-2 text-base uppercase tracking-wider text-charcoal/80 transition-all duration-300 hover:text-magenta"
+  >
+    <span class="relative">
+      {text}
+      <span class="absolute -bottom-1 left-0 h-0.5 w-0 origin-left scale-x-0 bg-gradient-to-r from-magenta to-apricot transition-transform duration-300 group-hover:scale-x-100"></span>
+    </span>
   </a>
   {badge && <Badge text={badge.text} variant={badge.variant} />}
 </div>

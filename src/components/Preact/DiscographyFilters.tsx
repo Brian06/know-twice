@@ -138,7 +138,7 @@ export default function DiscographyFilters() {
 
   return (
     <div>
-      <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mb-10 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-4">
         <Dropdown
           id="type-filter"
           options={typeOptions}
@@ -172,9 +172,9 @@ export default function DiscographyFilters() {
         />
       </div>
 
-      <div className="flex flex-wrap justify-center gap-4">
+      <div className="flex flex-wrap justify-center gap-5">
         {filteredAndSortedAlbums.length === 0 ? (
-          <p className="w-full py-8 text-center text-gray-500">
+          <p className="w-full py-12 text-center text-charcoal/50">
             No albums found with the selected filters.
           </p>
         ) : (
@@ -183,7 +183,6 @@ export default function DiscographyFilters() {
           ))
         )}
       </div>
-      {/* Sentinel element for infinite scroll */}
       <div ref={sentinelRef} className="h-1 w-full" />
     </div>
   )

@@ -8,8 +8,13 @@ import GoToTop from '../../components/GoToTop.astro'
   title="TWICE Discography"
   description="TWICE's complete discography, including all albums, singles, and digital releases."
 >
-  <div class="container mx-auto min-h-screen px-4 pt-16 md:pt-32">
-    <h1 class="mb-8 text-center text-4xl font-bold text-magenta md:mb-16">Discography</h1>
+  <div class="container mx-auto min-h-screen px-4 pt-16 md:pt-24">
+    <h1 class="mb-8 text-center text-4xl font-bold text-magenta md:mb-16">
+      <span class="relative inline-block">
+        Discography
+        <span class="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-magenta to-apricot"></span>
+      </span>
+    </h1>
     <DiscographyFilters client:load />
   </div>
   <GoToTop />

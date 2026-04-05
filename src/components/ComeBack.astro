@@ -3,15 +3,18 @@ import LiteYouTube from './LiteYouTube.astro';
 import comebackBg from '../assets/comeback-bg.webp';
 ---
 
-<section class="container mx-auto px-4 py-16 md:py-32">
+<section class="container mx-auto px-4 py-16 md:py-24">
   <h1
-    class="text-magenta mb-8 text-center text-3xl uppercase md:mb-16 md:text-5xl"
+    class="text-magenta mb-8 text-center text-3xl font-bold uppercase tracking-wider md:mb-16 md:text-5xl"
     data-testid="comeback-heading"
   >
-    Last Comeback
+    <span class="relative inline-block">
+      Last Comeback
+      <span class="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-magenta to-apricot"></span>
+    </span>
   </h1>
 
-  <div class="mx-auto max-w-4xl">
+  <div class="mx-auto max-w-4xl overflow-hidden rounded-2xl shadow-card-hover">
     <LiteYouTube videoId="eHHQaoEW30Q" backgroundImage={comebackBg.src} />
   </div>
 </section>

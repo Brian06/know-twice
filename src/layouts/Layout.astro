@@ -252,9 +252,11 @@ const generateSchema = () => {
     <ClientRouter />
     <Analytics />
   </head>
-  <body class="from-apricot-lightest to-magenta-lightest bg-gradient-to-tr">
+  <body class="bg-cream min-h-screen">
     <NavBar />
-    <slot />
+    <main class="relative">
+      <slot />
+    </main>
     <Footer />
   </body>
 </html>

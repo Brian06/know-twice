@@ -18,47 +18,53 @@ const { name, fullName, emoji, social, color, nationality, birthday } = member;
 const instagram = social.find((social) => social.platform === 'instagram');
 ---
 
-<div class="rounded-2xl bg-white p-4 drop-shadow-md">
-  <div
-    class={`bg-apricot relative mx-auto h-[166px] w-[160px] rounded-full mb-6 overflow-hidden outline-5 outline-${id}`}
-  >
-    <Image
-      src={member.image}
-      widths={[160, 320]}
-      sizes="160px"
-      alt={name}
-      class="absolute h-full w-full object-cover"
-    />
-  </div>
-  <p
-    class="text-magenta mb-1 text-center text-lg font-bold"
-    data-testid="member-name"
-  >
-    {name}
-  </p>
-  <p class="mb-1 text-center text-sm" data-testid="member-full-name">
-    {fullName}
-  </p>
-  <p class="text-center text-sm" data-testid="member-emoji">{emoji}</p>
+<div class="glass rounded-2xl p-6 shadow-card">
+  <div class="flex flex-col items-center">
+    <!-- Profile Image with animated ring -->
+    <div class="relative mb-6">
+      <div class={`absolute inset-0 rounded-full bg-gradient-to-br from-${id} to-${id}/50 opacity-30 blur-xl`}></div>
+      <div class={`relative h-[180px] w-[180px] rounded-full overflow-hidden ring-4 ring-${id}/30 ring-offset-4 ring-offset-white`}>
+        <Image
+          src={member.image}
+          widths={[180, 360]}
+          sizes="180px"
+          alt={name}
+          class="h-full w-full object-cover"
+        />
+      </div>
+    </div>
+    
+    <!-- Member name and info -->
+    <div class="text-center">
+      <p class="text-magenta text-2xl font-bold tracking-wide" data-testid="member-name">
+        {name}
+      </p>
+      <p class="text-charcoal/60 text-sm mt-1" data-testid="member-full-name">
+        {fullName}
+      </p>
+      <p class="text-2xl mt-2" data-testid="member-emoji">{emoji}</p>
+    </div>
 
-  <div class="mt-6 flex flex-col gap-5">
-    <InfoItem
-      icon={Calendar}
-      label="Birthday:"
-      value={birthday.toLocaleDateString()}
-    />
-    <InfoItem icon={Nationality} label="Nationality:" value={nationality} />
-    <InfoItem
-      icon={Color}
-      label="Color:"
-      value={color}
-      colorClass={`bg-${id}`}
-    />
-    <InfoItem
-      icon={Instagram}
-      label="Instagram:"
-      value={instagram?.username || 'N/A'}
-      link={instagram?.url || ''}
-    />
+    <!-- Info Items -->
+    <div class="mt-6 flex w-full flex-col gap-3">
+      <InfoItem
+        icon={Calendar}
+        label="Birthday:"
+        value={birthday.toLocaleDateString()}
+      />
+      <InfoItem icon={Nationality} label="Nationality:" value={nationality} />
+      <InfoItem
+        icon={Color}
+        label="Color:"
+        value={color}
+        colorClass={`bg-${id}`}
+      />
+      <InfoItem
+        icon={Instagram}
+        label="Instagram:"
+        value={instagram?.username || 'N/A'}
+        link={instagram?.url || ''}
+      />
+    </div>
   </div>
 </div>
