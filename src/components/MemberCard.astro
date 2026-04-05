@@ -28,23 +28,29 @@ const borderColor = memberColors[id] || '#ff5fa2';
 
 <a
   href={`/members/${id}`}
-  class={`js-member-card w-12 h-20 xs:w-14 xs:h-23 sm:w-15 sm:h-25 md:w-15 md:h-25 lg:w-21 lg:h-34 group overflow-hidden rounded-s-xl hover:border-2 hover:cursor-pointer ${extraClasses}`}
+  class={`js-member-card w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 md:w-24 md:h-24 lg:w-28 lg:h-28 group overflow-hidden rounded-full border-2 border-charcoal/20 bg-charcoal/5 hover:cursor-pointer transition-all duration-300 ${extraClasses}`}
   data-id={id}
-  data-extra-classes={extraClasses}
-  style={`border-color: ${borderColor}`}
+  style={`--member-color: ${borderColor}`}
 >
   <Image
     src={member.image}
-    width={256}
-    height={418}
-    widths={[56, 84, 112, 168, 256]}
-    sizes="(max-width: 475px) 56px, (max-width: 640px) 60px, (max-width: 1024px) 60px, 84px"
-    class="h-full w-full object-cover transition-all duration-300 group-hover:translate-y-5 group-hover:scale-120"
+    width={128}
+    height={128}
+    widths={[64, 80, 96, 112, 128]}
+    sizes="(max-width: 475px) 64px, (max-width: 640px) 80px, (max-width: 1024px) 96px, 112px"
+    class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
     alt={id}
     fetchpriority="high"
     loading="eager"
   />
 </a>
+
+<style>
+  .js-member-card:hover {
+    border-color: var(--member-color);
+    background-color: var(--member-color);
+  }
+</style>
 
 <script>
   import { $, $$ } from '../utils/dom-selector';
@@ -54,41 +60,6 @@ const borderColor = memberColors[id] || '#ff5fa2';
 
   const isMobile = () => {
     return window.matchMedia('(max-width: 768px)').matches;
-  };
-
-  const extractBgClass = (extraClasses: string) => {
-    const match = extraClasses.match(/hover:bg-(\w+)/);
-    return match ? `bg-${match[1]}` : '';
-  };
-
-  const clearPreviousSelection = () => {
-    if (!selectedMemberIdMobile) return;
-
-    const previousCard = $(`[data-id="${selectedMemberIdMobile}"]`);
-    const previousExtraClasses =
-      previousCard?.getAttribute('data-extra-classes') || '';
-    const previousBgClass = extractBgClass(previousExtraClasses);
-    const previousImage = previousCard
-      ? $<HTMLImageElement>('img', previousCard)
-      : null;
-
-    previousCard?.classList.remove(
-      'border-2',
-      'border-magenta',
-      previousBgClass,
-    );
-
-    previousImage?.classList.remove('translate-y-5', 'scale-120');
-  };
-
-  const applySelectionVisual = (card: Element, id: string) => {
-    const extraClasses = card.getAttribute('data-extra-classes') || '';
-    const bgClass = extractBgClass(extraClasses);
-    const image = $<HTMLImageElement>('img', card as HTMLElement);
-
-    card.classList.add('border-2', 'border-magenta', bgClass);
-
-    image?.classList.add('translate-y-5', 'scale-120');
   };
 
   const triggerHoverEffect = (id: string) => {
@@ -101,27 +72,12 @@ const borderColor = memberColors[id] || '#ff5fa2';
   const handleFirstTap = (e: Event, card: Element, id: string) => {
     e.preventDefault();
 
-    clearPreviousSelection();
-
     selectedMemberIdMobile = id;
-    applySelectionVisual(card, id);
-
     triggerHoverEffect(id);
   };
 
   const clearMobileSelection = () => {
     if (!selectedMemberIdMobile) return;
-
-    const selectedCard = $(`[data-id="${selectedMemberIdMobile}"]`);
-    const extraClasses = selectedCard?.getAttribute('data-extra-classes') || '';
-    const bgClass = extractBgClass(extraClasses);
-    const selectedImage = selectedCard
-      ? $<HTMLImageElement>('img', selectedCard)
-      : null;
-
-    selectedCard?.classList.remove('border-2', 'border-magenta', bgClass);
-
-    selectedImage?.classList.remove('translate-y-5', 'scale-120');
     selectedMemberIdMobile = null;
 
     const event = new CustomEvent('member-card-exit');
@@ -139,10 +95,7 @@ const borderColor = memberColors[id] || '#ff5fa2';
       const id = card.getAttribute('data-id');
 
       if (id) {
-        const event = new CustomEvent('member-card-hover', {
-          detail: { id },
-        });
-        document.dispatchEvent(event);
+        triggerHoverEffect(id);
       }
     });
   };
@@ -185,21 +138,9 @@ const borderColor = memberColors[id] || '#ff5fa2';
     });
   };
 
-  const resetMemberSelection = (memberCards: NodeListOf<HTMLElement>) => {
-    memberCards?.forEach((card) => {
-      const extraClasses = card.getAttribute('data-extra-classes') || '';
-      const bgClass = extractBgClass(extraClasses);
-      const image = $<HTMLImageElement>('img', card);
-
-      card.classList.remove('border-2', 'border-magenta', bgClass);
-      image?.classList.remove('translate-y-5', 'scale-120');
-    });
-  };
-
   document.addEventListener('astro:page-load', () => {
     const memberCards = $$('.js-member-card');
     selectedMemberIdMobile = null;
-    resetMemberSelection(memberCards);
 
     if (memberCards) {
       memberCards.forEach((card) => {

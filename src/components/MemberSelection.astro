@@ -28,7 +28,7 @@ const thirdColumn = MEMBERS.slice(6, 9);
           MEMBERS.map(({ id }, index) => (
             <MemberCard
               id={id}
-              extraClasses={`hover:bg-${id} animate-fade-in-up animate-delay-${(index + 1) * 100}`}
+              extraClasses={`animate-fade-in-up animate-delay-${(index + 1) * 100}`}
             />
           ))
         }
@@ -46,7 +46,7 @@ const thirdColumn = MEMBERS.slice(6, 9);
               firstColumn.map(({ id }, index) => (
                 <MemberCard
                   id={id}
-                  extraClasses={`hover:bg-${id} animate-fade-in-right animate-delay-${(index + 1) * 100}`}
+                  extraClasses={`animate-fade-in-right animate-delay-${(index + 1) * 100}`}
                 />
               ))
             }
@@ -60,7 +60,7 @@ const thirdColumn = MEMBERS.slice(6, 9);
               secondColumn.map(({ id }, index) => (
                 <MemberCard
                   id={id}
-                  extraClasses={`hover:bg-${id} animate-fade-in-up animate-delay-${(index + 1) * 100}`}
+                  extraClasses={`animate-fade-in-up animate-delay-${(index + 1) * 100}`}
                 />
               ))
             }
@@ -74,7 +74,7 @@ const thirdColumn = MEMBERS.slice(6, 9);
               thirdColumn.map(({ id }, index) => (
                 <MemberCard
                   id={id}
-                  extraClasses={`hover:bg-${id} animate-fade-in-left animate-delay-${(index + 1) * 100}`}
+                  extraClasses={`animate-fade-in-left animate-delay-${(index + 1) * 100}`}
                 />
               ))
             }
