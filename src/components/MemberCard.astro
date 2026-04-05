@@ -28,7 +28,7 @@ const borderColor = memberColors[id] || '#ff5fa2';
 
 <a
   href={`/members/${id}`}
-  class={`js-member-card w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 md:w-24 md:h-24 lg:w-28 lg:h-28 group overflow-hidden rounded-full border-2 border-charcoal/20 bg-charcoal/5 hover:cursor-pointer transition-all duration-300 ${extraClasses}`}
+  class={`js-member-card w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 md:w-24 md:h-24 lg:w-28 lg:h-28 group overflow-hidden rounded-full border-2 border-charcoal/20 bg-charcoal/5 hover:border-[var(--member-color)] hover:bg-[var(--member-color)] hover:cursor-pointer transition-all duration-300 ${extraClasses}`}
   data-id={id}
   style={`--member-color: ${borderColor}`}
 >
@@ -43,14 +43,7 @@ const borderColor = memberColors[id] || '#ff5fa2';
     fetchpriority="high"
     loading="eager"
   />
-</a>
-
-<style>
-  .js-member-card:hover {
-    border-color: var(--member-color);
-    background-color: var(--member-color);
-  }
-</style>
+</>
 
 <script>
   import { $, $$ } from '../utils/dom-selector';
