@@ -16,6 +16,19 @@ export interface Props {
 const { member, id } = Astro.props;
 const { name, fullName, emoji, social, color, nationality, birthday } = member;
 const instagram = social.find((social) => social.platform === 'instagram');
+
+const memberColors: Record<string, string> = {
+  nayeon: '#7dd4f0',
+  jeongyeon: '#b8d06a',
+  momo: '#ffb8c4',
+  sana: '#8c8fc9',
+  jihyo: '#f5b860',
+  mina: '#5fb8b5',
+  dahyun: '#d4d2c4',
+  chaeyoung: '#e0132c',
+  tzuyu: '#016cba',
+};
+const ringColor = memberColors[id] || '#ff5fa2';
 ---
 
 <div class="glass rounded-2xl p-6 shadow-card">
@@ -23,7 +36,10 @@ const instagram = social.find((social) => social.platform === 'instagram');
     <!-- Profile Image with animated ring -->
     <div class="relative mb-6">
       <div class={`absolute inset-0 rounded-full bg-gradient-to-br from-${id} to-${id}/50 opacity-30 blur-xl`}></div>
-      <div class={`relative h-[180px] w-[180px] rounded-full overflow-hidden ring-4 ring-${id}/30 ring-offset-4 ring-offset-white`}>
+      <div 
+        class="relative h-[180px] w-[180px] rounded-full overflow-hidden"
+        style={`box-shadow: 0 0 0 6px ${ringColor}, 0 0 0 10px white;`}
+      >
         <Image
           src={member.image}
           widths={[180, 360]}
