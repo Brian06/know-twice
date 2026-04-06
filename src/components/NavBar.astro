@@ -1,6 +1,15 @@
 ---
 import { Image } from 'astro:assets';
 import NavLink from './NavLink.astro';
+
+export interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+
+const isMembersActive = currentPath.startsWith('/members');
+const isAlbumsActive = currentPath.startsWith('/discography');
 ---
 
 <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" data-nav>
@@ -8,7 +17,7 @@ import NavLink from './NavLink.astro';
     <div class="flex items-center justify-center py-3 md:py-4">
       <!-- Left: Members -->
       <div class="flex items-center gap-6 md:gap-8">
-        <NavLink href="/members" text="Members" />
+        <NavLink href="/members" text="Members" active={isMembersActive} />
       </div>
 
       <!-- Center logo -->
@@ -28,7 +37,7 @@ import NavLink from './NavLink.astro';
 
       <!-- Right: Albums -->
       <div class="flex items-center gap-6 md:gap-8">
-        <NavLink href="/discography" text="Albums" />
+        <NavLink href="/discography" text="Albums" active={isAlbumsActive} />
       </div>
     </div>
   </div>

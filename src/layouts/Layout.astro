@@ -253,7 +253,7 @@ const generateSchema = () => {
     <Analytics />
   </head>
   <body class="bg-cream min-h-screen">
-    <NavBar />
+    <NavBar currentPath={Astro.url.pathname} />
     <main class="relative">
       <slot />
     </main>
