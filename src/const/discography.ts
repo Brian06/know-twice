@@ -86,14 +86,82 @@ import bouquet from '../assets/discography/bouquet.webp'
 import masterpiece from '../assets/discography/masterpiece.webp'
 import hauteCouture from '../assets/discography/haute-couture.webp'
 import message from '../assets/discography/message.webp'
+import defaultDisc from '../assets/discography/default.webp'
+import play from '../assets/discography/play.webp'
+import sotsugyouCover from '../assets/discography/sotsugyou-cover.webp'
+import likeaStar from '../assets/discography/like-a-star.webp'
+import iFly from '../assets/discography/i-fly.webp'
+import aStrangeDay from '../assets/discography/a-strange-day.webp'
+import popStar from '../assets/discography/pop-star.webp'
+import youAreTheAppleOfMyEye from '../assets/discography/you-are-the-apple-of-my-eye.webp'
 
 export const DISCOGRAPHY: TDiscography[] = [
+  {
+    id: 'sotsugyou-cover',
+    name: 'Sotsugyou Cover (Sana)',
+    image: sotsugyouCover,
+    unit: [Unit.sana],
+    releaseDate: new Date('2021-02-24'),
+    types: ['single'],
+    market: 'japanese',
+    songs: [{ title: '卒業 (Sotsugyou)' }],
+  },
+  {
+    id: 'like-a-star',
+    name: 'Like a Star',
+    image: likeaStar,
+    unit: [Unit.jeongyeon],
+    releaseDate: new Date('2018-10-25'),
+    types: ['ost'],
+    market: 'korean',
+    songs: [{ title: 'Like a Star' }],
+  },
+  {
+    id: 'i-fly',
+    name: 'I FLY',
+    image: iFly,
+    unit: [Unit.jihyo],
+    releaseDate: new Date('2022-07-29'),
+    types: ['ost'],
+    market: 'korean',
+    songs: [{ title: 'I FLY' }],
+  },
+  {
+    id: 'a-strange-day',
+    name: 'A Strange Day',
+    image: aStrangeDay,
+    unit: [Unit.jihyo],
+    releaseDate: new Date('2022-11-14'),
+    types: ['ost'],
+    market: 'korean',
+    songs: [{ title: 'A Strange Day' }],
+  },
+  {
+    id: 'popstar-remix',
+    name: 'Pop Star (CHAEYOUNG Remix)',
+    image: popStar,
+    unit: [Unit.chaeyoung],
+    releaseDate: new Date('2023-10-25'),
+    types: ['single'],
+    market: 'english',
+    songs: [{ title: 'Pop Star (CHAEYOUNG Remix)' }],
+  },
+  {
+    id: 'you-are-the-apple-of-my-eye',
+    name: 'You Are the Apple of My Eye',
+    image: youAreTheAppleOfMyEye,
+    unit: [Unit.dahyun],
+    releaseDate: new Date('2025-02-20'),
+    types: ['ost'],
+    market: 'korean',
+    songs: [{ title: 'You Are the Apple of My Eye' }],
+  },
   {
     id: 'the-story-begins',
     name: 'The Story Begins',
     image: theStoryBegins,
     unit: [Unit.twice],
-    releaseDate: new Date('2015-10-03'),
+    releaseDate: new Date('2015-10-20'),
     types: ['mini-album'],
     market: 'korean',
     songs: [
@@ -703,7 +771,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: 'bdz',
+    id: 'bdz-repackage',
     name: 'BDZ -Repackage-',
     image: bdz,
     unit: [Unit.twice],
@@ -835,7 +903,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     name: '&TWICE',
     image: andTwice,
     unit: [Unit.twice],
-    releaseDate: new Date('2019-11-19'),
+    releaseDate: new Date('2019-11-20'),
     types: ['full-album'],
     market: 'japanese',
     songs: [
@@ -855,7 +923,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: 'and-twice',
+    id: 'and-twice-repackage',
     name: '&TWICE -Repackage',
     image: andTwice,
     unit: [Unit.twice],
@@ -1177,7 +1245,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     name: 'Just Be Yourself',
     image: justBeYourself,
     unit: [Unit.twice],
-    releaseDate: new Date('2022-03-21'),
+    releaseDate: new Date('2022-03-22'),
     types: ['single'],
     market: 'japanese',
     songs: [{ title: 'Just Be Yourself' }],
@@ -1267,21 +1335,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     name: 'Hare Hare',
     image: hareHare,
     unit: [Unit.twice],
-    releaseDate: new Date('2023-05-12'),
-    types: ['single'],
-    market: 'japanese',
-    songs: [
-      {
-        title: 'Hare Hare',
-        link: 'https://youtu.be/-uqWaGzQyxA?si=tZKruWEMeWQ1F5fL',
-      },
-    ],
-  },
-  {
-    id: 'hare-hare',
-    name: 'Hare Hare',
-    image: hareHare,
-    unit: [Unit.twice],
     releaseDate: new Date('2023-05-31'),
     types: ['mini-album'],
     market: 'japanese',
@@ -1310,7 +1363,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     name: 'THE REMIXES',
     image: theRemixes,
     unit: [Unit.twice],
-    releaseDate: new Date('2023-11-17'),
+    releaseDate: new Date('2023-11-22'),
     types: ['single'],
     market: 'korean',
     songs: [
@@ -1353,7 +1406,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     name: 'I GOT YOU  (Voyage ver.)',
     image: iGotYouVoyageVer,
     unit: [Unit.twice],
-    releaseDate: new Date('2024-02-06'),
+    releaseDate: new Date('2024-02-05'),
     types: ['mini-album'],
     market: 'korean',
     songs: [
@@ -1410,21 +1463,6 @@ export const DISCOGRAPHY: TDiscography[] = [
       { title: 'ONE SPARK (Tropical ver.)' },
       { title: 'ONE SPARK (Rave ver.)' },
       { title: 'ONE SPARK (Instrumental)' },
-    ],
-  },
-  {
-    id: 'dive',
-    name: 'DIVE',
-    image: dive,
-    unit: [Unit.twice],
-    releaseDate: new Date('2024-07-10'),
-    types: ['single'],
-    market: 'japanese',
-    songs: [
-      {
-        title: 'DIVE',
-        link: 'https://youtu.be/QGCkDOkpWf8?si=mg4wwJdLkslmAb9n',
-      },
     ],
   },
   {
@@ -1506,26 +1544,11 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: 'hashtag-twice5',
-    name: 'Talk that Talk (Japanese ver.)',
-    image: hashtagTwice5,
-    unit: [Unit.twice],
-    releaseDate: new Date('2025-04-14'),
-    types: ['single'],
-    market: 'japanese',
-    songs: [
-      {
-        title: 'Talk that Talk (Japanese ver.)',
-        link: 'https://www.youtube.com/watch?v=UVmbuPOqqPg&t=51s',
-      },
-    ],
-  },
-  {
     id: 'we-pray-twice-version',
     name: 'WE PRAY (TWICE Version)',
     image: wePrayTwiceVersion,
     unit: [Unit.twice],
-    releaseDate: new Date('2025-04-17'),
+    releaseDate: new Date('2025-04-18'),
     types: ['single'],
     market: 'english',
     songs: [
@@ -1618,21 +1641,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     ],
   },
   {
-    id: 'enemy',
-    name: 'ENEMY',
-    image: enemy,
-    unit: [Unit.twice],
-    releaseDate: new Date('2025-07-30'),
-    types: ['single'],
-    market: 'japanese',
-    songs: [
-      {
-        title: 'ENEMY',
-        link: 'https://youtu.be/xWldBK4d2Ps?si=LTeiQx2DCUo2a2ny',
-      },
-    ],
-  },
-  {
     id: 'superstars-with-saweetie',
     name: 'superstars (with Saweetie)',
     image: superstarsWithSaweetie,
@@ -1641,21 +1649,6 @@ export const DISCOGRAPHY: TDiscography[] = [
     types: ['single'],
     market: 'english',
     songs: [{ title: 'superstars (with Saweetie)' }],
-  },
-  {
-    id: 'enemy',
-    name: 'Like 1',
-    image: enemy,
-    unit: [Unit.twice],
-    releaseDate: new Date('2025-08-20'),
-    types: ['single'],
-    market: 'japanese',
-    songs: [
-      {
-        title: 'Like 1',
-        link: 'https://youtu.be/Xtfxxo4QgJA?si=B1jK4M1Ut57H72FU',
-      },
-    ],
   },
   {
     id: 'enemy',
@@ -1706,7 +1699,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     name: 'Daring Woman (Two Yoo Project Sugar Man OST)',
     image: daringWoman,
     unit: [Unit.nayeon, Unit.jihyo, Unit.chaeyoung, Unit.tzuyu],
-    releaseDate: new Date('2015-12-29'),
+    releaseDate: new Date('2015-12-30'),
     types: ['ost'],
     market: 'korean',
     songs: [{ title: '당돌한 여자 (Daring Woman)' }],
@@ -1862,7 +1855,7 @@ export const DISCOGRAPHY: TDiscography[] = [
     name: 'Marry My Husband OST Part.2',
     image: marryMyHusbandOstPart2,
     unit: [Unit.jihyo],
-    releaseDate: new Date('2025-06-28'),
+    releaseDate: new Date('2024-01-06'),
     types: ['ost'],
     market: 'korean',
     songs: [{ title: 'New Days' }, { title: 'New Days (Inst.)' }],
@@ -1940,21 +1933,6 @@ export const DISCOGRAPHY: TDiscography[] = [
   },
   {
     id: 'masterpiece',
-    name: 'Marshmallow',
-    image: masterpiece,
-    unit: [Unit.misamo],
-    releaseDate: new Date('2023-06-16'),
-    types: ['single'],
-    market: 'japanese',
-    songs: [
-      {
-        title: 'Marshmallow',
-        link: 'https://youtu.be/gAFgaI5D3Gc?si=UIOFDLId_dOp_QDl',
-      },
-    ],
-  },
-  {
-    id: 'masterpiece',
     name: 'Masterpiece',
     image: masterpiece,
     unit: [Unit.misamo],
@@ -1972,36 +1950,6 @@ export const DISCOGRAPHY: TDiscography[] = [
       { title: "It's not easy for you" },
       { title: 'Rewind you' },
       { title: 'Bouquet' },
-    ],
-  },
-  {
-    id: 'haute-couture',
-    name: 'NEW LOOK',
-    image: hauteCouture,
-    unit: [Unit.misamo],
-    releaseDate: new Date('2024-10-09'),
-    types: ['single'],
-    market: 'japanese',
-    songs: [
-      {
-        title: 'NEW LOOK',
-        link: 'https://youtu.be/FJWLj1-kGC0?si=r85MZJNnl9VbK2nH',
-      },
-    ],
-  },
-  {
-    id: 'haute-couture',
-    name: 'Identity',
-    image: hauteCouture,
-    unit: [Unit.misamo],
-    releaseDate: new Date('2024-10-28'),
-    types: ['single'],
-    market: 'japanese',
-    songs: [
-      {
-        title: 'Identity',
-        link: 'https://youtu.be/-J_w9K6DgRo?si=Pfd-HBc9m6a1f-Gx',
-      },
     ],
   },
   {
@@ -2034,5 +1982,31 @@ export const DISCOGRAPHY: TDiscography[] = [
     types: ['ost'],
     market: 'japanese',
     songs: [{ title: 'Message' }],
+  },
+  {
+    id: 'play',
+    name: 'PLAY',
+    image: play,
+    unit: [Unit.misamo],
+    releaseDate: new Date('2026-02-04'),
+    types: ['full-album'],
+    market: 'japanese',
+    songs: [
+      {
+        title: 'Confetti',
+        link: 'https://youtu.be/gOjG-70-D5o?si=6IdNucL19pb0XUsB',
+      },
+      { title: 'Hmm' },
+      { title: 'Not a Goodbye' },
+      { title: 'Deep Eden' },
+      { title: 'Red Diamond' },
+      { title: 'Catch My Eye' },
+      { title: 'Kitty (MOMO)' },
+      { title: 'Ma Cherry (SANA)' },
+      { title: 'Turning Tables (MINA)' },
+      { title: 'Identity' },
+      { title: 'Do not touch' },
+      { title: 'Message' },
+    ],
   },
 ]
