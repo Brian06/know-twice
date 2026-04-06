@@ -46,52 +46,53 @@ const formatDate = (date: Date) => {
   schemaType="CollectionPage"
   schemaData={discography}
 >
-  <div class="min-h-screen bg-pink-100">
-    <div class="container mx-auto px-4 py-16 md:py-24">
-      <div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
-        <!-- Left Column: Album Art + Listen Now -->
-        <div class="flex flex-col gap-8">
-          <div class="w-64 overflow-hidden rounded-2xl drop-shadow-xl md:w-80">
-            <Image
-              src={discography.image}
-              width={480}
-              height={480}
-              widths={[256, 320, 480]}
-              sizes="(max-width: 768px) 256px, 320px"
-              alt={discography.name}
-              class="aspect-square object-cover"
-            />
-          </div>
-
-          <div>
-            <h2 class="mb-4 text-xl font-bold">Listen Now</h2>
-            <div class="flex flex-col gap-2">
-              <InfoItem
-                icon={Spotify}
-                label="Spotify"
-                value=""
-                link={`https://open.spotify.com/search/${encodeURIComponent(discography.name + ' TWICE')}`}
-              />
-              <InfoItem
-                icon={AppleMusic}
-                label="Apple Music"
-                value=""
-                link={`https://music.apple.com/search?term=${encodeURIComponent(discography.name + ' TWICE')}`}
-              />
-              <InfoItem
-                icon={YouTubeMusic}
-                label="YouTube Music"
-                value=""
-                link={`https://music.youtube.com/search?q=${encodeURIComponent(discography.name + ' TWICE')}`}
+  <div class="min-h-screen">
+    <div class="container mx-auto px-4 pt-28 md:pt-32">
+      <div class="mx-auto max-w-4xl">
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-8">
+          <!-- Left Column: Album Art + Listen Now -->
+          <div class="flex flex-col items-center gap-6 md:items-start">
+            <div class="shadow-card-hover w-64 overflow-hidden rounded-2xl md:w-72">
+              <Image
+                src={discography.image}
+                width={480}
+                height={480}
+                widths={[256, 320, 480]}
+                sizes="(max-width: 768px) 256px, 320px"
+                alt={discography.name}
+                class="aspect-square object-cover"
               />
             </div>
-          </div>
-        </div>
 
-        <!-- Right Column: Album Info + Tracklist -->
-        <div class="flex flex-col gap-6">
+            <div class="w-full max-w-xs">
+              <h2 class="mb-4 text-xl font-bold">Listen Now</h2>
+              <div class="flex flex-col gap-2">
+                <InfoItem
+                  icon={Spotify}
+                  label="Spotify"
+                  value=""
+                  link={`https://open.spotify.com/search/${encodeURIComponent(discography.name + ' TWICE')}`}
+                />
+                <InfoItem
+                  icon={AppleMusic}
+                  label="Apple Music"
+                  value=""
+                  link={`https://music.apple.com/search?term=${encodeURIComponent(discography.name + ' TWICE')}`}
+                />
+                <InfoItem
+                  icon={YouTubeMusic}
+                  label="YouTube Music"
+                  value=""
+                  link={`https://music.youtube.com/search?q=${encodeURIComponent(discography.name + ' TWICE')}`}
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Album Info + Tracklist -->
+          <div class="flex flex-col gap-4">
           <div>
-            <h1 class="mb-4 text-4xl font-bold italic text-magenta md:text-5xl">
+            <h1 class="mb-4 text-4xl font-bold text-magenta italic md:text-5xl">
               {discography.name.toUpperCase()}
             </h1>
 
@@ -103,7 +104,9 @@ const formatDate = (date: Date) => {
                   </span>
                 ))
               }
-              <span class="rounded-full border border-gray-400 px-4 py-1 text-sm font-medium text-gray-600">
+              <span
+                class="rounded-full border border-gray-400 px-4 py-1 text-sm font-medium text-gray-600"
+              >
                 {formatMarket(discography.market)}
               </span>
             </div>

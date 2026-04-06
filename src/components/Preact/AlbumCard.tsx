@@ -6,7 +6,10 @@ interface AlbumCardProps {
 
 export default function AlbumCard({ album }: AlbumCardProps) {
   return (
-    <div className="group shadow-card hover:shadow-card-hover w-44 overflow-hidden rounded-2xl bg-white transition-all duration-300 hover:scale-[1.02] md:w-60">
+    <a
+      href={`/discography/${album.id}`}
+      className="group shadow-card hover:shadow-card-hover w-44 overflow-hidden rounded-2xl bg-white transition-all duration-300 hover:scale-[1.02] md:w-60"
+    >
       <div className="relative h-44 w-full overflow-hidden md:h-60">
         <img
           src={album.image.src}
@@ -24,6 +27,6 @@ export default function AlbumCard({ album }: AlbumCardProps) {
         </h2>
         <p className="text-sm text-charcoal/50">{album.releaseDate.getFullYear()}</p>
       </div>
-    </div>
+    </a>
   )
 }

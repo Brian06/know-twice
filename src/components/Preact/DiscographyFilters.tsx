@@ -1,14 +1,10 @@
-import { useState, useMemo, useEffect, useCallback } from 'preact/hooks'
+import { useState, useMemo } from 'preact/hooks'
 import Dropdown from './Dropdown'
 import AlbumCard from './AlbumCard'
-import { useIntersectionObserver } from './useIntersectionObserver'
 import { DISCOGRAPHY } from '../../const/discography'
 import { Unit } from '../../const/members'
 import type { Option } from './Dropdown'
 import type { TType, TMarket, TUnit } from '../../types/discography'
-
-const INITIAL_LOAD = 10
-const BATCH_SIZE = 5
 
 const typeOptions: Option[] = [
   { value: 'all', label: 'All Types' },
@@ -69,7 +65,6 @@ export default function DiscographyFilters() {
   const [marketFilter, setMarketFilter] = useState('all')
   const [artistFilter, setArtistFilter] = useState('all')
   const [sortFilter, setSortFilter] = useState('latest')
-  const [visibleCount, setVisibleCount] = useState(INITIAL_LOAD)
 
   const filteredAndSortedAlbums = useMemo(() => {
     let filtered = albums.filter((album) => {
@@ -85,7 +80,6 @@ export default function DiscographyFilters() {
         if (artistFilter === 'other') {
           if (!isOtherUnit(album.unit)) return false
         } else if (SOLOIST_UNITS.includes(artistFilter as (typeof SOLOIST_UNITS)[number])) {
-          // Soloist: only albums that are that member alone
           if (album.unit.length !== 1 || album.unit[0] !== (artistFilter as TUnit)) {
             return false
           }
@@ -114,27 +108,6 @@ export default function DiscographyFilters() {
 
     return sorted
   }, [albums, typeFilter, marketFilter, artistFilter, sortFilter])
-
-  // Reset visible count when filters change
-  useEffect(() => {
-    setVisibleCount(INITIAL_LOAD)
-  }, [typeFilter, marketFilter, artistFilter, sortFilter])
-
-  // Load more albums when sentinel is visible
-  const loadMore = useCallback(() => {
-    setVisibleCount((prev) => {
-      const total = filteredAndSortedAlbums.length
-      if (prev >= total) return prev
-      return Math.min(prev + BATCH_SIZE, total)
-    })
-  }, [filteredAndSortedAlbums.length])
-
-  const sentinelRef = useIntersectionObserver<HTMLDivElement>({
-    rootMargin: '200px',
-    onIntersect: loadMore,
-  })
-
-  const visibleAlbums = filteredAndSortedAlbums.slice(0, visibleCount)
 
   return (
     <div>
@@ -178,12 +151,11 @@ export default function DiscographyFilters() {
             No albums found with the selected filters.
           </p>
         ) : (
-          visibleAlbums.map((album) => (
+          filteredAndSortedAlbums.map((album) => (
             <AlbumCard key={`${album.name}-${album.releaseDate.getTime()}`} album={album} />
           ))
         )}
       </div>
-      <div ref={sentinelRef} className="h-1 w-full" />
     </div>
   )
 }
