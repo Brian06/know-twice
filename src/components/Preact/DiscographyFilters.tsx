@@ -1,10 +1,28 @@
-import { useState, useMemo } from 'preact/hooks'
+import { useState, useMemo, useEffect } from 'preact/hooks'
 import Dropdown from './Dropdown'
 import AlbumCard from './AlbumCard'
 import { DISCOGRAPHY } from '../../const/discography'
 import { Unit } from '../../const/members'
 import type { Option } from './Dropdown'
 import type { TType, TMarket, TUnit } from '../../types/discography'
+
+const STORAGE_KEY = 'discography-filters'
+
+const DEFAULT_FILTERS = {
+  type: 'all',
+  market: 'all',
+  artist: 'all',
+  sort: 'latest',
+} as const
+
+const getInitialFilters = () => {
+  try {
+    const saved = sessionStorage.getItem(STORAGE_KEY)
+    return saved ? JSON.parse(saved) : DEFAULT_FILTERS
+  } catch {
+    return DEFAULT_FILTERS
+  }
+}
 
 const typeOptions: Option[] = [
   { value: 'all', label: 'All Types' },
@@ -61,10 +79,35 @@ const sortOptions: Option[] = [
 
 export default function DiscographyFilters() {
   const albums = DISCOGRAPHY
+  const [initialLoaded, setInitialLoaded] = useState(false)
   const [typeFilter, setTypeFilter] = useState('all')
   const [marketFilter, setMarketFilter] = useState('all')
   const [artistFilter, setArtistFilter] = useState('all')
   const [sortFilter, setSortFilter] = useState('latest')
+
+  useEffect(() => {
+    const initial = getInitialFilters()
+    setTypeFilter(initial.type)
+    setMarketFilter(initial.market)
+    setArtistFilter(initial.artist)
+    setSortFilter(initial.sort)
+    setInitialLoaded(true)
+  }, [])
+
+  useEffect(() => {
+    if (!initialLoaded) return
+    try {
+      sessionStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({
+          type: typeFilter,
+          market: marketFilter,
+          artist: artistFilter,
+          sort: sortFilter,
+        }),
+      )
+    } catch {}
+  }, [typeFilter, marketFilter, artistFilter, sortFilter, initialLoaded])
 
   const filteredAndSortedAlbums = useMemo(() => {
     let filtered = albums.filter((album) => {
@@ -115,7 +158,7 @@ export default function DiscographyFilters() {
         <Dropdown
           id="type-filter"
           options={typeOptions}
-          defaultValue="all"
+          defaultValue={typeFilter}
           className="w-full"
           onChange={setTypeFilter}
         />
@@ -123,7 +166,7 @@ export default function DiscographyFilters() {
         <Dropdown
           id="market-filter"
           options={marketOptions}
-          defaultValue="all"
+          defaultValue={marketFilter}
           className="w-full"
           onChange={setMarketFilter}
         />
@@ -131,7 +174,7 @@ export default function DiscographyFilters() {
         <Dropdown
           id="artist-filter"
           options={artistOptions}
-          defaultValue="all"
+          defaultValue={artistFilter}
           className="w-full"
           onChange={setArtistFilter}
         />
@@ -139,14 +182,16 @@ export default function DiscographyFilters() {
         <Dropdown
           id="sort-filter"
           options={sortOptions}
-          defaultValue="latest"
+          defaultValue={sortFilter}
           className="w-full"
           onChange={setSortFilter}
         />
       </div>
 
       <div className="flex flex-wrap justify-center gap-5">
-        {filteredAndSortedAlbums.length === 0 ? (
+        {!initialLoaded ? (
+          <p className="w-full py-12 text-center text-charcoal/50">Loading...</p>
+        ) : filteredAndSortedAlbums.length === 0 ? (
           <p className="w-full py-12 text-center text-charcoal/50">
             No albums found with the selected filters.
           </p>

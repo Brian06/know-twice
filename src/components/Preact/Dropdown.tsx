@@ -26,6 +26,11 @@ export default function Dropdown({
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    const newOption = options.find((opt) => opt.value === defaultValue) || options[0]
+    setSelectedOption(newOption)
+  }, [defaultValue, options])
+
+  useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsOpen(false)
