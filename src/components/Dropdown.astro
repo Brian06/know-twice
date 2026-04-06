@@ -1,15 +1,15 @@
 ---
 interface Option {
-  value: string;
-  label: string;
+  value: string
+  label: string
 }
 
 interface Props {
-  options: Option[];
-  defaultValue?: string;
-  placeholder?: string;
-  id: string;
-  class?: string;
+  options: Option[]
+  defaultValue?: string
+  placeholder?: string
+  id: string
+  class?: string
 }
 
 const {
@@ -18,17 +18,16 @@ const {
   placeholder = 'Select...',
   id,
   class: className = '',
-} = Astro.props;
+} = Astro.props
 
-const defaultOption =
-  options.find((opt) => opt.value === defaultValue) || options[0];
+const defaultOption = options.find((opt) => opt.value === defaultValue) || options[0]
 ---
 
 <div class={`relative ${className}`} data-dropdown={id}>
   <!-- Dropdown button -->
   <button
     type="button"
-    class="hover:border-apricot focus:ring-apricot flex w-full cursor-pointer items-center justify-between rounded-md border border-gray-300 bg-white p-3 transition-colors focus:ring-2 focus:outline-none"
+    class="flex w-full cursor-pointer items-center justify-between rounded-md border border-gray-300 bg-white p-3 transition-colors hover:border-apricot focus:ring-2 focus:ring-apricot focus:outline-none"
     data-dropdown-button
     aria-haspopup="listbox"
     aria-expanded="false"
@@ -41,11 +40,8 @@ const defaultOption =
       stroke="currentColor"
       viewBox="0 0 24 24"
     >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M19 9l-7 7-7-7"></path>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"
+      ></path>
     </svg>
   </button>
 
@@ -59,7 +55,7 @@ const defaultOption =
       options.map((option) => (
         <button
           type="button"
-          class="hover:bg-apricot w-full cursor-pointer border-b border-gray-100 px-4 py-2 text-left transition-colors last:border-b-0"
+          class="w-full cursor-pointer border-b border-gray-100 px-4 py-2 text-left transition-colors last:border-b-0 hover:bg-apricot"
           data-option-value={option.value}
           role="option"
           aria-selected={option.value === defaultValue}
@@ -77,78 +73,62 @@ const defaultOption =
 <script>
   // Handle dropdown functionality
   document.addEventListener('DOMContentLoaded', () => {
-    const dropdowns = document.querySelectorAll('[data-dropdown]');
+    const dropdowns = document.querySelectorAll('[data-dropdown]')
 
     dropdowns.forEach((dropdown) => {
-      const button = dropdown.querySelector(
-        '[data-dropdown-button]',
-      ) as HTMLButtonElement;
-      const menu = dropdown.querySelector(
-        '[data-dropdown-menu]',
-      ) as HTMLElement;
-      const label = dropdown.querySelector(
-        '[data-dropdown-label]',
-      ) as HTMLElement;
-      const icon = dropdown.querySelector('[data-dropdown-icon]') as SVGElement;
-      const input = dropdown.querySelector(
-        '[data-dropdown-input]',
-      ) as HTMLInputElement;
-      const options = menu.querySelectorAll(
-        '[data-option-value]',
-      ) as NodeListOf<HTMLButtonElement>;
+      const button = dropdown.querySelector('[data-dropdown-button]') as HTMLButtonElement
+      const menu = dropdown.querySelector('[data-dropdown-menu]') as HTMLElement
+      const label = dropdown.querySelector('[data-dropdown-label]') as HTMLElement
+      const icon = dropdown.querySelector('[data-dropdown-icon]') as SVGElement
+      const input = dropdown.querySelector('[data-dropdown-input]') as HTMLInputElement
+      const options = menu.querySelectorAll('[data-option-value]') as NodeListOf<HTMLButtonElement>
 
       // Toggle dropdown
       button.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const isOpen = menu.classList.contains('hidden');
+        e.stopPropagation()
+        const isOpen = menu.classList.contains('hidden')
 
         // Close all other dropdowns
-        document
-          .querySelectorAll('[data-dropdown-menu]')
-          .forEach((otherMenu) => {
-            if (otherMenu !== menu) {
-              otherMenu.classList.add('hidden');
-              const otherIcon = otherMenu.parentElement?.querySelector(
-                '[data-dropdown-icon]',
-              );
-              const otherButton = otherMenu.parentElement?.querySelector(
-                '[data-dropdown-button]',
-              );
-              otherIcon?.classList.remove('rotate-180');
-              otherButton?.setAttribute('aria-expanded', 'false');
-            }
-          });
+        document.querySelectorAll('[data-dropdown-menu]').forEach((otherMenu) => {
+          if (otherMenu !== menu) {
+            otherMenu.classList.add('hidden')
+            const otherIcon = otherMenu.parentElement?.querySelector('[data-dropdown-icon]')
+            const otherButton = otherMenu.parentElement?.querySelector('[data-dropdown-button]')
+            otherIcon?.classList.remove('rotate-180')
+            otherButton?.setAttribute('aria-expanded', 'false')
+          }
+        })
 
         if (isOpen) {
-          menu.classList.remove('hidden');
-          icon.classList.add('rotate-180');
-          button.setAttribute('aria-expanded', 'true');
+          menu.classList.remove('hidden')
+          icon.classList.add('rotate-180')
+          button.setAttribute('aria-expanded', 'true')
         } else {
-          menu.classList.add('hidden');
-          icon.classList.remove('rotate-180');
-          button.setAttribute('aria-expanded', 'false');
+          menu.classList.add('hidden')
+          icon.classList.remove('rotate-180')
+          button.setAttribute('aria-expanded', 'false')
         }
-      });
+      })
 
       // Handle option selection
       options.forEach((option) => {
         option.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const value = option.getAttribute('data-option-value') || '';
-          const optionLabel = option.textContent || '';
+          e.stopPropagation()
+          const value = option.getAttribute('data-option-value') || ''
+          const optionLabel = option.textContent || ''
 
           // Update label and input
-          label.textContent = optionLabel;
-          input.value = value;
+          label.textContent = optionLabel
+          input.value = value
 
           // Update aria-selected
-          options.forEach((opt) => opt.setAttribute('aria-selected', 'false'));
-          option.setAttribute('aria-selected', 'true');
+          options.forEach((opt) => opt.setAttribute('aria-selected', 'false'))
+          option.setAttribute('aria-selected', 'true')
 
           // Close dropdown
-          menu.classList.add('hidden');
-          icon.classList.remove('rotate-180');
-          button.setAttribute('aria-expanded', 'false');
+          menu.classList.add('hidden')
+          icon.classList.remove('rotate-180')
+          button.setAttribute('aria-expanded', 'false')
 
           // Dispatch custom event for filtering
           dropdown.dispatchEvent(
@@ -156,22 +136,20 @@ const defaultOption =
               detail: { value, label: optionLabel },
               bubbles: true,
             }),
-          );
-        });
-      });
-    });
+          )
+        })
+      })
+    })
 
     // Close dropdowns when clicking outside
     document.addEventListener('click', () => {
       document.querySelectorAll('[data-dropdown-menu]').forEach((menu) => {
-        menu.classList.add('hidden');
-        const icon = menu.parentElement?.querySelector('[data-dropdown-icon]');
-        const button = menu.parentElement?.querySelector(
-          '[data-dropdown-button]',
-        );
-        icon?.classList.remove('rotate-180');
-        button?.setAttribute('aria-expanded', 'false');
-      });
-    });
-  });
+        menu.classList.add('hidden')
+        const icon = menu.parentElement?.querySelector('[data-dropdown-icon]')
+        const button = menu.parentElement?.querySelector('[data-dropdown-button]')
+        icon?.classList.remove('rotate-180')
+        button?.setAttribute('aria-expanded', 'false')
+      })
+    })
+  })
 </script>

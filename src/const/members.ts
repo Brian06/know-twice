@@ -1,8 +1,8 @@
 // ⚠️  IMPORTANT: Remember to sync src/tests/const/members.ts with this file
 // When updating member data, copy the changes here but exclude image properties
 
-import type { TMember } from '../types/members';
-import type { TUnit } from '../types/discography';
+import type { TMember } from '../types/members'
+import type { TUnit } from '../types/discography'
 
 export const Unit = {
   twice: 'twice',
@@ -16,26 +16,26 @@ export const Unit = {
   dahyun: 'dahyun',
   chaeyoung: 'chaeyoung',
   tzuyu: 'tzuyu',
-} as const satisfies Record<string, TUnit>;
+} as const satisfies Record<string, TUnit>
 
-import nayeon from '../assets/members/cards/nayeon.webp';
-import jeongyeon from '../assets/members/cards/jeongyeon.webp';
-import momo from '../assets/members/cards/momo.webp';
-import sana from '../assets/members/cards/sana.webp';
-import jihyo from '../assets/members/cards/jihyo.webp';
-import mina from '../assets/members/cards/mina.webp';
-import dahyun from '../assets/members/cards/dahyun.webp';
-import chaeyoung from '../assets/members/cards/chaeyoung.webp';
-import tzuyu from '../assets/members/cards/tzuyu.webp';
-import nayeonFull from '../assets/members/full/nayeon-full.webp';
-import jeongyeonFull from '../assets/members/full/jeongyeon-full.webp';
-import momoFull from '../assets/members/full/momo-full.webp';
-import sanaFull from '../assets/members/full/sana-full.webp';
-import jihyoFull from '../assets/members/full/jihyo-full.webp';
-import minaFull from '../assets/members/full/mina-full.webp';
-import dahyunFull from '../assets/members/full/dahyun-full.webp';
-import chaeyoungFull from '../assets/members/full/chaeyoung-full.webp';
-import tzuyuFull from '../assets/members/full/tzuyu-full.webp';
+import nayeon from '../assets/members/cards/nayeon.webp'
+import jeongyeon from '../assets/members/cards/jeongyeon.webp'
+import momo from '../assets/members/cards/momo.webp'
+import sana from '../assets/members/cards/sana.webp'
+import jihyo from '../assets/members/cards/jihyo.webp'
+import mina from '../assets/members/cards/mina.webp'
+import dahyun from '../assets/members/cards/dahyun.webp'
+import chaeyoung from '../assets/members/cards/chaeyoung.webp'
+import tzuyu from '../assets/members/cards/tzuyu.webp'
+import nayeonFull from '../assets/members/full/nayeon-full.webp'
+import jeongyeonFull from '../assets/members/full/jeongyeon-full.webp'
+import momoFull from '../assets/members/full/momo-full.webp'
+import sanaFull from '../assets/members/full/sana-full.webp'
+import jihyoFull from '../assets/members/full/jihyo-full.webp'
+import minaFull from '../assets/members/full/mina-full.webp'
+import dahyunFull from '../assets/members/full/dahyun-full.webp'
+import chaeyoungFull from '../assets/members/full/chaeyoung-full.webp'
+import tzuyuFull from '../assets/members/full/tzuyu-full.webp'
 
 export const MEMBERS: readonly TMember[] = [
   {
@@ -1042,4 +1042,4 @@ export const MEMBERS: readonly TMember[] = [
       'She is the tallest member in the group.',
     ],
   },
-] as const;
+] as const

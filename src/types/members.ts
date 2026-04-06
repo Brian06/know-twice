@@ -1,20 +1,20 @@
 export type TSocial = {
-  platform: string;
-  username: string;
-  url: string;
-};
+  platform: string
+  username: string
+  url: string
+}
 
 export type TMusicLink = {
-  platform: string;
-  url: string;
-};
+  platform: string
+  url: string
+}
 
 export type TSong = {
-  title: string;
-  links: TMusicLink[];
-};
+  title: string
+  links: TMusicLink[]
+}
 
-export type TNationality = 'South Korean' | 'Japanese' | 'Taiwanese';
+export type TNationality = 'South Korean' | 'Japanese' | 'Taiwanese'
 
 export type TPosition =
   | 'Main Vocalist'
@@ -26,7 +26,7 @@ export type TPosition =
   | 'Sub-Rapper'
   | 'Leader'
   | 'Main-Rapper'
-  | 'Maknae';
+  | 'Maknae'
 
 export type TMemberId =
   | 'nayeon'
@@ -37,7 +37,7 @@ export type TMemberId =
   | 'mina'
   | 'dahyun'
   | 'chaeyoung'
-  | 'tzuyu';
+  | 'tzuyu'
 
 export type TFullName =
   | 'Im Nayeon'
@@ -48,32 +48,23 @@ export type TFullName =
   | 'Myoui Mina'
   | 'Kim Da-hyun'
   | 'Son Chae-young'
-  | 'Chou Tzuyu';
+  | 'Chou Tzuyu'
 
-export type TEmoji =
-  | '🐰'
-  | '🐶'
-  | '🍑'
-  | '🐭'
-  | '🦄'
-  | '🐧'
-  | '💛'
-  | '🍓'
-  | '🦌';
-export type TMemberName = Capitalize<TMemberId>;
+export type TEmoji = '🐰' | '🐶' | '🍑' | '🐭' | '🦄' | '🐧' | '💛' | '🍓' | '🦌'
+export type TMemberName = Capitalize<TMemberId>
 
 export type TMember = {
-  id: TMemberId;
-  name: TMemberName;
-  fullName: TFullName;
-  emoji: TEmoji;
-  color: string;
-  social: TSocial[];
-  nationality: TNationality;
-  birthday: Date;
-  positions: TPosition[];
-  songs: TSong[];
-  funFacts: string[];
-  image: ImageMetadata;
-  fullImage: ImageMetadata;
-};
+  id: TMemberId
+  name: TMemberName
+  fullName: TFullName
+  emoji: TEmoji
+  color: string
+  social: TSocial[]
+  nationality: TNationality
+  birthday: Date
+  positions: TPosition[]
+  songs: TSong[]
+  funFacts: string[]
+  image: ImageMetadata
+  fullImage: ImageMetadata
+}

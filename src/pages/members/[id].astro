@@ -1,22 +1,22 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import { MEMBERS } from '../../const/members';
-import type { GetStaticPaths } from 'astro';
-import MemberProfile from '../../components/MemberProfile.astro';
-import MemberDetails from '../../components/MemberDetails.astro';
-import type { TMemberId } from '../../types/members';
+import Layout from '../../layouts/Layout.astro'
+import { MEMBERS } from '../../const/members'
+import type { GetStaticPaths } from 'astro'
+import MemberProfile from '../../components/MemberProfile.astro'
+import MemberDetails from '../../components/MemberDetails.astro'
+import type { TMemberId } from '../../types/members'
 
 // TODO: add the link to the youtube/spotify/appleMusic profile
 
-const { id } = Astro.params as { id: TMemberId };
-const member = MEMBERS.find((member) => member.id === id);
-if (!member) return Astro.redirect('/404');
+const { id } = Astro.params as { id: TMemberId }
+const member = MEMBERS.find((member) => member.id === id)
+if (!member) return Astro.redirect('/404')
 
 export const getStaticPaths = (() => {
   return MEMBERS.map((member) => ({
     params: { id: member.id },
-  }));
-}) satisfies GetStaticPaths;
+  }))
+}) satisfies GetStaticPaths
 ---
 
 <Layout

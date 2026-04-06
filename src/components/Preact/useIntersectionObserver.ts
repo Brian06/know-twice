@@ -8,7 +8,7 @@ interface UseIntersectionObserverOptions {
 }
 
 export function useIntersectionObserver<T extends HTMLElement>(
-  options: UseIntersectionObserverOptions = {}
+  options: UseIntersectionObserverOptions = {},
 ): RefObject<T> {
   const { threshold = 0, rootMargin = '200px', onIntersect } = options
   const ref = useRef<T>(null)
@@ -23,7 +23,7 @@ export function useIntersectionObserver<T extends HTMLElement>(
           onIntersect()
         }
       },
-      { threshold, rootMargin }
+      { threshold, rootMargin },
     )
 
     observer.observe(element)

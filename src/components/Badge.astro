@@ -1,16 +1,16 @@
 ---
 export interface Props {
-  text: string;
-  variant?: 'working' | 'new' | 'coming-soon';
+  text: string
+  variant?: 'working' | 'new' | 'coming-soon'
 }
 
-const { text, variant = 'working' } = Astro.props;
+const { text, variant = 'working' } = Astro.props
 
 const variantClasses = {
   working: 'bg-yellow-400/90 text-black text-[10px] px-1.5 py-0.5',
   new: 'bg-gradient-to-r from-magenta to-magenta-light text-white text-[10px] px-2 py-0.5 shadow-sm',
   'coming-soon': 'bg-charcoal/80 text-white text-[10px] px-2 py-0.5',
-};
+}
 ---
 
 <span class={`absolute -bottom-2 -right-1 rounded-full font-medium ${variantClasses[variant]}`}>

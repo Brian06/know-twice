@@ -91,44 +91,45 @@ const formatDate = (date: Date) => {
 
           <!-- Right Column: Album Info + Tracklist -->
           <div class="flex flex-col gap-4">
-          <div>
-            <h1 class="mb-4 text-4xl font-bold text-magenta italic md:text-5xl">
-              {discography.name.toUpperCase()}
-            </h1>
+            <div>
+              <h1 class="mb-4 text-4xl font-bold text-magenta italic md:text-5xl">
+                {discography.name.toUpperCase()}
+              </h1>
 
-            <div class="mb-4 flex flex-wrap gap-2">
-              {
-                discography.types.map((type) => (
-                  <span class="rounded-full bg-magenta px-4 py-1 text-sm font-medium text-white">
-                    {formatType(type)}
-                  </span>
-                ))
-              }
-              <span
-                class="rounded-full border border-gray-400 px-4 py-1 text-sm font-medium text-gray-600"
-              >
-                {formatMarket(discography.market)}
-              </span>
+              <div class="mb-4 flex flex-wrap gap-2">
+                {
+                  discography.types.map((type) => (
+                    <span class="rounded-full bg-magenta px-4 py-1 text-sm font-medium text-white">
+                      {formatType(type)}
+                    </span>
+                  ))
+                }
+                <span
+                  class="rounded-full border border-gray-400 px-4 py-1 text-sm font-medium text-gray-600"
+                >
+                  {formatMarket(discography.market)}
+                </span>
+              </div>
+
+              <p class="text-lg text-magenta">
+                Released: {formatDate(discography.releaseDate)}
+              </p>
             </div>
 
-            <p class="text-lg text-magenta">
-              Released: {formatDate(discography.releaseDate)}
-            </p>
-          </div>
-
-          <div>
-            <h2 class="mb-4 text-2xl font-bold">Tracklist</h2>
-            <div class="flex flex-col gap-2">
-              {
-                discography.songs.map((song, index) => (
-                  <InfoItem
-                    label={String(index + 1).padStart(2, '0')}
-                    value={song.title}
-                    link={song.link}
-                    class="bg-white/80"
-                  />
-                ))
-              }
+            <div>
+              <h2 class="mb-4 text-2xl font-bold">Tracklist</h2>
+              <div class="flex flex-col gap-2">
+                {
+                  discography.songs.map((song, index) => (
+                    <InfoItem
+                      label={String(index + 1).padStart(2, '0')}
+                      value={song.title}
+                      link={song.link}
+                      class="bg-white/80"
+                    />
+                  ))
+                }
+              </div>
             </div>
           </div>
         </div>

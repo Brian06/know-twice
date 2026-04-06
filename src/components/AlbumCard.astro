@@ -1,18 +1,18 @@
 ---
-import { Image } from 'astro:assets';
-import type { TDiscography } from '../types/discography';
-import defaultImage from '../assets/discography/default.webp';
+import { Image } from 'astro:assets'
+import type { TDiscography } from '../types/discography'
+import defaultImage from '../assets/discography/default.webp'
 
 export interface Props {
-  album: TDiscography;
+  album: TDiscography
 }
 
-const { album } = Astro.props;
-const image = album?.image ? album?.image : defaultImage;
+const { album } = Astro.props
+const image = album?.image ? album?.image : defaultImage
 ---
 
 <div
-  class="hover:outline-magenta group max-w-60 overflow-hidden rounded-2xl bg-white drop-shadow-md hover:cursor-pointer hover:outline-2"
+  class="group max-w-60 overflow-hidden rounded-2xl bg-white drop-shadow-md hover:cursor-pointer hover:outline-2 hover:outline-magenta"
 >
   <div class="relative w-full overflow-hidden">
     <Image
@@ -24,9 +24,7 @@ const image = album?.image ? album?.image : defaultImage;
     />
   </div>
   <div class="p-3">
-    <h2
-      class="group-hover:text-magenta text-lg font-bold transition-all duration-500"
-    >
+    <h2 class="text-lg font-bold transition-all duration-500 group-hover:text-magenta">
       {album.name}
     </h2>
     <p class="text-gray-500">{album.releaseDate.getFullYear()}</p>

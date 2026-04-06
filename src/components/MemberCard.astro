@@ -1,16 +1,16 @@
 ---
-import { Image } from 'astro:assets';
-import { MEMBERS } from '../const/members';
-import type { TmemberId } from '../types/member-derived';
+import { Image } from 'astro:assets'
+import { MEMBERS } from '../const/members'
+import type { TmemberId } from '../types/member-derived'
 
 export interface Props {
-  id: TmemberId;
-  extraClasses?: string;
+  id: TmemberId
+  extraClasses?: string
 }
 
-const { id, extraClasses = '' } = Astro.props;
-const member = MEMBERS.find((member) => member.id === id);
-if (!member) throw new Error(`Member with id ${id} not found`);
+const { id, extraClasses = '' } = Astro.props
+const member = MEMBERS.find((member) => member.id === id)
+if (!member) throw new Error(`Member with id ${id} not found`)
 
 const memberColors: Record<string, string> = {
   nayeon: '#7dd4f0',
@@ -22,8 +22,8 @@ const memberColors: Record<string, string> = {
   dahyun: '#d4d2c4',
   chaeyoung: '#e0132c',
   tzuyu: '#016cba',
-};
-const borderColor = memberColors[id] || '#ff5fa2';
+}
+const borderColor = memberColors[id] || '#ff5fa2'
 ---
 
 <a
@@ -43,105 +43,105 @@ const borderColor = memberColors[id] || '#ff5fa2';
     fetchpriority="high"
     loading="eager"
   />
-</>
+</a>
 
 <script>
-  import { $, $$ } from '../utils/dom-selector';
+  import { $, $$ } from '../utils/dom-selector'
 
-  let timeoutToChangeMember: ReturnType<typeof setTimeout> | null = null;
-  let selectedMemberIdMobile: string | null = null;
+  let timeoutToChangeMember: ReturnType<typeof setTimeout> | null = null
+  let selectedMemberIdMobile: string | null = null
 
   const isMobile = () => {
-    return window.matchMedia('(max-width: 768px)').matches;
-  };
+    return window.matchMedia('(max-width: 768px)').matches
+  }
 
   const triggerHoverEffect = (id: string) => {
     const event = new CustomEvent('member-card-hover', {
       detail: { id },
-    });
-    document.dispatchEvent(event);
-  };
+    })
+    document.dispatchEvent(event)
+  }
 
   const handleFirstTap = (e: Event, card: Element, id: string) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    selectedMemberIdMobile = id;
-    triggerHoverEffect(id);
-  };
+    selectedMemberIdMobile = id
+    triggerHoverEffect(id)
+  }
 
   const clearMobileSelection = () => {
-    if (!selectedMemberIdMobile) return;
-    selectedMemberIdMobile = null;
+    if (!selectedMemberIdMobile) return
+    selectedMemberIdMobile = null
 
-    const event = new CustomEvent('member-card-exit');
-    document.dispatchEvent(event);
-  };
+    const event = new CustomEvent('member-card-exit')
+    document.dispatchEvent(event)
+  }
 
   const mouseEnterDesktop = (card: Element) => {
     card.addEventListener('mouseenter', () => {
-      if (isMobile()) return;
+      if (isMobile()) return
 
       if (timeoutToChangeMember) {
-        clearTimeout(timeoutToChangeMember);
+        clearTimeout(timeoutToChangeMember)
       }
 
-      const id = card.getAttribute('data-id');
+      const id = card.getAttribute('data-id')
 
       if (id) {
-        triggerHoverEffect(id);
+        triggerHoverEffect(id)
       }
-    });
-  };
+    })
+  }
 
   const mouseLeaveDesktop = (card: Element) => {
     card.addEventListener('mouseleave', () => {
-      if (isMobile()) return;
+      if (isMobile()) return
 
       timeoutToChangeMember = setTimeout(() => {
-        const event = new CustomEvent('member-card-exit');
-        document.dispatchEvent(event);
-      }, 500);
-    });
-  };
+        const event = new CustomEvent('member-card-exit')
+        document.dispatchEvent(event)
+      }, 500)
+    })
+  }
 
   const handleMobileTouch = (card: Element) => {
     card.addEventListener('click', (e) => {
-      if (!isMobile()) return;
+      if (!isMobile()) return
 
-      const id = card.getAttribute('data-id');
-      if (!id) return;
+      const id = card.getAttribute('data-id')
+      if (!id) return
 
       if (selectedMemberIdMobile !== id) {
-        handleFirstTap(e, card, id);
-        return;
+        handleFirstTap(e, card, id)
+        return
       }
-    });
-  };
+    })
+  }
 
   const handleTouchOutside = (card: Element) => {
     document.addEventListener('touchstart', (e) => {
-      if (!isMobile()) return;
+      if (!isMobile()) return
 
-      const target = e.target as Element;
-      const clickedCard = target.closest('.js-member-card');
+      const target = e.target as Element
+      const clickedCard = target.closest('.js-member-card')
 
       if (!clickedCard && selectedMemberIdMobile) {
-        clearMobileSelection();
+        clearMobileSelection()
       }
-    });
-  };
+    })
+  }
 
   document.addEventListener('astro:page-load', () => {
-    const memberCards = $$('.js-member-card');
-    selectedMemberIdMobile = null;
+    const memberCards = $$('.js-member-card')
+    selectedMemberIdMobile = null
 
     if (memberCards) {
       memberCards.forEach((card) => {
-        mouseEnterDesktop(card);
-        mouseLeaveDesktop(card);
-        handleMobileTouch(card);
-        handleTouchOutside(card);
-      });
+        mouseEnterDesktop(card)
+        mouseLeaveDesktop(card)
+        handleMobileTouch(card)
+        handleTouchOutside(card)
+      })
     }
-  });
+  })
 </script>

@@ -1,18 +1,18 @@
 ---
-import LinkIcon from '../assets/link.svg';
+import LinkIcon from '../assets/link.svg'
 
 export interface Props {
-  icon?: any;
-  label: string;
-  value?: string;
-  link?: string;
-  colorClass?: string;
-  class?: string;
+  icon?: any
+  label: string
+  value?: string
+  link?: string
+  colorClass?: string
+  class?: string
 }
 
-const { icon: Icon, label, value, link, colorClass, class: className } = Astro.props;
+const { icon: Icon, label, value, link, colorClass, class: className } = Astro.props
 
-const isFullLink = link && !value;
+const isFullLink = link && !value
 ---
 
 {
@@ -22,24 +22,39 @@ const isFullLink = link && !value;
       target="_blank"
       rel="noopener noreferrer"
       class:list={[
-        'group flex items-center justify-between rounded-xl bg-white/80 p-4 shadow-card transition-all duration-300 hover:bg-white hover:shadow-card-hover',
+        'group shadow-card hover:shadow-card-hover flex items-center justify-between rounded-xl bg-white/80 p-4 transition-all duration-300 hover:bg-white',
         className,
       ]}
       data-testid={`info-item-${label.toLowerCase().replace(':', '')}`}
     >
       <div class="flex items-center gap-3">
-        {Icon && <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-apricot-lightest text-magenta"><Icon width={16} height={16} /></div>}
+        {Icon && (
+          <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-apricot-lightest text-magenta">
+            <Icon width={16} height={16} />
+          </div>
+        )}
         <span class="text-charcoal/70">{label}</span>
       </div>
-      <LinkIcon width={14} height={14} class="text-charcoal/40 group-hover:text-magenta transition-colors" />
+      <LinkIcon
+        width={14}
+        height={14}
+        class="text-charcoal/40 transition-colors group-hover:text-magenta"
+      />
     </a>
   ) : (
     <div
-      class:list={['flex items-center justify-between rounded-xl bg-white/80 p-4 shadow-card transition-all duration-300 hover:bg-white', className]}
+      class:list={[
+        'shadow-card flex items-center justify-between rounded-xl bg-white/80 p-4 transition-all duration-300 hover:bg-white',
+        className,
+      ]}
       data-testid={`info-item-${label.toLowerCase().replace(':', '')}`}
     >
       <div class="flex items-center gap-3">
-        {Icon && <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-apricot-lightest text-magenta"><Icon width={16} height={16} /></div>}
+        {Icon && (
+          <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-apricot-lightest text-magenta">
+            <Icon width={16} height={16} />
+          </div>
+        )}
         <span class="text-charcoal/70">{label}</span>
       </div>
 
@@ -48,15 +63,17 @@ const isFullLink = link && !value;
           href={link}
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center gap-2 text-magenta font-medium transition-colors duration-200 hover:underline"
+          class="flex items-center gap-2 font-medium text-magenta transition-colors duration-200 hover:underline"
         >
           {value}
           <LinkIcon width={14} height={14} />
         </a>
       ) : (
         <div class="flex items-center gap-2">
-          <span class="text-charcoal font-medium">{value}</span>
-          {label === 'Color:' && <div class={`h-4 w-4 rounded-full ring-2 ring-white shadow-sm ${colorClass}`} />}
+          <span class="font-medium text-charcoal">{value}</span>
+          {label === 'Color:' && (
+            <div class={`h-4 w-4 rounded-full shadow-sm ring-2 ring-white ${colorClass}`} />
+          )}
         </div>
       )}
     </div>

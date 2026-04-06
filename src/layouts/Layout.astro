@@ -1,17 +1,17 @@
 ---
-import { ClientRouter } from 'astro:transitions';
-import NavBar from '../components/NavBar.astro';
-import Footer from '../components/Footer.astro';
-import Analytics from '@vercel/analytics/astro';
-import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions'
+import NavBar from '../components/NavBar.astro'
+import Footer from '../components/Footer.astro'
+import Analytics from '@vercel/analytics/astro'
+import '../styles/global.css'
 
 interface Props {
-  title: string;
-  description?: string;
-  canonical?: string;
-  robots?: string;
-  schemaType?: 'WebSite' | 'Person' | 'CollectionPage';
-  schemaData?: any;
+  title: string
+  description?: string
+  canonical?: string
+  robots?: string
+  schemaType?: 'WebSite' | 'Person' | 'CollectionPage'
+  schemaData?: any
 }
 
 const {
@@ -21,11 +21,11 @@ const {
   robots,
   schemaType = 'WebSite',
   schemaData,
-} = Astro.props;
+} = Astro.props
 
 // Generate appropriate schema based on page type
 const generateSchema = () => {
-  const baseUrl = 'https://www.knowtwice.com';
+  const baseUrl = 'https://www.knowtwice.com'
 
   if (schemaType === 'Person' && schemaData) {
     // Person schema for member pages
@@ -52,15 +52,14 @@ const generateSchema = () => {
       image: `${baseUrl}/images/members/full/${schemaData.id}-full.webp`,
       sameAs: schemaData.social.map((s) => s.url),
       knows: schemaData.funFacts,
-      copyrightNotice:
-        'Member information and images are property of JYP Entertainment Co., Ltd.',
+      copyrightNotice: 'Member information and images are property of JYP Entertainment Co., Ltd.',
       mainEntityOfPage: {
         '@type': 'WebPage',
         '@id': `${baseUrl}/members/${schemaData.id}`,
         disclaimer:
           'This is an unofficial fan page. All content rights belong to JYP Entertainment.',
       },
-    };
+    }
   }
 
   // Default WebSite schema
@@ -75,8 +74,7 @@ const generateSchema = () => {
     copyrightHolder: {
       '@type': 'Organization',
       name: 'JYP Entertainment Co., Ltd.',
-      description:
-        'Official entertainment company and copyright holder of TWICE content',
+      description: 'Official entertainment company and copyright holder of TWICE content',
     },
     isBasedOn: 'Official TWICE information from JYP Entertainment',
     potentialAction: {
@@ -136,8 +134,8 @@ const generateSchema = () => {
         { '@type': 'ListItem', position: 9, url: `${baseUrl}/members/tzuyu` },
       ],
     },
-  };
-};
+  }
+}
 ---
 
 <!doctype html>
@@ -168,14 +166,8 @@ const generateSchema = () => {
     {canonical && <link rel="canonical" href={canonical} />}
     {robots && <meta name="robots" content={robots} />}
 
-    <meta
-      property="og:url"
-      content={canonical || 'https://www.knowtwice.com'}
-    />
-    <meta
-      property="og:type"
-      content={schemaType === 'Person' ? 'profile' : 'website'}
-    />
+    <meta property="og:url" content={canonical || 'https://www.knowtwice.com'} />
+    <meta property="og:type" content={schemaType === 'Person' ? 'profile' : 'website'} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta
@@ -211,10 +203,7 @@ const generateSchema = () => {
     />
 
     <!-- Enhanced Schema.org structured data -->
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify(generateSchema())}
-    />
+    <script type="application/ld+json" set:html={JSON.stringify(generateSchema())} />
 
     <!-- Breadcrumb schema for member pages -->
     {
@@ -252,7 +241,7 @@ const generateSchema = () => {
     <ClientRouter />
     <Analytics />
   </head>
-  <body class="bg-cream min-h-screen">
+  <body class="min-h-screen bg-cream">
     <NavBar currentPath={Astro.url.pathname} />
     <main class="relative">
       <slot />
