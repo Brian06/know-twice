@@ -19,5 +19,5 @@ export default defineConfig({
   },
 
   integrations: [sitemap(), preact()],
-  site: 'https://know-twice.vercel.app/',
+  site: 'https://www.knowtwice.com/',
 });
