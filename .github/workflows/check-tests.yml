@@ -65,9 +65,15 @@ jobs:
           path: ~/.cache/ms-playwright
           key: playwright-${{ runner.os }}-${{ steps.playwright-version.outputs.version }}-chromium-webkit
 
+      # OS packages are not in the browser cache; skipping install on cache hit left fresh
+      # runners without WebKit/Chromium libs and caused immediate browser crash:
+      # "Target page, context or browser has been closed"
+      - name: Install Playwright system dependencies
+        run: pnpm exec playwright install-deps chromium webkit
+
       - name: Install Playwright browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: pnpm exec playwright install chromium webkit --with-deps
+        run: pnpm exec playwright install chromium webkit
 
       - name: Run E2E tests
         run: pnpm test:e2e
