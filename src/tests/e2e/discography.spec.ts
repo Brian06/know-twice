@@ -8,7 +8,7 @@ test.describe('Discography Page Tests', () => {
   })
 
   test('should load the discography page with title', async ({ page }) => {
-    await expect(page).toHaveTitle(/TWICE Discography/)
+    await expect(page).toHaveTitle(/TWICE Complete Discography/)
     await expect(page).toHaveURL('/discography')
   })
 

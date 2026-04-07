@@ -5,12 +5,11 @@ import Nationality from '../assets/member-info/nationality.svg'
 import Color from '../assets/member-info/color.svg'
 import Instagram from '../assets/member-info/instagram.svg'
 import InfoItem from './InfoItem.astro'
-import type { TMember } from '../types/members'
-import type { TmemberId } from '../types/member-derived'
+import type { TMember, TMemberId } from '../types/members'
 
 export interface Props {
   member: TMember
-  id: TmemberId
+  id: TMemberId
 }
 
 const { member, id } = Astro.props
@@ -51,9 +50,9 @@ const ringColor = memberColors[id] || '#ff5fa2'
 
     <!-- Member name and info -->
     <div class="text-center">
-      <p class="text-2xl font-bold tracking-wide text-magenta" data-testid="member-name">
+      <h1 class="text-2xl font-bold tracking-wide text-magenta" data-testid="member-name">
         {name}
-      </p>
+      </h1>
       <p class="mt-1 text-sm text-charcoal/60" data-testid="member-full-name">
         {fullName}
       </p>

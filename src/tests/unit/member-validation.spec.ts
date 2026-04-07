@@ -1,13 +1,12 @@
 import { describe, it, expect } from 'vitest'
 import { isMemberId, getMemberById } from '../../utils/member-utils'
 import { MEMBERS } from '../../const/members'
-import type { TmemberId } from '../../types/member-derived'
-import type { TMember } from '../../types/members'
+import type { TMemberId, TMember } from '../../types/members'
 
 describe('Member Validation Functions', () => {
   describe('isMemberId', () => {
     it('should return true for valid member IDs', () => {
-      const validIds: TmemberId[] = [
+      const validIds: TMemberId[] = [
         'nayeon',
         'jeongyeon',
         'momo',
@@ -71,13 +70,13 @@ describe('Member Validation Functions', () => {
       const invalidIds = ['invalid', 'not-a-member', '']
 
       invalidIds.forEach((id) => {
-        expect(() => getMemberById(id as TmemberId)).toThrow(`Member with id "${id}" not found`)
+        expect(() => getMemberById(id as TMemberId)).toThrow(`Member with id "${id}" not found`)
       })
     })
 
     it('should maintain referential equality with original member data', () => {
       MEMBERS.forEach((originalMember) => {
-        const retrievedMember = getMemberById(originalMember.id as TmemberId)
+        const retrievedMember = getMemberById(originalMember.id as TMemberId)
         expect(retrievedMember).toBe(originalMember)
       })
     })

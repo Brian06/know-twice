@@ -215,7 +215,14 @@ const breadcrumbSchema = generateBreadcrumbSchema()
     {robots && <meta name="robots" content={robots} />}
 
     <meta property="og:url" content={canonical || BASE_URL} />
-    <meta property="og:type" content={schemaType === 'Person' ? 'profile' : schemaType === 'MusicAlbum' ? 'music.album' : 'website'} />
+    <meta
+      property="og:type"
+      content={schemaType === 'Person'
+        ? 'profile'
+        : schemaType === 'MusicAlbum'
+          ? 'music.album'
+          : 'website'}
+    />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
@@ -241,7 +248,11 @@ const breadcrumbSchema = generateBreadcrumbSchema()
     <meta name="twitter:image:alt" content={ogImageAlt} />
 
     <script type="application/ld+json" set:html={JSON.stringify(generateSchema())} />
-    {breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
+    {
+      breadcrumbSchema && (
+        <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+      )
+    }
 
     <ClientRouter />
   </head>

@@ -1,14 +1,14 @@
 import { MEMBERS } from '../const/members'
-import type { TmemberId, TMemberById } from '../types/member-derived'
+import type { TMemberId, TMember } from '../types/members'
 
-export const isMemberId = (id: string): id is TmemberId => {
+export const isMemberId = (id: string): id is TMemberId => {
   return MEMBERS.some((member) => member.id === id)
 }
 
-export const getMemberById = <T extends TmemberId>(id: T): TMemberById<T> => {
+export const getMemberById = (id: TMemberId): TMember => {
   const member = MEMBERS.find((m) => m.id === id)
   if (!member) {
     throw new Error(`Member with id "${id}" not found`)
   }
-  return member as TMemberById<T>
+  return member
 }

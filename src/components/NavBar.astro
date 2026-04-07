@@ -12,7 +12,11 @@ const isMembersActive = currentPath.startsWith('/members')
 const isAlbumsActive = currentPath.startsWith('/discography')
 ---
 
-<nav class="fixed top-0 right-0 left-0 z-50 transition-all duration-500" data-nav>
+<nav
+  class="fixed top-0 right-0 left-0 z-50 transition-all duration-500"
+  data-nav
+  aria-label="Main navigation"
+>
   <div class="mx-auto max-w-7xl px-4 md:px-8">
     <div class="flex items-center justify-center py-3 md:py-4">
       <!-- Left: Members -->
