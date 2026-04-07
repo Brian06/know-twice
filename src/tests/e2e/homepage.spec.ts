@@ -22,17 +22,17 @@ test.describe('Homepage Tests', () => {
     await expect(discographyBtn).toHaveAttribute('href', '/discography')
   })
 
-  test('should display section cards', async ({ page }) => {
-    await expect(page.getByRole('heading', { name: 'Members' })).toBeVisible()
-    await expect(page.getByRole('heading', { name: 'Discography' })).toBeVisible()
+  test('should show the hero and comeback as the two homepage sections', async ({ page }) => {
+    const sections = page.locator('main > section')
+    await expect(sections).toHaveCount(2)
 
-    const membersCard = page.getByRole('link', { name: /Get to know each member/i })
-    await expect(membersCard).toBeVisible()
-    await expect(membersCard).toHaveAttribute('href', '/members')
+    const hero = sections.nth(0)
+    await expect(hero.getByRole('img', { name: /Twice/i })).toBeVisible()
+    await expect(hero.getByRole('heading', { name: 'Know TWICE' })).toBeVisible()
 
-    const discographyCard = page.getByRole('link', { name: /Explore albums, singles/i })
-    await expect(discographyCard).toBeVisible()
-    await expect(discographyCard).toHaveAttribute('href', '/discography')
+    const comeback = sections.nth(1)
+    await expect(comeback.getByRole('heading', { name: 'Last Comeback' })).toBeVisible()
+    await expect(comeback.locator('lite-youtube')).toBeVisible()
   })
 
   test('should display comeback section', async ({ page }) => {
@@ -90,7 +90,17 @@ test.describe('Members Page Tests', () => {
 
     const memberLink = page.getByRole('link', { name: 'nayeon' })
     await expect(memberLink).toBeVisible()
-    await memberLink.click()
+
+    const isNarrowViewport = await page.evaluate(
+      () => window.matchMedia('(max-width: 768px)').matches,
+    )
+    if (isNarrowViewport) {
+      await memberLink.click()
+      await memberLink.click()
+    } else {
+      await memberLink.click()
+    }
+
     await expect(page).toHaveURL('/members/nayeon')
   })
 })

@@ -11,13 +11,16 @@ export type TSong = {
   link?: string
 }
 
-export type TDiscography = {
+export type TDiscographyData = {
   id: string
   name: string
-  image: ImageMetadata
   unit: TUnit[]
   releaseDate: Date
   types: TType[]
   market: TMarket
   songs: TSong[]
+}
+
+export type TDiscography = TDiscographyData & {
+  image: ImageMetadata
 }

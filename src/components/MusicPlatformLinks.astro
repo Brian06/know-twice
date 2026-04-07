@@ -40,7 +40,6 @@ const getPlatformLinks = (links: TMusicLink[]): TMusicLink[] => {
   const result: TMusicLink[] = []
   const youtubeLink = linksByPlatform.get('youtube') || linksByPlatform.get('youtube-music')
   if (youtubeLink) result.push(youtubeLink)
-
   ;(['spotify', 'appleMusic'] as PlatformType[]).forEach((platform) => {
     const link = linksByPlatform.get(platform)
     if (link) result.push(link)

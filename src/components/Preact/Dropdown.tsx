@@ -74,7 +74,7 @@ export default function Dropdown({
   }
 
   return (
-    <div ref={dropdownRef} className={`relative ${className}`} data-dropdown={id}>
+    <div ref={dropdownRef} className={`relative ${className}`} data-dropdown={id} data-testid={id}>
       <button
         type="button"
         className="shadow-card flex w-full cursor-pointer items-center justify-between rounded-xl border border-charcoal/10 bg-white/80 px-4 py-3 text-sm font-medium text-charcoal transition-all duration-200 hover:border-magenta/50 hover:bg-white focus:ring-2 focus:ring-magenta/30 focus:outline-none"

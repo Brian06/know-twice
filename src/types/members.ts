@@ -53,7 +53,7 @@ export type TFullName =
 export type TEmoji = '🐰' | '🐶' | '🍑' | '🐭' | '🦄' | '🐧' | '💛' | '🍓' | '🦌'
 export type TMemberName = Capitalize<TMemberId>
 
-export type TMember = {
+export type TMemberData = {
   id: TMemberId
   name: TMemberName
   fullName: TFullName
@@ -65,6 +65,9 @@ export type TMember = {
   positions: TPosition[]
   songs: TSong[]
   funFacts: string[]
+}
+
+export type TMember = TMemberData & {
   image: ImageMetadata
   fullImage: ImageMetadata
 }

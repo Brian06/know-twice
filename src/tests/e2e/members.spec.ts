@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { MEMBERS } from '../const/members'
+import { MEMBERS_DATA as MEMBERS } from '../../const/members-data'
 
 test.describe('Members Page Tests', () => {
   MEMBERS.forEach((member) => {
