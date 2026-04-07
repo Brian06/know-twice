@@ -1,59 +1,107 @@
 ---
-import { Image } from 'astro:assets';
-import NavLink from './NavLink.astro';
+import { Image } from 'astro:assets'
+import NavLink from './NavLink.astro'
+
+export interface Props {
+  currentPath: string
+}
+
+const { currentPath } = Astro.props
+
+const isMembersActive = currentPath.startsWith('/members')
+const isAlbumsActive = currentPath.startsWith('/discography')
 ---
 
-<nav class="fixed top-0 z-50 w-full">
-  <div class="flex items-center justify-center gap-4 md:gap-6">
-    <div class="flex items-center justify-center gap-4 py-4 md:gap-6">
-      <NavLink href="/" text="Home" />
-      <NavLink
-        href="/albums"
-        text="Albums"
-        badge={{ text: 'working', variant: 'working' }}
-      />
-    </div>
-    <Image
-      class="animate-pulse"
-      src="/images/logo.webp"
-      alt="Twice"
-      width={50}
-      height={50}
-      fetchpriority="high"
-      loading="eager"
-    />
-    <div class="flex items-center justify-center gap-4 py-4 md:gap-6">
-      <NavLink
-        href="/videos"
-        text="Videos"
-        badge={{ text: 'working', variant: 'working' }}
-      />
-      <NavLink
-        href="/about"
-        text="Fandom"
-        badge={{ text: 'working', variant: 'working' }}
-      />
+<nav
+  class="fixed top-0 right-0 left-0 z-50 transition-all duration-500"
+  data-nav
+  aria-label="Main navigation"
+>
+  <div class="mx-auto max-w-7xl px-4 md:px-8">
+    <div class="flex items-center justify-center py-3 md:py-4">
+      <!-- Left: Members -->
+      <div class="flex items-center gap-6 md:gap-8">
+        <NavLink href="/members" text="Members" active={isMembersActive} />
+      </div>
+
+      <!-- Center logo -->
+      <a href="/" class="group relative mx-8 flex items-center justify-center" aria-label="Home">
+        <div class="relative h-12 w-12 md:h-14 md:w-14">
+          <Image
+            class="relative transition-transform duration-300 group-hover:scale-105"
+            src="/images/logo.webp"
+            alt="Know TWICE logo"
+            width={56}
+            height={56}
+            fetchpriority="high"
+            loading="eager"
+          />
+        </div>
+      </a>
+
+      <!-- Right: Albums -->
+      <div class="flex items-center gap-6 md:gap-8">
+        <NavLink href="/discography" text="Albums" active={isAlbumsActive} />
+      </div>
     </div>
   </div>
 </nav>
 
 <style>
   nav {
-    animation: nav-blur-scroll 0.5s linear both;
-    animation-timeline: scroll();
-    animation-range: 0 250px;
-    border-bottom: 1px solid transparent;
+    animation: nav-slide-down 0.6s ease-out both;
   }
 
-  @keyframes nav-blur-scroll {
+  @keyframes nav-slide-down {
     0% {
-      backdrop-filter: blur(0px);
-      background: transparent;
+      opacity: 0;
+      transform: translateY(-100%);
     }
     100% {
-      backdrop-filter: blur(5px);
-      background: rgba(255, 214, 231, 0.3);
-      border-bottom-color: #ff5fa2;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  nav {
+    background: linear-gradient(to bottom, rgba(253, 248, 243, 0.95), rgba(253, 248, 243, 0.8));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 95, 162, 0.1);
+  }
+
+  @media (max-width: 640px) {
+    nav {
+      background: linear-gradient(to bottom, rgba(253, 248, 243, 0.98), rgba(253, 248, 243, 0.95));
     }
   }
 </style>
+
+<script>
+  import { $, $$ } from '../utils/dom-selector'
+
+  let lastScroll = 0
+  const nav = $('nav[data-nav]')
+
+  const handleScroll = () => {
+    const currentScroll = window.scrollY
+
+    if (nav) {
+      if (currentScroll > 100) {
+        nav.style.background =
+          'linear-gradient(to bottom, rgba(253, 248, 243, 0.98), rgba(253, 248, 243, 0.95))'
+        nav.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.08)'
+        nav.style.borderBottomColor = 'rgba(255, 95, 162, 0.2)'
+      } else {
+        nav.style.background =
+          'linear-gradient(to bottom, rgba(253, 248, 243, 0.95), rgba(253, 248, 243, 0.8))'
+        nav.style.boxShadow = 'none'
+        nav.style.borderBottomColor = 'rgba(255, 95, 162, 0.1)'
+      }
+    }
+
+    lastScroll = currentScroll
+  }
+
+  document.addEventListener('scroll', handleScroll, { passive: true })
+</script>

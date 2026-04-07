@@ -1,64 +1,75 @@
 ---
-import { Image } from 'astro:assets';
-import Calendar from '../assets/member-info/calendar.svg';
-import Nationality from '../assets/member-info/nationality.svg';
-import Color from '../assets/member-info/color.svg';
-import Instagram from '../assets/member-info/instagram.svg';
-import InfoItem from './InfoItem.astro';
-import type { TMember } from '../types/members';
-import type { TmemberId } from '../types/member-derived';
+import { Image } from 'astro:assets'
+import Calendar from '../assets/member-info/calendar.svg'
+import Nationality from '../assets/member-info/nationality.svg'
+import Color from '../assets/member-info/color.svg'
+import Instagram from '../assets/member-info/instagram.svg'
+import InfoItem from './InfoItem.astro'
+import type { TMember, TMemberId } from '../types/members'
 
 export interface Props {
-  member: TMember;
-  id: TmemberId;
+  member: TMember
+  id: TMemberId
 }
 
-const { member, id } = Astro.props;
-const { name, fullName, emoji, social, color, nationality, birthday } = member;
-const instagram = social.find((social) => social.platform === 'instagram');
+const { member, id } = Astro.props
+const { name, fullName, emoji, social, color, nationality, birthday } = member
+const instagram = social.find((social) => social.platform === 'instagram')
+
+const memberColors: Record<string, string> = {
+  nayeon: '#7dd4f0',
+  jeongyeon: '#b8d06a',
+  momo: '#ffb8c4',
+  sana: '#8c8fc9',
+  jihyo: '#f5b860',
+  mina: '#5fb8b5',
+  dahyun: '#d4d2c4',
+  chaeyoung: '#e0132c',
+  tzuyu: '#016cba',
+}
+const ringColor = memberColors[id] || '#ff5fa2'
 ---
 
-<div class="rounded-2xl bg-white p-4 drop-shadow-md">
-  <div
-    class={`bg-apricot relative mx-auto h-[166px] w-[160px] rounded-full mb-6 overflow-hidden outline-5 outline-${id}`}
-  >
-    <Image
-      src={member.image}
-      widths={[160, 320]}
-      sizes="160px"
-      alt={name}
-      class="absolute h-full w-full object-cover"
-    />
-  </div>
-  <p
-    class="text-magenta mb-1 text-center text-lg font-bold"
-    data-testid="member-name"
-  >
-    {name}
-  </p>
-  <p class="mb-1 text-center text-sm" data-testid="member-full-name">
-    {fullName}
-  </p>
-  <p class="text-center text-sm" data-testid="member-emoji">{emoji}</p>
+<div class="glass shadow-card rounded-2xl p-6">
+  <div class="flex flex-col items-center">
+    <!-- Profile Image with colored background and border -->
+    <div class="relative mb-6">
+      <div
+        class="relative h-[180px] w-[180px] overflow-hidden rounded-full"
+        style={`background-color: ${ringColor}30; box-shadow: 0 0 0 3px ${ringColor};`}
+      >
+        <Image
+          src={member.image}
+          widths={[180, 360]}
+          sizes="180px"
+          alt={name}
+          class="h-full w-full object-cover"
+        />
+      </div>
+    </div>
 
-  <div class="mt-6 flex flex-col gap-5">
-    <InfoItem
-      icon={Calendar}
-      label="Birthday:"
-      value={birthday.toLocaleDateString()}
-    />
-    <InfoItem icon={Nationality} label="Nationality:" value={nationality} />
-    <InfoItem
-      icon={Color}
-      label="Color:"
-      value={color}
-      colorClass={`bg-${id}`}
-    />
-    <InfoItem
-      icon={Instagram}
-      label="Instagram:"
-      value={instagram?.username || 'N/A'}
-      link={instagram?.url || ''}
-    />
+    <!-- Member name and info -->
+    <div class="text-center">
+      <h1 class="text-2xl font-bold tracking-wide text-magenta" data-testid="member-name">
+        {name}
+      </h1>
+      <p class="mt-1 text-sm text-charcoal/60" data-testid="member-full-name">
+        {fullName}
+      </p>
+      <p class="mt-2 text-2xl" data-testid="member-emoji">{emoji}</p>
+    </div>
+
+    <!-- Info Items -->
+    <div class="mt-6 flex w-full flex-col gap-3">
+      <InfoItem icon={Calendar} label="Birthday:" value={birthday.toLocaleDateString()} />
+      <InfoItem icon={Nationality} label="Nationality:" value={nationality} />
+      <InfoItem icon={Color} label="Color:" value={color} colorClass={`bg-${id}`} />
+      <InfoItem
+        icon={Instagram}
+        label="Instagram:"
+        value={instagram?.username || 'N/A'}
+        link={instagram?.url || ''}
+      />
+    </div>
   </div>
 </div>

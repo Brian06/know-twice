@@ -1,16 +1,17 @@
 ---
-import MemberCard from './MemberCard.astro';
-import CenteredLogo from './CenteredLogo.astro';
-import MemberImages from './MemberImages.astro';
-import { MEMBERS } from '../const/members';
+import MemberCard from './MemberCard.astro'
+import CenteredLogo from './CenteredLogo.astro'
+import MemberImages from './MemberImages.astro'
+import { MEMBERS } from '../const/members'
 
-const firstColumn = MEMBERS.slice(0, 3);
-const secondColumn = MEMBERS.slice(3, 6);
-const thirdColumn = MEMBERS.slice(6, 9);
+const firstColumn = MEMBERS.slice(0, 3)
+const secondColumn = MEMBERS.slice(3, 6)
+const thirdColumn = MEMBERS.slice(6, 9)
 ---
 
 <section class="relative flex min-h-screen w-full p-2 pt-17 md:p-4 md:pt-20">
   <div class="relative flex w-full flex-col items-center text-center">
+    <h1 class="sr-only">TWICE Members</h1>
     <CenteredLogo />
     <MemberImages />
 
@@ -28,53 +29,45 @@ const thirdColumn = MEMBERS.slice(6, 9);
           MEMBERS.map(({ id }, index) => (
             <MemberCard
               id={id}
-              extraClasses={`hover:bg-${id} animate-fade-in-up animate-delay-${(index + 1) * 100}`}
+              extraClasses={`animate-fade-in-up animate-delay-${(index + 1) * 100}`}
             />
           ))
         }
       </div>
 
       <!-- Desktop: original layout -->
-      <div
-        class="relative hidden md:grid md:min-w-0 md:grid-cols-3 md:grid-rows-2 md:gap-0"
-      >
+      <div class="relative hidden md:grid md:min-w-0 md:grid-cols-3 md:grid-rows-2 md:gap-0">
         <div>
-          <div
-            class="flex flex-row justify-around gap-2 md:justify-end lg:gap-4"
-          >
+          <div class="flex flex-row justify-around gap-2 md:justify-end lg:gap-4">
             {
               firstColumn.map(({ id }, index) => (
                 <MemberCard
                   id={id}
-                  extraClasses={`hover:bg-${id} animate-fade-in-right animate-delay-${(index + 1) * 100}`}
+                  extraClasses={`animate-fade-in-right animate-delay-${(index + 1) * 100}`}
                 />
               ))
             }
           </div>
         </div>
         <div class="md:col-start-2 md:row-start-2">
-          <div
-            class="flex flex-row justify-around gap-2 md:justify-center lg:gap-4"
-          >
+          <div class="flex flex-row justify-around gap-2 md:justify-center lg:gap-4">
             {
               secondColumn.map(({ id }, index) => (
                 <MemberCard
                   id={id}
-                  extraClasses={`hover:bg-${id} animate-fade-in-up animate-delay-${(index + 1) * 100}`}
+                  extraClasses={`animate-fade-in-up animate-delay-${(index + 1) * 100}`}
                 />
               ))
             }
           </div>
         </div>
         <div class="md:col-start-3 md:row-start-1">
-          <div
-            class="flex flex-row justify-around gap-2 md:justify-start lg:gap-4"
-          >
+          <div class="flex flex-row justify-around gap-2 md:justify-start lg:gap-4">
             {
               thirdColumn.map(({ id }, index) => (
                 <MemberCard
                   id={id}
-                  extraClasses={`hover:bg-${id} animate-fade-in-left animate-delay-${(index + 1) * 100}`}
+                  extraClasses={`animate-fade-in-left animate-delay-${(index + 1) * 100}`}
                 />
               ))
             }
@@ -86,65 +79,61 @@ const thirdColumn = MEMBERS.slice(6, 9);
 </section>
 
 <script>
-  import { $, $$ } from '../utils/dom-selector';
-  let currentMemberId: string | null = null;
+  import { $, $$ } from '../utils/dom-selector'
+  let currentMemberId: string | null = null
 
   const handleMemberCardHover = () => {
     document.addEventListener('member-card-hover', (event: Event) => {
-      const customEvent = event as CustomEvent<{ id: string }>;
-      const id = customEvent.detail.id;
-      const newMemberImage = $(`[data-id='full-image-${id}']`);
-      const centeredLogo = $('.js-center-logo');
+      const customEvent = event as CustomEvent<{ id: string }>
+      const id = customEvent.detail.id
+      const newMemberImage = $(`[data-id='full-image-${id}']`)
+      const centeredLogo = $('.js-center-logo')
 
-      if (currentMemberId === id) return;
+      if (currentMemberId === id) return
 
       if (currentMemberId) {
-        const currentMemberImage = $(
-          `[data-id='full-image-${currentMemberId}']`,
-        );
-        currentMemberImage?.classList.add('hidden');
+        const currentMemberImage = $(`[data-id='full-image-${currentMemberId}']`)
+        currentMemberImage?.classList.add('hidden')
       }
 
-      newMemberImage?.classList.remove('animate-fade-out-down', 'hidden');
-      newMemberImage?.classList.add('animate-fade-in-up');
-      centeredLogo?.classList.add('hidden');
+      newMemberImage?.classList.remove('animate-fade-out-down', 'hidden')
+      newMemberImage?.classList.add('animate-fade-in-up')
+      centeredLogo?.classList.add('hidden')
 
-      currentMemberId = id;
-    });
-  };
+      currentMemberId = id
+    })
+  }
 
   const handleMemberCardExit = () => {
     document.addEventListener('member-card-exit', () => {
       if (currentMemberId) {
-        const currentMemberImage = $(
-          `[data-id='full-image-${currentMemberId}']`,
-        );
-        const centeredLogo = $('.js-center-logo');
+        const currentMemberImage = $(`[data-id='full-image-${currentMemberId}']`)
+        const centeredLogo = $('.js-center-logo')
 
-        currentMemberImage?.classList.add('animate-fade-out-down');
-        centeredLogo?.classList.remove('hidden');
+        currentMemberImage?.classList.add('animate-fade-out-down')
+        centeredLogo?.classList.remove('hidden')
 
-        currentMemberId = null;
+        currentMemberId = null
       }
-    });
-  };
+    })
+  }
 
   const resetMemberSelection = () => {
-    const allMemberImages = $$('[data-id^="full-image-"]');
+    const allMemberImages = $$('[data-id^="full-image-"]')
     allMemberImages?.forEach((img) => {
-      img.classList.add('hidden');
-      img.classList.remove('animate-fade-in-up', 'animate-fade-out-down');
-    });
+      img.classList.add('hidden')
+      img.classList.remove('animate-fade-in-up', 'animate-fade-out-down')
+    })
 
-    const centeredLogo = $('.js-center-logo');
-    centeredLogo?.classList.remove('hidden');
-  };
+    const centeredLogo = $('.js-center-logo')
+    centeredLogo?.classList.remove('hidden')
+  }
 
   document.addEventListener('astro:page-load', () => {
-    currentMemberId = null;
+    currentMemberId = null
 
-    resetMemberSelection();
-    handleMemberCardHover();
-    handleMemberCardExit();
-  });
+    resetMemberSelection()
+    handleMemberCardHover()
+    handleMemberCardExit()
+  })
 </script>

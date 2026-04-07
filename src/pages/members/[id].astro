@@ -1,22 +1,22 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import { MEMBERS } from '../../const/members';
-import type { GetStaticPaths } from 'astro';
-import MemberProfile from '../../components/MemberProfile.astro';
-import MemberDetails from '../../components/MemberDetails.astro';
-import type { TmemberId } from '../../types/member-derived';
+import Layout from '../../layouts/Layout.astro'
+import { MEMBERS } from '../../const/members'
+import type { GetStaticPaths } from 'astro'
+import MemberProfile from '../../components/MemberProfile.astro'
+import MemberDetails from '../../components/MemberDetails.astro'
+import type { TMemberId } from '../../types/members'
 
 // TODO: add the link to the youtube/spotify/appleMusic profile
 
-const { id } = Astro.params as { id: TmemberId };
-const member = MEMBERS.find((member) => member.id === id);
-if (!member) return Astro.redirect('/404');
+const { id } = Astro.params as { id: TMemberId }
+const member = MEMBERS.find((member) => member.id === id)
+if (!member) return Astro.redirect('/404')
 
 export const getStaticPaths = (() => {
   return MEMBERS.map((member) => ({
     params: { id: member.id },
-  }));
-}) satisfies GetStaticPaths;
+  }))
+}) satisfies GetStaticPaths
 ---
 
 <Layout
@@ -25,6 +25,13 @@ export const getStaticPaths = (() => {
   canonical={`https://www.knowtwice.com/members/${member.id}`}
   schemaType="Person"
   schemaData={member}
+  breadcrumbs={[
+    { name: 'Home', url: 'https://www.knowtwice.com' },
+    { name: 'Members', url: 'https://www.knowtwice.com/members' },
+    { name: member.name, url: `https://www.knowtwice.com/members/${member.id}` },
+  ]}
+  ogImage={`https://www.knowtwice.com/images/members/full/${member.id}-full.webp`}
+  ogImageAlt={`${member.name} - TWICE member profile photo`}
 >
   <div class="container mx-auto px-4 py-16 md:py-32">
     <div class="flex w-full flex-col gap-6 lg:flex-row">

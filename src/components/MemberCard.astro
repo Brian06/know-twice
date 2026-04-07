@@ -1,197 +1,147 @@
 ---
-import { Image } from 'astro:assets';
-import { MEMBERS } from '../const/members';
-import type { TmemberId } from '../types/member-derived';
+import { Image } from 'astro:assets'
+import { MEMBERS } from '../const/members'
+import type { TMemberId } from '../types/members'
 
 export interface Props {
-  id: TmemberId;
-  extraClasses?: string;
+  id: TMemberId
+  extraClasses?: string
 }
 
-const { id, extraClasses = '' } = Astro.props;
-const member = MEMBERS.find((member) => member.id === id);
-if (!member) throw new Error(`Member with id ${id} not found`);
+const { id, extraClasses = '' } = Astro.props
+const member = MEMBERS.find((member) => member.id === id)
+if (!member) throw new Error(`Member with id ${id} not found`)
+
+const memberColors: Record<string, string> = {
+  nayeon: '#7dd4f0',
+  jeongyeon: '#b8d06a',
+  momo: '#ffb8c4',
+  sana: '#8c8fc9',
+  jihyo: '#f5b860',
+  mina: '#5fb8b5',
+  dahyun: '#d4d2c4',
+  chaeyoung: '#e0132c',
+  tzuyu: '#016cba',
+}
+const borderColor = memberColors[id] || '#ff5fa2'
 ---
 
 <a
   href={`/members/${id}`}
-  class={`js-member-card w-12 h-18 xs:w-14 xs:h-20 sm:w-15 sm:h-23 md:w-15 md:h-25 lg:w-21 lg:h-31 group overflow-hidden rounded-s-xl hover:border-2 hover:cursor-pointer hover:border-magenta ${extraClasses}`}
+  class={`js-member-card w-16 h-16 xs:w-20 xs:h-20 sm:w-24 sm:h-24 md:w-24 md:h-24 lg:w-28 lg:h-28 group overflow-hidden rounded-full border-2 border-charcoal/20 bg-charcoal/5 hover:border-[var(--member-color)] hover:bg-[var(--member-color)] hover:cursor-pointer transition-all duration-300 ${extraClasses}`}
   data-id={id}
-  data-extra-classes={extraClasses}
+  style={`--member-color: ${borderColor}`}
 >
   <Image
     src={member.image}
-    widths={[56, 84, 112, 168, 256]}
-    sizes="(max-width: 475px) 56px, (max-width: 640px) 60px, (max-width: 1024px) 60px, 84px"
-    class="h-full w-full transition-all duration-300 group-hover:translate-y-5 group-hover:scale-120"
-    alt={id}
+    width={128}
+    height={128}
+    widths={[64, 80, 96, 112, 128]}
+    sizes="(max-width: 475px) 64px, (max-width: 640px) 80px, (max-width: 1024px) 96px, 112px"
+    class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+    alt={`${member.name} - TWICE member`}
     fetchpriority="high"
     loading="eager"
   />
 </a>
 
 <script>
-  import { $, $$ } from '../utils/dom-selector';
+  import { $, $$ } from '../utils/dom-selector'
 
-  let timeoutToChangeMember: ReturnType<typeof setTimeout> | null = null;
-  let selectedMemberIdMobile: string | null = null;
+  let timeoutToChangeMember: ReturnType<typeof setTimeout> | null = null
+  let selectedMemberIdMobile: string | null = null
 
   const isMobile = () => {
-    return window.matchMedia('(max-width: 768px)').matches;
-  };
-
-  const extractBgClass = (extraClasses: string) => {
-    const match = extraClasses.match(/hover:bg-(\w+)/);
-    return match ? `bg-${match[1]}` : '';
-  };
-
-  const clearPreviousSelection = () => {
-    if (!selectedMemberIdMobile) return;
-
-    const previousCard = $(`[data-id="${selectedMemberIdMobile}"]`);
-    const previousExtraClasses =
-      previousCard?.getAttribute('data-extra-classes') || '';
-    const previousBgClass = extractBgClass(previousExtraClasses);
-    const previousImage = previousCard
-      ? $<HTMLImageElement>('img', previousCard)
-      : null;
-
-    previousCard?.classList.remove(
-      'border-2',
-      'border-magenta',
-      previousBgClass,
-    );
-
-    previousImage?.classList.remove('translate-y-5', 'scale-120');
-  };
-
-  const applySelectionVisual = (card: Element, id: string) => {
-    const extraClasses = card.getAttribute('data-extra-classes') || '';
-    const bgClass = extractBgClass(extraClasses);
-    const image = $<HTMLImageElement>('img', card as HTMLElement);
-
-    card.classList.add('border-2', 'border-magenta', bgClass);
-
-    image?.classList.add('translate-y-5', 'scale-120');
-  };
+    return window.matchMedia('(max-width: 768px)').matches
+  }
 
   const triggerHoverEffect = (id: string) => {
     const event = new CustomEvent('member-card-hover', {
       detail: { id },
-    });
-    document.dispatchEvent(event);
-  };
+    })
+    document.dispatchEvent(event)
+  }
 
   const handleFirstTap = (e: Event, card: Element, id: string) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    clearPreviousSelection();
-
-    selectedMemberIdMobile = id;
-    applySelectionVisual(card, id);
-
-    triggerHoverEffect(id);
-  };
+    selectedMemberIdMobile = id
+    triggerHoverEffect(id)
+  }
 
   const clearMobileSelection = () => {
-    if (!selectedMemberIdMobile) return;
+    if (!selectedMemberIdMobile) return
+    selectedMemberIdMobile = null
 
-    const selectedCard = $(`[data-id="${selectedMemberIdMobile}"]`);
-    const extraClasses = selectedCard?.getAttribute('data-extra-classes') || '';
-    const bgClass = extractBgClass(extraClasses);
-    const selectedImage = selectedCard
-      ? $<HTMLImageElement>('img', selectedCard)
-      : null;
-
-    selectedCard?.classList.remove('border-2', 'border-magenta', bgClass);
-
-    selectedImage?.classList.remove('translate-y-5', 'scale-120');
-    selectedMemberIdMobile = null;
-
-    const event = new CustomEvent('member-card-exit');
-    document.dispatchEvent(event);
-  };
+    const event = new CustomEvent('member-card-exit')
+    document.dispatchEvent(event)
+  }
 
   const mouseEnterDesktop = (card: Element) => {
     card.addEventListener('mouseenter', () => {
-      if (isMobile()) return;
+      if (isMobile()) return
 
       if (timeoutToChangeMember) {
-        clearTimeout(timeoutToChangeMember);
+        clearTimeout(timeoutToChangeMember)
       }
 
-      const id = card.getAttribute('data-id');
+      const id = card.getAttribute('data-id')
 
       if (id) {
-        const event = new CustomEvent('member-card-hover', {
-          detail: { id },
-        });
-        document.dispatchEvent(event);
+        triggerHoverEffect(id)
       }
-    });
-  };
+    })
+  }
 
   const mouseLeaveDesktop = (card: Element) => {
     card.addEventListener('mouseleave', () => {
-      if (isMobile()) return;
+      if (isMobile()) return
 
       timeoutToChangeMember = setTimeout(() => {
-        const event = new CustomEvent('member-card-exit');
-        document.dispatchEvent(event);
-      }, 500);
-    });
-  };
+        const event = new CustomEvent('member-card-exit')
+        document.dispatchEvent(event)
+      }, 500)
+    })
+  }
 
   const handleMobileTouch = (card: Element) => {
     card.addEventListener('click', (e) => {
-      if (!isMobile()) return;
+      if (!isMobile()) return
 
-      const id = card.getAttribute('data-id');
-      if (!id) return;
+      const id = card.getAttribute('data-id')
+      if (!id) return
 
       if (selectedMemberIdMobile !== id) {
-        handleFirstTap(e, card, id);
-        return;
+        handleFirstTap(e, card, id)
+        return
       }
-    });
-  };
+    })
+  }
 
   const handleTouchOutside = (card: Element) => {
     document.addEventListener('touchstart', (e) => {
-      if (!isMobile()) return;
+      if (!isMobile()) return
 
-      const target = e.target as Element;
-      const clickedCard = target.closest('.js-member-card');
+      const target = e.target as Element
+      const clickedCard = target.closest('.js-member-card')
 
       if (!clickedCard && selectedMemberIdMobile) {
-        clearMobileSelection();
+        clearMobileSelection()
       }
-    });
-  };
-
-  const resetMemberSelection = (memberCards: NodeListOf<HTMLElement>) => {
-    memberCards?.forEach((card) => {
-      const extraClasses = card.getAttribute('data-extra-classes') || '';
-      const bgClass = extractBgClass(extraClasses);
-      const image = $<HTMLImageElement>('img', card);
-
-      card.classList.remove('border-2', 'border-magenta', bgClass);
-      image?.classList.remove('translate-y-5', 'scale-120');
-    });
-  };
+    })
+  }
 
   document.addEventListener('astro:page-load', () => {
-    const memberCards = $$('.js-member-card');
-    selectedMemberIdMobile = null;
-    resetMemberSelection(memberCards);
+    const memberCards = $$('.js-member-card')
+    selectedMemberIdMobile = null
 
     if (memberCards) {
       memberCards.forEach((card) => {
-        mouseEnterDesktop(card);
-        mouseLeaveDesktop(card);
-        handleMobileTouch(card);
-        handleTouchOutside(card);
-      });
+        mouseEnterDesktop(card)
+        mouseLeaveDesktop(card)
+        handleMobileTouch(card)
+        handleTouchOutside(card)
+      })
     }
-  });
+  })
 </script>

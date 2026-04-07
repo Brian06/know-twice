@@ -2,7 +2,7 @@
 
 A comprehensive fan website dedicated to the K-pop girl group TWICE, featuring detailed member profiles, facts, social media links, and music information.
 
-[![Live Site](https://img.shields.io/badge/Live-Site-ff5fa2?style=for-the-badge&logo=astro)](https://know-twice.vercel.app/)
+[![Live Site](https://img.shields.io/badge/Live-Site-ff5fa2?style=for-the-badge&logo=astro)](https://www.knowtwice.com/)
 [![Built with Astro](https://img.shields.io/badge/Built%20with-Astro-ff5d01?style=for-the-badge&logo=astro)](https://astro.build)
 
 ## ✨ Features
