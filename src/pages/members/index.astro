@@ -1,12 +1,28 @@
 ---
 import Layout from '../../layouts/Layout.astro'
 import MemberSelection from '../../components/MemberSelection.astro'
+import { MEMBERS } from '../../const/members'
+
+const memberItems = MEMBERS.map((m) => ({
+  url: `/members/${m.id}`,
+  name: `${m.name} (${m.fullName})`,
+}))
 ---
 
 <Layout
-  title="TWICE Members - Complete Profiles | Know TWICE"
-  description="Meet all TWICE members: Nayeon, Jeongyeon, Momo, Sana, Jihyo, Mina, Dahyun, Chaeyoung, and Tzuyu. Get member profiles, birthdays, positions, fun facts, and more."
+  title="TWICE Members - Complete Profiles, Facts & Photos | Know TWICE"
+  description="Meet all 9 TWICE members: Nayeon, Jeongyeon, Momo, Sana, Jihyo, Mina, Dahyun, Chaeyoung, and Tzuyu. Explore detailed profiles with birthdays, positions, nationalities, fun facts, and social media links."
   canonical="https://www.knowtwice.com/members"
+  schemaType="ItemList"
+  schemaData={{
+    name: 'TWICE Members',
+    description: 'Complete profiles of all 9 TWICE members from JYP Entertainment.',
+    items: memberItems,
+  }}
+  breadcrumbs={[
+    { name: 'Home', url: 'https://www.knowtwice.com' },
+    { name: 'Members', url: 'https://www.knowtwice.com/members' },
+  ]}
 >
   <MemberSelection />
 </Layout>

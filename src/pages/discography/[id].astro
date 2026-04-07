@@ -40,11 +40,17 @@ const formatDate = (date: Date) => {
 ---
 
 <Layout
-  title={`${discography.name} - TWICE Discography | Know TWICE`}
-  description={`${discography.name} is a ${discography.types.join(' and ')} album by TWICE. Discover the songs, videos, and more about ${discography.name}.`}
+  title={`${discography.name} - TWICE ${formatType(discography.types[0])} | Know TWICE`}
+  description={`${discography.name} is a ${formatMarket(discography.market)} ${discography.types.map(formatType).join(' & ')} by TWICE, released ${formatDate(discography.releaseDate)}. View the full tracklist of ${discography.songs.length} songs and listen on Spotify, Apple Music, and YouTube Music.`}
   canonical={`https://www.knowtwice.com/discography/${discography.id}`}
-  schemaType="CollectionPage"
+  schemaType="MusicAlbum"
   schemaData={discography}
+  breadcrumbs={[
+    { name: 'Home', url: 'https://www.knowtwice.com' },
+    { name: 'Discography', url: 'https://www.knowtwice.com/discography' },
+    { name: discography.name, url: `https://www.knowtwice.com/discography/${discography.id}` },
+  ]}
+  ogImageAlt={`${discography.name} album cover - TWICE`}
 >
   <div class="min-h-screen">
     <div class="container mx-auto px-4 pt-28 md:pt-32">

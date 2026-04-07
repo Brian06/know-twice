@@ -2,11 +2,28 @@
 import Layout from '../../layouts/Layout.astro'
 import DiscographyFilters from '../../components/Preact/DiscographyFilters'
 import GoToTop from '../../components/GoToTop.astro'
+import { DISCOGRAPHY } from '../../const/discography'
+
+const albumItems = DISCOGRAPHY.map((d) => ({
+  url: `/discography/${d.id}`,
+  name: d.name,
+}))
 ---
 
 <Layout
-  title="TWICE Discography"
-  description="TWICE's complete discography, including all albums, singles, and digital releases."
+  title="TWICE Complete Discography - All Albums, Singles & Releases"
+  description="Explore TWICE's complete discography: Korean mini albums, Japanese singles, studio albums, repackages, and digital releases. Browse all songs, tracklists, and streaming links."
+  canonical="https://www.knowtwice.com/discography"
+  schemaType="ItemList"
+  schemaData={{
+    name: 'TWICE Discography',
+    description: 'Complete discography of the K-pop group TWICE including all albums, singles, and digital releases.',
+    items: albumItems,
+  }}
+  breadcrumbs={[
+    { name: 'Home', url: 'https://www.knowtwice.com' },
+    { name: 'Discography', url: 'https://www.knowtwice.com/discography' },
+  ]}
 >
   <div class="container mx-auto min-h-screen px-4 pt-24 md:pt-32">
     <DiscographyFilters client:load />

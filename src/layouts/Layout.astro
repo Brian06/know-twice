@@ -4,14 +4,25 @@ import NavBar from '../components/NavBar.astro'
 import Footer from '../components/Footer.astro'
 import '../styles/global.css'
 
+interface BreadcrumbItem {
+  name: string
+  url: string
+}
+
 interface Props {
   title: string
   description?: string
   canonical?: string
   robots?: string
-  schemaType?: 'WebSite' | 'Person' | 'CollectionPage'
+  schemaType?: 'WebSite' | 'Person' | 'MusicAlbum' | 'ItemList'
   schemaData?: any
+  breadcrumbs?: BreadcrumbItem[]
+  ogImage?: string
+  ogImageAlt?: string
 }
+
+const BASE_URL = 'https://www.knowtwice.com'
+const DEFAULT_OG_IMAGE = `${BASE_URL}/og.jpg`
 
 const {
   title = `Know TWICE - Complete Member Profiles & Information`,
@@ -20,14 +31,13 @@ const {
   robots,
   schemaType = 'WebSite',
   schemaData,
+  breadcrumbs,
+  ogImage = DEFAULT_OG_IMAGE,
+  ogImageAlt = 'Know TWICE - Your complete guide to TWICE',
 } = Astro.props
 
-// Generate appropriate schema based on page type
 const generateSchema = () => {
-  const baseUrl = 'https://www.knowtwice.com'
-
   if (schemaType === 'Person' && schemaData) {
-    // Person schema for member pages
     return {
       '@context': 'https://schema.org',
       '@type': 'Person',
@@ -47,27 +57,65 @@ const generateSchema = () => {
         },
       },
       jobTitle: schemaData.positions,
-      url: `${baseUrl}/members/${schemaData.id}`,
-      image: `${baseUrl}/images/members/full/${schemaData.id}-full.webp`,
-      sameAs: schemaData.social.map((s) => s.url),
+      url: `${BASE_URL}/members/${schemaData.id}`,
+      image: `${BASE_URL}/images/members/full/${schemaData.id}-full.webp`,
+      sameAs: schemaData.social.map((s: any) => s.url),
       knows: schemaData.funFacts,
       copyrightNotice: 'Member information and images are property of JYP Entertainment Co., Ltd.',
       mainEntityOfPage: {
         '@type': 'WebPage',
-        '@id': `${baseUrl}/members/${schemaData.id}`,
+        '@id': `${BASE_URL}/members/${schemaData.id}`,
         disclaimer:
           'This is an unofficial fan page. All content rights belong to JYP Entertainment.',
       },
     }
   }
 
-  // Default WebSite schema
+  if (schemaType === 'MusicAlbum' && schemaData) {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'MusicAlbum',
+      name: schemaData.name,
+      albumReleaseType: schemaData.types?.includes('single') ? 'SingleRelease' : 'AlbumRelease',
+      datePublished: schemaData.releaseDate?.toISOString().split('T')[0],
+      byArtist: {
+        '@type': 'MusicGroup',
+        name: 'TWICE',
+        genre: 'K-pop',
+      },
+      numTracks: schemaData.songs?.length,
+      track: schemaData.songs?.map((song: any, i: number) => ({
+        '@type': 'MusicRecording',
+        name: song.title,
+        position: i + 1,
+      })),
+      image: `${BASE_URL}/images/albums/${schemaData.id}.webp`,
+      url: `${BASE_URL}/discography/${schemaData.id}`,
+    }
+  }
+
+  if (schemaType === 'ItemList' && schemaData) {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: schemaData.name,
+      description: schemaData.description,
+      numberOfItems: schemaData.items?.length,
+      itemListElement: schemaData.items?.map((item: any, i: number) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        url: `${BASE_URL}${item.url}`,
+        name: item.name,
+      })),
+    }
+  }
+
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Know TWICE',
     description: description,
-    url: baseUrl,
+    url: BASE_URL,
     disclaimer:
       'This is an unofficial fan website. All TWICE member information, images, and trademarks are the property of JYP Entertainment Co., Ltd.',
     copyrightHolder: {
@@ -80,7 +128,7 @@ const generateSchema = () => {
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: `${baseUrl}/members/{search_term_string}`,
+        urlTemplate: `${BASE_URL}/members/{search_term_string}`,
       },
       'query-input': 'required name=search_term_string',
     },
@@ -114,27 +162,35 @@ const generateSchema = () => {
       description: 'Complete profiles of all TWICE members',
       numberOfItems: 9,
       itemListElement: [
-        { '@type': 'ListItem', position: 1, url: `${baseUrl}/members/nayeon` },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          url: `${baseUrl}/members/jeongyeon`,
-        },
-        { '@type': 'ListItem', position: 3, url: `${baseUrl}/members/momo` },
-        { '@type': 'ListItem', position: 4, url: `${baseUrl}/members/sana` },
-        { '@type': 'ListItem', position: 5, url: `${baseUrl}/members/jihyo` },
-        { '@type': 'ListItem', position: 6, url: `${baseUrl}/members/mina` },
-        { '@type': 'ListItem', position: 7, url: `${baseUrl}/members/dahyun` },
-        {
-          '@type': 'ListItem',
-          position: 8,
-          url: `${baseUrl}/members/chaeyoung`,
-        },
-        { '@type': 'ListItem', position: 9, url: `${baseUrl}/members/tzuyu` },
+        { '@type': 'ListItem', position: 1, url: `${BASE_URL}/members/nayeon` },
+        { '@type': 'ListItem', position: 2, url: `${BASE_URL}/members/jeongyeon` },
+        { '@type': 'ListItem', position: 3, url: `${BASE_URL}/members/momo` },
+        { '@type': 'ListItem', position: 4, url: `${BASE_URL}/members/sana` },
+        { '@type': 'ListItem', position: 5, url: `${BASE_URL}/members/jihyo` },
+        { '@type': 'ListItem', position: 6, url: `${BASE_URL}/members/mina` },
+        { '@type': 'ListItem', position: 7, url: `${BASE_URL}/members/dahyun` },
+        { '@type': 'ListItem', position: 8, url: `${BASE_URL}/members/chaeyoung` },
+        { '@type': 'ListItem', position: 9, url: `${BASE_URL}/members/tzuyu` },
       ],
     },
   }
 }
+
+const generateBreadcrumbSchema = () => {
+  if (!breadcrumbs?.length) return null
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbs.map((crumb, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: crumb.name,
+      item: crumb.url,
+    })),
+  }
+}
+
+const breadcrumbSchema = generateBreadcrumbSchema()
 ---
 
 <!doctype html>
@@ -145,14 +201,7 @@ const generateSchema = () => {
     <link rel="icon" type="image/webp" href="/images/logo.webp" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta
-      name="keywords"
-      content={schemaType === 'Person' && schemaData
-        ? `${schemaData.name}, ${schemaData.fullName}, TWICE, K-pop, ${schemaData.nationality}, ${schemaData.positions.join(', ')}, JYP Entertainment, Korean girl group`
-        : 'TWICE, K-pop, Nayeon, Jeongyeon, Momo, Sana, Jihyo, Mina, Dahyun, Chaeyoung, Tzuyu, Korean girl group, JYP Entertainment, member profiles'}
-    />
     <meta name="author" content="Know TWICE" />
-    <meta name="language" content="en" />
     <meta name="theme-color" content="#FF6B9D" />
     <meta
       name="copyright"
@@ -165,16 +214,12 @@ const generateSchema = () => {
     {canonical && <link rel="canonical" href={canonical} />}
     {robots && <meta name="robots" content={robots} />}
 
-    <meta property="og:url" content={canonical || 'https://www.knowtwice.com'} />
-    <meta property="og:type" content={schemaType === 'Person' ? 'profile' : 'website'} />
+    <meta property="og:url" content={canonical || BASE_URL} />
+    <meta property="og:type" content={schemaType === 'Person' ? 'profile' : schemaType === 'MusicAlbum' ? 'music.album' : 'website'} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta
-      property="og:image"
-      content={schemaType === 'Person' && schemaData
-        ? `https://www.knowtwice.com/images/members/full/${schemaData.id}-full.webp`
-        : 'https://www.knowtwice.com/og.jpg'}
-    />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={ogImageAlt} />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="Know TWICE" />
     {
@@ -190,52 +235,13 @@ const generateSchema = () => {
     }
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@knowtwice" />
-    <meta name="twitter:creator" content="@knowtwice" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta
-      name="twitter:image"
-      content={schemaType === 'Person' && schemaData
-        ? `https://www.knowtwice.com/images/members/full/${schemaData.id}-full.webp`
-        : 'https://www.knowtwice.com/og.jpg'}
-    />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
 
-    <!-- Enhanced Schema.org structured data -->
     <script type="application/ld+json" set:html={JSON.stringify(generateSchema())} />
-
-    <!-- Breadcrumb schema for member pages -->
-    {
-      schemaType === 'Person' && schemaData && (
-        <script
-          type="application/ld+json"
-          set:html={JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'BreadcrumbList',
-            itemListElement: [
-              {
-                '@type': 'ListItem',
-                position: 1,
-                name: 'Home',
-                item: 'https://www.knowtwice.com',
-              },
-              {
-                '@type': 'ListItem',
-                position: 2,
-                name: 'Members',
-                item: 'https://www.knowtwice.com/#members',
-              },
-              {
-                '@type': 'ListItem',
-                position: 3,
-                name: schemaData.name,
-                item: `https://www.knowtwice.com/members/${schemaData.id}`,
-              },
-            ],
-          })}
-        />
-      )
-    }
+    {breadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />}
 
     <ClientRouter />
   </head>
